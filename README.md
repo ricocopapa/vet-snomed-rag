@@ -17,6 +17,7 @@
 
 - [프로젝트 소개](#프로젝트-소개)
 - [아키텍처](#아키텍처)
+- [포트폴리오 시각 자료 (Portfolio Visuals)](#포트폴리오-시각-자료-portfolio-visuals)
 - [데이터 소스](#데이터-소스)
 - [빠른 시작](#빠른-시작)
 - [데모](#데모)
@@ -107,6 +108,37 @@ Step 3: LLM Generation
 </details>
 
 상세 아키텍처: [docs/architecture.md](docs/architecture.md)
+
+---
+
+## 포트폴리오 시각 자료 (Portfolio Visuals)
+
+프로젝트의 핵심 설계 결정과 성과를 한 장씩 요약한 고해상도(180 DPI) 인포그래픽 8종. 한글·영문 병행, 모든 수치는 `regression_metrics.json` · DB 실측 쿼리로 검증됨. 생성 스크립트: [`scripts/gen_portfolio_visuals.py`](scripts/gen_portfolio_visuals.py) (재현 가능).
+
+### A. Core (핵심 3종)
+
+| # | 제목 | 핵심 내용 |
+|---|---|---|
+| A1 | [System Architecture](graphify_out/portfolio/A1_system_architecture.png) | 3-Track Hybrid Retrieval + Dual Backend + Verification Layer 통합 |
+| A2 | [3-Stage Verification Pipeline](graphify_out/portfolio/A2_verification_pipeline.png) | Agent B→A→C 3단 독립 검증 + 설계-구현 역방향 동기화 루프 |
+| A3 | [SOAP Coverage Dashboard](graphify_out/portfolio/A3_soap_coverage.png) | S/O/A/P 4축 SNOMED CT VET 매핑 커버리지 + 35,910/877/8,651+ 통계 |
+
+![System Architecture](graphify_out/portfolio/A1_system_architecture.png)
+
+### B. Deep Dive (심화 3종)
+
+| # | 제목 | 핵심 내용 |
+|---|---|---|
+| B1 | [Enterprise Integration Layer](graphify_out/portfolio/B1_enterprise_integration.png) | VetSTT → Whisper → 도메인 탐지 → SNOMED → EMR 5단계 이기종 연계 |
+| B2 | [Dual Backend Strategy Pattern](graphify_out/portfolio/B2_dual_backend_strategy.png) | Gemini(Primary) / Claude(Optional) Strategy 구조 + L2 Cache 분리 |
+| B3 | [AI OS 3-Tier Model Routing](graphify_out/portfolio/B3_ai_os_routing.png) | Complexity Gate → Opus/Sonnet/Haiku 차등 배정 + Spec 비교 |
+
+### C. Context (맥락 2종)
+
+| # | 제목 | 핵심 내용 |
+|---|---|---|
+| C1 | [Data Scale Infographic](graphify_out/portfolio/C1_data_scale.png) | 414,848 · 1,379,816 · 877 · 8,651+ 숫자 요약 |
+| C2 | [Project Timeline](graphify_out/portfolio/C2_project_timeline.png) | 2026-03 AI OS 착수 → 04-20 v1.0 Public GitHub 마일스톤 |
 
 ---
 
