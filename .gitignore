@@ -1,0 +1,54 @@
+# ── Secrets ──────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ── Python ───────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# ── Virtual Environments ─────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── IDE / OS ─────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Project Data (large, regeneratable) ──────────────
+data/
+!data/README.md
+
+# ── SNOMED CT-Derived Content (license-restricted redistribution) ─
+# Excluded from public repo due to SNOMED International licensing constraints.
+# End users must obtain SNOMED CT under their national affiliate licence,
+# then regenerate these files locally via the pipeline.
+docs/snomed_graph/
+docs/snomed_graph_v2/
+
+# ── Cache / Temp ─────────────────────────────────────
+graphify_out/cache.json
+*.log
+*.tmp
+tmp/
+
+# ── Build / Dist ─────────────────────────────────────
+build/
+dist/
+*.whl

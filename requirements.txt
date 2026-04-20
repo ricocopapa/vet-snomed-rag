@@ -1,0 +1,26 @@
+# vet-snomed-rag 의존성
+# 설치: pip install -r requirements.txt
+
+# Vector DB
+chromadb>=0.5.0
+
+# Embedding (로컬)
+sentence-transformers>=2.7.0
+
+# RAG Framework
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-chroma>=0.1.0
+
+# LLM (Anthropic Claude API)
+anthropic>=0.30.0
+
+# Graph (Week 2)
+networkx>=3.3
+
+# UI (데모용)
+streamlit>=1.35.0
+
+# 유틸
+rich>=13.0
+tqdm>=4.66.0

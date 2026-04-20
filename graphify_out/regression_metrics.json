@@ -1,0 +1,354 @@
+[
+  {
+    "query_id": "T1",
+    "query_text": "feline panleukopenia SNOMED code",
+    "expected_concept_id": "339181000009108",
+    "modes": {
+      "none": {
+        "top_1_id": "339181000009108",
+        "top_1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "latency_ms": 1185,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "339181000009108",
+        "top_1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "latency_ms": 1200,
+        "cost_usd": 1.12605e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "feline panleukopenia",
+        "post_coord_hint": null,
+        "confidence": 1.0
+      }
+    },
+    "verdict_per_backend": {
+      "none": "PASS",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T2",
+    "query_text": "canine parvovirus enteritis",
+    "expected_concept_id": "47457000",
+    "modes": {
+      "none": {
+        "top_1_id": "47457000",
+        "top_1_term": "Canine parvovirus",
+        "rank_of_correct": 1,
+        "latency_ms": 990,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "47457000",
+        "top_1_term": "Canine parvovirus",
+        "rank_of_correct": 1,
+        "latency_ms": 1100,
+        "cost_usd": 1.187e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "canine parvovirus enteritis",
+        "post_coord_hint": null,
+        "confidence": 1.0
+      }
+    },
+    "verdict_per_backend": {
+      "none": "PASS",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T3",
+    "query_text": "diabetes mellitus in cat",
+    "expected_concept_id": "73211009",
+    "modes": {
+      "none": {
+        "top_1_id": "73211009",
+        "top_1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "latency_ms": 1594,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "73211009",
+        "top_1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "latency_ms": 1050,
+        "cost_usd": 1.174e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "diabetes mellitus",
+        "post_coord_hint": "Occurs in = Feline species",
+        "confidence": 1.0
+      }
+    },
+    "verdict_per_backend": {
+      "none": "PASS",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T4",
+    "query_text": "pancreatitis in dog",
+    "expected_concept_id": "75694006",
+    "modes": {
+      "none": {
+        "top_1_id": "24407009",
+        "top_1_term": "Suppurative pancreatitis",
+        "rank_of_correct": 2,
+        "latency_ms": 892,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "75694006",
+        "top_1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "latency_ms": 980,
+        "cost_usd": 1.155e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "pancreatitis",
+        "post_coord_hint": "Occurs in = Canine species",
+        "confidence": 1.0
+      }
+    },
+    "verdict_per_backend": {
+      "none": "PASS",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T5",
+    "query_text": "chronic kidney disease in cat",
+    "expected_concept_id": null,
+    "modes": {
+      "none": {
+        "top_1_id": "431855005",
+        "top_1_term": "Chronic kidney disease stage 1",
+        "rank_of_correct": null,
+        "latency_ms": 1780,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "709044004",
+        "top_1_term": "Chronic kidney disease",
+        "rank_of_correct": null,
+        "latency_ms": 1020,
+        "cost_usd": 1.175e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "chronic kidney disease",
+        "post_coord_hint": "Occurs in = Feline species",
+        "confidence": 0.9
+      }
+    },
+    "verdict_per_backend": {
+      "none": "NA",
+      "gemini": "NA"
+    }
+  },
+  {
+    "query_id": "T6",
+    "query_text": "cat bite wound",
+    "expected_concept_id": "283782004",
+    "modes": {
+      "none": {
+        "top_1_id": "283782004",
+        "top_1_term": "Cat bite - wound",
+        "rank_of_correct": 1,
+        "latency_ms": 458,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "283782004",
+        "top_1_term": "Cat bite - wound",
+        "rank_of_correct": 1,
+        "latency_ms": 1030,
+        "cost_usd": 1.15e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "cat bite wound",
+        "post_coord_hint": null,
+        "confidence": 0.95
+      }
+    },
+    "verdict_per_backend": {
+      "none": "PASS",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T7",
+    "query_text": "feline diabetes",
+    "expected_concept_id": "73211009",
+    "modes": {
+      "none": {
+        "top_1_id": "347101000009106",
+        "top_1_term": "Feline acquired immune deficiency syndrome",
+        "rank_of_correct": null,
+        "latency_ms": 505,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "73211009",
+        "top_1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "latency_ms": 950,
+        "cost_usd": 1.145e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "diabetes mellitus",
+        "post_coord_hint": "Occurs in = Feline species",
+        "confidence": 0.9
+      }
+    },
+    "verdict_per_backend": {
+      "none": "FAIL",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T8",
+    "query_text": "diabetes mellitus type 1",
+    "expected_concept_id": "46635009",
+    "modes": {
+      "none": {
+        "top_1_id": "46635009",
+        "top_1_term": "Diabetes mellitus type I",
+        "rank_of_correct": 1,
+        "latency_ms": 358,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "46635009",
+        "top_1_term": "Diabetes mellitus type I",
+        "rank_of_correct": 1,
+        "latency_ms": 920,
+        "cost_usd": 1.148e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "diabetes mellitus type 1",
+        "post_coord_hint": null,
+        "confidence": 1.0
+      }
+    },
+    "verdict_per_backend": {
+      "none": "PASS",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T9",
+    "query_text": "고양이 당뇨",
+    "expected_concept_id": "73211009",
+    "modes": {
+      "none": {
+        "top_1_id": "297461008",
+        "top_1_term": "Korean language",
+        "rank_of_correct": null,
+        "latency_ms": 2786,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "73211009",
+        "top_1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "latency_ms": 1150,
+        "cost_usd": 1.175e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "diabetes mellitus",
+        "post_coord_hint": "Occurs in = Feline species",
+        "confidence": 0.9
+      }
+    },
+    "verdict_per_backend": {
+      "none": "FAIL",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T10",
+    "query_text": "개 췌장염",
+    "expected_concept_id": "75694006",
+    "modes": {
+      "none": {
+        "top_1_id": "251529006",
+        "top_1_term": "EMG decelerating bursts",
+        "rank_of_correct": null,
+        "latency_ms": 1529,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "75694006",
+        "top_1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "latency_ms": 1100,
+        "cost_usd": 1.158e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "pancreatitis",
+        "post_coord_hint": "Occurs in = Canine species",
+        "confidence": 0.9
+      }
+    },
+    "verdict_per_backend": {
+      "none": "FAIL",
+      "gemini": "PASS"
+    }
+  },
+  {
+    "query_id": "T11",
+    "query_text": "고양이 범백혈구감소증 SNOMED 코드",
+    "expected_concept_id": "339181000009108",
+    "modes": {
+      "none": {
+        "top_1_id": "370775006",
+        "top_1_term": "Application of safety device",
+        "rank_of_correct": null,
+        "latency_ms": 1643,
+        "cost_usd": 0.0,
+        "cached": false,
+        "model_used": null
+      },
+      "gemini": {
+        "top_1_id": "339181000009108",
+        "top_1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "latency_ms": 1200,
+        "cost_usd": 1.18e-07,
+        "cached": true,
+        "model_used": "gemini-2.5-flash",
+        "reformulated": "feline panleukopenia",
+        "post_coord_hint": null,
+        "confidence": 0.9
+      }
+    },
+    "verdict_per_backend": {
+      "none": "FAIL",
+      "gemini": "PASS"
+    }
+  }
+]

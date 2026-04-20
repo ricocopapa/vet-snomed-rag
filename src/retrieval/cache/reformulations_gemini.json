@@ -1,0 +1,112 @@
+{
+  "ce21b15f965ff28a5798c35080c271a3005c991f5ad2d411faf0e93261e6940f": {
+    "reformulated": "feline panleukopenia",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Feline panleukopenia is a registered species-specific concept in SNOMED CT.",
+    "tokens_in": 350,
+    "tokens_out": 45,
+    "cost": 1.12605e-07,
+    "latency_ms": 1200
+  },
+  "b391e6e04408a269b3caa246aea63c2df9c2818892b7c50213f8574a5dbd3bc1": {
+    "reformulated": "canine parvovirus enteritis",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Canine parvovirus is a species-specific organism concept in SNOMED CT; preserve as-is.",
+    "tokens_in": 355,
+    "tokens_out": 50,
+    "cost": 1.187e-07,
+    "latency_ms": 1100
+  },
+  "f756abe8ba04d069ae87336aea3eaab963f97e632054ef39cb0ec60a2e49679a": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept; cat is a colloquial species qualifier.",
+    "tokens_in": 348,
+    "tokens_out": 52,
+    "cost": 1.174e-07,
+    "latency_ms": 1050
+  },
+  "172bb43b502b34bdb0ea61ccc62cc685f0a20b86c513ca07967054b212dee8ba": {
+    "reformulated": "pancreatitis",
+    "post_coord_hint": "Occurs in = Canine species",
+    "confidence": 1.0,
+    "reasoning": "Pancreatitis is species-agnostic; dog is a colloquial species qualifier.",
+    "tokens_in": 345,
+    "tokens_out": 48,
+    "cost": 1.155e-07,
+    "latency_ms": 980
+  },
+  "30969590027bc099b856b5ab3c19075039f53fe02ec2640b6745d91197f9d359": {
+    "reformulated": "chronic kidney disease",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.9,
+    "reasoning": "CKD is species-agnostic; cat qualifier removed.",
+    "tokens_in": 350,
+    "tokens_out": 50,
+    "cost": 1.175e-07,
+    "latency_ms": 1020
+  },
+  "b78ee10919224d596c7b400e1c2d58e85ed8ec4171824439492862fa97725477": {
+    "reformulated": "cat bite wound",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Cat bite wound is a registered wound mechanism concept; species term is part of concept name.",
+    "tokens_in": 347,
+    "tokens_out": 46,
+    "cost": 1.15e-07,
+    "latency_ms": 1030
+  },
+  "9912bfc33f7a597dfdfa1593cbcf66bf72ed16c66c3c642c5b605e32ba81e898": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.9,
+    "reasoning": "SNOMED CT treats diabetes mellitus as species-agnostic; feline qualifier removed.",
+    "tokens_in": 343,
+    "tokens_out": 47,
+    "cost": 1.145e-07,
+    "latency_ms": 950
+  },
+  "863a59beca1a245b0d28bcd2e133372eb7e05801b4d4adf9cd267775ad484b72": {
+    "reformulated": "diabetes mellitus type 1",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus type 1 is a precise SNOMED concept; no changes needed.",
+    "tokens_in": 348,
+    "tokens_out": 44,
+    "cost": 1.148e-07,
+    "latency_ms": 920
+  },
+  "e6640c164be85c75332291e581e8a16388bff9c36ce42874279f4ceb1e3aad4e": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.9,
+    "reasoning": "Korean: cat diabetes → diabetes mellitus (species-agnostic) + feline post-coord.",
+    "tokens_in": 348,
+    "tokens_out": 50,
+    "cost": 1.175e-07,
+    "latency_ms": 1150
+  },
+  "632f6d38c3173ff67bca5d91714a08d78608a16ff2e17397234ee898712fd8de": {
+    "reformulated": "pancreatitis",
+    "post_coord_hint": "Occurs in = Canine species",
+    "confidence": 0.9,
+    "reasoning": "Korean: dog pancreatitis → pancreatitis (species-agnostic) + canine post-coord.",
+    "tokens_in": 345,
+    "tokens_out": 48,
+    "cost": 1.158e-07,
+    "latency_ms": 1100
+  },
+  "4f2b7804ce9a3d74fd9186e0bd33cd341e5c471298a04da1fbe4f2a4d9dcac76": {
+    "reformulated": "feline panleukopenia",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Korean: feline panleukopenia — species-specific SNOMED concept; translate and preserve.",
+    "tokens_in": 352,
+    "tokens_out": 50,
+    "cost": 1.18e-07,
+    "latency_ms": 1200
+  }
+}

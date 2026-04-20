@@ -1,0 +1,5345 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "module",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 59,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::get_db_connection"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 76,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::load_concepts_from_db"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 140,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::build_document_text"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 161,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::build_metadata"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 172,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::create_chroma_collection"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 201,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::index_concepts"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 232,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::verify_index"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 263,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::save_index_stats"
+    },
+    {
+      "type": "function",
+      "file": "src/indexing/vectorize_snomed.py",
+      "line": 286,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/indexing/vectorize_snomed.py::main"
+    },
+    {
+      "type": "module",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 111,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::GraphNeighbor"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 122,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::GraphContext"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 134,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 137,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::__init__"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 143,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 185,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::get_term"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 190,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::get_info"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 200,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 227,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::get_children"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 245,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 313,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::SNOMEDGraph::explore"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 361,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::format_graph_context"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/graph_rag.py",
+      "line": 437,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/graph_rag.py::main"
+    },
+    {
+      "type": "module",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 37,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::SearchResult"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 54,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::VectorSearcher"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 57,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::VectorSearcher::__init__"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 71,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::VectorSearcher::search"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 110,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::SQLRetriever"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 113,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::SQLRetriever::__init__"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 132,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::SQLRetriever::search"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 270,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::SQLRetriever::get_relationships"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 298,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::SQLRetriever::close"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 304,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::reciprocal_rank_fusion"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 393,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::preprocess_for_vector"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 424,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::HybridSearchEngine"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 427,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::HybridSearchEngine::__init__"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 435,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::HybridSearchEngine::search"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 478,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::HybridSearchEngine::print_results"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 510,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::HybridSearchEngine::close"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/hybrid_search.py",
+      "line": 516,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/hybrid_search.py::main"
+    },
+    {
+      "type": "module",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 41,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::PostCoordLoader"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 44,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::PostCoordLoader::__init__"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 49,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::PostCoordLoader::_load_rules"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 71,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::PostCoordLoader::find_patterns"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 87,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::build_context"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 137,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::_load_vet_dictionary"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 162,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::_replace_with_dictionary"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 172,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::_contains_korean"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 188,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::preprocess_query"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 202,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::translate_query_to_english"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 271,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::generate_with_claude"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 311,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::_clean_ollama_response"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 344,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::generate_with_ollama"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 373,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::generate_without_llm"
+    },
+    {
+      "type": "class",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 395,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 398,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::__init__"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 426,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 493,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::print_answer"
+    },
+    {
+      "type": "method",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 512,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::close"
+    },
+    {
+      "type": "function",
+      "file": "src/retrieval/rag_pipeline.py",
+      "line": 518,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/retrieval/rag_pipeline.py::main"
+    },
+    {
+      "type": "module",
+      "file": "src/tools/export_obsidian.py",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/tools/export_obsidian.py"
+    },
+    {
+      "type": "function",
+      "file": "src/tools/export_obsidian.py",
+      "line": 53,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/tools/export_obsidian.py::extract_vet_clinical_concepts"
+    },
+    {
+      "type": "function",
+      "file": "src/tools/export_obsidian.py",
+      "line": 83,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/tools/export_obsidian.py::extract_related_concepts"
+    },
+    {
+      "type": "function",
+      "file": "src/tools/export_obsidian.py",
+      "line": 199,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/tools/export_obsidian.py::sanitize_filename"
+    },
+    {
+      "type": "function",
+      "file": "src/tools/export_obsidian.py",
+      "line": 206,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/tools/export_obsidian.py::generate_concept_note"
+    },
+    {
+      "type": "function",
+      "file": "src/tools/export_obsidian.py",
+      "line": 304,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/tools/export_obsidian.py::generate_index_note"
+    },
+    {
+      "type": "function",
+      "file": "src/tools/export_obsidian.py",
+      "line": 428,
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "id": "src/tools/export_obsidian.py::main"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "sqlite3"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "os"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "sys"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "time"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "json"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "pathlib.Path"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "exists"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "print"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "exit"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "connect"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "str"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "cursor"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "fetchall"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "join"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "execute"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "append"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "split"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "SentenceTransformerEmbeddingFunction"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "PersistentClient"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "create_collection"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "delete_collection"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "len"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "range"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "add"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "min"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "build_document_text"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "build_metadata"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "query"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "enumerate"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "zip"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "count"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "Counter"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "strftime"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "dict"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "open"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "dump"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "most_common"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "get_db_connection"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "load_concepts_from_db"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "close"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "create_chroma_collection"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "index_concepts"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "verify_index"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "save_index_stats"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "argparse"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "networkx"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "collections.defaultdict"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "dataclasses.dataclass"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "dataclasses.field"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "typing.Optional"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "DiGraph"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "_build_graph"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "add_node"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "add_edge"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "number_of_nodes"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "get"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "set"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "pop"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "out_edges"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "get_info"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "in_edges"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "GraphNeighbor"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "get_term"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "get_ancestors"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "get_children"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "explore_clinical_neighbors"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "GraphContext"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "sum"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "replace"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "ArgumentParser"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "add_argument"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "parse_args"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "SNOMEDGraph"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "explore"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "strip"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "lower"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "format_graph_context"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "input"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "re"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "get_collection"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "SearchResult"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "fetchone"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "sorted"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "_token_clause"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "extend"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "values"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "max"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "search"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "sub"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "start"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "VectorSearcher"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "SQLRetriever"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "preprocess_for_vector"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "reciprocal_rank_fusion"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "list"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "get_relationships"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "HybridSearchEngine"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "print_results"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "dumps"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "src.retrieval.hybrid_search.HybridSearchEngine"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "src.retrieval.hybrid_search.SearchResult"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "src.retrieval.graph_rag.SNOMEDGraph"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "src.retrieval.graph_rag.format_graph_context"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "_load_rules"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "load"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "isinstance"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "items"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "find_patterns"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "startswith"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "_load_vet_dictionary"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "bool"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "_replace_with_dictionary"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "_contains_korean"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "post"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "Anthropic"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "create"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "findall"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "format"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "_clean_ollama_response"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "PostCoordLoader"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "preprocess_query"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "build_context"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "translate_query_to_english"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "generate_with_claude"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "generate_with_ollama"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "generate_without_llm"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "SNOMEDRagPipeline"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "print_answer"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "defaultdict"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "sanitize_filename"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "write"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "Path"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "extract_vet_clinical_concepts"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "extract_related_concepts"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "mkdir"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "generate_index_note"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "keys"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "id": "rmtree"
+    },
+    {
+      "type": "external",
+      "file": "",
+      "line": 0,
+      "confidence": 1.0,
+      "tag": "INFERRED",
+      "id": "generate_concept_note"
+    }
+  ],
+  "edges": [
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "sqlite3"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "os"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "sys"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "time"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "json"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "pathlib.Path"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::get_db_connection"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::load_concepts_from_db"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::build_document_text"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::build_metadata"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::create_chroma_collection"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::index_concepts"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::verify_index"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::save_index_stats"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py",
+      "target": "src/indexing/vectorize_snomed.py::main"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/indexing/vectorize_snomed.py::get_db_connection",
+      "target": "exists"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 4.0,
+      "source": "src/indexing/vectorize_snomed.py::get_db_connection",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::get_db_connection",
+      "target": "exit"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/indexing/vectorize_snomed.py::get_db_connection",
+      "target": "connect"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/indexing/vectorize_snomed.py::get_db_connection",
+      "target": "str"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::load_concepts_from_db",
+      "target": "cursor"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::load_concepts_from_db",
+      "target": "fetchall"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::load_concepts_from_db",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/indexing/vectorize_snomed.py::load_concepts_from_db",
+      "target": "execute"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::load_concepts_from_db",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/indexing/vectorize_snomed.py::build_document_text",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::build_document_text",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::build_document_text",
+      "target": "split"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::create_chroma_collection",
+      "target": "SentenceTransformerEmbeddingFunction"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::create_chroma_collection",
+      "target": "PersistentClient"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::create_chroma_collection",
+      "target": "create_collection"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::create_chroma_collection",
+      "target": "delete_collection"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::create_chroma_collection",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::create_chroma_collection",
+      "target": "str"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "time"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "range"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "add"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "min"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "build_document_text"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::index_concepts",
+      "target": "build_metadata"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 6.0,
+      "source": "src/indexing/vectorize_snomed.py::verify_index",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::verify_index",
+      "target": "query"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::verify_index",
+      "target": "enumerate"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::verify_index",
+      "target": "zip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::verify_index",
+      "target": "count"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::verify_index",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "Counter"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "strftime"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "dict"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "open"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "dump"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::save_index_stats",
+      "target": "most_common"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 18.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "get_db_connection"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "load_concepts_from_db"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "create_chroma_collection"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "index_concepts"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "verify_index"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "save_index_stats"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "exit"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/indexing/vectorize_snomed.py::main",
+      "target": "len"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "sqlite3"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "time"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "argparse"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "networkx"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "pathlib.Path"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "collections.defaultdict"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "dataclasses.dataclass"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "dataclasses.field"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "typing.Optional"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "src/retrieval/graph_rag.py::GraphNeighbor"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "src/retrieval/graph_rag.py::GraphContext"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "src/retrieval/graph_rag.py::format_graph_context"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py",
+      "target": "src/retrieval/graph_rag.py::main"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::__init__"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::get_term"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::get_info"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::get_children"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph",
+      "target": "src/retrieval/graph_rag.py::SNOMEDGraph::explore"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::__init__",
+      "target": "str"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::__init__",
+      "target": "DiGraph"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::__init__",
+      "target": "_build_graph"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "time"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "connect"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "cursor"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "execute"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "fetchall"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "add_node"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "add_edge"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::_build_graph",
+      "target": "number_of_nodes"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_term",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_info",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors",
+      "target": "set"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors",
+      "target": "pop"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors",
+      "target": "out_edges"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors",
+      "target": "add"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors",
+      "target": "get_info"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_ancestors",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_children",
+      "target": "in_edges"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_children",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_children",
+      "target": "get_info"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_children",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::get_children",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "pop"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "out_edges"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "in_edges"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "add"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "get_info"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 3.2,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore_clinical_neighbors",
+      "target": "GraphNeighbor"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore",
+      "target": "get_term"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore",
+      "target": "get_ancestors"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore",
+      "target": "get_children"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore",
+      "target": "explore_clinical_neighbors"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore",
+      "target": "GraphContext"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 5.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/graph_rag.py::SNOMEDGraph::explore",
+      "target": "sum"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::format_graph_context",
+      "target": "sum"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 7.199999999999999,
+      "source": "src/retrieval/graph_rag.py::format_graph_context",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/graph_rag.py::format_graph_context",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/retrieval/graph_rag.py::format_graph_context",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/graph_rag.py::format_graph_context",
+      "target": "replace"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::format_graph_context",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "ArgumentParser"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "add_argument"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "parse_args"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "SNOMEDGraph"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 8.0,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "explore"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "lower"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "format_graph_context"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/graph_rag.py::main",
+      "target": "input"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "sqlite3"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "json"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "argparse"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "re"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "pathlib.Path"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "dataclasses.dataclass"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "dataclasses.field"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "typing.Optional"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "src/retrieval/hybrid_search.py::SearchResult"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "src/retrieval/hybrid_search.py::VectorSearcher"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "src/retrieval/hybrid_search.py::SQLRetriever"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "src/retrieval/hybrid_search.py::reciprocal_rank_fusion"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "src/retrieval/hybrid_search.py::preprocess_for_vector"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "src/retrieval/hybrid_search.py::HybridSearchEngine"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py",
+      "target": "src/retrieval/hybrid_search.py::main"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher",
+      "target": "src/retrieval/hybrid_search.py::VectorSearcher::__init__"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher",
+      "target": "src/retrieval/hybrid_search.py::VectorSearcher::search"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::__init__",
+      "target": "SentenceTransformerEmbeddingFunction"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::__init__",
+      "target": "PersistentClient"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::__init__",
+      "target": "get_collection"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::__init__",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::__init__",
+      "target": "str"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::__init__",
+      "target": "count"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::search",
+      "target": "query"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::search",
+      "target": "enumerate"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::search",
+      "target": "zip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::search",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::search",
+      "target": "SearchResult"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 3.2,
+      "source": "src/retrieval/hybrid_search.py::VectorSearcher::search",
+      "target": "get"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever",
+      "target": "src/retrieval/hybrid_search.py::SQLRetriever::__init__"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever",
+      "target": "src/retrieval/hybrid_search.py::SQLRetriever::search"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever",
+      "target": "src/retrieval/hybrid_search.py::SQLRetriever::get_relationships"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever",
+      "target": "src/retrieval/hybrid_search.py::SQLRetriever::close"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::__init__",
+      "target": "exists"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::__init__",
+      "target": "connect"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::__init__",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::__init__",
+      "target": "str"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::__init__",
+      "target": "fetchone"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::__init__",
+      "target": "execute"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "cursor"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "execute"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "fetchall"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "enumerate"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "sorted"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 7.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "range"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 4.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "lower"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "split"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "_token_clause"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "extend"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "values"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "SearchResult"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "sum"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::search",
+      "target": "max"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::get_relationships",
+      "target": "cursor"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::get_relationships",
+      "target": "execute"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::get_relationships",
+      "target": "fetchall"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::get_relationships",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::SQLRetriever::close",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::reciprocal_rank_fusion",
+      "target": "sorted"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::reciprocal_rank_fusion",
+      "target": "values"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/hybrid_search.py::reciprocal_rank_fusion",
+      "target": "SearchResult"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/hybrid_search.py::preprocess_for_vector",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::preprocess_for_vector",
+      "target": "search"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/hybrid_search.py::preprocess_for_vector",
+      "target": "sub"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/hybrid_search.py::preprocess_for_vector",
+      "target": "split"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::preprocess_for_vector",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::preprocess_for_vector",
+      "target": "start"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine",
+      "target": "src/retrieval/hybrid_search.py::HybridSearchEngine::__init__"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine",
+      "target": "src/retrieval/hybrid_search.py::HybridSearchEngine::search"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine",
+      "target": "src/retrieval/hybrid_search.py::HybridSearchEngine::print_results"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine",
+      "target": "src/retrieval/hybrid_search.py::HybridSearchEngine::close"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 4.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::__init__",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::__init__",
+      "target": "VectorSearcher"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::__init__",
+      "target": "SQLRetriever"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::search",
+      "target": "preprocess_for_vector"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::search",
+      "target": "search"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::search",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::search",
+      "target": "reciprocal_rank_fusion"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::search",
+      "target": "list"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::search",
+      "target": "get_relationships"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 10.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::print_results",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::print_results",
+      "target": "enumerate"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::print_results",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::print_results",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::print_results",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::HybridSearchEngine::close",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "ArgumentParser"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 3.2,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "add_argument"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "parse_args"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "HybridSearchEngine"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "search"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "print_results"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "lower"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "input"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/hybrid_search.py::main",
+      "target": "dumps"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "json"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "re"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "argparse"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "pathlib.Path"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "typing.Optional"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "sys"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src.retrieval.hybrid_search.HybridSearchEngine"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src.retrieval.hybrid_search.SearchResult"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src.retrieval.graph_rag.SNOMEDGraph"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src.retrieval.graph_rag.format_graph_context"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::PostCoordLoader"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::build_context"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::_load_vet_dictionary"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::_replace_with_dictionary"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::_contains_korean"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::preprocess_query"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::translate_query_to_english"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::generate_with_claude"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::_clean_ollama_response"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::generate_with_ollama"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::generate_without_llm"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py",
+      "target": "src/retrieval/rag_pipeline.py::main"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader",
+      "target": "src/retrieval/rag_pipeline.py::PostCoordLoader::__init__"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader",
+      "target": "src/retrieval/rag_pipeline.py::PostCoordLoader::_load_rules"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader",
+      "target": "src/retrieval/rag_pipeline.py::PostCoordLoader::find_patterns"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::__init__",
+      "target": "_load_rules"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::_load_rules",
+      "target": "exists"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::_load_rules",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::_load_rules",
+      "target": "open"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::_load_rules",
+      "target": "load"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::_load_rules",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::find_patterns",
+      "target": "isinstance"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::find_patterns",
+      "target": "items"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::find_patterns",
+      "target": "dumps"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::find_patterns",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::PostCoordLoader::find_patterns",
+      "target": "str"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/rag_pipeline.py::build_context",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::build_context",
+      "target": "enumerate"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::build_context",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::build_context",
+      "target": "find_patterns"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::build_context",
+      "target": "dumps"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "exists"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "items"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "dict"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "open"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "load"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "startswith"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "isinstance"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "sorted"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/rag_pipeline.py::_load_vet_dictionary",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::_replace_with_dictionary",
+      "target": "_load_vet_dictionary"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_replace_with_dictionary",
+      "target": "items"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_replace_with_dictionary",
+      "target": "replace"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::_contains_korean",
+      "target": "bool"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_contains_korean",
+      "target": "search"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::preprocess_query",
+      "target": "split"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/retrieval/rag_pipeline.py::preprocess_query",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::preprocess_query",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::preprocess_query",
+      "target": "lower"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::translate_query_to_english",
+      "target": "_replace_with_dictionary"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/retrieval/rag_pipeline.py::translate_query_to_english",
+      "target": "_contains_korean"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::translate_query_to_english",
+      "target": "post"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::translate_query_to_english",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::translate_query_to_english",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::translate_query_to_english",
+      "target": "json"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::generate_with_claude",
+      "target": "Anthropic"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::generate_with_claude",
+      "target": "create"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "search"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 4.0,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "sub"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "split"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "findall"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::_clean_ollama_response",
+      "target": "start"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::generate_with_ollama",
+      "target": "format"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::generate_with_ollama",
+      "target": "post"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::generate_with_ollama",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::generate_with_ollama",
+      "target": "_clean_ollama_response"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::generate_with_ollama",
+      "target": "json"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::generate_without_llm",
+      "target": "enumerate"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::generate_without_llm",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 5.6,
+      "source": "src/retrieval/rag_pipeline.py::generate_without_llm",
+      "target": "append"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline",
+      "target": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::__init__"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline",
+      "target": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline",
+      "target": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::print_answer"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline",
+      "target": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::close"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 6.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::__init__",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::__init__",
+      "target": "HybridSearchEngine"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::__init__",
+      "target": "PostCoordLoader"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::__init__",
+      "target": "SNOMEDGraph"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "preprocess_query"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "search"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "build_context"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "format_graph_context"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "_contains_korean"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "translate_query_to_english"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "generate_with_claude"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "explore"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "generate_with_ollama"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::query",
+      "target": "generate_without_llm"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 12.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::print_answer",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::print_answer",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::print_answer",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::SNOMEDRagPipeline::close",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "ArgumentParser"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 4.8,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "add_argument"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "parse_args"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "SNOMEDRagPipeline"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "query"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "print_answer"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "lower"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/retrieval/rag_pipeline.py::main",
+      "target": "input"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "sqlite3"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "json"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "re"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "argparse"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "pathlib.Path"
+    },
+    {
+      "type": "imports",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "collections.defaultdict"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "src/tools/export_obsidian.py::extract_vet_clinical_concepts"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "src/tools/export_obsidian.py::extract_related_concepts"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "src/tools/export_obsidian.py::sanitize_filename"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "src/tools/export_obsidian.py::generate_concept_note"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "src/tools/export_obsidian.py::generate_index_note"
+    },
+    {
+      "type": "contains",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py",
+      "target": "src/tools/export_obsidian.py::main"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "cursor"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "execute"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "fetchall"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "sum"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_vet_clinical_concepts",
+      "target": "values"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "cursor"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "list"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "range"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "set"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 4.0,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "execute"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "fetchall"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::extract_related_concepts",
+      "target": "add"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::sanitize_filename",
+      "target": "sub"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::sanitize_filename",
+      "target": "strip"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::sanitize_filename",
+      "target": "replace"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::sanitize_filename",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 7.999999999999999,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "extend"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 23.20000000000001,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "defaultdict"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "items"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "sorted"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "replace"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 4.0,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/tools/export_obsidian.py::generate_concept_note",
+      "target": "sanitize_filename"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "defaultdict"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "sum"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "sorted"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 4.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "extend"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 5.6,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "items"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 4.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 7.199999999999999,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 12.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "open"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "write"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "join"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "values"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 4.0,
+      "source": "src/tools/export_obsidian.py::generate_index_note",
+      "target": "sanitize_filename"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "ArgumentParser"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "add_argument"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "parse_args"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "Path"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 12.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "print"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "connect"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "extract_vet_clinical_concepts"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "set"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "extract_related_concepts"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "exists"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "mkdir"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 5.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "defaultdict"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "items"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "generate_index_note"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 2.4000000000000004,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "values"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 3.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "dict"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "close"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "str"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "keys"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "rmtree"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "append"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 1.6,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "get"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "generate_concept_note"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 1.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "sanitize_filename"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 4.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "len"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "open"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "dump"
+    },
+    {
+      "type": "calls",
+      "confidence": 0.8,
+      "tag": "INFERRED",
+      "weight": 0.8,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "write"
+    },
+    {
+      "type": "calls",
+      "confidence": 1.0,
+      "tag": "EXTRACTED",
+      "weight": 2.0,
+      "source": "src/tools/export_obsidian.py::main",
+      "target": "sum"
+    }
+  ]
+}
