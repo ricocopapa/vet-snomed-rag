@@ -3,10 +3,30 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/demo-streamlit-ff4b4b.svg)](https://streamlit.io/)
+[![Release](https://img.shields.io/github/v/release/ricocopapa/vet-snomed-rag)](https://github.com/ricocopapa/vet-snomed-rag/releases)
+[![Last Commit](https://img.shields.io/github/last-commit/ricocopapa/vet-snomed-rag)](https://github.com/ricocopapa/vet-snomed-rag/commits/main)
 
 수의학 SNOMED CT 온톨로지 기반 하이브리드 RAG 시스템
 
 > 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원
+> **회귀 테스트**: PASS **6/10 → 10/10** · 평균 latency **−14.7%**
+
+---
+
+## 목차
+
+- [프로젝트 소개](#프로젝트-소개)
+- [아키텍처](#아키텍처)
+- [데이터 소스](#데이터-소스)
+- [빠른 시작](#빠른-시작)
+- [데모](#데모)
+- [벤치마크 — Gemini Reformulator 회귀 테스트](#벤치마크--gemini-reformulator-회귀-테스트)
+- [핵심 기술 상세](#핵심-기술-상세)
+- [기술 스택](#기술-스택)
+- [프로젝트 구조](#프로젝트-구조)
+- [로드맵](#로드맵)
+- [기여·보안·변경 이력](#기여보안변경-이력)
+- [라이선스](#라이선스)
 
 ---
 
@@ -20,47 +40,71 @@
 
 ## 아키텍처
 
+```mermaid
+flowchart TD
+    User[사용자 질문<br/>한국어]
+    User --> Trans{Step 0<br/>번역 레이어}
+    Trans -->|수의학 사전 치환<br/>160+ 용어| Dict[한국어→영어 1차 변환]
+    Trans -->|잔여 문법·조사| OllamaTrans[Ollama LLM 번역]
+    Dict --> EN[영어 검색 쿼리]
+    OllamaTrans --> EN
+
+    EN --> Gemini{Gemini Reformulator<br/>선택적}
+    Gemini -->|재정식화 + post-coord hints| Refined[Refined query]
+    EN --> Refined
+
+    Refined --> Hybrid[Step 1: Hybrid Search]
+    Hybrid --> Vector[Track A<br/>Vector Search<br/>ChromaDB HNSW]
+    Hybrid --> SQL[Track B<br/>SQL Retrieval<br/>SQLite]
+    Vector --> RRF[RRF Merge<br/>α=0.6 · β=0.4]
+    SQL --> RRF
+
+    RRF --> Ctx[Step 2: Context Assembly<br/>Top-7 concepts +<br/>SNOMED relations +<br/>Post-coord patterns]
+
+    Ctx --> LLM{Step 3<br/>LLM Generation}
+    LLM --> Claude[Claude Sonnet]
+    LLM --> OllamaGen[Ollama gemma2:9b]
+    LLM --> NoneBackend[None<br/>검색만]
+
+    Claude --> Out[구조화된 한국어 응답<br/>concept_id · FSN · 관계 인용]
+    OllamaGen --> Out
+    NoneBackend --> Out
+
+    style User fill:#e1f5ff,stroke:#0366d6,color:#000
+    style Out fill:#d4edda,stroke:#28a745,color:#000
+    style Gemini fill:#fff3cd,stroke:#856404,color:#000
+    style RRF fill:#f8d7da,stroke:#721c24,color:#000
+```
+
+<details>
+<summary>Text-only 아키텍처 (접혀있음)</summary>
+
 ```
 사용자 질문 (한국어)
-    │
-    ▼
-┌─────────────────────────────────────┐
-│  Step 0: 번역 레이어                  │
-│  ① 수의학 용어 사전 치환 (160+ 용어)  │
-│  ② Ollama LLM 번역 (잔여 문법 처리)  │
-└──────────────┬──────────────────────┘
-               │ 영어 검색 쿼리
-               ▼
-┌─────────────────────────────────────┐
-│  Step 1: Hybrid Search Engine        │
-│  ┌───────────┐    ┌───────────────┐ │
-│  │  Track A   │    │    Track B    │ │
-│  │  Vector    │    │    SQL        │ │
-│  │  Search    │    │    Retrieval  │ │
-│  │ (ChromaDB) │    │   (SQLite)   │ │
-│  └─────┬──────┘    └──────┬───────┘ │
-│        │  RRF Merge (α=0.6, β=0.4)  │
-│        └──────┬────────────┘        │
-└───────────────┼─────────────────────┘
-                │
-                ▼
-┌─────────────────────────────────────┐
-│  Step 2: Context Assembly            │
-│  - 검색 결과 Top-7 concepts          │
-│  - SNOMED 관계 (is-a, finding_site)  │
-│  - Post-coordination 패턴 (SCG)      │
-└───────────────┬─────────────────────┘
-                │
-                ▼
-┌─────────────────────────────────────┐
-│  Step 3: LLM Generation             │
-│  Claude API / Ollama / None          │
-└───────────────┬─────────────────────┘
-                │
-                ▼
-       구조화된 한국어 응답
-  (concept_id, FSN, 관계 인용)
+    ↓
+Step 0: 번역 레이어
+  ① 수의학 용어 사전 치환 (160+ 용어)
+  ② Ollama LLM 번역 (잔여 문법 처리)
+    ↓ 영어 검색 쿼리
+(선택) Gemini Reformulator → post-coord hints
+    ↓
+Step 1: Hybrid Search Engine
+  Track A: Vector Search (ChromaDB, HNSW)
+  Track B: SQL Retrieval (SQLite)
+  → RRF Merge (α=0.6, β=0.4)
+    ↓
+Step 2: Context Assembly
+  - 검색 결과 Top-7 concepts
+  - SNOMED 관계 (is-a, finding_site, associated_morphology)
+  - Post-coordination 패턴 (SCG)
+    ↓
+Step 3: LLM Generation
+  Claude API / Ollama / None
+    ↓
+구조화된 한국어 응답 (concept_id, FSN, 관계 인용)
 ```
+
+</details>
 
 상세 아키텍처: [docs/architecture.md](docs/architecture.md)
 
@@ -315,6 +359,17 @@ vet-snomed-rag/
   - [ ] SNOMED is-a 관계 → NetworkX 그래프
   - [ ] Graph Traversal + RAG 통합
   - [ ] 에이전트 시스템 (Orchestrator + Search + Validation)
+
+---
+
+## 기여·보안·변경 이력
+
+| 문서 | 내용 |
+|------|------|
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | 이슈·PR·코드 스타일 가이드 |
+| [SECURITY.md](./SECURITY.md) | 보안 취약점 리포트 절차 |
+| [CHANGELOG.md](./CHANGELOG.md) | 버전별 변경 이력 |
+| [Releases](https://github.com/ricocopapa/vet-snomed-rag/releases) | 태그별 릴리즈 노트 |
 
 ---
 
