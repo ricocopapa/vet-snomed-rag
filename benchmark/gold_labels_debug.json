@@ -1,0 +1,365 @@
+[
+  {
+    "scenario_id": 1,
+    "domain": "OPHTHALMOLOGY",
+    "secondary": [
+      "VITAL_SIGNS"
+    ],
+    "fields": [
+      {
+        "field_code": "OPH_IOP_OD",
+        "label": "우안 안압",
+        "value": "32 (mmHg)",
+        "section": "O"
+      },
+      {
+        "field_code": "OPH_IOP_CD",
+        "label": "안압 등급 코드",
+        "value": "ELEVATED",
+        "section": "O"
+      },
+      {
+        "field_code": "OPH_CORNEA_CLARITY_OD_CD",
+        "label": "우안 각막 투명도 코드",
+        "value": "EDEMATOUS",
+        "section": "O"
+      },
+      {
+        "field_code": "OPH_AC_DEPTH_OD_CD",
+        "label": "우안 전방 깊이 코드",
+        "value": "SHALLOW",
+        "section": "O"
+      },
+      {
+        "field_code": "OPH_PLR_DIRECT_OD",
+        "label": "우안 직접 PLR",
+        "value": "DECREASED",
+        "section": "O"
+      },
+      {
+        "field_code": "OPH_PUPIL_OD_CD",
+        "label": "우안 동공 크기·형태 코드",
+        "value": "MYDRIASIS",
+        "section": "O"
+      },
+      {
+        "field_code": "OPH_CONJUNCTIVA_OD_CD",
+        "label": "우안 결막 소견 코드",
+        "value": "HYPEREMIC",
+        "section": "O"
+      }
+    ],
+    "snomed": [
+      {
+        "field_code": "OPH_IOP_OD",
+        "concept_id": "41633001",
+        "preferred_term": "Intraocular pressure",
+        "semantic_tag": "observable entity",
+        "confidence": 0.95
+      },
+      {
+        "field_code": "OPH_CORNEA_CLARITY_OD_CD",
+        "concept_id": "27194006",
+        "preferred_term": "Corneal edema",
+        "semantic_tag": "disorder",
+        "confidence": 0.9
+      },
+      {
+        "field_code": "Assessment(진단)",
+        "concept_id": "23986001",
+        "preferred_term": "Glaucoma",
+        "semantic_tag": "disorder",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "scenario_id": 2,
+    "domain": "GASTROINTESTINAL",
+    "secondary": [
+      "VITAL_SIGNS"
+    ],
+    "fields": [
+      {
+        "field_code": "GP_RECTAL_TEMP_VALUE",
+        "label": "직장 체온",
+        "value": "39.2 (°C)",
+        "section": "O"
+      },
+      {
+        "field_code": "GP_HR_VALUE",
+        "label": "심박수",
+        "value": "140 (bpm)",
+        "section": "O"
+      },
+      {
+        "field_code": "GP_RR_VALUE",
+        "label": "호흡수",
+        "value": "28 (breaths/min)",
+        "section": "O"
+      },
+      {
+        "field_code": "GI_DURATION_DAYS",
+        "label": "증상 지속 기간",
+        "value": "2 (일)",
+        "section": "S"
+      },
+      {
+        "field_code": "GI_DIARRHEA_FREQ",
+        "label": "설사 빈도",
+        "value": "1~2 (회/일)",
+        "section": "S"
+      },
+      {
+        "field_code": "GI_APPETITE_CD",
+        "label": "식욕 상태 코드",
+        "value": "DECREASED",
+        "section": "S"
+      },
+      {
+        "field_code": "GI_ABD_PAIN_SCORE",
+        "label": "복부 통증 점수",
+        "value": "2 (점/4)",
+        "section": "O"
+      },
+      {
+        "field_code": "GI_BOWEL_SOUNDS_CD",
+        "label": "장음 코드",
+        "value": "HYPERACTIVE",
+        "section": "O"
+      }
+    ],
+    "snomed": [
+      {
+        "field_code": "GP_RECTAL_TEMP_VALUE",
+        "concept_id": "386725007",
+        "preferred_term": "Body temperature",
+        "semantic_tag": "observable entity",
+        "confidence": 0.95
+      },
+      {
+        "field_code": "GP_HR_VALUE",
+        "concept_id": "364075005",
+        "preferred_term": "Heart rate",
+        "semantic_tag": "observable entity",
+        "confidence": 0.95
+      },
+      {
+        "field_code": "Assessment(진단)",
+        "concept_id": "69776003",
+        "preferred_term": "Acute gastroenteritis",
+        "semantic_tag": "disorder",
+        "confidence": 0.92
+      },
+      {
+        "field_code": "구토 소견",
+        "concept_id": "422400008",
+        "preferred_term": "Vomiting",
+        "semantic_tag": "disorder",
+        "confidence": 0.92
+      },
+      {
+        "field_code": "탈수 소견",
+        "concept_id": "34095006",
+        "preferred_term": "Dehydration",
+        "semantic_tag": "disorder",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "scenario_id": 3,
+    "domain": "ORTHOPEDICS",
+    "secondary": [],
+    "fields": [
+      {
+        "field_code": "OR_PATELLAR_LUX_L",
+        "label": "좌측 슬개골 탈구 등급",
+        "value": "2 (점/4)",
+        "section": "O"
+      },
+      {
+        "field_code": "OR_PATELLAR_LUXATION_GRADE",
+        "label": "슬개골 탈구 등급",
+        "value": "2",
+        "section": "O"
+      },
+      {
+        "field_code": "OR_LAMENESS_FL_L",
+        "label": "좌전지 파행 등급",
+        "value": "2 (점/5)",
+        "section": "O"
+      },
+      {
+        "field_code": "OR_JOINT_EFFUSION_SCORE",
+        "label": "관절 삼출 점수",
+        "value": "1 (점/3)",
+        "section": "O"
+      },
+      {
+        "field_code": "OR_MUSCLE_ATROPHY_FL_L",
+        "label": "좌전지 근위축 점수",
+        "value": "1 (점/3)",
+        "section": "O"
+      }
+    ],
+    "snomed": [
+      {
+        "field_code": "OR_PATELLAR_LUX_L",
+        "concept_id": "311741000009107",
+        "preferred_term": "Medial luxation of patella",
+        "semantic_tag": "disorder",
+        "confidence": 0.95
+      },
+      {
+        "field_code": "OR_LAMENESS_FL_L",
+        "concept_id": "272981000009107",
+        "preferred_term": "Lameness of quadruped",
+        "semantic_tag": "finding",
+        "confidence": 0.9
+      },
+      {
+        "field_code": "Assessment(진단)",
+        "concept_id": "311741000009107",
+        "preferred_term": "Medial luxation of patella",
+        "semantic_tag": "disorder",
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "scenario_id": 4,
+    "domain": "DERMATOLOGY",
+    "secondary": [],
+    "fields": [
+      {
+        "field_code": "LD_SKIN_BODYMAP_LESION_COUNT",
+        "label": "바디맵 병변 수",
+        "value": "3 (개소)",
+        "section": "O"
+      },
+      {
+        "field_code": "LD_SKIN_PRIMARY_LESION_SIZE_MM",
+        "label": "주요 병변 크기",
+        "value": "10~20 (mm)",
+        "section": "O"
+      },
+      {
+        "field_code": "LD_CADESI4_ALOPECIA_SUB",
+        "label": "탈모 소계",
+        "value": "양성 (multi-focal)",
+        "section": "O"
+      },
+      {
+        "field_code": "LD_PRURITUS_VAS",
+        "label": "소양감 VAS 점수",
+        "value": "5 (점/10)",
+        "section": "S"
+      },
+      {
+        "field_code": "LD_LESION_EXTENT_PCT",
+        "label": "병변 범위",
+        "value": "5 (%)",
+        "section": "O"
+      },
+      {
+        "field_code": "LD_CHRONICITY_DURATION",
+        "label": "이환 기간",
+        "value": "3주",
+        "section": "S"
+      }
+    ],
+    "snomed": [
+      {
+        "field_code": "Assessment(진단)",
+        "concept_id": "47382004",
+        "preferred_term": "Dermatophytosis",
+        "semantic_tag": "disorder",
+        "confidence": 0.93
+      },
+      {
+        "field_code": "LD_CADESI4_ALOPECIA_SUB",
+        "concept_id": "56317004",
+        "preferred_term": "Alopecia",
+        "semantic_tag": "disorder",
+        "confidence": 0.9
+      },
+      {
+        "field_code": "소양감",
+        "concept_id": "418290006",
+        "preferred_term": "Itching",
+        "semantic_tag": "finding",
+        "confidence": 0.88
+      },
+      {
+        "field_code": "진균 배양",
+        "concept_id": "104189007",
+        "preferred_term": "Fungal culture, skin, with isolation",
+        "semantic_tag": "procedure",
+        "confidence": 0.92
+      }
+    ]
+  },
+  {
+    "scenario_id": 5,
+    "domain": "ONCOLOGY",
+    "secondary": [
+      "MASS"
+    ],
+    "fields": [
+      {
+        "field_code": "ON_BASELINE_SUM_MM",
+        "label": "기저 직경합 (mm)",
+        "value": "50 (mm, 3×2cm 합산)",
+        "section": "O"
+      },
+      {
+        "field_code": "ON_AE_ANOREXIA",
+        "label": "식욕부진 등급",
+        "value": "0",
+        "section": "S"
+      },
+      {
+        "field_code": "(MASS) 종괴 크기",
+        "label": "체표 종괴 크기",
+        "value": "3×2 cm",
+        "section": "O"
+      },
+      {
+        "field_code": "(MASS) 종괴 부위",
+        "label": "어깨 피하",
+        "value": "left subscapular",
+        "section": "O"
+      },
+      {
+        "field_code": "(MASS) 경계",
+        "label": "경계 명확도",
+        "value": "WELL_DEFINED",
+        "section": "O"
+      }
+    ],
+    "snomed": [
+      {
+        "field_code": "Assessment(진단 의심)",
+        "concept_id": "239147000",
+        "preferred_term": "Mastocytoma of skin",
+        "semantic_tag": "disorder",
+        "confidence": 0.88
+      },
+      {
+        "field_code": "종괴 소견",
+        "concept_id": "297960002",
+        "preferred_term": "Mass of skin",
+        "semantic_tag": "finding",
+        "confidence": 0.9
+      },
+      {
+        "field_code": "FNA 처치",
+        "concept_id": "15719007",
+        "preferred_term": "Fine needle aspirate with routine interpretation and report",
+        "semantic_tag": "procedure",
+        "confidence": 0.93
+      }
+    ]
+  }
+]

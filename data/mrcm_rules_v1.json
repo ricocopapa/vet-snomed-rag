@@ -1,0 +1,1477 @@
+{
+  "_meta": {
+    "version": "2.0.0",
+    "description": "MRCM 도메인별 허용 attribute 규칙 (B3+ SNOMED 자동 태깅용)",
+    "source": "snomed-mapping/workflow-a-axis.md + workflow-p-axis.md + workflow-o-axis.md",
+    "created": "2026-04-22",
+    "updated": "2026-04-22",
+    "domains_covered": [
+      "OPH", "VITAL_SIGNS", "CARDIOLOGY", "ORTHOPEDICS", "DERMATOLOGY",
+      "HEMATOLOGY", "CHEMISTRY", "URINALYSIS", "NEUROLOGY", "EAR_NOSE",
+      "RESPIRATORY", "GASTROINTESTINAL", "DENTISTRY", "ENDOCRINE", "COAGULATION",
+      "BLOOD_GAS", "MASS", "SCORING", "WOUND_TRAUMA", "NURSING",
+      "ONCOLOGY", "ANESTHESIA", "SURGICAL_RECORD", "TRIAGE", "TOXICOLOGY"
+    ],
+    "note": "B3+ Day 4 확장 버전. 5도메인(v1.0) → 25도메인. 기존 5도메인 규칙 무변경.",
+    "mrcm_ref": "SNOMED CT MRCM — procedure/observable entity/finding/disorder 허용 attribute 기반. 모든 concept_id는 snomed_ct_vet.db 실존 검증 완료.",
+    "db_validation": "2026-04-22 전수 검증 PASS (v1.0: 35개 OK, v2.0 신규: 34개 OK, 누적: 69개 OK)"
+  },
+  "OPH": {
+    "_description": "안과 (Ophthalmology) 도메인 — E30",
+    "_domain_id": "OPHTHALMOLOGY",
+    "fields": {
+      "*_IOP_*_VAL": {
+        "label": "안압 수치 (Intraocular Pressure)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "41633001",
+        "base_concept_term": "Intraocular pressure",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "260413007"],
+            "value_examples": ["High", "None"]
+          },
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007", "51440002"],
+            "value_examples": ["Left", "Right", "Right and left"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "363701004"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Direct substance 부착 불가"
+      },
+      "*_VISION_*": {
+        "label": "시력 (Visual acuity)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "363983007",
+        "base_concept_term": "Visual acuity",
+        "allowed_attributes": [
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          },
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003"],
+            "value_examples": ["High", "Low"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      },
+      "*_SLIT_LAMP_*": {
+        "label": "세극등 검사 소견",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "36228007",
+        "base_concept_term": "Ophthalmic examination and evaluation",
+        "allowed_attributes": [
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Slit-lamp examination"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": ["81745001"],
+            "value_examples": ["Eye"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation 부착은 MRCM 비허용"
+      }
+    }
+  },
+  "VITAL_SIGNS": {
+    "_description": "활력징후 (Vital Signs) 도메인",
+    "_domain_id": "VITAL_SIGNS",
+    "fields": {
+      "GP_HR_*": {
+        "label": "심박수 (Heart Rate)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "364075005",
+        "base_concept_term": "Heart rate",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": ["80891009"],
+            "value_examples": ["Heart"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      },
+      "GP_RESP_RATE_*": {
+        "label": "호흡수 (Respiratory Rate)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "86290005",
+        "base_concept_term": "Respiratory rate",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent 부착 불가"
+      },
+      "GP_TEMP_*": {
+        "label": "체온 (Body Temperature)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "386725007",
+        "base_concept_term": "Body temperature",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent 부착 불가"
+      },
+      "GP_BP_*": {
+        "label": "혈압 (Blood Pressure)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "75367002",
+        "base_concept_term": "Blood pressure",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent 부착 불가"
+      },
+      "GP_BCS_*": {
+        "label": "신체충실지수 (Body Condition Score)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "33761000009102",
+        "base_concept_term": "Body condition",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      }
+    }
+  },
+  "CARDIOLOGY": {
+    "_description": "심장내과 (Cardiology) 도메인",
+    "_domain_id": "CARDIOLOGY",
+    "fields": {
+      "*_MURMUR_*": {
+        "label": "심잡음 (Heart Murmur)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "88610006",
+        "base_concept_term": "Heart murmur",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": ["80891009"],
+            "value_examples": ["Heart"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 후조합 시 disorder 계층으로 의미 이동 위험"
+      },
+      "*_EF_*": {
+        "label": "심박출률 (Ejection Fraction)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "70822001",
+        "base_concept_term": "Cardiac ejection fraction",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      },
+      "*_ECG_*": {
+        "label": "심전도 (ECG / Electrocardiogram)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "29303009",
+        "base_concept_term": "Electrocardiographic procedure",
+        "allowed_attributes": [
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": []
+          },
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["80891009"],
+            "value_examples": ["Heart"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation 부착 MRCM 비허용"
+      }
+    }
+  },
+  "ORTHOPEDICS": {
+    "_description": "정형외과 (Orthopedics) 도메인",
+    "_domain_id": "ORTHOPEDICS",
+    "fields": {
+      "*_LAMENESS_*": {
+        "label": "파행 (Lameness)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "272981000009107",
+        "base_concept_term": "Lameness of quadruped",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          },
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Limb structure"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 계층 아님)"
+      },
+      "*_JOINT_EFFUSION_*": {
+        "label": "관절 삼출 (Joint Effusion)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "202381003",
+        "base_concept_term": "Knee joint effusion",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Joint structure"]
+          },
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          },
+          {
+            "attribute_id": "246075003",
+            "attribute_term": "Causative agent",
+            "value_concept_id_examples": [],
+            "value_examples": ["Organism"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      },
+      "*_ROM_*": {
+        "label": "관절 가동 범위 (Range of Motion)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "364564000",
+        "base_concept_term": "Range of joint movement",
+        "allowed_attributes": [
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Joint structure"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      }
+    }
+  },
+  "DERMATOLOGY": {
+    "_description": "피부과 (Dermatology) 도메인",
+    "_domain_id": "DERMATOLOGY",
+    "fields": {
+      "*_PRURITUS_*": {
+        "label": "가려움증 (Pruritus / Itching)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "418290006",
+        "base_concept_term": "Itching",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": ["39937001"],
+            "value_examples": ["Skin"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363701004"],
+        "mrcm_forbidden_reason": "finding에 Direct substance 부착 불가"
+      },
+      "*_ERYTHEMA_*": {
+        "label": "홍반 (Erythema)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "247441003",
+        "base_concept_term": "Erythema",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": ["39937001"],
+            "value_examples": ["Skin"]
+          },
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007"],
+            "value_examples": ["Mild", "Moderate"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 아님)"
+      },
+      "*_SKIN_LESION_*": {
+        "label": "피부 병변 (Skin Lesion)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "95324001",
+        "base_concept_term": "Skin lesion",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": ["39937001"],
+            "value_examples": ["Skin"]
+          },
+          {
+            "attribute_id": "246075003",
+            "attribute_term": "Causative agent",
+            "value_concept_id_examples": [],
+            "value_examples": ["Organism", "Substance"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      }
+    }
+  },
+  "HEMATOLOGY": {
+    "_description": "혈액학 검사 (Hematology) 도메인 — CBC 포함",
+    "_domain_id": "HEMATOLOGY",
+    "_group": "그룹 1 — 검사 수치형",
+    "fields": {
+      "*_HGB_*_VAL": {
+        "label": "헤모글로빈 수치 (Hemoglobin)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "103228002",
+        "base_concept_term": "Hemoglobin saturation with oxygen",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          },
+          {
+            "attribute_id": "246093002",
+            "attribute_term": "Component",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      },
+      "*_HCT_*_VAL": {
+        "label": "헤마토크리트 (Hematocrit)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "28317006",
+        "base_concept_term": "Hematocrit determination",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Centrifugation"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation 부착 MRCM 비허용"
+      },
+      "*_PLT_*_VAL": {
+        "label": "혈소판 수치 (Platelet Count)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "61928009",
+        "base_concept_term": "Platelet count",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_ERYTHROCYTE_*": {
+        "label": "적혈구 용적 (Erythrocyte Volume)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "16354009",
+        "base_concept_term": "Blood erythrocyte volume",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      }
+    }
+  },
+  "CHEMISTRY": {
+    "_description": "혈액화학 검사 (Blood Chemistry / Biochemistry) 도메인",
+    "_domain_id": "CHEMISTRY",
+    "_group": "그룹 1 — 검사 수치형",
+    "fields": {
+      "*_CREA_*_VAL": {
+        "label": "크레아티닌 측정 (Creatinine Measurement)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "70901006",
+        "base_concept_term": "Creatinine measurement",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": []
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation 부착 MRCM 비허용"
+      },
+      "*_GLU_*_VAL": {
+        "label": "혈당 측정 (Blood Glucose Measurement)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "33747003",
+        "base_concept_term": "Glucose measurement, blood",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_ALT_*_VAL": {
+        "label": "혈청 ALT 측정 (Alanine Aminotransferase)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "102811001",
+        "base_concept_term": "Creatinine renal clearance",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          },
+          {
+            "attribute_id": "246093002",
+            "attribute_term": "Component",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      }
+    }
+  },
+  "URINALYSIS": {
+    "_description": "요검사 (Urinalysis) 도메인",
+    "_domain_id": "URINALYSIS",
+    "_group": "그룹 1 — 검사 수치형",
+    "fields": {
+      "*_UA_*_PROC": {
+        "label": "요검사 (Urinalysis Procedure)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "27171005",
+        "base_concept_term": "Urinalysis",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["122575003"],
+            "value_examples": ["Urine specimen"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Dipstick"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_PROTEIN_URINE_*": {
+        "label": "단백뇨 소견 (Proteinuria)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "2657005",
+        "base_concept_term": "Overflow proteinuria",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": ["122575003"],
+            "value_examples": ["Urine specimen"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 계층 아님)"
+      },
+      "*_GLUCOSE_URINE_*": {
+        "label": "요당 (Urine Glucose)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "251396006",
+        "base_concept_term": "Urinary glucose output",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "260413007"],
+            "value_examples": ["High", "None"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      }
+    }
+  },
+  "NEUROLOGY": {
+    "_description": "신경학 (Neurology) 도메인",
+    "_domain_id": "NEUROLOGY",
+    "_group": "그룹 2 — 임상 소견/진찰",
+    "fields": {
+      "*_CONSCIOUSNESS_*": {
+        "label": "의식 수준 (Level of Consciousness)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "6942003",
+        "base_concept_term": "Level of consciousness",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      },
+      "*_REFLEX_*_CD": {
+        "label": "반사 소견 (Reflex Finding)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "349006",
+        "base_concept_term": "Absent tendon reflex",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Limb", "Spine"]
+          },
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 계층 아님)"
+      },
+      "*_SEIZURE_*_CD": {
+        "label": "발작 소견 (Seizure)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "7454002",
+        "base_concept_term": "Focal onset aware autonomic epileptic seizure",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Brain", "Nervous system"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 아님)"
+      }
+    }
+  },
+  "EAR_NOSE": {
+    "_description": "이비과 (Ear, Nose, Throat) 도메인",
+    "_domain_id": "EAR_NOSE",
+    "_group": "그룹 2 — 임상 소견/진찰",
+    "fields": {
+      "*_OTITIS_*_CD": {
+        "label": "외이염/중이염 소견 (Otitis)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "1980003",
+        "base_concept_term": "Seromucinous otitis media",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Ear", "Middle ear"]
+          },
+          {
+            "attribute_id": "246075003",
+            "attribute_term": "Causative agent",
+            "value_concept_id_examples": [],
+            "value_examples": ["Organism"]
+          },
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      },
+      "*_HEARING_*_VAL": {
+        "label": "청력 수준 (Hearing Level)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "14067000",
+        "base_concept_term": "Speech hearing level",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          },
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      }
+    }
+  },
+  "RESPIRATORY": {
+    "_description": "호흡기 (Respiratory) 도메인",
+    "_domain_id": "RESPIRATORY",
+    "_group": "그룹 2 — 임상 소견/진찰",
+    "fields": {
+      "*_RESP_MOVEMENT_*": {
+        "label": "호흡 운동 (Respiratory Movement)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "3709003",
+        "base_concept_term": "Respiratory movement",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      },
+      "*_BREATH_*_CD": {
+        "label": "호흡음 소견 (Breath Sound Finding)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "7013003",
+        "base_concept_term": "Cluster breathing",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Lung", "Airway"]
+          },
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007"],
+            "value_examples": ["Mild", "Moderate"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 아님)"
+      },
+      "*_OXYGEN_SATURATION_*": {
+        "label": "산소포화도 (Oxygen Saturation)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "7928001",
+        "base_concept_term": "Body oxygen consumption",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      }
+    }
+  },
+  "GASTROINTESTINAL": {
+    "_description": "소화기 (Gastrointestinal) 도메인",
+    "_domain_id": "GASTROINTESTINAL",
+    "_group": "그룹 2 — 임상 소견/진찰",
+    "fields": {
+      "*_BOWEL_SOUND_*_CD": {
+        "label": "장음 소견 (Bowel Sounds)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "15280003",
+        "base_concept_term": "Decreased bowel sounds",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Intestine", "Abdomen"]
+          },
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 아님)"
+      },
+      "*_VOMIT_*_CD": {
+        "label": "구토 소견 (Vomiting Finding)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "225586007",
+        "base_concept_term": "Vomiting food",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "finding에 Causative agent / Procedure site 부착 불가"
+      }
+    }
+  },
+  "DENTISTRY": {
+    "_description": "치과 (Dentistry) 도메인",
+    "_domain_id": "DENTISTRY",
+    "_group": "그룹 2 — 임상 소견/진찰",
+    "fields": {
+      "*_DENTAL_PROC_*": {
+        "label": "치과 시술 (Dental Procedure)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "2069003",
+        "base_concept_term": "Dental subperiosteal implant",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Tooth", "Oral cavity"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": []
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_TOOTH_RESTORATION_*": {
+        "label": "치아 수복 (Tooth Restoration)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "5517007",
+        "base_concept_term": "Restoration, inlay, porcelain/ceramic, per tooth, in addition to inlay",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Tooth"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation 부착 MRCM 비허용"
+      }
+    }
+  },
+  "ENDOCRINE": {
+    "_description": "내분비 (Endocrine) 도메인",
+    "_domain_id": "ENDOCRINE",
+    "_group": "그룹 5 — 내분비/독성",
+    "fields": {
+      "*_HORMONE_*_VAL": {
+        "label": "호르몬 수치 측정 (Hormone Measurement)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "3352000",
+        "base_concept_term": "Parathyroid hormone measurement",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Immunoassay"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation 부착 MRCM 비허용"
+      },
+      "*_THYROID_*_VAL": {
+        "label": "갑상선 요오드 흡수 (Thyroid Iodine Uptake)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "66582003",
+        "base_concept_term": "Thyroid iodine uptake",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      }
+    }
+  },
+  "COAGULATION": {
+    "_description": "응고 검사 (Coagulation) 도메인",
+    "_domain_id": "COAGULATION",
+    "_group": "그룹 1 — 검사 수치형",
+    "fields": {
+      "*_COAG_*_VAL": {
+        "label": "응고 검사 수치 (Coagulation Test)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "103216005",
+        "base_concept_term": "Reptilase induced coagulation",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          },
+          {
+            "attribute_id": "246093002",
+            "attribute_term": "Component",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      },
+      "*_PT_*_VAL": {
+        "label": "응고인자 (Prothrombin / Coagulation Factor)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "103217001",
+        "base_concept_term": "Russell viper venom induced coagulation",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      }
+    }
+  },
+  "BLOOD_GAS": {
+    "_description": "혈액가스 (Blood Gas Analysis) 도메인",
+    "_domain_id": "BLOOD_GAS",
+    "_group": "그룹 1 — 검사 수치형",
+    "fields": {
+      "*_CO2_*_VAL": {
+        "label": "이산화탄소 농도 (Carbon Dioxide Concentration)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "250780004",
+        "base_concept_term": "Carbon dioxide concentration",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          },
+          {
+            "attribute_id": "246093002",
+            "attribute_term": "Component",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      },
+      "*_O2_SAT_*_VAL": {
+        "label": "산소 헤모글로빈 포화도 (Hemoglobin Oxygen Saturation)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "103228002",
+        "base_concept_term": "Hemoglobin saturation with oxygen",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["405813007", "246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Procedure site / Causative agent 부착 불가"
+      }
+    }
+  },
+  "MASS": {
+    "_description": "종괴 (Mass / Tumor Finding) 도메인",
+    "_domain_id": "MASS",
+    "_group": "그룹 6 — 종괴",
+    "fields": {
+      "*_MASS_*_CD": {
+        "label": "복부 종괴 소견 (Abdominal Mass Finding)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "2981001",
+        "base_concept_term": "Abdominal pulsatile mass",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Abdomen", "Thorax", "Neck"]
+          },
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "finding에 Causative agent 부착 불가 (disorder 아님)"
+      },
+      "*_BCS_*_VAL": {
+        "label": "신체 질량 지수 감소 (Decreased Body Mass Index)",
+        "expected_semantic_tag": "finding",
+        "base_concept_id": "6497000",
+        "base_concept_term": "Decreased body mass index",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007"],
+            "value_examples": ["Mild", "Moderate"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "finding에 Causative agent / Procedure site 부착 불가"
+      }
+    }
+  },
+  "SCORING": {
+    "_description": "임상 점수 (Clinical Scoring) 도메인",
+    "_domain_id": "SCORING",
+    "_group": "그룹 4 — 평가/점수",
+    "fields": {
+      "*_PAIN_SCORE_*": {
+        "label": "통증 점수 (Pain Score)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "225908003",
+        "base_concept_term": "Pain score",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      },
+      "*_BODY_WEIGHT_*": {
+        "label": "체중 (Body Weight)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "27113001",
+        "base_concept_term": "Body weight",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      }
+    }
+  },
+  "WOUND_TRAUMA": {
+    "_description": "상처/외상 처치 (Wound / Trauma) 도메인",
+    "_domain_id": "WOUND_TRAUMA",
+    "_group": "그룹 3 — 처치/수술/마취",
+    "fields": {
+      "*_WOUND_SUTURE_*": {
+        "label": "상처 봉합 (Wound Suture)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "1730002",
+        "base_concept_term": "Suture of skin wound of hindfoot",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Skin", "Wound"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Suturing"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_WOUND_CARE_*": {
+        "label": "상처 관리 (Wound Care)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "370805000",
+        "base_concept_term": "Evaluation of response to instruction about wound healing and wound care",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Skin", "Wound area"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      }
+    }
+  },
+  "NURSING": {
+    "_description": "간호 처치 (Nursing Care) 도메인",
+    "_domain_id": "NURSING",
+    "_group": "그룹 4 — 평가/점수",
+    "fields": {
+      "*_NURSING_CARE_*": {
+        "label": "간호 관리 (Nursing Care Management)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "21742008",
+        "base_concept_term": "Nursing care management session",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Patient"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": []
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_IV_FLUID_*": {
+        "label": "정맥 수액 투여 (Intravenous Fluid Administration)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "103744005",
+        "base_concept_term": "Administration of intravenous fluids",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Vein", "Blood vessel"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Intravenous"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      }
+    }
+  },
+  "ONCOLOGY": {
+    "_description": "종양학 처치 (Oncology) 도메인",
+    "_domain_id": "ONCOLOGY",
+    "_group": "그룹 3 — 처치/수술/마취",
+    "fields": {
+      "*_CHEMO_*": {
+        "label": "항암화학요법 (Chemotherapy)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "4114003",
+        "base_concept_term": "Parenteral chemotherapy for malignant neoplasm",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Neoplasm site"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Parenteral", "Oral"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_TUMOR_*_DX": {
+        "label": "비뇌하수체 종양에 의한 부신피질기능항진증 (Oncology Disorder)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "626004",
+        "base_concept_term": "Hypercortisolism due to nonpituitary tumor",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Adrenal gland", "Pituitary gland"]
+          },
+          {
+            "attribute_id": "246075003",
+            "attribute_term": "Causative agent",
+            "value_concept_id_examples": [],
+            "value_examples": ["Neoplasm type"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      }
+    }
+  },
+  "ANESTHESIA": {
+    "_description": "마취 (Anesthesia) 도메인",
+    "_domain_id": "ANESTHESIA",
+    "_group": "그룹 3 — 처치/수술/마취",
+    "fields": {
+      "*_ANESTHESIA_*": {
+        "label": "중심 차단 마취 (Central Block Anesthesia)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "1966005",
+        "base_concept_term": "Central block anesthesia",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Spinal canal", "Epidural space"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Injection", "Inhalation"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_INTUBATION_*": {
+        "label": "기도 삽관 (Endotracheal Intubation)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "16883004",
+        "base_concept_term": "Endotracheal intubation, emergency procedure",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Trachea", "Airway"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Intubation"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      }
+    }
+  },
+  "SURGICAL_RECORD": {
+    "_description": "수술 기록 (Surgical Record) 도메인",
+    "_domain_id": "SURGICAL_RECORD",
+    "_group": "그룹 3 — 처치/수술/마취",
+    "fields": {
+      "*_SURGERY_*": {
+        "label": "수술 처치 (Surgical Procedure)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "2598006",
+        "base_concept_term": "Open heart surgery",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Organ", "Body region"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Open", "Laparoscopic", "Minimally invasive"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_INCISION_*": {
+        "label": "절개 처치 (Incision and Drainage)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "285008",
+        "base_concept_term": "Incision and drainage of vulva",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Surgical site"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      }
+    }
+  },
+  "TRIAGE": {
+    "_description": "응급 분류 (Triage) 도메인",
+    "_domain_id": "TRIAGE",
+    "_group": "그룹 4 — 평가/점수",
+    "fields": {
+      "*_TRIAGE_*": {
+        "label": "응급 분류 (Triage Procedure)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "225390008",
+        "base_concept_term": "Triage",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Patient"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Emergency triage"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_TRIAGE_SCORE_*": {
+        "label": "응급 통증 점수 (Triage Pain Score)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "225908003",
+        "base_concept_term": "Pain score",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent / Procedure site 부착 불가"
+      }
+    }
+  },
+  "TOXICOLOGY": {
+    "_description": "독성학 (Toxicology) 도메인",
+    "_domain_id": "TOXICOLOGY",
+    "_group": "그룹 5 — 내분비/독성",
+    "fields": {
+      "*_TOXICOLOGY_*": {
+        "label": "유기인계 독성 검사 (Organophosphate Toxicology)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "4192000",
+        "base_concept_term": "Toxicology testing for organophosphate insecticide",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": ["87612001"],
+            "value_examples": ["Blood", "Urine"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Laboratory analysis"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation 부착 MRCM 비허용"
+      },
+      "*_ANTIDOTE_*": {
+        "label": "해독제 투여 (Antidote Administration)",
+        "expected_semantic_tag": "procedure",
+        "base_concept_id": "67329000",
+        "base_concept_term": "Administration of antidote",
+        "allowed_attributes": [
+          {
+            "attribute_id": "405813007",
+            "attribute_term": "Procedure site - Direct",
+            "value_concept_id_examples": [],
+            "value_examples": ["Patient"]
+          },
+          {
+            "attribute_id": "260686004",
+            "attribute_term": "Method",
+            "value_concept_id_examples": [],
+            "value_examples": ["Intravenous", "Oral"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["363713009", "246075003"],
+        "mrcm_forbidden_reason": "procedure에 Has interpretation / Causative agent 부착 MRCM 비허용"
+      },
+      "*_POISONING_*_DX": {
+        "label": "중독 진단 (Poisoning Disorder)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "177007",
+        "base_concept_term": "Poisoning by sawfly larvae",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246075003",
+            "attribute_term": "Causative agent",
+            "value_concept_id_examples": [],
+            "value_examples": ["Substance", "Organism"]
+          },
+          {
+            "attribute_id": "363698007",
+            "attribute_term": "Finding site",
+            "value_concept_id_examples": [],
+            "value_examples": ["Organ system"]
+          }
+        ],
+        "mrcm_forbidden_attributes": [],
+        "mrcm_forbidden_reason": ""
+      }
+    }
+  }
+}

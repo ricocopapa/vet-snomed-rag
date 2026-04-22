@@ -1,0 +1,8 @@
+# 테스트 전용 의존성 (프로덕션 불포함)
+# 설치: pip install -r tests/requirements-dev.txt
+
+# 합성 오디오 생성 (test_stt_wrapper.py 테스트 3번용)
+gtts>=2.5.0
+
+# 테스트 러너
+pytest>=8.0.0

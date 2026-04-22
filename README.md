@@ -8,15 +8,19 @@
 
 수의학 SNOMED CT 온톨로지 기반 하이브리드 RAG 시스템
 
-> 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원
-> **회귀 테스트**: PASS **6/10 → 10/10** · 평균 latency **−14.7%**
+> 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원  
+> **v2.0**: 음성/텍스트 → SOAP 구조화 → SNOMED 자동 태깅 End-to-End 파이프라인  
+> **회귀 테스트**: PASS **6/10 → 10/10** (v1.0) · pytest **85/86 PASS** (v2.0) · Precision **0.938** / Recall **0.737**
 
 ---
 
 ## 목차
 
+- [What's New in v2.0](#whats-new-in-v20-2026-04-22)
 - [프로젝트 소개](#프로젝트-소개)
-- [아키텍처](#아키텍처)
+- [아키텍처 v2.0](#아키텍처-v20)
+- [v2.0 벤치마크](#v20-벤치마크)
+- [아키텍처 v1.0 (RAG 검색)](#아키텍처)
 - [포트폴리오 시각 자료 (Portfolio Visuals)](#포트폴리오-시각-자료-portfolio-visuals)
 - [데이터 소스](#데이터-소스)
 - [빠른 시작](#빠른-시작)
@@ -28,6 +32,117 @@
 - [로드맵](#로드맵)
 - [기여·보안·변경 이력](#기여보안변경-이력)
 - [라이선스](#라이선스)
+
+---
+
+## What's New in v2.0 (2026-04-22)
+
+v1.0의 SNOMED CT 하이브리드 RAG 검색 기반 위에, 임상 발화(음성/텍스트)를 입력받아 SOAP 구조화 및 SNOMED 자동 태깅까지 수행하는 End-to-End 파이프라인을 추가했다.
+
+**주요 추가 기능:**
+
+- End-to-End 파이프라인: 음성/텍스트 → SOAP 구조화 → SNOMED 자동 태깅
+- 임상 발화 필드 추출 (Precision 0.938 / Recall 0.737, 텍스트 모드)
+- Gemini 3.1 Flash Lite Preview 백엔드 (RPD 500, 25× 높은 할당량)
+- 3모델 정량 비교 (2.5 Flash / 2.5 Flash Lite / 3.1 Flash Lite)
+- MRCM 25도메인 64패턴 검증 + 후조합 SCG 빌더
+- 5건 합성 임상 시나리오 + Gold-label 평가 프레임워크
+- Streamlit "Clinical Encoding" 탭 (파일 업로드 → JSONL 다운로드)
+- pytest 86건 회귀 테스트 (85 passed, 1 skipped)
+
+---
+
+## 아키텍처 v2.0
+
+```
+[음성 파일 or 텍스트]
+        |
+  (1) Whisper STT (faster-whisper, 한국어)        ← 음성 입력 시
+        |
+  (2) SOAP 추출 (Gemini 3.1 Flash Lite Preview)
+        도메인 탐지 → 필드 추출 → 검증
+        |
+  (3) SNOMED 자동 태깅 (RAG + MRCM 25도메인)
+        하이브리드 검색 → 후조합 SCG → MRCM 검증
+        |
+[JSONL 출력: SOAP 필드 + SNOMED 코드 태깅 레코드]
+```
+
+v1.0 RAG 파이프라인(한국어 검색 → SNOMED 코드 조회)은 유지되며, v2.0은 그 위에 임상 발화 처리 레이어를 추가한다.
+
+---
+
+## v2.0 벤치마크
+
+### End-to-End 품질 메트릭 (5건 합성 시나리오)
+
+| 메트릭 | 목표 | 텍스트 모드 | 오디오 모드 | 판정 |
+|---|---|---|---|---|
+| 필드 Precision | >=0.800 | **0.938** | **0.826** | 양쪽 PASS |
+| 필드 Recall | >=0.700 | **0.737** | **0.774** | 양쪽 PASS |
+| SNOMED 일치율 (synonym) | >=0.700 | 0.584 | 0.250 | 미달 |
+| Latency p95 | <=60,000ms | **33,368ms** | 60,461ms | 텍스트 PASS / 오디오 461ms 초과 |
+
+### v1.0 → v2.0 개선폭 (텍스트 모드 기준)
+
+| 메트릭 | v2.0 초기 (Day 1) | v2.0 Final | 개선 |
+|---|---|---|---|
+| Precision | 0.43 | **0.938** | +118% |
+| Recall | 0.52 | **0.737** | +42% |
+| SNOMED 일치율 | 0.107 | **0.584** | +446% |
+| Latency p95 | 127,000ms | **33,368ms** | −74% |
+
+> SNOMED 일치율 0.107 → 0.584 개선은 두 가지 근본 원인 해소의 결과다: (1) gold-label field_code 구조 결함 수정 (임상 메모 12건 → 표준 field_code 교체/제거), (2) metrics.py synonym 모드 DB 테이블명 버그(`relationships` → `relationship`) 수정.
+
+### 3모델 비교 (SOAP 추출 백엔드)
+
+| 모델 | Latency | 상태 | 선택 이유 |
+|---|---|---|---|
+| Gemini 2.5 Flash | — | GA, 할당량 초과 (23/20 RPM 차단) | 미선택 |
+| Gemini 2.5 Flash Lite | 3~5s | GA, 10× 빠름 | 대안 (GA 환경 권장) |
+| **Gemini 3.1 Flash Lite Preview** | 18~47s | Preview, **RPD 500** | **채택** |
+
+> 채택 근거: 3.1 Flash Lite의 RPD 500(25× 높은 할당량)이 배치 평가에서 안정적인 실행을 보장한다. 일 100건 이하 프로덕션 환경에서 할당량 제약 없이 속도를 우선한다면 2.5 Flash Lite GA를 권장한다.
+
+### SNOMED 미달 원인 및 v2.1 로드맵
+
+SNOMED 일치율 미달(텍스트 0.584, 오디오 0.250)의 잔존 원인은 RAG 본질적 한계 4건이다:
+
+| 필드 | 문제 | 유형 |
+|---|---|---|
+| OPH_IOP_OD | gold=observable entity / pred=finding. IS-A 거리 없음 | semantic_tag 불일치 |
+| OPH_CORNEA | Post-surgical haze 오매핑. LCA dist=6 | RAG 랭킹 |
+| GP_RECTAL_TEMP | gold=observable entity / pred=procedure. LCA dist=14 | 완전 다른 계층 |
+| OR_LAMENESS_FL_L | SOAP 파이프라인 필드 미추출 → UNMAPPED | 추출 실패 |
+
+v2.1 계획: RAG 랭킹 개선 (BM25 튜닝, semantic_tag 우선순위), MRCM base_concept 직접지정 확대, 실 수의사 녹음 검증.
+
+### Usage (v2.0)
+
+**텍스트 모드**
+
+```bash
+python scripts/evaluate_e2e.py \
+  --input-mode text \
+  --input-dir data/synthetic_scenarios/ \
+  --snomed-mode synonym
+```
+
+**오디오 모드**
+
+```bash
+python scripts/evaluate_e2e.py \
+  --input-mode audio \
+  --input-dir data/synthetic_scenarios/ \
+  --snomed-mode synonym
+```
+
+**Streamlit UI — Clinical Encoding 탭**
+
+```bash
+streamlit run app.py
+# "Clinical Encoding" 탭: 음성/텍스트 업로드 → JSONL 다운로드
+```
 
 ---
 
@@ -370,27 +485,52 @@ vet-snomed-rag/
 ├── docs/
 │   ├── architecture.md                 # 상세 아키텍처 문서
 │   └── screenshots/                    # Streamlit 데모 캡처 (PNG × 6)
-└── tests/                              # (예정)
+├── src/pipeline/                       # v2.0 신규
+│   ├── stt_wrapper.py                  # Whisper STT 래퍼 (faster-whisper)
+│   ├── soap_extractor.py               # SOAP 추출 (Gemini/Claude multi-backend)
+│   ├── snomed_tagger.py                # SNOMED 자동 태깅 + MRCM 검증
+│   └── e2e.py                          # ClinicalEncoder E2E 오케스트레이터
+├── scripts/eval/                       # v2.0 신규
+│   └── metrics.py                      # strict / superset / synonym 평가 모드
+├── scripts/evaluate_e2e.py             # E2E 평가 스크립트
+├── data/synthetic_scenarios/           # 합성 임상 시나리오 5건 + gold-label
+│   └── GOLD_AUDIT.md                   # 역공학 감사 기록 (30건 변경, 0건 역공학)
+├── benchmark/                          # v2.0 벤치마크 리포트
+│   ├── v2_e2e_report_text.md           # E2E 텍스트 모드 결과
+│   ├── v2_e2e_report_audio.md          # E2E 오디오 모드 결과
+│   ├── v2_headline_metrics.md          # 핵심 지표 요약
+│   └── charts/                         # v2.0 차트 (PNG × 6)
+└── tests/                              # 86건 pytest (85 passed, 1 skipped)
 ```
 
 ---
 
 ## 로드맵
 
-- [x] Week 1: 하이브리드 RAG 파이프라인
+- [x] v1.0 (2026-04-20): 하이브리드 RAG 파이프라인
   - [x] ChromaDB 벡터 인덱싱 (366,570 concepts)
   - [x] 하이브리드 검색 엔진 (Vector + SQL + RRF)
   - [x] 한국어→영어 번역 레이어 (사전 + LLM)
   - [x] Claude API / Ollama 이중 LLM 백엔드
   - [x] Streamlit 데모 UI
   - [x] 11-쿼리 회귀 테스트 벤치마크 (6/10 → 10/10)
-- [x] Week 2: Gemini Reformulator + graphify_lite
   - [x] Gemini 2.5 Flash 기반 쿼리 재정식화 (후조합 힌트 포함)
   - [x] 경량 지식 그래프 (graphify_lite) + 회귀 테스트 자동화
-- [ ] Week 3: GraphRAG + Agent 통합
-  - [ ] SNOMED is-a 관계 → NetworkX 그래프
-  - [ ] Graph Traversal + RAG 통합
-  - [ ] 에이전트 시스템 (Orchestrator + Search + Validation)
+- [x] v2.0 (2026-04-22): End-to-End 임상 인코딩 파이프라인
+  - [x] Whisper STT 래퍼 (faster-whisper, 한국어, 3포맷)
+  - [x] SOAP 추출기 (Gemini 3.1 Flash Lite Preview / Claude Haiku+Sonnet)
+  - [x] SNOMED 자동 태깅 + MRCM 25도메인 검증 + 후조합 SCG
+  - [x] ClinicalEncoder E2E 오케스트레이터 (JSONL 출력)
+  - [x] Streamlit "Clinical Encoding" 탭
+  - [x] E2E 평가 프레임워크 (strict / superset / synonym 모드)
+  - [x] 5건 합성 시나리오 + gold-label (역공학 감사 PASS)
+  - [x] 3모델 비교 (2.5 Flash / 2.5 Flash Lite / 3.1 Flash Lite)
+  - [x] pytest 85/86 PASS (v1.0 회귀 포함)
+- [ ] v2.1 (계획): RAG 품질 + 실측 검증
+  - [ ] RAG 랭킹 개선 (BM25 튜닝, semantic_tag 우선순위)
+  - [ ] 실 수의사 녹음 검증 (gTTS 합성 음성 대비)
+  - [ ] 오디오 Latency 최적화 (2.5 Flash Lite GA 전환 검토)
+  - [ ] Claude Opus/Sonnet 백업 백엔드 완성
 
 ---
 

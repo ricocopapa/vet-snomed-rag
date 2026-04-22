@@ -1,0 +1,47 @@
+[
+  {
+    "name": "안과 — 고안압 녹내장",
+    "status": "WARN",
+    "domain_ok": true,
+    "fields_ok": true,
+    "cost_ok": false,
+    "cost_usd": 0.0044925,
+    "latency_ms": 3300.3,
+    "domains": [
+      "OPHTHALMOLOGY",
+      "VITAL_SIGNS"
+    ],
+    "field_codes": [
+      "OPH_IOP_OD",
+      "OPH_IOP_OD",
+      "OPH_IOP_CD",
+      "OPH_IOP_CD"
+    ],
+    "cache_hits": {}
+  },
+  {
+    "name": "내과 — 활력징후",
+    "status": "WARN",
+    "domain_ok": true,
+    "fields_ok": true,
+    "cost_ok": false,
+    "cost_usd": 0.0031881,
+    "latency_ms": 5046.7,
+    "domains": [
+      "VITAL_SIGNS",
+      "TRIAGE"
+    ],
+    "field_codes": [
+      "GP_RECTAL_TEMP_VALUE",
+      "GP_HR_VALUE",
+      "TR_PERFUSION_MM_COLOR",
+      "GP_BW_CHANGE_PCT"
+    ],
+    "cache_hits": {}
+  },
+  {
+    "name": "정형외과 — 파행 + 슬개골 탈구",
+    "status": "FAIL",
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  }
+]

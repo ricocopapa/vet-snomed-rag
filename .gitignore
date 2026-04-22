@@ -32,8 +32,15 @@ ENV/
 *.swo
 
 # ── Project Data (large, regeneratable) ──────────────
-data/
-!data/README.md
+# NOTE: git cannot un-ignore children of an ignored directory.
+# Strategy: ignore data/ subdirectories selectively, not the parent.
+# Public items: data/synthetic_scenarios/, data/mrcm_rules_v1.json, data/field_schema_v26.json
+# Private items (patient DB, chroma index, audio): explicitly blocked below.
+data/chroma_db/
+data/synthetic_scenarios/*.mp3
+data/*.db
+data/*.sqlite
+data/*.sqlite3
 
 # ── SNOMED CT-Derived Content (license-restricted redistribution) ─
 # Excluded from public repo due to SNOMED International licensing constraints.
