@@ -42,6 +42,18 @@ data/*.db
 data/*.sqlite
 data/*.sqlite3
 
+# ── Private data symlinks (point to local personal workspace) ────
+# These files are symlinks to ~/claude-cowork/05_Output_Workspace/ on the maintainer's machine.
+# They expose private paths and reference patient-derived mappings not licensed for redistribution.
+data/assessment_snomed_mapping.json
+data/plan_snomed_mapping.json
+data/snomed_mapping_v2.json
+data/snomed_post_coord_rules.json
+data/index_stats.json
+
+# ── Personal tooling (contains hardcoded local paths) ────────────
+scripts/dump_field_schema.py
+
 # ── SNOMED CT-Derived Content (license-restricted redistribution) ─
 # Excluded from public repo due to SNOMED International licensing constraints.
 # End users must obtain SNOMED CT under their national affiliate licence,
@@ -51,6 +63,7 @@ docs/snomed_graph_v2/
 
 # ── Cache / Temp ─────────────────────────────────────
 graphify_out/cache.json
+graphify-out/
 *.log
 *.tmp
 tmp/

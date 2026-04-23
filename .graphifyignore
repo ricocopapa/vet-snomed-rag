@@ -1,0 +1,26 @@
+# Graphify 스캔 제외 목록 — 2026-04-21
+# 규칙: .gitignore 스타일. 주석(#)·빈줄 허용.
+
+# 1. 사용자 작성 출력물 (vis.js 번들 포함 → God 노드 노이즈 원인)
+graphify_out/
+graphify-out/
+
+# 2. SNOMED 파생 MD 문서 (10,456개, .gitignore에도 제외)
+docs/snomed_graph/
+docs/snomed_graph_v2/
+
+# 3. 임베드된 JS 번들을 가진 HTML (Leiden 클러스터링 오염 방지)
+*.html
+
+# 4. 데이터 파일 (RF2 재배포 금지 + 코드 아키텍처와 무관)
+data/
+
+# 5. 잠재적 캐시 (기본 제외 외 보강)
+.cache/
+**/__pycache__/
+
+# 6. 벤더 라이브러리 (minified JS — 단문자 변수로 Leiden 오염)
+lib/
+**/*.min.js
+**/*.min.css
+*.bundle.js
