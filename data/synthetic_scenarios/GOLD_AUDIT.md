@@ -228,3 +228,34 @@ author: Gold-label Redesign (Anti-Reverse-Engineering Protocol)
 |---|---|---|
 | snomed=0건 시나리오 허용 여부 | `if not snomed: raise ValueError(...)` — 0건 시 파싱 실패 | `if snomed_table_match:` (선택적 처리) + 0건 허용 주석 추가 |
 | 수정 근거 | S05 SNOMED 테이블이 전수 DIFFERENT로 행 제거 → 헤더만 남은 테이블 파싱 실패 | snomed=0인 시나리오는 전수 DIFFERENT 판정이 정상. 평가 도구 설계 부합. |
+
+---
+
+## §7 v2.1 Post-hoc: Gold Label 불일치 (Known Issue)
+
+### §7.1 S03 `OR_LAMENESS_FL_L` 부위 불일치 (2026-04-23 발견)
+
+**상황**: v2.1 최종 E2E 벤치마크(9건 gold 기준)에서 `OR_LAMENESS_FL_L` 1건이 `UNMAPPED` 판정. 에이전트 보고: "Gemini가 SOAP 추출 단계에서 해당 field_code를 추출하지 못함."
+
+**근본 원인 실측**:
+
+| 출처 | 부위 표기 |
+|---|---|
+| S03 scenario 원문 (`scenario_3_orthopedics.md` raw_text) | **"좌측 뒷다리 파행 등급은 2점"** |
+| Gold label field_code | `OR_LAMENESS_FL_L` (`FL` = **F**ore-**L**eft = **앞다리** 좌측) |
+| Gemini 추출 결과 | 원문에 충실하여 "뒷다리" 관련 field 추출 (=`FL_L`과 불일치 → UNMAPPED) |
+
+**판정**: **Gold label 오류**. 원문은 "뒷다리"인데 gold가 "앞다리(FL)" field_code를 요구. LLM이 원문을 정확히 읽은 것이 오히려 gold와의 mismatch 유발.
+
+**v2.1 대응 (본 감사 기록)**:
+- Gold 수정하지 않음 — 1건 수정 시 과적합 의심 + 재측정 순환 리스크
+- 현 상태를 `known issue`로 공개 기록
+- `SNOMED Match 0.889 (8/9)`는 "gold labeling 오류 1건 포함"이라는 각주와 함께 정직 공개
+
+**v2.2 로드맵 (gold v3 재설계 시)**:
+- S03 field_code를 `OR_LAMENESS_HL_L` (Hind-Left) 또는 `OR_GAIT_LAMENESS_REAR_L`로 교체 검토
+- 다중 수의사 reviewer 간 Cohen's κ 측정 도입
+- 단일 평가자 gold의 한계 투명 기록
+
+**학습 서사** (포트폴리오 자산):
+> "9건 gold 중 1건에서 gold label과 원문 텍스트 간 부위 표기 불일치를 발견. 이는 단일 평가자 기반 gold의 구조적 한계이며, 다중 평가자 합의 기반 gold 설계가 실무 벤치마크에 필수임을 보여주는 케이스."
