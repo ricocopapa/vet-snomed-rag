@@ -23,6 +23,7 @@
 - [아키텍처 v1.0 (RAG 검색)](#아키텍처)
 - [포트폴리오 시각 자료 (Portfolio Visuals)](#포트폴리오-시각-자료-portfolio-visuals)
 - [데이터 소스](#데이터-소스)
+- [Quick Start with Docker](#quick-start-with-docker)
 - [빠른 시작](#빠른-시작)
 - [데모](#데모)
 - [벤치마크 — Gemini Reformulator 회귀 테스트](#벤치마크--gemini-reformulator-회귀-테스트)
@@ -268,6 +269,78 @@ Step 3: LLM Generation
 | Vector Index | 366,570 | ChromaDB 임상 핵심 개념 벡터 |
 | Post-coordination | 877 expressions | A-axis 346 + P-axis 495 + O-axis 36 |
 | 번역 사전 | 160+ terms | 한국어→영어 수의학 용어 매핑 |
+
+---
+
+## Quick Start with Docker
+
+Docker를 사용하면 Python 환경 세팅 없이 **1줄로** 앱을 실행할 수 있다.
+
+### 사전 요구사항
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) 설치
+- SNOMED CT 데이터 (라이선스 필요 — 아래 참조)
+- API 키 (Gemini SOAP 추출기 필수, Claude 선택)
+
+### 1단계: 환경변수 설정
+
+```bash
+cp .env.example .env
+# .env 편집: GOOGLE_API_KEY, ANTHROPIC_API_KEY 입력
+```
+
+### 2단계: 데이터 준비
+
+SNOMED CT 데이터는 라이선스 제한으로 이미지에 미포함. 로컬 빌드 후 아래 경로에 배치해야 한다.
+
+```bash
+# SNOMED DB (SQLite, ~1.1 GB) → ./data/snomed_ct_vet.db
+# ChromaDB 벡터 인덱스 (1.1 GB) → ./data/chroma_db/
+
+# 처음 구축하는 경우: 로컬 Python 환경으로 먼저 인덱싱 실행
+bash setup_env.sh
+source .venv/bin/activate
+python src/indexing/vectorize_snomed.py
+```
+
+### 3단계: 실행 (1줄)
+
+```bash
+docker-compose up
+# → http://localhost:8501
+```
+
+### 포트 및 환경변수 안내
+
+| 항목 | 값 | 설명 |
+|------|-----|------|
+| 포트 | `8501` | Streamlit UI (호스트:8501 → 컨테이너:8501) |
+| `GOOGLE_API_KEY` | `.env` 필수 | Gemini SOAP 추출기 (Clinical Encoding 탭) |
+| `ANTHROPIC_API_KEY` | `.env` 선택 | Claude LLM 백엔드 (Search 탭에서 선택 가능) |
+
+### 이미지 정보
+
+```bash
+# 이미지 크기: ~3.5 GB (PyTorch + chromadb + sentence-transformers 포함)
+# 기본 LLM 백엔드: ollama (사이드바에서 전환 가능)
+# 오디오 처리: ffmpeg 내장 (m4a/wav/mp3/mp4 지원)
+```
+
+### 개별 명령어
+
+```bash
+# 빌드만 (캐시 활용)
+docker-compose build
+
+# 백그라운드 실행
+docker-compose up -d
+
+# 컨테이너 내에서 인덱싱 실행
+docker-compose run --rm app python src/indexing/vectorize_snomed.py
+
+# 중지
+docker-compose down
+```
 
 ---
 

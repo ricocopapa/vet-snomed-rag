@@ -1,0 +1,55 @@
+# ============================================================
+# vet-snomed-rag v2.0 — docker-compose.yml
+#
+# [빠른 시작]
+#   1. cp .env.example .env && vi .env  (API 키 입력)
+#   2. docker-compose up
+#   3. http://localhost:8501
+#
+# [데이터 볼륨 — 사용 전 준비 필요]
+#   SNOMED CT 데이터는 라이선스 제한으로 이미지에 미포함.
+#   아래 두 볼륨을 호스트 경로로 마운트해 준비한다.
+#
+#   방법 A — 기존 로컬 DB 사용 (권장):
+#     docker-compose.yml의 volumes: 섹션에서
+#     ./data/snomed_ct_vet.db 와 ./data/chroma_db/ 를
+#     실제 호스트 경로로 수정하거나, 로컬 파일을 ./data/ 에 배치.
+#
+#   방법 B — 컨테이너 내 새로 빌드:
+#     docker-compose run --rm app python src/indexing/vectorize_snomed.py
+# ============================================================
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: vet-snomed-rag:v2.0
+    container_name: vet-snomed-rag
+    ports:
+      - "8501:8501"
+
+    # 환경변수: .env 파일에서 주입 (이미지에 하드코딩 금지)
+    env_file:
+      - .env
+
+    # 데이터 볼륨 마운트
+    # - SNOMED DB: 호스트의 ./data/snomed_ct_vet.db → 컨테이너 /app/data/snomed_ct_vet.db
+    # - ChromaDB : 호스트의 ./data/chroma_db/       → 컨테이너 /app/data/chroma_db/
+    # 두 경로 모두 SNOMED CT 라이선스 제약으로 이미지 미포함 — 호스트에서 생성 후 마운트.
+    volumes:
+      - ./data/snomed_ct_vet.db:/app/data/snomed_ct_vet.db:ro
+      - ./data/chroma_db:/app/data/chroma_db
+
+    # 재시작 정책
+    restart: unless-stopped
+
+    # 헬스체크 (Dockerfile HEALTHCHECK와 동기화)
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

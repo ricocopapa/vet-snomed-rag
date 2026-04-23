@@ -1,0 +1,66 @@
+# ============================================================
+# .dockerignore — vet-snomed-rag
+# 이미지 크기 최소화 + 민감 정보 누출 방지
+# ============================================================
+
+# ── 민감 정보 ─────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ── 가상환경 (이미지 내 재설치) ──────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── Python 캐시 ───────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# ── 대용량 데이터 (볼륨 마운트로 제공) ──────────────────
+data/chroma_db/
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/synthetic_scenarios/*.mp3
+
+# ── 벤치마크 원본 데이터 (이미지 불필요) ─────────────────
+benchmark/raw/
+benchmark/*.jsonl
+
+# ── 개발/문서/테스트 (운영 이미지 불필요) ────────────────
+.git/
+.github/
+docs/
+tests/
+benchmark/
+
+# ── IDE / OS ──────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+
+# ── 로그·임시 파일 ────────────────────────────────────────
+*.log
+*.tmp
+tmp/
+
+# ── graphify 출력 (포트폴리오 이미지 — 용량 큼) ──────────
+graphify_out/cache.json
+
+# ── Docker 파일 자체 (컨텍스트에서 제외 불필요하지만 명시) ─
+.dockerignore
