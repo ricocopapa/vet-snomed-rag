@@ -904,6 +904,24 @@
         ],
         "mrcm_forbidden_attributes": ["246075003", "405813007"],
         "mrcm_forbidden_reason": "finding에 Causative agent / Procedure site 부착 불가"
+      },
+      "GI_VOMIT_FREQ": {
+        "label": "구토 빈도 (Vomiting Frequency)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "422400008",
+        "base_concept_term": "Vomiting",
+        "mrcm_direct_mapping": true,
+        "mrcm_direct_mapping_note": "[전략 C-2: 2026-04-23] GI_VOMIT_FREQ — RAG가 안정적으로 21609003(Gastric vomitus)으로 오매핑(3/3 재현). gold concept_id 422400008(Vomiting, disorder) INT DB 실존 확인. *_VOMIT_*_CD 패턴은 _FREQ 접미사와 매칭 불가(_CD 없음) — 단독 패턴 직접 지정으로 해소. 적용 범위: GI_VOMIT_FREQ 단독 (다른 GI 필드 영향 없음).",
+        "allowed_attributes": [
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003", "405813007"],
+        "mrcm_forbidden_reason": "disorder에 Causative agent / Procedure site 후조합 시 임상 의미 왜곡 위험"
       }
     }
   },
