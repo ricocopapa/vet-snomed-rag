@@ -20,6 +20,24 @@
     "_description": "안과 (Ophthalmology) 도메인 — E30",
     "_domain_id": "OPHTHALMOLOGY",
     "fields": {
+      "*_CORNEA_CLARITY_*": {
+        "label": "각막 투명도 (Corneal Clarity / Corneal Edema)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "27194006",
+        "base_concept_term": "Corneal edema",
+        "mrcm_direct_mapping": true,
+        "mrcm_direct_mapping_note": "[전략 C-1: 2026-04-23] OPH_CORNEA_CLARITY_OD_CD — RAG Top-20에 27194006 미포함 (ChromaDB 벡터 공간에서 'cornea clarity' → Post-surgical corneal haze 오매핑). MRCM 직접지정으로 RAG 검색 생략, gold concept_id 27194006 강제 채택.",
+        "allowed_attributes": [
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "disorder에 Causative agent 후조합 시 임상 의미 왜곡 위험 (각막 부종 원인은 별도 진단)"
+      },
       "*_IOP_*": {
         "label": "안압 수치 (Intraocular Pressure)",
         "expected_semantic_tag": "observable entity",
@@ -266,6 +284,30 @@
     "_description": "정형외과 (Orthopedics) 도메인",
     "_domain_id": "ORTHOPEDICS",
     "fields": {
+      "*_PATELLAR_LUX*": {
+        "label": "슬개골 탈구 (Patellar Luxation)",
+        "expected_semantic_tag": "disorder",
+        "base_concept_id": "311741000009107",
+        "base_concept_term": "Medial luxation of patella",
+        "mrcm_direct_mapping": true,
+        "mrcm_direct_mapping_note": "[전략 C-1: 2026-04-23] OR_PATELLAR_LUX_L (gold) ≡ OR_PATELLAR_LUXATION_L (pred E2E 추출). field_code 불일치로 metrics.py 매핑 실패. *_PATELLAR_LUX* 패턴으로 두 variant 모두 포함 — fnmatch 검증 완료. base_concept_id 311741000009107 VET DB 실존 확인.",
+        "allowed_attributes": [
+          {
+            "attribute_id": "272741003",
+            "attribute_term": "Laterality",
+            "value_concept_id_examples": ["7771000", "24028007"],
+            "value_examples": ["Left", "Right"]
+          },
+          {
+            "attribute_id": "246112005",
+            "attribute_term": "Severity",
+            "value_concept_id_examples": ["255604002", "6736007", "24484000"],
+            "value_examples": ["Mild", "Moderate", "Severe"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "disorder에 Causative agent 후조합 시 임상 의미 왜곡 위험"
+      },
       "*_LAMENESS_*": {
         "label": "파행 (Lameness)",
         "expected_semantic_tag": "finding",
