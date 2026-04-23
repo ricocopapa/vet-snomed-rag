@@ -224,7 +224,12 @@ with tab_encoding:
     with enc_col1:
         input_mode = st.radio(
             "입력 방식",
-            options=["텍스트 입력", "오디오 파일 업로드", "PDF 업로드 (v2.2)"],
+            options=[
+                "텍스트 입력",
+                "오디오 파일 업로드",
+                "PDF 업로드 (v2.2)",
+                "이미지 업로드 (v2.2 Vision)",
+            ],
             index=0,
             horizontal=True,
         )
@@ -260,13 +265,13 @@ with tab_encoding:
                 tmp.write(uploaded_file.read())
                 enc_audio_path = tmp.name
             st.success(f"업로드 완료: {uploaded_file.name}")
-    else:
-        # v2.2 Stage 1 — 텍스트 레이어 PDF 업로드
+    elif input_mode == "PDF 업로드 (v2.2)":
+        # v2.2 Stage 1+2 — 텍스트 레이어 PDF + OCR fallback
         uploaded_pdf = st.file_uploader(
-            "진료 기록 PDF 업로드 (텍스트 레이어 필요)",
+            "진료 기록 PDF 업로드 (텍스트 레이어 또는 스캔 자동 감지)",
             type=["pdf"],
             key="enc_pdf",
-            help="v2.2 Stage 1: 텍스트 레이어가 포함된 PDF 만 지원. 스캔 PDF 는 Stage 2(OCR)에서 지원 예정.",
+            help="v2.2 Stage 1+2: text_layer 우선, 없으면 tesseract OCR(kor+eng) fallback.",
         )
         if uploaded_pdf is not None:
             import tempfile
@@ -275,22 +280,49 @@ with tab_encoding:
                 tmp.write(uploaded_pdf.read())
                 pdf_tmp_path = tmp.name
             try:
-                pdf_info = read_pdf(pdf_tmp_path)
-                if not pdf_info["has_text_layer"]:
-                    st.error(
-                        f"텍스트 레이어 없음 ({uploaded_pdf.name}) — 스캔 PDF 는 Stage 2(OCR) 에서 지원 예정."
-                    )
-                else:
-                    enc_text_input = pdf_info["text"]
-                    st.success(
-                        f"PDF 파싱 완료: {uploaded_pdf.name} "
-                        f"(pages={pdf_info['pages']}, chars={len(enc_text_input)}, "
-                        f"source={pdf_info['source']})"
-                    )
-                    with st.expander("📄 추출된 텍스트 미리보기", expanded=False):
-                        st.code(enc_text_input, language="text")
+                with st.spinner("PDF 분석 중... (text_layer 우선, 필요시 OCR)"):
+                    pdf_info = read_pdf(pdf_tmp_path, enable_ocr=True)
+                enc_text_input = pdf_info["text"]
+                st.success(
+                    f"PDF 파싱 완료: {uploaded_pdf.name} "
+                    f"(pages={pdf_info['pages']}, chars={len(enc_text_input)}, "
+                    f"source={pdf_info['source']})"
+                )
+                with st.expander("📄 추출된 텍스트 미리보기", expanded=False):
+                    st.code(enc_text_input, language="text")
             except Exception as e:
                 st.error(f"PDF 파싱 실패: {e}")
+
+    else:
+        # v2.2 Stage 3 — 이미지 업로드 (Gemini Vision)
+        uploaded_image = st.file_uploader(
+            "진료 기록 이미지 업로드 (jpg / png / jpeg / webp)",
+            type=["jpg", "jpeg", "png", "webp"],
+            key="enc_image",
+            help="v2.2 Stage 3: Gemini 2.5 Flash Vision 으로 이미지 → 진료 텍스트 추출.",
+        )
+        if uploaded_image is not None:
+            import tempfile
+            from src.pipeline.vision_reader import read_image
+            suffix = Path(uploaded_image.name).suffix or ".png"
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+                tmp.write(uploaded_image.read())
+                img_tmp_path = tmp.name
+            st.image(img_tmp_path, caption=uploaded_image.name, width=300)
+            try:
+                with st.spinner("Gemini Vision 으로 이미지 분석 중..."):
+                    vision_info = read_image(img_tmp_path, dry_run=enc_dry_run)
+                enc_text_input = vision_info["text"]
+                st.success(
+                    f"Vision 추출 완료: {uploaded_image.name} "
+                    f"(chars={len(enc_text_input)}, model={vision_info['model']}, "
+                    f"latency={vision_info['latency_ms']}ms, "
+                    f"cost=${vision_info['cost_usd']:.6f})"
+                )
+                with st.expander("🖼️ Vision 추출 텍스트 미리보기", expanded=False):
+                    st.code(enc_text_input, language="text")
+            except Exception as e:
+                st.error(f"Vision 추출 실패: {e}")
 
     # ── Encode 버튼 ────────────────────────────────────────────────────
     encode_clicked = st.button("⚡ Encode", type="primary", use_container_width=False)
@@ -302,7 +334,9 @@ with tab_encoding:
         elif input_mode == "오디오 파일 업로드" and enc_audio_path is None:
             st.warning("오디오 파일을 업로드해주세요.")
         elif input_mode == "PDF 업로드 (v2.2)" and not enc_text_input.strip():
-            st.warning("PDF 를 업로드해주세요. (텍스트 레이어 필요)")
+            st.warning("PDF 를 업로드해주세요. (텍스트 레이어 또는 스캔 자동 감지)")
+        elif input_mode == "이미지 업로드 (v2.2 Vision)" and not enc_text_input.strip():
+            st.warning("이미지를 업로드해주세요.")
         else:
             # ClinicalEncoder 로드
             try:

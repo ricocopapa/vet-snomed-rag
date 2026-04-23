@@ -1,0 +1,120 @@
+{
+  "results": [
+    {
+      "mode": "text_layer",
+      "file": "hyangnam_anon_01_ophthalmology.pdf",
+      "expected_domain": "OPHTHALMOLOGY",
+      "detected_domains": [
+        "OPHTHALMOLOGY",
+        "NURSING",
+        "WOUND_TRAUMA"
+      ],
+      "domain_hit": true,
+      "text_chars": 1205,
+      "read_latency_ms": 79.1,
+      "encode_latency_ms": 32085.2,
+      "total_latency_ms": 32164.3,
+      "fields_count": 2,
+      "snomed_mapped": 2,
+      "soap_sections_filled": 2,
+      "vision_cost_usd": null,
+      "encode_error": null
+    },
+    {
+      "mode": "text_layer",
+      "file": "hyangnam_anon_03_gastrointestinal.pdf",
+      "expected_domain": "GASTROINTESTINAL",
+      "detected_domains": [
+        "GASTROINTESTINAL",
+        "NURSING"
+      ],
+      "domain_hit": true,
+      "text_chars": 1155,
+      "read_latency_ms": 48.5,
+      "encode_latency_ms": 41020.4,
+      "total_latency_ms": 41068.9,
+      "fields_count": 2,
+      "snomed_mapped": 2,
+      "soap_sections_filled": 2,
+      "vision_cost_usd": null,
+      "encode_error": null
+    },
+    {
+      "mode": "ocr",
+      "file": "scan_01_ophthalmology.pdf",
+      "expected_domain": "OPHTHALMOLOGY",
+      "detected_domains": [
+        "OPHTHALMOLOGY",
+        "NURSING"
+      ],
+      "domain_hit": true,
+      "text_chars": 2231,
+      "read_latency_ms": 4485.1,
+      "encode_latency_ms": 23938.8,
+      "total_latency_ms": 28423.9,
+      "fields_count": 4,
+      "snomed_mapped": 4,
+      "soap_sections_filled": 2,
+      "vision_cost_usd": null,
+      "encode_error": null
+    },
+    {
+      "mode": "ocr",
+      "file": "scan_03_gastrointestinal.pdf",
+      "expected_domain": "GASTROINTESTINAL",
+      "detected_domains": [
+        "GASTROINTESTINAL",
+        "TRIAGE",
+        "NURSING"
+      ],
+      "domain_hit": true,
+      "text_chars": 2385,
+      "read_latency_ms": 4127.4,
+      "encode_latency_ms": 34597.2,
+      "total_latency_ms": 38724.6,
+      "fields_count": 6,
+      "snomed_mapped": 6,
+      "soap_sections_filled": 2,
+      "vision_cost_usd": null,
+      "encode_error": null
+    },
+    {
+      "mode": "vision",
+      "file": "image_01_ophthalmology.png",
+      "expected_domain": "OPHTHALMOLOGY",
+      "detected_domains": [
+        "OPHTHALMOLOGY",
+        "WOUND_TRAUMA"
+      ],
+      "domain_hit": true,
+      "text_chars": 731,
+      "read_latency_ms": 8584.6,
+      "encode_latency_ms": 23742.4,
+      "total_latency_ms": 32326.9,
+      "fields_count": 4,
+      "snomed_mapped": 4,
+      "soap_sections_filled": 2,
+      "vision_cost_usd": 0.0012146,
+      "encode_error": null
+    },
+    {
+      "mode": "vision",
+      "file": "image_03_gastrointestinal.png",
+      "expected_domain": "GASTROINTESTINAL",
+      "detected_domains": [
+        "GASTROINTESTINAL",
+        "NURSING"
+      ],
+      "domain_hit": true,
+      "text_chars": 932,
+      "read_latency_ms": 11437.2,
+      "encode_latency_ms": 33708.4,
+      "total_latency_ms": 45145.6,
+      "fields_count": 6,
+      "snomed_mapped": 6,
+      "soap_sections_filled": 2,
+      "vision_cost_usd": 0.0014896,
+      "encode_error": null
+    }
+  ]
+}
