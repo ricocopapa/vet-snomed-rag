@@ -38,6 +38,8 @@ from scripts.eval.metrics import (
     aggregate_metrics,
     compute_scenario_metrics,
     _load_valid_field_codes,
+    normalize_field_code,
+    FIELD_CODE_ALIASES,
 )
 
 
@@ -442,3 +444,53 @@ def test_field_precision_recall_superset_invalid_mode():
     """잘못된 mode 입력 시 ValueError 발생 확인."""
     with pytest.raises(ValueError, match="mode는"):
         field_precision_recall([], [], mode="loose")
+
+
+# ─── Test 16: normalize_field_code — OR_PATELLAR alias 정규화 ─────────────────
+# [v2.1 버그 수정 2026-04-23] OR_PATELLAR_LUX_L(gold) ≡ OR_PATELLAR_LUXATION_L(E2E)
+# metrics.py field_code 문자열 일치 버그: E2E 추출 변형이 UNMAPPED으로 처리되던 문제
+
+def test_normalize_field_code_or_patellar_alias():
+    """OR_PATELLAR_LUXATION_L(E2E 변형)이 OR_PATELLAR_LUX_L(gold canonical)로 정규화됨."""
+    assert normalize_field_code("OR_PATELLAR_LUXATION_L") == "OR_PATELLAR_LUX_L"
+
+
+def test_normalize_field_code_no_alias():
+    """alias 없는 field_code는 원본 그대로 반환됨."""
+    assert normalize_field_code("GI_VOMIT_FREQ") == "GI_VOMIT_FREQ"
+    assert normalize_field_code("OPH_IOP_OD") == "OPH_IOP_OD"
+    assert normalize_field_code("OR_PATELLAR_LUX_L") == "OR_PATELLAR_LUX_L"
+
+
+def test_normalize_field_code_empty():
+    """빈 문자열 입력 시 빈 문자열 반환."""
+    assert normalize_field_code("") == ""
+
+
+def test_snomed_match_rate_or_patellar_alias():
+    """OR_PATELLAR_LUX_L(gold) vs OR_PATELLAR_LUXATION_L(pred E2E) — alias 정규화로 PASS.
+
+    버그 재현:
+      gold field_code    = "OR_PATELLAR_LUX_L"
+      pred field_code    = "OR_PATELLAR_LUXATION_L"  (E2E 파이프라인 추출 변형)
+      concept_id 동일    = "311741000009107"
+
+    수정 전: pred_map 키가 "OR_PATELLAR_LUXATION_L" → gold_map 키 "OR_PATELLAR_LUX_L" 미매칭 → UNMAPPED
+    수정 후: normalize_field_code("OR_PATELLAR_LUXATION_L") = "OR_PATELLAR_LUX_L" → 매칭 PASS
+    """
+    gold_tags = [
+        {"field_code": "OR_PATELLAR_LUX_L", "concept_id": "311741000009107"},
+    ]
+    pred_tags_e2e = [
+        {"field_code": "OR_PATELLAR_LUXATION_L", "concept_id": "311741000009107"},  # E2E 변형
+    ]
+
+    result = snomed_match_rate(pred_tags_e2e, gold_tags, mode="exact")
+
+    assert result["match_count"] == 1, (
+        f"OR_PATELLAR alias 정규화 실패: match_count={result['match_count']}, "
+        f"unmatched={result['unmatched']}"
+    )
+    assert result["total"] == 1
+    assert result["rate"] == pytest.approx(1.0, abs=0.001)
+    assert len(result["unmatched"]) == 0

@@ -868,5 +868,25 @@
     "tokens_out": 63,
     "cost": 0.000261,
     "latency_ms": 18022
+  },
+  "fd637e878fe92caffdeea5897b2a6e592a1d8e2c49cf4abffebf4e80e53f61d3": {
+    "reformulated": "feline panleukopenia",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Feline panleukopenia is a species-specific SNOMED CT concept and is preserved as-is.",
+    "tokens_in": 668,
+    "tokens_out": 68,
+    "cost": 0.000269,
+    "latency_ms": 12891
+  },
+  "91f0320049bb5faf408b2a683a544fe59eeabf3c2b189ffe11eb33619fcd4073": {
+    "reformulated": "medial patellar luxation",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The query refers to medial patellar luxation, a standard clinical condition in veterinary medicine.",
+    "tokens_in": 666,
+    "tokens_out": 64,
+    "cost": 0.0002625,
+    "latency_ms": 21339
   }
 }
