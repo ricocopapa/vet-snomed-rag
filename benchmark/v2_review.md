@@ -121,10 +121,12 @@ Latency는 dry_run에서도 측정 가능한 항목이므로 PASS 인정.
 
 ### §4.1 .env 실키 확인 (CRITICAL)
 
-`.env` 파일 직접 읽기 결과:
+> **[Post-hoc note 2026-04-23]** 본 감사 보고서는 원래 `.env` 실키를 **원본 그대로 인용**하여 작성되었고, v2.0 릴리즈(`dda6bca`) 시 GitHub public repo에 함께 push되어 **2차 유출 사고**가 발생했다. Google Secret Scanner가 즉시 감지하여 해당 키를 자동 revoke 처리. 발견 즉시 키 재발급 + 본 문서 내 키 값 마스킹 + git history filter-repo 조치 완료. 재발 방지를 위해 향후 Reviewer 에이전트 프롬프트에 "secret 값 인용 시 `AIza...[REDACTED-N자]` 형식 필수" 규칙을 명시한다.
+
+`.env` 파일 직접 읽기 결과 (사후 마스킹):
 
 ```
-GOOGLE_API_KEY=AIza...[REDACTED-2026-04-23]
+GOOGLE_API_KEY=AIza...[REDACTED 2026-04-23 보안 사고 대응]
 ANTHROPIC_API_KEY=  (빈 값)
 ```
 
