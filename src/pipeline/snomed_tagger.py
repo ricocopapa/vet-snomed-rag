@@ -59,6 +59,33 @@ DOMAIN_TAG_WHITELIST: dict[str, list[str]] = {
     ],
 }
 
+# ─── field_code suffix → semantic_tag 우선순위 (전략 B: semantic_tag 소프트 필터) ──
+# [수정 사유: 2026-04-23] 전략 B — BGE Reranker 활성화 + semantic_tag priority 가중치.
+# rerank=True 경로에서 reranker 점수에 semantic_tag 일치 보너스를 부여한다.
+# 설계서 §2.2 §전략 B 구현 변경 지점 준수.
+FIELD_CODE_SUFFIX_TAG_PRIORITY: dict[str, list[str]] = {
+    # 수치·측정값 필드: observable entity 우선
+    "_VALUE": ["observable entity", "finding"],
+    "_VAL": ["observable entity", "finding"],
+    "_OD": ["observable entity", "finding"],       # Oculus Dexter
+    "_OS": ["observable entity", "finding"],       # Oculus Sinister
+    "_OU": ["observable entity", "finding"],       # Oculus Uterque
+    # 코드·상태 필드: finding/disorder 우선
+    "_CD": ["finding", "disorder", "observable entity"],
+    "_STATUS": ["finding", "disorder"],
+    "_GRADE": ["finding", "disorder", "qualifier value"],
+    # 시술·처치 필드: procedure 우선
+    "_PROC": ["procedure"],
+    "_TX": ["procedure", "regime/therapy"],
+    # 진단 필드: disorder/finding 우선
+    "_DX": ["disorder", "finding"],
+    "_DIAG": ["disorder", "finding"],
+    # 행동·빈도 필드: finding 우선
+    "_FREQ": ["finding", "observable entity"],
+    "_BEHAVIOR": ["finding"],
+    "_NM": ["finding", "disorder"],
+}
+
 
 def _get_tag_whitelist(domain: str) -> list[str]:
     """도메인 코드로 허용 semantic_tag 목록을 반환한다."""
@@ -67,6 +94,20 @@ def _get_tag_whitelist(domain: str) -> list[str]:
         if key in domain_upper:
             return DOMAIN_TAG_WHITELIST[key]
     return DOMAIN_TAG_WHITELIST["DEFAULT"]
+
+
+def _get_tag_priority(field_code: str) -> list[str]:
+    """field_code suffix 기반 semantic_tag 우선순위 목록을 반환한다.
+
+    전략 B semantic_tag 소프트 필터: rerank=True 경로에서 사용.
+    우선순위 태그에 일치하는 후보에 보너스 점수를 부여한다.
+    반환값이 비어있으면 우선순위 미적용.
+    """
+    field_upper = field_code.upper()
+    for suffix, priority in FIELD_CODE_SUFFIX_TAG_PRIORITY.items():
+        if field_upper.endswith(suffix):
+            return priority
+    return []
 
 
 # ─── MRCM 규칙 로더 ──────────────────────────────────────────────────
@@ -110,18 +151,22 @@ class SNOMEDTagger:
         rag_pipeline=None,
         sqlite_path: Path = DB_PATH,
         mrcm_rules_path: Path = MRCM_RULES_PATH,
+        enable_rerank: bool = False,
     ):
         """
         Args:
             rag_pipeline: v1.0 SNOMEDRagPipeline 인스턴스 (None이면 검색 비활성).
             sqlite_path:  SNOMED DB 경로 (RF2 실존 검증용).
             mrcm_rules_path: MRCM 규칙 JSON 경로.
+            enable_rerank: True면 Step 2 RAG fallback에서 BGEReranker 활성화 +
+                           semantic_tag priority 가중치 적용 (전략 B, 기본 False).
         """
         self.rag = rag_pipeline
         self.sqlite_path = sqlite_path
         self.mrcm_rules = _load_mrcm_rules(mrcm_rules_path)
         self._db_conn: Optional[sqlite3.Connection] = None
-        print(f"[SNOMEDTagger] 초기화 완료 | DB: {sqlite_path.name} | MRCM 도메인: {self._count_mrcm_domains()}개")
+        self._enable_rerank = enable_rerank
+        print(f"[SNOMEDTagger] 초기화 완료 | DB: {sqlite_path.name} | MRCM 도메인: {self._count_mrcm_domains()}개 | rerank={'ON' if enable_rerank else 'OFF'}")
 
     def _count_mrcm_domains(self) -> int:
         return sum(1 for k in self.mrcm_rules if not k.startswith("_"))
@@ -303,28 +348,70 @@ class SNOMEDTagger:
                     print(f"  [MRCM 직접지정] {field_code} → {cid} |{base_concept_term}| ({base_semantic_tag})")
 
         # ── Step 2: MRCM 규칙 없거나 실패 시 RAG Top-1 검색 ───────────
+        # [수정 사유: 2026-04-23] 전략 B — enable_rerank=True 시 BGEReranker 경로 분기.
+        # rerank=True: Top-20 후보 → CrossEncoder 재정렬 → semantic_tag priority 보너스 적용.
+        # rerank=False: 기존 v1.0 경로 완전 동일 유지.
         if not base_concept_id and self.rag is not None:
             # field_code에서 검색 쿼리 파생 (언더스코어 → 공백, 접미사 제거)
             query = self._derive_query_from_field_code(field_code)
             try:
-                rag_result = self.rag.query(query, top_k=5)
-                sr_list = rag_result.get("search_results", [])
-                for sr in sr_list:
-                    # semantic_tag 화이트리스트 필터 (피드백 feedback_keyword_mapping_danger)
-                    if sr.semantic_tag not in tag_whitelist:
-                        continue
-                    # RF2 DB 실존 검증 (피드백 feedback_snomed_source_validation)
-                    if not self.validate_concept_exists(sr.concept_id):
-                        continue
-                    base_concept_id = sr.concept_id
-                    base_concept_term = sr.preferred_term
-                    base_semantic_tag = sr.semantic_tag
-                    base_source = sr.source
-                    # 스코어 정규화 (0~1)
-                    raw_score = getattr(sr, "score", 0.0)
-                    confidence = min(1.0, max(0.0, float(raw_score)))
-                    print(f"  [RAG Top-1] {field_code} → {base_concept_id} |{base_concept_term}| (score={confidence:.3f})")
-                    break
+                if self._enable_rerank:
+                    # 전략 B 경로: rerank=True → Top-20 후보 → BGEReranker 재정렬
+                    rag_result = self.rag.query(query, top_k=5, rerank=True)
+                    sr_list = rag_result.get("search_results", [])
+                    # semantic_tag priority 가중치: field_code suffix 기반 선호 태그
+                    tag_priority = _get_tag_priority(field_code)
+                    # priority 태그 일치 후보를 우선, 나머지는 reranker 순서 유지
+                    if tag_priority:
+                        priority_hits = [
+                            sr for sr in sr_list
+                            if sr.semantic_tag in tag_priority
+                            and sr.semantic_tag in tag_whitelist
+                            and self.validate_concept_exists(sr.concept_id)
+                        ]
+                        other_hits = [
+                            sr for sr in sr_list
+                            if sr.semantic_tag not in tag_priority
+                            and sr.semantic_tag in tag_whitelist
+                            and self.validate_concept_exists(sr.concept_id)
+                        ]
+                        reranked_ordered = priority_hits + other_hits
+                        print(f"  [Rerank+Priority] {field_code} | priority_hits={len(priority_hits)} | other_hits={len(other_hits)}")
+                    else:
+                        reranked_ordered = [
+                            sr for sr in sr_list
+                            if sr.semantic_tag in tag_whitelist
+                            and self.validate_concept_exists(sr.concept_id)
+                        ]
+                    for sr in reranked_ordered:
+                        base_concept_id = sr.concept_id
+                        base_concept_term = sr.preferred_term
+                        base_semantic_tag = sr.semantic_tag
+                        base_source = sr.source
+                        raw_score = getattr(sr, "rerank_score", getattr(sr, "score", 0.0))
+                        confidence = min(1.0, max(0.0, float(raw_score)))
+                        print(f"  [RAG+Rerank Top-1] {field_code} → {base_concept_id} |{base_concept_term}| (rerank_score={confidence:.4f})")
+                        break
+                else:
+                    # v1.0 경로 (변경 없음)
+                    rag_result = self.rag.query(query, top_k=5)
+                    sr_list = rag_result.get("search_results", [])
+                    for sr in sr_list:
+                        # semantic_tag 화이트리스트 필터 (피드백 feedback_keyword_mapping_danger)
+                        if sr.semantic_tag not in tag_whitelist:
+                            continue
+                        # RF2 DB 실존 검증 (피드백 feedback_snomed_source_validation)
+                        if not self.validate_concept_exists(sr.concept_id):
+                            continue
+                        base_concept_id = sr.concept_id
+                        base_concept_term = sr.preferred_term
+                        base_semantic_tag = sr.semantic_tag
+                        base_source = sr.source
+                        # 스코어 정규화 (0~1)
+                        raw_score = getattr(sr, "score", 0.0)
+                        confidence = min(1.0, max(0.0, float(raw_score)))
+                        print(f"  [RAG Top-1] {field_code} → {base_concept_id} |{base_concept_term}| (score={confidence:.3f})")
+                        break
             except Exception as e:
                 print(f"  [RAG 오류] {field_code}: {e}")
 
