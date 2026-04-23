@@ -9,13 +9,15 @@
 수의학 SNOMED CT 온톨로지 기반 하이브리드 RAG 시스템
 
 > 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원  
+> **v2.2**: 5-input multimodal pipeline (text / audio / PDF text_layer / PDF OCR / image Vision) — 실 API E2E 도메인 hit **6/6**, SNOMED UNMAPPED **0/25**  
 > **v2.1**: SNOMED Match 0.584 → **0.889** (+52.2%) · BGE Reranker + MRCM Direct Mapping · Docker 지원  
-> **회귀 테스트**: PASS **6/10 → 10/10** (v1.0) · pytest **85/86 PASS** (v2.0) · Precision **0.891** / Recall **0.772**
+> **회귀 테스트**: PASS **6/10 → 10/10** (v1.0) · pytest **17/17 + 59 subtests PASS** (v2.2) · Precision **0.891** / Recall **0.772**
 
 ---
 
 ## 목차
 
+- [What's New in v2.2](#whats-new-in-v22-2026-04-23)
 - [What's New in v2.1](#whats-new-in-v21-2026-04-23)
 - [프로젝트 소개](#프로젝트-소개)
 - [아키텍처 v2.0](#아키텍처-v20)
@@ -35,6 +37,23 @@
 - [v2.2 Roadmap](#v22-roadmap)
 - [기여·보안·변경 이력](#기여보안변경-이력)
 - [라이선스](#라이선스)
+
+---
+
+## What's New in v2.2 (2026-04-23)
+
+v2.1 의 텍스트·오디오 2-input 파이프라인 위에 **PDF(텍스트 레이어·스캔 OCR) + 이미지(Gemini Vision)** 3 input 을 추가하여 **5-input multimodal pipeline** 을 완성했다.
+
+**주요 개선 (Issue [#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6) 전체 해결):**
+
+- **Stage 1 — PDF text_layer**: `src/pipeline/pdf_reader.py` 에 pdfplumber 기반 추출. p95 latency 49 ms (수락 기준 5 s 대비 100배 여유).
+- **Stage 2 — PDF OCR fallback**: 동일 모듈에 pdf2image + pytesseract(kor+eng) 자동 fallback. 스캔 PDF 2 건에서 임상 키워드 recall 92.9~100%, OCR latency 2.0~2.3 s/page.
+- **Stage 3 — Image Vision**: `src/pipeline/vision_reader.py` 신규. Gemini 2.5 Flash Vision 으로 진료 이미지 → SOAP 텍스트. E2E 도메인 hit 2/2, 필드 추출 4~6 개.
+- **5-mode 통합 벤치마크** (`benchmark/v2.2_multimodal_e2e_report.md`): text_layer / OCR / Vision 6 cases 전부 도메인 탐지 성공, SNOMED UNMAPPED **0/25**.
+- **테스트**: 17 tests + 59 subtests PASS (pdf_reader 10 + vision_reader 7).
+- **Streamlit UI**: Clinical Encoding 탭에 PDF / Image 2 가지 업로드 모드 추가.
+
+**샘플 데이터**: 향남메디동물병원 실제 진료 PDF 101 건 중 도메인 다양성 3 건을 PyMuPDF redact 로 PHI 완전 익명화 후 테스트 fixture 로 커밋. 재생성 가능한 `scripts/anonymize_hyangnam_pdf.py` 포함.
 
 ---
 
@@ -457,17 +476,26 @@ FSN "Equine laminitis (disorder)"로 표기됩니다.
 
 ## Supported Input Formats
 
-Streamlit UI의 두 탭(SNOMED Search · Clinical Encoding)에서 현재 지원하는 입력 포맷과 v2.2 계획이다.
+Streamlit UI의 두 탭(SNOMED Search · Clinical Encoding)에서 지원하는 입력 포맷.
 
-| Format | v2.1 | v2.2 Planned | Notes |
-|---|---|---|---|
+| Format | v2.1 | v2.2 | Notes |
+|---|:---:|:---:|---|
 | Text (직접 입력) | ✅ | ✅ | SNOMED Search 탭 + Clinical Encoding 탭 공통 |
 | Audio (m4a / wav / mp3 / mp4) | ✅ | ✅ | faster-whisper STT → SOAP → SNOMED 자동 태깅 |
-| PDF (text layer) | ❌ | 🟡 [#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6) Stage 1 | pdfplumber 기반 텍스트 추출 후 기존 파이프라인 통과 |
-| PDF (scanned / 이미지 전용) | ❌ | 🟡 [#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6) Stage 2 | OCR fallback (tesseract / Vision LLM) |
-| Image (JPG / PNG) | ❌ | Deferred (v2.3+) | Vision LLM 별도 파이프라인 필요 |
+| PDF (text layer) | ❌ | ✅ | pdfplumber 텍스트 추출 후 기존 파이프라인 통과 (Stage 1) |
+| PDF (scanned / 이미지 전용) | ❌ | ✅ | pdf2image + tesseract(kor+eng) OCR fallback (Stage 2) |
+| Image (JPG / PNG / WEBP) | ❌ | ✅ | Gemini 2.5 Flash Vision 기반 이미지 → 진료 텍스트 (Stage 3) |
 
-> **PDF 미지원 현황 (v2.1):** 기업 임상 기록의 상당수가 PDF 포맷이나, 현재 `st.file_uploader`는 오디오 포맷만 accept한다. PDF 지원은 [Issue #6](https://github.com/ricocopapa/vet-snomed-rag/issues/6)에서 v2.2 Stage 1(text layer)·Stage 2(OCR) 2단계로 계획 중이다.
+→ **v2.2 달성: 5-input multimodal pipeline.** 실 Gemini API E2E 벤치마크
+(`benchmark/v2.2_multimodal_e2e_report.md`) 에서 **도메인 탐지 6/6 hit, SNOMED
+UNMAPPED 0/25**.
+
+시스템 의존성 (Stage 2 OCR 사용 시):
+
+```bash
+brew install poppler tesseract tesseract-lang   # macOS
+# Ubuntu: apt-get install poppler-utils tesseract-ocr tesseract-ocr-kor
+```
 
 ---
 
