@@ -422,16 +422,41 @@ def preprocess_for_vector(query: str) -> str:
 
 # ─── 하이브리드 검색 엔진 ───────────────────────────────
 
-class HybridSearchEngine:
-    """Vector + SQL 하이브리드 검색 엔진."""
+# Reranker 설정 상수
+_RERANK_CANDIDATE_K = 20   # rerank=True 시 1차 후보 수
+_RERANK_TOP_N = 5          # rerank=True 시 최종 반환 수
 
-    def __init__(self):
+
+class HybridSearchEngine:
+    """Vector + SQL 하이브리드 검색 엔진.
+
+    v2.0 추가: enable_rerank 파라미터 및 search() rerank 옵션.
+    기본값 False → v1.0 코드 경로 완전 동일 유지 (regression 0 보장).
+    rerank=True → Top-20 검색 후 BGEReranker → Top-5 반환.
+    """
+
+    def __init__(self, enable_rerank: bool = False):
+        """초기화.
+
+        Args:
+            enable_rerank: True면 BGEReranker 모델을 지연 로딩 준비 상태로 전환.
+                           False(기본)면 Reranker 관련 코드 완전 비활성화.
+        """
         print("=" * 60)
         print(" Hybrid Search Engine 초기화")
         print("=" * 60)
         self.vector = VectorSearcher()
         self.sql = SQLRetriever()
+        self._enable_rerank = enable_rerank
+        self._reranker = None  # 지연 로딩: rerank=True 첫 호출 시 초기화
         print("[Hybrid] 초기화 완료\n")
+
+    def _get_reranker(self):
+        """BGEReranker 싱글턴을 반환한다 (최초 호출 시 모델 로드)."""
+        if self._reranker is None:
+            from src.retrieval.reranker import get_reranker
+            self._reranker = get_reranker()
+        return self._reranker
 
     def search(
         self,
@@ -440,8 +465,16 @@ class HybridSearchEngine:
         vector_weight: float = 0.6,
         sql_weight: float = 0.4,
         include_relationships: bool = True,
+        rerank: bool = False,
     ) -> list[SearchResult]:
-        """하이브리드 검색을 실행한다."""
+        """하이브리드 검색을 실행한다.
+
+        Args:
+            rerank: True이면 BGEReranker로 재정렬 후 Top-5 반환.
+                    False(기본)이면 v1.0과 완전 동일한 코드 경로.
+                    rerank=True는 enable_rerank=True로 초기화된 엔진에서만 동작.
+        """
+        # ── v1.0 코드 경로 (rerank=False, 변경 없음) ─────────────────
         # Vector 전처리: 구어체 species qualifier 제거 (SQL은 원본 쿼리 유지)
         vector_query = preprocess_for_vector(query)
         species_removed = vector_query != query
@@ -450,25 +483,41 @@ class HybridSearchEngine:
 
         # 2-track 전략: species qualifier가 있던 쿼리 = disorder 의도 강함
         # → Chroma metadata 필터로 disorder 한정 Vector 검색 추가 (Agent B 실측: 거리 0.49→0.39 개선)
-        vector_results = self.vector.search(vector_query, top_k=top_k * 2)
+        # rerank=True일 때는 더 많은 후보(_RERANK_CANDIDATE_K)를 가져옴
+        candidate_k = _RERANK_CANDIDATE_K if (rerank and self._enable_rerank) else top_k
+        vector_results = self.vector.search(vector_query, top_k=candidate_k * 2)
         if species_removed:
             disorder_results = self.vector.search(
-                vector_query, top_k=top_k, where={"semantic_tag": "disorder"}
+                vector_query, top_k=candidate_k, where={"semantic_tag": "disorder"}
             )
             # 중복 제거하며 disorder 결과를 앞쪽에 병합 (RRF rank 보존)
             seen = {r.concept_id for r in disorder_results}
-            merged = list(disorder_results) + [r for r in vector_results if r.concept_id not in seen]
-            vector_results = merged[: top_k * 2]
+            merged_disorder = list(disorder_results) + [r for r in vector_results if r.concept_id not in seen]
+            vector_results = merged_disorder[: candidate_k * 2]
 
-        sql_results = self.sql.search(query, top_k=top_k * 2)
+        sql_results = self.sql.search(query, top_k=candidate_k * 2)
 
         # RRF 병합
         merged = reciprocal_rank_fusion(
             vector_results, sql_results,
             vector_weight=vector_weight,
             sql_weight=sql_weight,
-        )[:top_k]
+        )[:candidate_k]
 
+        # ── v2.0 Reranker 경로 (rerank=True일 때만 실행) ──────────────
+        if rerank and self._enable_rerank:
+            reranker = self._get_reranker()
+            reranked = reranker.rerank(query, merged, top_n=_RERANK_TOP_N)
+            if reranked:
+                # RerankedResult → SearchResult 호환: 관계 정보 추가
+                if include_relationships:
+                    for r in reranked[:3]:
+                        r.relationships = self.sql.get_relationships(r.concept_id)
+                print(f"  [Reranker] Top-{len(merged)} → Top-{len(reranked)} 재정렬 완료")
+                return reranked  # type: ignore[return-value]
+            # reranker가 빈 결과 반환 시 v1.0 경로 fallback
+
+        # ── v1.0 경로 계속 (rerank=False 또는 reranker 실패 fallback) ──
         # 관계 정보 추가 (상위 결과만)
         if include_relationships:
             for result in merged[:3]:

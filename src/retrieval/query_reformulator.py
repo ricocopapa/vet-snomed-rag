@@ -243,20 +243,21 @@ class BaseReformulator(ABC):
 # ─── GeminiReformulator ─────────────────────────────────────
 
 class GeminiReformulator(BaseReformulator):
-    """Gemini 2.5 Flash 기반 리포매터.
+    """Gemini 3.1 Flash Lite Preview 기반 리포매터.
 
     SDK: google-genai (google-generativeai 아님)
-    가격 (2026): input $0.30/1M, output $2.50/1M
+    가격 (2026): input $0.25/1M, output $1.50/1M
     Prompt Caching: Implicit (system_instruction 1024+ tokens 자동)
+    무료 한도: RPD 500 (gemini-2.5-flash RPD 20보다 25배 높음)
     """
 
-    MODEL_ID = "gemini-2.5-flash"
+    MODEL_ID = "gemini-3.1-flash-lite-preview"   # 변경: 2.5-flash(RPD 20) → 3.1-flash-lite(RPD 500)
     BACKEND_NAME = "gemini"
     CACHE_FILE_NAME = "reformulations_gemini.json"
 
     # 가격 상수
-    _INPUT_PRICE_PER_M = 0.30
-    _OUTPUT_PRICE_PER_M = 2.50
+    _INPUT_PRICE_PER_M = 0.25
+    _OUTPUT_PRICE_PER_M = 1.50
 
     def _call_api(self, query: str) -> dict:
         """Gemini API 호출 — JSON mode 사용."""

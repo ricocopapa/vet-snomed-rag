@@ -108,5 +108,765 @@
     "tokens_out": 50,
     "cost": 1.18e-07,
     "latency_ms": 1200
+  },
+  "a7ca8baaaa6000b78f0253833a97ea4a0f0779ec48f5452852dce5e25f8fd5c3": {
+    "reformulated": "intraocular pressure",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Expanded common medical abbreviations 'oph' and 'iop' to their full form.",
+    "tokens_in": 666,
+    "tokens_out": 58,
+    "cost": 0.0003448,
+    "latency_ms": 2598
+  },
+  "0c069ca7394b8dc2c145e84bd65237c2c19ddd2bc98674e50abf70d490e44c9b": {
+    "reformulated": "ophthalmic fluorescein",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query is a clinical term with no species information.",
+    "tokens_in": 666,
+    "tokens_out": 54,
+    "cost": 0.00033479999999999995,
+    "latency_ms": 2073
+  },
+  "7aa61dfd1af4723fb9ae5f40f27736b61f08fb0ad60afc6b05bf495fe478e010": {
+    "reformulated": "rectal temperature",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query is a general clinical measurement and does not require species-specific reformatting or post-coordination.",
+    "tokens_in": 666,
+    "tokens_out": 64,
+    "cost": 0.00035979999999999996,
+    "latency_ms": 1993
+  },
+  "dbed4ae3804ebfa6dec3097920d48efa4c5e534ff69548a5c59822ec9ad49d1c": {
+    "reformulated": "mm color",
+    "post_coord_hint": null,
+    "confidence": 0.5,
+    "reasoning": "The query does not contain species information or a specific disease concept, so no reformatting is applied.",
+    "tokens_in": 665,
+    "tokens_out": 61,
+    "cost": 0.000352,
+    "latency_ms": 2268
+  },
+  "ca7230c13d66263a5779873655703e9566c2a5721512051b6781509fabd1cb6f": {
+    "reformulated": "dehydration",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Removed 'pct' as it is a meta term and kept the clinical concept 'dehydration'.",
+    "tokens_in": 665,
+    "tokens_out": 60,
+    "cost": 0.0003495,
+    "latency_ms": 2044
+  },
+  "727145b07a9c1fb86b354d4f6328cb9cb3320debd4c99f4482c23034a3f5004e": {
+    "reformulated": "ort mpl grade",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query does not contain any species information or common disease names requiring reformatting.",
+    "tokens_in": 666,
+    "tokens_out": 58,
+    "cost": 0.0003448,
+    "latency_ms": 2218
+  },
+  "337e2ae016601cf6b5834d1ec46a4f726cc24a1a23758277eb1cc4f011bf1606": {
+    "reformulated": "cornea clarity",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query is a direct clinical term with no species or meta terms to reformat.",
+    "tokens_in": 666,
+    "tokens_out": 59,
+    "cost": 0.00034729999999999993,
+    "latency_ms": 1730
+  },
+  "55a4294f805a767997c3290baa4f00c975fced5ca0601d5721f9eb05485a89f8": {
+    "reformulated": "oph plr direct",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query contains no species information or meta terms, so it is preserved as is.",
+    "tokens_in": 666,
+    "tokens_out": 59,
+    "cost": 0.00034729999999999993,
+    "latency_ms": 2069
+  },
+  "67a963f98f923ff3536f1f56610bc0db4df01b293e5b1cd9b817c8d5526ae7fd": {
+    "reformulated": "oph pupil",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query is a direct clinical term with no species or meta terms to reformat.",
+    "tokens_in": 665,
+    "tokens_out": 58,
+    "cost": 0.0003445,
+    "latency_ms": 1702
+  },
+  "592ca951b21f474b21255fbc5f6f8f1364cb6a112c3dd91bb57c1fb0bad3e282": {
+    "reformulated": "gastrointestinal abdominal pain score",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query contains no species information or meta terms, only abbreviations that need to be expanded.",
+    "tokens_in": 667,
+    "tokens_out": 63,
+    "cost": 0.0003576,
+    "latency_ms": 3615
+  },
+  "dc02d1b01934fa5ddac97076c3811658560159047c1bc0cac95a9bceee79e387": {
+    "reformulated": "alopecia",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "Extracted the clear clinical term 'alopecia' and removed unintelligible or irrelevant parts of the query.",
+    "tokens_in": 670,
+    "tokens_out": 63,
+    "cost": 0.0003585,
+    "latency_ms": 4675
+  },
+  "a85f1221a0d48bdbfc34c2b65919f8dab8ed410786aa481eb149969bec90d770": {
+    "reformulated": "baseline sum mm",
+    "post_coord_hint": null,
+    "confidence": 0.1,
+    "reasoning": "The query does not contain any clinical or species-specific terms relevant for SNOMED CT reformatting.",
+    "tokens_in": 666,
+    "tokens_out": 63,
+    "cost": 0.00035729999999999996,
+    "latency_ms": 2936
+  },
+  "fa66b8eadc862f5ed64cbcaad7c610047a8f45153833e9937e51c146c577cf90": {
+    "reformulated": "anorexia",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'ae' is not a recognized species qualifier or a standard medical term, so only the core clinical concept 'anorexia' is extracted.",
+    "tokens_in": 665,
+    "tokens_out": 73,
+    "cost": 0.000382,
+    "latency_ms": 3350
+  },
+  "8a32181360e09d4ef2afd33cd65ca61d134b35903b5afb944c5fd03eba57acdb": {
+    "reformulated": "ort effusion score",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query does not contain any species qualifiers or meta terms, so it is preserved as-is.",
+    "tokens_in": 666,
+    "tokens_out": 62,
+    "cost": 0.00035479999999999995,
+    "latency_ms": 1660
+  },
+  "c0b5439974a13c9b7883f1da44e29b82870289e1fc6288bdbf9347cc3ad8fdbb": {
+    "reformulated": "ld skin bodymap lesion count",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query does not contain species information or disease names requiring SNOMED CT reformatting.",
+    "tokens_in": 670,
+    "tokens_out": 64,
+    "cost": 0.000361,
+    "latency_ms": 2158
+  },
+  "58eb18dfea29b06784912d78a95840aa8c899a3eb663c979c9c12f95890288b5": {
+    "reformulated": "ld skin primary lesion size mm",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "No species qualifier or meta terms were identified for reformatting.",
+    "tokens_in": 669,
+    "tokens_out": 57,
+    "cost": 0.0003432,
+    "latency_ms": 2725
+  },
+  "2e169aab2c894bd19e596e7bc555e6e7d60394bf97f57d4fcdd850fce9606f48": {
+    "reformulated": "anterior chamber depth",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Expanded common abbreviation; no species or meta terms found.",
+    "tokens_in": 666,
+    "tokens_out": 53,
+    "cost": 0.00033229999999999995,
+    "latency_ms": 2382
+  },
+  "71e54704a84dff0abd09657509b417ecb98f9e6b2dc19cc04e98a4532d9149e6": {
+    "reformulated": "gi duration days",
+    "post_coord_hint": null,
+    "confidence": 0.3,
+    "reasoning": "The query does not contain a disease concept or species information relevant for SNOMED CT reformatting.",
+    "tokens_in": 666,
+    "tokens_out": 62,
+    "cost": 0.00035479999999999995,
+    "latency_ms": 3318
+  },
+  "b98f9f485ea46708f13de2c109e97dd0eaa5d238ae0cf68981f6970d0590de95": {
+    "reformulated": "intraocular pressure",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The query refers to the clinical measurement of intraocular pressure, which is a species-agnostic concept.",
+    "tokens_in": 666,
+    "tokens_out": 64,
+    "cost": 0.0002625,
+    "latency_ms": 14939
+  },
+  "538f18119be45bbebd2afa713a65edcf07980d4a19bd3acdafed47827fa37655": {
+    "reformulated": "corneal clarity",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'oph' is a common abbreviation for ophthalmology and is not part of the clinical finding, while 'cornea clarity' refers to the clinical state of the cornea.",
+    "tokens_in": 666,
+    "tokens_out": 79,
+    "cost": 0.000285,
+    "latency_ms": 8232
+  },
+  "f70aac3724d78588169fd4aedda899c3dc651236b9e3ad5885434f9b4e00b68e": {
+    "reformulated": "anterior chamber depth",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The input is an abbreviation for a standard clinical measurement of the eye.",
+    "tokens_in": 666,
+    "tokens_out": 57,
+    "cost": 0.000252,
+    "latency_ms": 9928
+  },
+  "527a750bcdaeb5c4c2de323ab08f3840aff3c735e0f75a13d85b1e2e461dced7": {
+    "reformulated": "direct pupillary light reflex",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The query refers to the clinical examination of the direct pupillary light reflex, which is a standard physiological finding.",
+    "tokens_in": 666,
+    "tokens_out": 67,
+    "cost": 0.000267,
+    "latency_ms": 32076
+  },
+  "c5ec827614dcc0263dd136dd5070197b6d00bc7938d6467c0f04991748366c68": {
+    "reformulated": "pupil",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'oph' is an abbreviation for ophthalmology, which is a medical specialty context rather than a specific clinical condition or species qualifier.",
+    "tokens_in": 665,
+    "tokens_out": 69,
+    "cost": 0.00026975,
+    "latency_ms": 9579
+  },
+  "9b9cc0f8a2dc5f9e908e2b1dfdb58cab7947c53c5930502cee85a5efc919d561": {
+    "reformulated": "patellar luxation",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Patellar luxation is a general clinical condition and the input did not specify a species.",
+    "tokens_in": 668,
+    "tokens_out": 61,
+    "cost": 0.0002585,
+    "latency_ms": 14577
+  },
+  "dbfb49cf862474b929aa0104bfbc7942b50f36c9ecf4c37fd6b14a43a6f7e4e8": {
+    "reformulated": "patellar luxation",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Patellar luxation is a species-agnostic clinical condition and the direction is a clinical attribute rather than a species qualifier.",
+    "tokens_in": 668,
+    "tokens_out": 69,
+    "cost": 0.0002705,
+    "latency_ms": 14851
+  },
+  "f5a1b5b382378bbc4227d2f0e428ec24bb14b53641ccc1c67d62e573ec3e0d37": {
+    "reformulated": "muscle atrophy",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Muscle atrophy is a general clinical concept, and 'fl' is interpreted as an abbreviation for feline.",
+    "tokens_in": 667,
+    "tokens_out": 69,
+    "cost": 0.00027025,
+    "latency_ms": 37364
+  },
+  "57e516071ee166db8eb032c093a2de2c367f980470117d759c340555e2d4458e": {
+    "reformulated": "patellar luxation",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Patellar luxation is a general clinical condition that is not inherently species-specific, and 'grade' is a modifier that does not change the base concept.",
+    "tokens_in": 668,
+    "tokens_out": 76,
+    "cost": 0.000281,
+    "latency_ms": 12980
+  },
+  "e363b1c6c492b1ca378385d0c116cecb8d7bcd3173be7f1edc1388eec5c60178": {
+    "reformulated": "chronic",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to the clinical attribute of chronicity, which maps to the SNOMED CT concept for chronic duration.",
+    "tokens_in": 667,
+    "tokens_out": 64,
+    "cost": 0.00026275,
+    "latency_ms": 39942
+  },
+  "ce3507978e85bb94f75b6f93fa70dc4bbdaaffbcf2fad4224411133ab367a28f": {
+    "reformulated": "skin lesion",
+    "post_coord_hint": null,
+    "confidence": 0.85,
+    "reasoning": "The query refers to a clinical finding of skin lesions, with 'bodymap' and 'count' being administrative or observational modifiers.",
+    "tokens_in": 670,
+    "tokens_out": 69,
+    "cost": 0.000271,
+    "latency_ms": 24148
+  },
+  "0320c2aa6d192462b84b292475bcdad91652161ccd09efd20a38eec47f162884": {
+    "reformulated": "primary skin lesion size",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to a clinical measurement parameter, which is species-agnostic and does not require post-coordination.",
+    "tokens_in": 669,
+    "tokens_out": 67,
+    "cost": 0.00026775,
+    "latency_ms": 18559
+  },
+  "cab384bf01fd43c88c1c1f415c46d645ba2232d240ba62b02295cb515f77f3e6": {
+    "reformulated": "secondary skin lesion",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The term 'ld' appears to be a typo or irrelevant prefix, and 'secondary skin lesion' is the standard clinical concept.",
+    "tokens_in": 667,
+    "tokens_out": 69,
+    "cost": 0.00027025,
+    "latency_ms": 21311
+  },
+  "7c9a68eae988733be2db04c203749ffb4ff5072aa2fef55a16a5e4e31cebdf30": {
+    "reformulated": "Wood's lamp examination",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Wood's lamp examination is the standard clinical procedure term for a Wood's lamp result.",
+    "tokens_in": 667,
+    "tokens_out": 64,
+    "cost": 0.00026275,
+    "latency_ms": 16827
+  },
+  "f0dcbb3d0b0a1277b15b09f75927dfe0ac29d1a86a8b44f3483ad150b8846099": {
+    "reformulated": "baseline sum",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "The term 'mm' is likely a unit of measurement or a typo, so it was removed to focus on the clinical concept.",
+    "tokens_in": 666,
+    "tokens_out": 67,
+    "cost": 0.000267,
+    "latency_ms": 17796
+  },
+  "4c0a85295351c87e27b8e4ca387e4cea310573dbff026210dd82d7e41feef7b9": {
+    "reformulated": "anorexia",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Anorexia is a general clinical finding and does not require species-specific post-coordination unless a specific species was mentioned.",
+    "tokens_in": 665,
+    "tokens_out": 68,
+    "cost": 0.00026825,
+    "latency_ms": 24555
+  },
+  "3591e3d1861fb0499a3e4d5ca3fabb338f0b84b18bae7f4d4fc592bb806149e0": {
+    "reformulated": "rectal temperature",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Rectal temperature is a standard clinical observation concept in SNOMED CT.",
+    "tokens_in": 666,
+    "tokens_out": 57,
+    "cost": 0.000252,
+    "latency_ms": 27979
+  },
+  "023248509fdf8cac2feb6b5dd8c82ae1c4b181f5f350f15daf607d3904aed8bc": {
+    "reformulated": "gastrointestinal abdominal pain",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to a general clinical symptom without a specific species qualifier.",
+    "tokens_in": 667,
+    "tokens_out": 58,
+    "cost": 0.00025375,
+    "latency_ms": 16415
+  },
+  "f75cbafe2917a9d291f2aa25f91cce6b6d312f487275757beb4b409641b9f4a8": {
+    "reformulated": "gastrointestinal bowel sounds",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The term refers to a general clinical finding without species-specific constraints.",
+    "tokens_in": 666,
+    "tokens_out": 59,
+    "cost": 0.000255,
+    "latency_ms": 36299
+  },
+  "a9026a7268c2cbabab5046a0e1bb4ba9c8fdc8caec229f4ea1022146badb6670": {
+    "reformulated": "gastrointestinal appetite",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "The query refers to gastrointestinal appetite, which is a clinical observation not specific to a single species.",
+    "tokens_in": 665,
+    "tokens_out": 63,
+    "cost": 0.00026075,
+    "latency_ms": 12433
+  },
+  "a7f7c4e4a96cd906e4f09df29717480a587b48edc94181f4b0c5f46b11668624": {
+    "reformulated": "pericardial effusion",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "The term 'ort effusion' is interpreted as a typo for 'pericardial effusion' or a general effusion score.",
+    "tokens_in": 666,
+    "tokens_out": 69,
+    "cost": 0.00027,
+    "latency_ms": 19743
+  },
+  "c9e0ff7f308285adf6e81a1517dbf8749a9502f345971248895f4f74da9fb9ae": {
+    "reformulated": "alopecia",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "The input appears to be a fragmented or misspelled query; 'alopecia' is the core clinical concept, while the other terms lack clear medical context.",
+    "tokens_in": 670,
+    "tokens_out": 71,
+    "cost": 0.000274,
+    "latency_ms": 46618
+  },
+  "96d63d574addb437b7217539d3ab555b4a199cb649d37fd59ccfecd61246023b": {
+    "reformulated": "gastrointestinal disorder",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "The query refers to a gastrointestinal condition, but lacks a specific species qualifier or duration-specific SNOMED concept.",
+    "tokens_in": 666,
+    "tokens_out": 67,
+    "cost": 0.000267,
+    "latency_ms": 18844
+  },
+  "0ac4bfb5244f7f1de890aecb3c61437800295b6ba4a79ccf0e51b93998767b7c": {
+    "reformulated": "vomiting",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Vomiting is a clinical finding, while 'gi' and 'freq' are non-specific modifiers that do not map to specific SNOMED concepts.",
+    "tokens_in": 666,
+    "tokens_out": 73,
+    "cost": 0.000276,
+    "latency_ms": 19868
+  },
+  "09ab97d1c5ccc64a94f1f3263025a1de2cdb75adf89744c46298712ab18a4e31": {
+    "reformulated": "respiratory rate",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The term 'rr' is a standard medical abbreviation for respiratory rate.",
+    "tokens_in": 665,
+    "tokens_out": 57,
+    "cost": 0.00025175,
+    "latency_ms": 19477
+  },
+  "7e980d781799a90cbd1f4d6b6c9725fb855094fcb9c5d67da215419835b4a676": {
+    "reformulated": "gastrointestinal symptom onset",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to the onset of gastrointestinal symptoms, which is a general clinical finding.",
+    "tokens_in": 665,
+    "tokens_out": 62,
+    "cost": 0.00025925,
+    "latency_ms": 25797
+  },
+  "2e7bbc3a491ddbb1fdc39c31faef163936b616712956947b39a5c6193157c357": {
+    "reformulated": "gait pattern",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The term is a general clinical finding and does not require species-specific post-coordination.",
+    "tokens_in": 665,
+    "tokens_out": 61,
+    "cost": 0.00025775,
+    "latency_ms": 45271
+  },
+  "cb3b007dcaa35b50680a16335dd3464c8b80e4fadf9be42de66948589259f2f2": {
+    "reformulated": "patellar luxation",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Patellar luxation is a general clinical condition that is not inherently species-specific in SNOMED CT.",
+    "tokens_in": 667,
+    "tokens_out": 65,
+    "cost": 0.00026425,
+    "latency_ms": 10930
+  },
+  "24ac70cb946345eec609def0ebd94bfa209b00a8da1efbb52dfdaebe93e4e550": {
+    "reformulated": "patellar luxation",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Patellar luxation is a general clinical condition and the input was a partial term.",
+    "tokens_in": 667,
+    "tokens_out": 61,
+    "cost": 0.00025825,
+    "latency_ms": 12896
+  },
+  "f91d37bb195072c86ed4db206293241692866b17a466176a5914a3049e81a32a": {
+    "reformulated": "muscle atrophy",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The term is a general clinical concept and does not require species-specific post-coordination.",
+    "tokens_in": 665,
+    "tokens_out": 60,
+    "cost": 0.00025625,
+    "latency_ms": 24105
+  },
+  "1934181b1dfd048e3ddb069574f70bb92ad4adb1282b477d47a82306bbe6424a": {
+    "reformulated": "alopecia",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Hair loss is clinically represented as alopecia, and the input does not specify a species or a specific pattern.",
+    "tokens_in": 667,
+    "tokens_out": 62,
+    "cost": 0.00025975,
+    "latency_ms": 12466
+  },
+  "51c498ced69fce519be462f6f6745b289e85228b3ab5ce9c6e4f76f5babdb31a": {
+    "reformulated": "lesion location",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Removed the ambiguous prefix 'ld' as it does not correspond to a standard clinical term.",
+    "tokens_in": 666,
+    "tokens_out": 60,
+    "cost": 0.0002565,
+    "latency_ms": 16195
+  },
+  "ad3711cdc290627b4bca2506f970ce9924a02e188ff02062f0b41fae112dd159": {
+    "reformulated": "location",
+    "post_coord_hint": null,
+    "confidence": 0.5,
+    "reasoning": "The term 'mf' is ambiguous and likely a typo or meta-data, leaving 'location' as the primary clinical concept.",
+    "tokens_in": 666,
+    "tokens_out": 66,
+    "cost": 0.0002655,
+    "latency_ms": 10471
+  },
+  "d83a68fd8219e6ff30431af74dffaf2df812416a63f3fea910eededcfd3522a4": {
+    "reformulated": "mf location laterality",
+    "post_coord_hint": null,
+    "confidence": 0.2,
+    "reasoning": "The input query is too vague and lacks a clinical disease or procedure term to map to a SNOMED CT concept.",
+    "tokens_in": 667,
+    "tokens_out": 67,
+    "cost": 0.00026725,
+    "latency_ms": 14215
+  },
+  "d26bc39271aac548be280c07f6251d6c8fe93f64498c21f504dedf8e44c16b26": {
+    "reformulated": "microfilaria",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'mf' is a standard medical abbreviation for microfilaria, and 'depth' is likely a typo or irrelevant context.",
+    "tokens_in": 665,
+    "tokens_out": 71,
+    "cost": 0.00027275,
+    "latency_ms": 25140
+  },
+  "51b2f21848c348685fca99e872515c2c22f2e8c411ee35ab49f9da989c294473": {
+    "reformulated": "microfilaria",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'mf' is a standard medical abbreviation for microfilaria, and 'border' is likely a typo or irrelevant noise.",
+    "tokens_in": 665,
+    "tokens_out": 71,
+    "cost": 0.00027275,
+    "latency_ms": 11537
+  },
+  "106c181b1d18f187ffd90100f55cc4313e8e12f2b583e4d837702703c6150a59": {
+    "reformulated": "fecal consistency",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'mf' is a common veterinary abbreviation for 'mucus/fecal' or 'fecal', and 'fecal consistency' is the standard clinical concept.",
+    "tokens_in": 665,
+    "tokens_out": 77,
+    "cost": 0.00028175,
+    "latency_ms": 25518
+  },
+  "df49d2651d6be33567e6c747f33a6daeddb2c0723981b26d0ab247bcad92d6ab": {
+    "reformulated": "pain response",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'mf' is likely a typo or non-clinical abbreviation, so it was removed to focus on the core clinical concept.",
+    "tokens_in": 666,
+    "tokens_out": 68,
+    "cost": 0.0002685,
+    "latency_ms": 12906
+  },
+  "dae53652dea0b5dfef411cfcf80c421b70606511287e60e7ae7e4fc6016057ad": {
+    "reformulated": "growth duration",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'mf' is ambiguous and likely a typo or irrelevant metadata, so it was removed to focus on the clinical concept of growth duration.",
+    "tokens_in": 666,
+    "tokens_out": 70,
+    "cost": 0.0002715,
+    "latency_ms": 26684
+  },
+  "425a0785b28c01b0e63c295b6f0ecc81468a5618f713205b5f8b2d64bd8ffd18": {
+    "reformulated": "fine needle aspiration",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The query refers to the procedure 'fine needle aspiration', with 'mf' and 'yn' being non-clinical meta-data or shorthand.",
+    "tokens_in": 668,
+    "tokens_out": 72,
+    "cost": 0.000275,
+    "latency_ms": 24519
+  },
+  "bdedaaa609b7c5ebdf929365c36a525f3d9a0fa3e36418ee2dab4f5d7f28a914": {
+    "reformulated": "primary malignant neoplasm",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Primary tumor site is a clinical descriptor for a primary malignant neoplasm.",
+    "tokens_in": 666,
+    "tokens_out": 57,
+    "cost": 0.000252,
+    "latency_ms": 12637
+  },
+  "55e4d538d0a84dd4d595c2ee85f4f23e619328040f66c685eeac85d759a2a26e": {
+    "reformulated": "neoplasm",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "Tumor is a synonym for neoplasm, and the query lacks specific diagnostic details.",
+    "tokens_in": 666,
+    "tokens_out": 58,
+    "cost": 0.0002535,
+    "latency_ms": 21508
+  },
+  "98a3937704237e68f538538ed26e1bdc1d0be49db6fbfb54a84dbbf257b70526": {
+    "reformulated": "lymph node size grade",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to the clinical assessment of lymph node size, which is a general anatomical finding.",
+    "tokens_in": 667,
+    "tokens_out": 62,
+    "cost": 0.00025975,
+    "latency_ms": 28520
+  },
+  "8d2c80523bc22127701189f42ca127d3f10ef88e9ebfa3021ac0c764a5b36ce4": {
+    "reformulated": "therapeutic procedure",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'tx modality' is a common abbreviation for therapeutic modality, which maps to the SNOMED CT concept of therapeutic procedure.",
+    "tokens_in": 665,
+    "tokens_out": 68,
+    "cost": 0.00026825,
+    "latency_ms": 23151
+  },
+  "5d3c415f290b0e7055b400ebde41d86127c0b9be0b124786841d63f87e7c8632": {
+    "reformulated": "ophthalmic clarity",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "The query appears to be an abbreviation for ophthalmic clarity, which is a clinical observation not specific to a species.",
+    "tokens_in": 666,
+    "tokens_out": 65,
+    "cost": 0.000264,
+    "latency_ms": 9608
+  },
+  "11b5827f0dd1f9c722fa1a4774c42d04f61981ac3476f008e53a465be2f413d1": {
+    "reformulated": "conjunctivitis",
+    "post_coord_hint": null,
+    "confidence": 0.85,
+    "reasoning": "The term 'oph' is interpreted as an abbreviation for ophthalmic/ophthalmology, implying a condition of the conjunctiva.",
+    "tokens_in": 666,
+    "tokens_out": 69,
+    "cost": 0.00027,
+    "latency_ms": 17050
+  },
+  "a069fe2459977988bef1b1f3ead6f08f46072076c27988f98e0f828e2d8a8206": {
+    "reformulated": "gastrointestinal diarrhea",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to a general clinical symptom without a specific species qualifier.",
+    "tokens_in": 666,
+    "tokens_out": 57,
+    "cost": 0.000252,
+    "latency_ms": 17152
+  },
+  "470df825ea4f0e04ce24d60c369e412932cab98bc9225f27cb776ee71ae32665": {
+    "reformulated": "gastrointestinal finding",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The term 'gi note' is interpreted as a clinical finding related to the gastrointestinal system.",
+    "tokens_in": 665,
+    "tokens_out": 62,
+    "cost": 0.00025925,
+    "latency_ms": 6728
+  },
+  "b24a148fb49bc90301ffa152c86eac3b02c2c092cd1ea569de43ce0c3ed8565c": {
+    "reformulated": "muscle atrophy",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Removed the non-clinical term 'group' and identified 'muscle atrophy' as the core clinical concept.",
+    "tokens_in": 666,
+    "tokens_out": 63,
+    "cost": 0.000261,
+    "latency_ms": 9911
+  },
+  "2f4f48205c1ab3dfff16cbefb9b02102bf0b04432eb22f4a69d2b9f014fc0f59": {
+    "reformulated": "primary skin lesion",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The term 'ld' is likely a typo for 'skin' or irrelevant, and 'primary skin lesion' is the standard clinical concept.",
+    "tokens_in": 667,
+    "tokens_out": 71,
+    "cost": 0.00027325,
+    "latency_ms": 18023
+  },
+  "27a76d3e6523b59ccdb3d47bd544c46d8b9bd45a93cd2ee55ce394e0f90de9c7": {
+    "reformulated": "Wood's lamp examination",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Wood's lamp examination is the standard clinical procedure term in SNOMED CT for this diagnostic test.",
+    "tokens_in": 667,
+    "tokens_out": 66,
+    "cost": 0.00026575,
+    "latency_ms": 7225
+  },
+  "07dac621efa11df45546e5af11df56164ef5814a46c7db2d8ce13ce9c1401ef7": {
+    "reformulated": "Wood's lamp examination",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The query refers to the diagnostic procedure Wood's lamp examination, with 'ld' likely being a typo for 'wood'.",
+    "tokens_in": 667,
+    "tokens_out": 70,
+    "cost": 0.00027175,
+    "latency_ms": 7445
+  },
+  "4016f20e4a12ff0bdd0eb8b0ee8e997c75a9df0dca366ec41e3417feb2ed72cd": {
+    "reformulated": "microfilaria growth rate",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Expanded the abbreviation 'mf' to 'microfilaria' to align with standard medical terminology.",
+    "tokens_in": 666,
+    "tokens_out": 65,
+    "cost": 0.000264,
+    "latency_ms": 9695
+  },
+  "991e0e02a6c8d9f8608b356fade288550f702bd99891a926a2d9cf760e451693": {
+    "reformulated": "fine needle aspiration biopsy",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to a standard diagnostic procedure, which is represented as fine needle aspiration biopsy in SNOMED CT.",
+    "tokens_in": 667,
+    "tokens_out": 66,
+    "cost": 0.00026575,
+    "latency_ms": 11020
+  },
+  "08fcc0228fc488217ffe4fae07c8b8b23823a10dba42dcd02432b0bd93cee211": {
+    "reformulated": "growth rate",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The term is a general clinical observation not specific to any species.",
+    "tokens_in": 665,
+    "tokens_out": 54,
+    "cost": 0.00024725,
+    "latency_ms": 10214
+  },
+  "5491ab441650fb73899e4a647fea534264bddc5f5f69adf70bdc4b8d1fc9d9fc": {
+    "reformulated": "patellar luxation",
+    "post_coord_hint": "Finding site = Left patella",
+    "confidence": 0.95,
+    "reasoning": "Patellar luxation is the clinical concept, and the directionality is mapped to the finding site.",
+    "tokens_in": 668,
+    "tokens_out": 70,
+    "cost": 0.000272,
+    "latency_ms": 14481
+  },
+  "6aad1011e45680505162002b9a20b338a21260c8a3cd42b2e0ccf9d0cc253641": {
+    "reformulated": "clinical sign interpretation",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "Expanded the abbreviation 'cs' to 'clinical sign' to match standard clinical terminology.",
+    "tokens_in": 665,
+    "tokens_out": 59,
+    "cost": 0.00025475,
+    "latency_ms": 19875
+  },
+  "b814a84395835316e4cac5edecce1f3ff4f5cf5a1ca23dee333fc3eeec0ab9df": {
+    "reformulated": "clinical action",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "Removed the meta-acronym 'cs' as it does not contribute to the clinical meaning of the concept.",
+    "tokens_in": 666,
+    "tokens_out": 63,
+    "cost": 0.000261,
+    "latency_ms": 18022
   }
 }

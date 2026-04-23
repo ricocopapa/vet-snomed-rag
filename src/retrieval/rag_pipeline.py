@@ -405,6 +405,7 @@ class SNOMEDRagPipeline:
         ollama_model: str = "llama3.2",
         claude_model: str = "claude-sonnet-4-20250514",
         reformulator_backend: str = "none",
+        enable_rerank: bool = False,
     ):
         """
         Args:
@@ -412,6 +413,8 @@ class SNOMEDRagPipeline:
             ollama_model: Ollama 모델명 (기본: llama3.2)
             claude_model: Claude 모델명 (기본: claude-sonnet-4-20250514)
             reformulator_backend: "none" / "gemini" / "claude" (Step 0.7 쿼리 리포매터)
+            enable_rerank: True면 BGEReranker(BAAI/bge-reranker-v2-m3) 활성화.
+                           False(기본) → v1.0 코드 경로 완전 동일 유지.
         """
         print("=" * 60)
         print(" SNOMED VET RAG Pipeline 초기화")
@@ -421,9 +424,11 @@ class SNOMEDRagPipeline:
         elif llm_backend == "claude":
             print(f" Claude Model: {claude_model}")
         print(f" Reformulator Backend: {reformulator_backend}")
+        print(f" Reranker: {'BAAI/bge-reranker-v2-m3 (활성)' if enable_rerank else 'OFF (v1.0 경로)'}")
         print("=" * 60)
 
-        self.engine = HybridSearchEngine()
+        self.engine = HybridSearchEngine(enable_rerank=enable_rerank)
+        self._enable_rerank = enable_rerank
         self.post_coord = PostCoordLoader()
         self.snomed_graph = SNOMEDGraph()
         self.llm_backend = llm_backend
@@ -438,8 +443,14 @@ class SNOMEDRagPipeline:
             self.reformulator = get_reformulator(reformulator_backend)
             print(f"[Reformulator] {reformulator_backend} 백엔드 초기화 완료")
 
-    def query(self, question: str, top_k: int = 10) -> dict:
+    def query(self, question: str, top_k: int = 10, rerank: bool = False) -> dict:
         """RAG 질의를 실행한다.
+
+        Args:
+            question: 검색 질문 (한국어/영어)
+            top_k: 반환 결과 수. rerank=True 시 Top-5 고정.
+            rerank: True이면 BGEReranker 재정렬 적용 (enable_rerank=True로 초기화 필요).
+                    False(기본) → v1.0 경로 완전 동일.
 
         Returns:
             {
@@ -449,6 +460,7 @@ class SNOMEDRagPipeline:
                 "search_results": list[SearchResult],
                 "context": str,
                 "answer": str,
+                "reranked": bool,
             }
         """
         # Step 0: 한국어 질의 → 영어 번역 (DB가 영어 전용이므로)
@@ -481,7 +493,13 @@ class SNOMEDRagPipeline:
             )
 
         # Step 1: 하이브리드 검색 (리포매팅된 쿼리 사용)
-        results = self.engine.search(final_search_query, top_k=top_k)
+        # rerank=True이면 CrossEncoder에 원본 question을 전달 (전처리 전 쿼리가 더 자연스러운 문맥)
+        _rerank_active = rerank and self._enable_rerank
+        results = self.engine.search(
+            final_search_query,
+            top_k=top_k,
+            rerank=_rerank_active,
+        )
 
         # Step 2: 컨텍스트 조립 (기존 검색 결과)
         context = build_context(question, results, self.post_coord)
@@ -520,6 +538,7 @@ class SNOMEDRagPipeline:
             "search_results": results,
             "context": context,
             "answer": answer,
+            "reranked": _rerank_active,
         }
 
     def print_answer(self, result: dict):
