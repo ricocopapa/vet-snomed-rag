@@ -31,6 +31,30 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_SNOMED_DB = PROJECT_ROOT / "data" / "snomed_ct_vet.db"
 DEFAULT_FIELD_SCHEMA = PROJECT_ROOT / "data" / "field_schema_v26.json"
 
+# ─── field_code alias 테이블 (E2E 추출 변형 ↔ gold field_code 정규화용) ────────
+# [수정 사유: 2026-04-23 v2.1 버그 수정] OR_PATELLAR_LUX_L(gold) ≡ OR_PATELLAR_LUXATION_L(E2E)
+# SOAP 추출 파이프라인이 field_schema_v26 외 변형 명칭을 생성하는 경우 여기 등록.
+# 키: E2E 추출 variant / 값: gold-label의 canonical field_code
+FIELD_CODE_ALIASES: dict[str, str] = {
+    "OR_PATELLAR_LUXATION_L": "OR_PATELLAR_LUX_L",
+}
+
+
+def normalize_field_code(fc: str) -> str:
+    """field_code를 canonical 형식(gold-label 기준)으로 정규화한다.
+
+    E2E 파이프라인이 gold와 다른 variant 명칭을 추출하는 경우 FIELD_CODE_ALIASES에서
+    변환한다. alias가 없으면 원본 그대로 반환한다.
+
+    Args:
+        fc: 원본 field_code 문자열 (E2E 추출 또는 gold-label)
+
+    Returns:
+        정규화된 field_code (canonical 형식)
+    """
+    return FIELD_CODE_ALIASES.get(fc, fc)
+
+
 # ─── field_schema_v26.json 로드 (superset 모드 실존 field_code 검증용) ──────────
 
 _VALID_FIELD_CODES: Optional[set] = None
@@ -241,9 +265,11 @@ def snomed_match_rate(
             gold_map[fc] = cid
 
     # predicted_tags field_code → concept_id 매핑 (중복 시 첫 번째)
+    # normalize_field_code: E2E 추출 variant를 gold canonical 형식으로 정규화
     pred_map: dict[str, str] = {}
     for tag in predicted_tags:
-        fc = tag.get("field_code", "").strip()
+        fc_raw = tag.get("field_code", "").strip()
+        fc = normalize_field_code(fc_raw)  # alias 정규화 (예: OR_PATELLAR_LUXATION_L → OR_PATELLAR_LUX_L)
         cid = tag.get("concept_id", "").strip()
         if fc and fc not in pred_map:
             pred_map[fc] = cid
