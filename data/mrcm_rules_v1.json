@@ -20,7 +20,7 @@
     "_description": "안과 (Ophthalmology) 도메인 — E30",
     "_domain_id": "OPHTHALMOLOGY",
     "fields": {
-      "*_IOP_*_VAL": {
+      "*_IOP_*": {
         "label": "안압 수치 (Intraocular Pressure)",
         "expected_semantic_tag": "observable entity",
         "base_concept_id": "41633001",
@@ -177,6 +177,22 @@
         ],
         "mrcm_forbidden_attributes": [],
         "mrcm_forbidden_reason": ""
+      },
+      "GP_RECTAL_TEMP_*": {
+        "label": "직장 체온 (Rectal Temperature — Body temperature observable entity)",
+        "expected_semantic_tag": "observable entity",
+        "base_concept_id": "386725007",
+        "base_concept_term": "Body temperature",
+        "allowed_attributes": [
+          {
+            "attribute_id": "363713009",
+            "attribute_term": "Has interpretation",
+            "value_concept_id_examples": ["75540009", "62482003", "17621005"],
+            "value_examples": ["High", "Low", "Normal"]
+          }
+        ],
+        "mrcm_forbidden_attributes": ["246075003"],
+        "mrcm_forbidden_reason": "observable entity에 Causative agent 부착 불가"
       }
     }
   },
