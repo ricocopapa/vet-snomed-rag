@@ -1,0 +1,29 @@
+[
+  {
+    "scan": "scan_01_ophthalmology.pdf",
+    "expected": "OPHTHALMOLOGY",
+    "domains": [
+      "OPHTHALMOLOGY",
+      "NURSING"
+    ],
+    "hit": true,
+    "fields": 4,
+    "snomed": 4,
+    "lat_ms": 81908.75587495975,
+    "source": "ocr"
+  },
+  {
+    "scan": "scan_03_gastrointestinal.pdf",
+    "expected": "GASTROINTESTINAL",
+    "domains": [
+      "GASTROINTESTINAL",
+      "VITAL_SIGNS",
+      "NURSING"
+    ],
+    "hit": true,
+    "fields": 7,
+    "snomed": 7,
+    "lat_ms": 40325.59304102324,
+    "source": "ocr"
+  }
+]

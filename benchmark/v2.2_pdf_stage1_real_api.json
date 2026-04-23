@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-04-23T06:57:39.136018+00:00",
+  "backend": "gemini",
+  "model": "gemini-3.1-flash-lite-preview",
+  "results": [
+    {
+      "pdf": "hyangnam_anon_01_ophthalmology.pdf",
+      "pages": 2,
+      "chars": 1205,
+      "pdf_latency_ms": 85.8,
+      "encode_latency_ms": 92237.0,
+      "expected_domain": "OPHTHALMOLOGY",
+      "detected_domains": [
+        "OPHTHALMOLOGY",
+        "NURSING",
+        "WOUND_TRAUMA"
+      ],
+      "domain_hit": true,
+      "fields_count": 2,
+      "snomed_mapped": 2,
+      "soap_nonempty": 2,
+      "errors": []
+    },
+    {
+      "pdf": "hyangnam_anon_02_dermatology.pdf",
+      "pages": 2,
+      "chars": 870,
+      "pdf_latency_ms": 37.2,
+      "encode_latency_ms": 40691.4,
+      "expected_domain": "DERMATOLOGY",
+      "detected_domains": [
+        "EAR_NOSE",
+        "DERMATOLOGY"
+      ],
+      "domain_hit": true,
+      "fields_count": 1,
+      "snomed_mapped": 1,
+      "soap_nonempty": 1,
+      "errors": []
+    },
+    {
+      "pdf": "hyangnam_anon_03_gastrointestinal.pdf",
+      "pages": 2,
+      "chars": 1155,
+      "pdf_latency_ms": 47.9,
+      "encode_latency_ms": 93814.8,
+      "expected_domain": "GASTROINTESTINAL",
+      "detected_domains": [
+        "GASTROINTESTINAL",
+        "NURSING"
+      ],
+      "domain_hit": true,
+      "fields_count": 3,
+      "snomed_mapped": 3,
+      "soap_nonempty": 2,
+      "errors": []
+    }
+  ]
+}

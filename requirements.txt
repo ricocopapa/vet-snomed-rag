@@ -27,3 +27,12 @@ tqdm>=4.66.0
 
 # STT (Track B1 — Whisper)
 faster-whisper>=1.0
+
+# PDF input (v2.2 Stage 1 — Text layer extraction)
+pdfplumber>=0.10.0
+
+# PDF OCR fallback (v2.2 Stage 2 — Scanned PDF)
+# 런타임 의존: pdf2image (poppler 필수) + pytesseract (tesseract 필수, kor+eng lang)
+# 시스템 의존: `brew install poppler tesseract tesseract-lang`
+pdf2image>=1.17.0
+pytesseract>=0.3.13
