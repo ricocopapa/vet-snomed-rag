@@ -101,13 +101,14 @@ The single remaining FAIL case is not a model limitation but a gold-labeling iss
 - Single-reviewer gold — inter-annotator agreement not measured.
 - Reranker latency overhead — +3.3s SNOMED-only, +2.0s end-to-end p95. Consider disabling for hot paths when MRCM direct mapping covers the field.
 
-## v2.2 Roadmap (tracked in v2.1 Planned Issues)
+## v2.2 Roadmap (tracked in GitHub Issues)
 
-1. Replace gTTS synthetic audio with real veterinarian recordings
-2. Further improve SNOMED match rate toward 0.95 via ChromaDB index retraining / domain-adapted embeddings
-3. Optimize Audio mode latency p95 < 60s (Gemini 3.1 Flash Lite Preview → 2.5 Flash Lite GA path)
-4. Claude backup backend for multi-provider resilience (Gemini 503 / rate limit fallback)
-5. Redesign gold dataset under multi-reviewer Cohen's κ agreement (includes S03 `OR_LAMENESS_FL_L` correction)
+- [#1](https://github.com/ricocopapa/vet-snomed-rag/issues/1) — Replace gTTS synthetic audio with real veterinarian recordings
+- [#2](https://github.com/ricocopapa/vet-snomed-rag/issues/2) — Further improve SNOMED match rate toward 0.95 via ChromaDB index retraining / domain-adapted embeddings
+- [#3](https://github.com/ricocopapa/vet-snomed-rag/issues/3) — Optimize Audio mode latency p95 < 60s (Gemini 3.1 Flash Lite Preview → 2.5 Flash Lite GA path)
+- [#4](https://github.com/ricocopapa/vet-snomed-rag/issues/4) — Claude backup backend for multi-provider resilience (Gemini 503 / rate limit fallback)
+- [#5](https://github.com/ricocopapa/vet-snomed-rag/issues/5) — Redesign gold dataset under multi-reviewer Cohen's κ agreement (includes S03 `OR_LAMENESS_FL_L` correction)
+- [#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6) — PDF input support: Stage 1 text layer (pdfplumber) + Stage 2 OCR fallback (enterprises rely on PDF-based clinical records)
 
 ## Credits
 

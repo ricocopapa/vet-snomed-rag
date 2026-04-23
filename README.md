@@ -9,14 +9,14 @@
 수의학 SNOMED CT 온톨로지 기반 하이브리드 RAG 시스템
 
 > 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원  
-> **v2.0**: 음성/텍스트 → SOAP 구조화 → SNOMED 자동 태깅 End-to-End 파이프라인  
-> **회귀 테스트**: PASS **6/10 → 10/10** (v1.0) · pytest **85/86 PASS** (v2.0) · Precision **0.938** / Recall **0.737**
+> **v2.1**: SNOMED Match 0.584 → **0.889** (+52.2%) · BGE Reranker + MRCM Direct Mapping · Docker 지원  
+> **회귀 테스트**: PASS **6/10 → 10/10** (v1.0) · pytest **85/86 PASS** (v2.0) · Precision **0.891** / Recall **0.772**
 
 ---
 
 ## 목차
 
-- [What's New in v2.0](#whats-new-in-v20-2026-04-22)
+- [What's New in v2.1](#whats-new-in-v21-2026-04-23)
 - [프로젝트 소개](#프로젝트-소개)
 - [아키텍처 v2.0](#아키텍처-v20)
 - [v2.0 벤치마크](#v20-벤치마크)
@@ -26,30 +26,33 @@
 - [Quick Start with Docker](#quick-start-with-docker)
 - [빠른 시작](#빠른-시작)
 - [데모](#데모)
+- [Supported Input Formats](#supported-input-formats)
 - [벤치마크 — Gemini Reformulator 회귀 테스트](#벤치마크--gemini-reformulator-회귀-테스트)
 - [핵심 기술 상세](#핵심-기술-상세)
 - [기술 스택](#기술-스택)
 - [프로젝트 구조](#프로젝트-구조)
 - [로드맵](#로드맵)
+- [v2.2 Roadmap](#v22-roadmap)
 - [기여·보안·변경 이력](#기여보안변경-이력)
 - [라이선스](#라이선스)
 
 ---
 
-## What's New in v2.0 (2026-04-22)
+## What's New in v2.1 (2026-04-23)
 
-v1.0의 SNOMED CT 하이브리드 RAG 검색 기반 위에, 임상 발화(음성/텍스트)를 입력받아 SOAP 구조화 및 SNOMED 자동 태깅까지 수행하는 End-to-End 파이프라인을 추가했다.
+v2.0 End-to-End 파이프라인 위에, SNOMED 매칭 품질을 4단계 전략으로 대폭 개선하고 Docker 원클릭 배포를 추가했다.
 
-**주요 추가 기능:**
+**주요 개선:**
 
-- End-to-End 파이프라인: 음성/텍스트 → SOAP 구조화 → SNOMED 자동 태깅
-- 임상 발화 필드 추출 (Precision 0.938 / Recall 0.737, 텍스트 모드)
-- Gemini 3.1 Flash Lite Preview 백엔드 (RPD 500, 25× 높은 할당량)
-- 3모델 정량 비교 (2.5 Flash / 2.5 Flash Lite / 3.1 Flash Lite)
-- MRCM 25도메인 64패턴 검증 + 후조합 SCG 빌더
-- 5건 합성 임상 시나리오 + Gold-label 평가 프레임워크
-- Streamlit "Clinical Encoding" 탭 (파일 업로드 → JSONL 다운로드)
-- pytest 86건 회귀 테스트 (85 passed, 1 skipped)
+- **SNOMED Match 0.584 → 0.889** (+52.2%, 5/9 → 8/9 gold): MRCM 패턴 확장 + BGE Reranker + MRCM 직접 매핑
+- BGE Reranker 활성화 (`enable_rerank=True`) + semantic_tag 우선순위
+- MRCM 직접 매핑 확대 (OPH_CORNEA_CLARITY, OR_PATELLAR_LUXATION, GI_VOMIT_FREQ)
+- Docker 지원: `Dockerfile` + `docker-compose.yml` — `docker-compose up` 원클릭 배포
+- Gemini Reformulator: 2.5 Flash → 3.1 Flash Lite Preview (RPD 500, 비용 −40%)
+- GOLD_AUDIT.md §7 — S03 gold 불일치 투명 공개 (gold 미수정, 벤치마크 정직성 유지)
+- F1 0.827 (MedCAT 0.81–0.94 밴드 진입, FDA Class II SaMD F1 ≥0.80 충족)
+
+v2.0의 주요 추가 기능(End-to-End 파이프라인 · Whisper STT · SOAP 추출 · Clinical Encoding 탭 · pytest 85/86 PASS)은 아래 [아키텍처 v2.0](#아키텍처-v20) 섹션을 참조.
 
 ---
 
@@ -452,6 +455,22 @@ FSN "Equine laminitis (disorder)"로 표기됩니다.
 
 ---
 
+## Supported Input Formats
+
+Streamlit UI의 두 탭(SNOMED Search · Clinical Encoding)에서 현재 지원하는 입력 포맷과 v2.2 계획이다.
+
+| Format | v2.1 | v2.2 Planned | Notes |
+|---|---|---|---|
+| Text (직접 입력) | ✅ | ✅ | SNOMED Search 탭 + Clinical Encoding 탭 공통 |
+| Audio (m4a / wav / mp3 / mp4) | ✅ | ✅ | faster-whisper STT → SOAP → SNOMED 자동 태깅 |
+| PDF (text layer) | ❌ | 🟡 [#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6) Stage 1 | pdfplumber 기반 텍스트 추출 후 기존 파이프라인 통과 |
+| PDF (scanned / 이미지 전용) | ❌ | 🟡 [#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6) Stage 2 | OCR fallback (tesseract / Vision LLM) |
+| Image (JPG / PNG) | ❌ | Deferred (v2.3+) | Vision LLM 별도 파이프라인 필요 |
+
+> **PDF 미지원 현황 (v2.1):** 기업 임상 기록의 상당수가 PDF 포맷이나, 현재 `st.file_uploader`는 오디오 포맷만 accept한다. PDF 지원은 [Issue #6](https://github.com/ricocopapa/vet-snomed-rag/issues/6)에서 v2.2 Stage 1(text layer)·Stage 2(OCR) 2단계로 계획 중이다.
+
+---
+
 ## 벤치마크 — Gemini Reformulator 회귀 테스트
 
 11건 쿼리(영문 기본·한국어·종 특이 질환 혼합)에 대해 baseline vs Gemini Reformulator 비교 결과:
@@ -599,11 +618,28 @@ vet-snomed-rag/
   - [x] 5건 합성 시나리오 + gold-label (역공학 감사 PASS)
   - [x] 3모델 비교 (2.5 Flash / 2.5 Flash Lite / 3.1 Flash Lite)
   - [x] pytest 85/86 PASS (v1.0 회귀 포함)
-- [ ] v2.1 (계획): RAG 품질 + 실측 검증
-  - [ ] RAG 랭킹 개선 (BM25 튜닝, semantic_tag 우선순위)
-  - [ ] 실 수의사 녹음 검증 (gTTS 합성 음성 대비)
-  - [ ] 오디오 Latency 최적화 (2.5 Flash Lite GA 전환 검토)
-  - [ ] Claude Opus/Sonnet 백업 백엔드 완성
+- [x] v2.1 (2026-04-23): SNOMED 품질 개선 + Docker 배포
+  - [x] SNOMED Match 0.584 → 0.889 (+52.2%, 4단계 전략)
+  - [x] BGE Reranker 활성화 (`enable_rerank=True`) + semantic_tag 우선순위
+  - [x] MRCM 직접 매핑 확대 (OPH_CORNEA, OR_PATELLAR_LUXATION, GI_VOMIT_FREQ)
+  - [x] Docker 원클릭 배포 (`docker-compose up`)
+  - [x] Gemini Reformulator 3.1 Flash Lite Preview 전환 (RPD 500)
+  - [x] GOLD_AUDIT.md §7 — S03 gold 불일치 투명 공개
+
+---
+
+## v2.2 Roadmap
+
+v2.2 이슈는 [GitHub Issues](https://github.com/ricocopapa/vet-snomed-rag/issues)에서 트래킹된다.
+
+- [#1](https://github.com/ricocopapa/vet-snomed-rag/issues/1) — Replace gTTS synthetic audio with real veterinarian recordings
+- [#2](https://github.com/ricocopapa/vet-snomed-rag/issues/2) — Improve SNOMED match rate 0.889 → 0.95 via ChromaDB vector index retraining + LCA-based scoring
+- [#3](https://github.com/ricocopapa/vet-snomed-rag/issues/3) — Optimize Audio mode latency p95 < 60s (Gemini 2.5 Flash Lite GA path)
+- [#4](https://github.com/ricocopapa/vet-snomed-rag/issues/4) — Claude fallback backend for multi-provider resilience (Gemini 503 / rate limit)
+- [#5](https://github.com/ricocopapa/vet-snomed-rag/issues/5) — Redesign gold dataset under multi-reviewer Cohen's κ agreement (50–100 real recordings)
+- [#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6) — PDF input support: Stage 1 text layer (pdfplumber) + Stage 2 OCR fallback
+
+> **PDF 지원 우선 배경 ([#6](https://github.com/ricocopapa/vet-snomed-rag/issues/6)):** 기업 임상 기록의 상당수가 PDF 포맷이다. v2.1 기준 PDF는 미지원(❌)이며, v2.2에서 text layer → OCR 2단계로 지원 예정이다. 현재 지원 포맷 전체 매트릭스는 [Supported Input Formats](#supported-input-formats) 참조.
 
 ---
 
