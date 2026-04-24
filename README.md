@@ -689,6 +689,23 @@ v2.2 이슈는 [GitHub Issues](https://github.com/ricocopapa/vet-snomed-rag/issu
 
 위치: [`experimental/ai_os_governance/`](./experimental/ai_os_governance/) (Issue [#8](https://github.com/ricocopapa/vet-snomed-rag/issues/8) · [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9) · [#10](https://github.com/ricocopapa/vet-snomed-rag/issues/10))
 
+### v2.3.0 — Google Cloud AI 에이전트 표준 6범주 매핑 (외부 검증)
+
+본 PoC 3종 + 기존 AI OS Sub Agents의 Google Cloud 표준 분류 매핑:
+
+| 범주 | 본 시스템 자산 | 상태 |
+|---|---|---|
+| 고객 에이전트 | 미구현 (B2B 포지션) | ❌ |
+| 직원 에이전트 | orchestrator + reviewer + evaluator | ✅ |
+| 크리에이티브 | emr-designer | ✅ |
+| 코드 | workflow-architect + GSD 30+ | ✅ |
+| 데이터 | data-analyzer + invest-analyzer | ✅ |
+| 보안 | security-audit + IAM-Lite + PII 마스킹 (Issue [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9)) | ✅ |
+
+**5/6 (83.3%) 자체 구현.** 추가로 **XAI 레이어 4종**(Audit Trail JSONL · Provenance Tracking via Source-First Rule · IAM Registry · Adversarial Verification) 구현으로 "AI 블랙박스 한계" 정량 대응.
+
+추론 전략 적용: **CoT** (Chain-of-Verification, Dhuliawala et al. Meta AI 2023) + **ReAct** (Sub Agent tool_use loop, Hong et al. ICLR 2024 MetaGPT 패턴) + **ToT** (vet-snomed-rag v2.1 4단계 개선 분기 탐색).
+
 ### v2.3.1 — Objective Drift Detection (Observability)
 
 사용자 원본 의도와 에이전트 Task Definition의 임베딩 코사인 유사도로 **Drift Score**를 측정,
