@@ -682,6 +682,45 @@ v2.2 이슈는 [GitHub Issues](https://github.com/ricocopapa/vet-snomed-rag/issu
 
 ---
 
+## v2.3 Roadmap — AI OS Governance Layer (Experimental)
+
+> v2.2 5-input multimodal pipeline 안정화 후, **AI OS 거버넌스 PoC 3종**을 본 레포에 통합하여
+> LG CNS JD 우대 3.2 ("Evaluation, Observability, Guardrails/PII") 정면 매칭 자산으로 발전시킨다.
+
+위치: [`experimental/ai_os_governance/`](./experimental/ai_os_governance/) (Issue [#7](https://github.com/ricocopapa/vet-snomed-rag/issues/7) · [#8](https://github.com/ricocopapa/vet-snomed-rag/issues/8) · [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9))
+
+### v2.3.1 — Objective Drift Detection (Observability)
+
+사용자 원본 의도와 에이전트 Task Definition의 임베딩 코사인 유사도로 **Drift Score**를 측정,
+임계값 초과 시 HITL을 트리거하는 **Enterprise AI 핵심 리스크 정량 감지 시스템**.
+
+- **현재 상태**: 캘리브레이션 9/10 (90% detection accuracy) — 한국어 특화 모델 적용 시 100% 목표
+- **모델**: `paraphrase-multilingual-mpnet-base-v2` → `jhgan/ko-sroberta-multitask` 전환 예정
+- **검증 데이터**: 정상 5 + 이상 5 시나리오 실측 로그 (`drift_log.jsonl`)
+
+### v2.3.2 — IAM-Lite + PII Masking (Guardrails/PII)
+
+Enterprise IAM 핵심 원리 3종 + PII 자동 마스킹 개인 환경 실증.
+
+- **Permission Scope Registry**: 6 Sub Agents `allowed_tools`/`denied_tools` YAML 등록
+- **2단계 승인 프로토콜**: 비가역 작업(DELETE, push, DB UPDATE) 실행자+승인자 두 서명
+- **Audit Trail JSON Lines**: `~/.audit_log/YYYYMMDD.jsonl` 5필드 표준
+- **PII 마스킹 4종**: 전화·이메일·주민·계좌번호 정규식 round-trip (pytest 5/5 PASS)
+
+### v2.3.3 — A2A (Agent-to-Agent) Protocol Early Adopter
+
+Google A2A Protocol(2025-04 공식)을 Claude 생태계 내에서 실증한 **드문 사례**.
+
+- **JSON Schema** (Draft-07) + 검증 테스트 8/8 PASS
+- **Mailbox 디렉토리**: inbox / outbox / archive / dead_letter
+- **벤더 간 브릿지**: Claude reviewer ↔ `gemini-2.5-flash` 독립 감사 E2E PoC
+  - 실측 결과: consensus_estimate **0.75** (이력서 v2.2 첫 5,000자 대상)
+- **dead_letter**: retry_count > 3 자동 격리
+
+자세한 내용은 [experimental/ai_os_governance/README.md](./experimental/ai_os_governance/README.md) 참조.
+
+---
+
 ## 라이선스
 
 본 프로젝트는 **2개의 서로 다른 라이선스 영역**으로 구성된다.
