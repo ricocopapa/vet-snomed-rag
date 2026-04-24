@@ -19,7 +19,7 @@ if _ENV_PATH.exists():
 def solve_subquery(
     sub_query: str,
     context: list[str],
-    model: str = "gemini-2.5-flash",
+    model: str = "gemini-3.1-flash-lite-preview",
 ) -> str:
     """단일 서브 쿼리 해결 (선행 답변 컨텍스트 활용)."""
     from google import genai
@@ -40,7 +40,7 @@ def solve_subquery(
 def solve_dag(
     sub_queries: list[dict],
     order: list[int],
-    model: str = "gemini-2.5-flash",
+    model: str = "gemini-3.1-flash-lite-preview",
 ) -> dict[int, str]:
     """위상 순서대로 모든 서브 쿼리 해결.
 
@@ -59,7 +59,7 @@ def synthesize(
     original_query: str,
     sub_queries: list[dict],
     answers: dict[int, str],
-    model: str = "gemini-2.5-flash",
+    model: str = "gemini-3.1-flash-lite-preview",
 ) -> str:
     """모든 서브 답변을 통합한 최종 답변."""
     from google import genai

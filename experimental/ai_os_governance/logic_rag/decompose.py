@@ -39,7 +39,7 @@ JSON 형식으로만 응답 (다른 텍스트 금지):
 def decompose_query(
     query: str,
     max_subqueries: int = 5,
-    model: str = "gemini-2.5-flash",
+    model: str = "gemini-3.1-flash-lite-preview",
 ) -> list[dict]:
     """LLM으로 query를 sub-queries로 분해.
 

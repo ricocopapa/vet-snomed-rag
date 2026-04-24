@@ -77,7 +77,11 @@ cd ~/claude-cowork && PYTHONPATH=tools \
 
 **현재 상태 (2026-04-24)**:
 - DAG 위상 정렬 단위 테스트 **7/7 PASS** (LLM 호출 없이 순수 알고리즘 검증)
-- E2E Gemini 호출은 작성 시점 `gemini-2.5-flash` 503 UNAVAILABLE (과부하)로 미검증 — A2A 브릿지(`../a2a/gemini_bridge.py`)는 동일 모델로 PASS했으므로 모델·API 키 문제 아님. 다음 세션에서 재시도 권장.
+- **E2E Gemini 실호출 PASS** (`gemini-3.1-flash-lite-preview`, vet-snomed-rag Primary 모델):
+  - 짧은 질의 ("SNOMED CT 매핑이 무엇이고 왜 중요한가") → 2 sub-queries / depth 1 (병렬)
+  - 복잡 질의 ("강점·한계 분석 후 로드맵 추천") → 3 sub-queries / depth **2** (diamond: 강점∥한계 → 로드맵)
+  - synthesize 단계까지 정상 답변 생성 확인
+- `gemini-2.5-flash`는 503 UNAVAILABLE 상태가 잦아 기본 모델을 `gemini-3.1-flash-lite-preview`로 변경 (vet-snomed-rag Primary와 일치)
 
 ---
 
