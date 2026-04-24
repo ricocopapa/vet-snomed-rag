@@ -73,9 +73,10 @@ PYTHONPATH=experimental/ai_os_governance .venv/bin/python \
 
 ## 관련 Issue
 
-- [#7] Add Objective Drift Detection (Observability layer)
-- [#8] Add IAM-Lite Permission Scope + PII Masking
-- [#9] Add A2A Protocol Mailbox + Cross-Vendor Bridge PoC
+- [#8](https://github.com/ricocopapa/vet-snomed-rag/issues/8) Add Objective Drift Detection (Observability layer)
+- [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9) Add IAM-Lite Permission Scope + PII Masking
+- [#10](https://github.com/ricocopapa/vet-snomed-rag/issues/10) Add A2A Protocol Mailbox + Cross-Vendor Bridge PoC
+- PR: [#7](https://github.com/ricocopapa/vet-snomed-rag/pull/7)
 
 ---
 

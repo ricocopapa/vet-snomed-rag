@@ -687,7 +687,7 @@ v2.2 이슈는 [GitHub Issues](https://github.com/ricocopapa/vet-snomed-rag/issu
 > v2.2 5-input multimodal pipeline 안정화 후, **AI OS 거버넌스 PoC 3종**을 본 레포에 통합하여
 > LG CNS JD 우대 3.2 ("Evaluation, Observability, Guardrails/PII") 정면 매칭 자산으로 발전시킨다.
 
-위치: [`experimental/ai_os_governance/`](./experimental/ai_os_governance/) (Issue [#7](https://github.com/ricocopapa/vet-snomed-rag/issues/7) · [#8](https://github.com/ricocopapa/vet-snomed-rag/issues/8) · [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9))
+위치: [`experimental/ai_os_governance/`](./experimental/ai_os_governance/) (Issue [#8](https://github.com/ricocopapa/vet-snomed-rag/issues/8) · [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9) · [#10](https://github.com/ricocopapa/vet-snomed-rag/issues/10))
 
 ### v2.3.1 — Objective Drift Detection (Observability)
 
