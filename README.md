@@ -6,17 +6,19 @@
 [![Release](https://img.shields.io/github/v/release/ricocopapa/vet-snomed-rag)](https://github.com/ricocopapa/vet-snomed-rag/releases)
 [![Last Commit](https://img.shields.io/github/last-commit/ricocopapa/vet-snomed-rag)](https://github.com/ricocopapa/vet-snomed-rag/commits/main)
 
-수의학 SNOMED CT 온톨로지 기반 하이브리드 RAG 시스템
+수의학 SNOMED CT 온톨로지 기반 **Agentic RAG** 시스템
 
 > 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원  
+> **v2.4**: Agentic RAG 11/11 단계 완전 구현 (G-1 Complexity + G-2 Source Router + G-3 Relevance Judge + G-4 Rewrite Loop)  
 > **v2.2**: 5-input multimodal pipeline (text / audio / PDF text_layer / PDF OCR / image Vision) — 실 API E2E 도메인 hit **6/6**, SNOMED UNMAPPED **0/25**  
 > **v2.1**: SNOMED Match 0.584 → **0.889** (+52.2%) · BGE Reranker + MRCM Direct Mapping · Docker 지원  
-> **회귀 테스트**: PASS **6/10 → 10/10** (v1.0) · pytest **17/17 + 59 subtests PASS** (v2.2) · Precision **0.891** / Recall **0.772**
+> **회귀 테스트**: pytest **135 passed + 1 skipped + 59 subtests** (v2.4) · Precision **0.891** / Recall **0.772** / F1 **0.827**
 
 ---
 
 ## 목차
 
+- [What's New in v2.4](#whats-new-in-v24-2026-04-25)
 - [What's New in v2.2](#whats-new-in-v22-2026-04-23)
 - [What's New in v2.1](#whats-new-in-v21-2026-04-23)
 - [프로젝트 소개](#프로젝트-소개)
@@ -37,6 +39,28 @@
 - [v2.2 Roadmap](#v22-roadmap)
 - [기여·보안·변경 이력](#기여보안변경-이력)
 - [라이선스](#라이선스)
+
+---
+
+## What's New in v2.4 (2026-04-25)
+
+Datasciencedojo "RAG vs Agentic RAG" 인포그래픽 기준 **11단계 Agentic RAG 루프**를 완전 구현했다. v2.2는 6/11 단계만 구현(Rewrite + Hybrid Retrieval + LLM)이었고, v2.4에서 **나머지 4종 Gap을 신규 에이전트로 해소**했다.
+
+**주요 개선 (Wave 1~5 Goal-Backward 분해 적용):**
+
+- **G-1 QueryComplexityAgent (#4)**: rule_based + Gemini hybrid 분해 판정. 복잡 쿼리 → 자동 서브쿼리 분해
+- **G-2 SourceRouterAgent (#5·#6)**: Vector / SQL / Graph 동적 라우팅 (concept_id → SQL-heavy / 한국어 → Vector-heavy / 관계어 → Graph 활성)
+- **G-3 RelevanceJudgeAgent (#10)**: PASS / PARTIAL / FAIL 3-way 판정 + missing_aspects 추출
+- **G-4 RewriteLoopController (#11)**: max_iter=2 + Jaccard cycle detection + Gemini-기반 쿼리 재작성
+
+**호환성 보장:**
+- 기존 `SNOMEDRagPipeline.query()` API **변경 0** → v2.2 벤치마크 회귀 0
+- 신규 `AgenticRAGPipeline.agentic_query()`는 별도 wrapper 진입점
+- 기존 정량 수치(SNOMED 0.889 / F1 0.827 / Latency p95 35.4s)는 **그대로 유지**
+
+**테스트:** 신규 29건 (G-1 6 + G-2 5 + G-3 7 + G-4 5 + Pipeline 6) → 전체 **135 passed + 59 subtests + 1 skipped**.
+
+**상세:** [`RELEASE_NOTES_v2.4.md`](./RELEASE_NOTES_v2.4.md) · [`docs/20260424_v2_4_agentic_rag_design_v1.md`](./docs/20260424_v2_4_agentic_rag_design_v1.md) · [`benchmark/v2_4_agentic_comparison.md`](./benchmark/v2_4_agentic_comparison.md)
 
 ---
 
