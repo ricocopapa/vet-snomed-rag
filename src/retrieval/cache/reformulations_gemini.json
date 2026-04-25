@@ -888,5 +888,135 @@
     "tokens_out": 64,
     "cost": 0.0002625,
     "latency_ms": 21339
+  },
+  "c5aa263571d35d1d0273a9f67d6c78df7f5eb432e24629aeb59f7c87667d68a6": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 665,
+    "tokens_out": 71,
+    "cost": 0.00027275,
+    "latency_ms": 2805
+  },
+  "9620865c04c8ce7fd238a251448288875b4704f54de99a6a628e2e56275a3046": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept that requires post-coordination for feline specificity.",
+    "tokens_in": 666,
+    "tokens_out": 67,
+    "cost": 0.000267,
+    "latency_ms": 2067
+  },
+  "bc1ffa4bab438ff97e2d164a169c70fc6e2e7fb44098872f0d8ed92f2fba54ff": {
+    "reformulated": "pancreatitis",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Pancreatitis is a species-agnostic condition, so the feline qualifier is moved to a post-coordination hint.",
+    "tokens_in": 666,
+    "tokens_out": 75,
+    "cost": 0.000279,
+    "latency_ms": 1518
+  },
+  "4ff18cacfc541881bc7767ba096dcf033e16c09ad9440dbc7722666db2b0a41c": {
+    "reformulated": "canine parvovirus enteritis",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Canine parvovirus enteritis is a specific clinical concept in SNOMED CT and should be preserved as is.",
+    "tokens_in": 668,
+    "tokens_out": 68,
+    "cost": 0.000269,
+    "latency_ms": 21131
+  },
+  "b6c6732fce9196f2deeb41da88e78e5bc27cdc60ef526a8bebcd02582b62cc16": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the species qualifier is moved to a post-coordination hint.",
+    "tokens_in": 666,
+    "tokens_out": 72,
+    "cost": 0.0002745,
+    "latency_ms": 88521
+  },
+  "c8221b02980811c04296073684a8292501d4db59cfcc270d91469c7515fa5d13": {
+    "reformulated": "pancreatitis",
+    "post_coord_hint": "Occurs in = Canine species",
+    "confidence": 1.0,
+    "reasoning": "Pancreatitis is a species-agnostic condition, so the species qualifier is moved to a post-coordination hint.",
+    "tokens_in": 665,
+    "tokens_out": 73,
+    "cost": 0.00027575,
+    "latency_ms": 45050
+  },
+  "b6d135229cfa012a9e6a58b47e3b2a100ba7cc2bbee569a02b42ed9443e67955": {
+    "reformulated": "chronic kidney disease",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Chronic kidney disease is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 667,
+    "tokens_out": 73,
+    "cost": 0.00027625,
+    "latency_ms": 38207
+  },
+  "9cdef48f99d10aeea53c16098a86ca33b3f08d862a9a5cb7b04e374186cb326d": {
+    "reformulated": "cat bite wound",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Cat bite wound is a specific clinical concept in SNOMED CT that should be preserved as a whole.",
+    "tokens_in": 666,
+    "tokens_out": 63,
+    "cost": 0.000261,
+    "latency_ms": 40924
+  },
+  "841cf68397e8036f5a3f9807fbdcd2c4cb671707a81e54c316be40a7852e0da6": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 667,
+    "tokens_out": 71,
+    "cost": 0.00027325,
+    "latency_ms": 3374
+  },
+  "fbfe9cc4cd9ac2ec504b1a836d0cba3e61a2bcc8507c6420bd0bbc862c1b0a21": {
+    "reformulated": "diabetes mellitus type 1",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query is a standard clinical concept without species-specific qualifiers.",
+    "tokens_in": 668,
+    "tokens_out": 57,
+    "cost": 0.0002525,
+    "latency_ms": 6817
+  },
+  "880889b9c4666a1a27415ea2d933ce53bdab0dc8c742a544dfafe5e88b8c60c2": {
+    "reformulated": "pancreatitis",
+    "post_coord_hint": "Occurs in = Canine species",
+    "confidence": 1.0,
+    "reasoning": "Pancreatitis is a species-agnostic condition, so the species is moved to a post-coordination hint.",
+    "tokens_in": 668,
+    "tokens_out": 72,
+    "cost": 0.000275,
+    "latency_ms": 78464
+  },
+  "1e46d4891f5ecfac9ce57b2f6bbe6f7a0e6bbea4856621177b28097d76c45fbf": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the feline qualifier is moved to a post-coordination hint.",
+    "tokens_in": 666,
+    "tokens_out": 72,
+    "cost": 0.0002745,
+    "latency_ms": 11750
+  },
+  "22dc472f919db86c2637a1408bbaf547fb2832bb6b06ae7dbffbdbc985297534": {
+    "reformulated": "pancreatitis",
+    "post_coord_hint": "Occurs in = Canine species",
+    "confidence": 1.0,
+    "reasoning": "Pancreatitis is a species-agnostic clinical concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 665,
+    "tokens_out": 73,
+    "cost": 0.00027575,
+    "latency_ms": 1652
   }
 }

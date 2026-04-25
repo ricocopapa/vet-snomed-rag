@@ -1,11 +1,13 @@
 """G-2 SourceRouterAgent — Agentic RAG Step #5·#6 "Which Source?"
 
 쿼리·서브쿼리별 어떤 소스(Vector/SQL/Graph/External Tool)를 사용할지 동적 결정.
+
+v2.5 Tier B: external_tools 필드 + UMLS/PubMed 라우팅 룰 추가.
 """
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -16,7 +18,14 @@ class SourceRoute:
     use_external_tool: bool = False
     vector_weight: float = 0.6
     sql_weight: float = 0.4
+    # v2.5 Tier B: 활성 외부 도구 식별자 list (예: ["umls", "pubmed"])
+    external_tools: list[str] = field(default_factory=list)
     reasoning: str = ""
+
+    def __post_init__(self):
+        # external_tools가 직접 주입된 경우 use_external_tool 자동 동기화
+        if self.external_tools and not self.use_external_tool:
+            self.use_external_tool = True
 
 
 # 패턴 → 라우팅 룰
@@ -35,6 +44,24 @@ _GRAPH_TRIGGER_PATTERNS = [
     re.compile(r"상위\s*개념|하위\s*개념|관계|연관|유사\s*질환"),
     re.compile(r"parent|child|related|similar", re.IGNORECASE),
     re.compile(r"상위|하위|계층"),
+]
+
+# v2.5 Tier B: UMLS cross-walk 키워드
+_UMLS_PATTERNS = [
+    re.compile(r"\bICD[-_ ]?(10|11)(?:CM)?\b", re.IGNORECASE),
+    re.compile(r"\bMeSH\b", re.IGNORECASE),
+    re.compile(r"\bRxNorm\b", re.IGNORECASE),
+    re.compile(r"\bUMLS\b", re.IGNORECASE),
+    re.compile(r"cross[-_ ]?walk", re.IGNORECASE),
+    re.compile(r"매핑|크로스워크|코드\s*변환|코드\s*매핑"),
+]
+
+# v2.5 Tier B: PubMed evidence/희귀 키워드
+_PUBMED_PATTERNS = [
+    re.compile(r"\b(emerging|novel|rare|recent)\b", re.IGNORECASE),
+    re.compile(r"신규|최신|희귀|드문"),
+    re.compile(r"\b(literature|evidence|study|paper)\b", re.IGNORECASE),
+    re.compile(r"논문|문헌|증거"),
 ]
 
 
@@ -73,8 +100,19 @@ class SourceRouterAgent:
             reasons.append("Graph 활성 (관계/계층 키워드)")
         # Graph 기본은 True 유지 (기존 vet-snomed-rag 파이프라인과 호환)
 
-        # External tool (미구현, 향후 확장 훅)
-        route.use_external_tool = False
+        # v2.5 Tier B: 외부 도구 라우팅
+        external: list[str] = []
+        if any(p.search(query) for p in _UMLS_PATTERNS):
+            external.append("umls")
+            reasons.append("UMLS 활성 (cross-walk 키워드)")
+        if any(p.search(query) for p in _PUBMED_PATTERNS):
+            external.append("pubmed")
+            reasons.append("PubMed 활성 (신규/희귀/문헌 키워드)")
+        if external:
+            route.external_tools = external
+            route.use_external_tool = True
+        else:
+            route.use_external_tool = False
 
         route.reasoning = " / ".join(reasons)
         return route

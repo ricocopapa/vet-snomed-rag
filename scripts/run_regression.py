@@ -54,6 +54,11 @@ if os.environ.get("ANTHROPIC_API_KEY"):
 else:
     print("[INFO] ANTHROPIC_API_KEY 미설정 — claude 백엔드 스킵")
 
+# v2.5 Tier B: reranker ON/OFF 분기 (RERANK=1 환경변수 사용)
+ENABLE_RERANK = os.environ.get("RERANK", "").lower() in ("1", "true", "yes")
+if ENABLE_RERANK:
+    print("[INFO] RERANK=1 감지 — BGEReranker 활성 모드 (Top-5 고정)")
+
 
 def find_rank(results, expected_concept_id: str | None) -> int | None:
     """검색 결과에서 expected_concept_id의 순위(1-based)를 반환한다."""
@@ -65,10 +70,10 @@ def find_rank(results, expected_concept_id: str | None) -> int | None:
     return None
 
 
-def run_single(pipeline, query_text: str, top_k: int = 10) -> dict:
+def run_single(pipeline, query_text: str, top_k: int = 10, rerank: bool = False) -> dict:
     """단일 쿼리 실행 후 결과를 반환한다."""
     t0 = time.perf_counter()
-    result = pipeline.query(query_text, top_k=top_k)
+    result = pipeline.query(query_text, top_k=top_k, rerank=rerank)
     latency_ms = int((time.perf_counter() - t0) * 1000)
     return result, latency_ms
 
@@ -96,6 +101,7 @@ def main():
         pipelines[backend] = SNOMEDRagPipeline(
             llm_backend="none",
             reformulator_backend=backend,
+            enable_rerank=ENABLE_RERANK,
         )
         print(f"[완료] backend={backend} 초기화")
 
@@ -123,7 +129,7 @@ def main():
             if backend == "gemini":
                 time.sleep(13)
 
-            result, latency_ms = run_single(pipeline, qtext, top_k=10)
+            result, latency_ms = run_single(pipeline, qtext, top_k=10, rerank=ENABLE_RERANK)
 
             rank = find_rank(result["search_results"], expected)
             top1 = result["search_results"][0].concept_id if result["search_results"] else None
@@ -169,8 +175,9 @@ def main():
     out_dir = PROJECT_ROOT / "graphify_out"
     out_dir.mkdir(exist_ok=True)
 
-    # regression_metrics.json
-    metrics_path = out_dir / "regression_metrics.json"
+    # regression_metrics.json (RERANK=1 시 별도 파일로 보존)
+    metrics_filename = "regression_metrics_rerank.json" if ENABLE_RERANK else "regression_metrics.json"
+    metrics_path = out_dir / metrics_filename
     with open(metrics_path, "w", encoding="utf-8") as f:
         json.dump(metrics, f, ensure_ascii=False, indent=2)
     print(f"\n[저장] {metrics_path}")
