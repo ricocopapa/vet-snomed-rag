@@ -88,6 +88,7 @@ class AgenticRAGPipeline:
 
         for iter_count in range(self.loop.max_iter + 1):
             iter_t0 = time.time()
+            iter_sources: set[str] = set()  # 본 iter 내 소스 합집합 (S-1 fix)
 
             # Step A — G-1 #4 Need More Details?
             complexity = self.complexity_agent.judge(current)
@@ -98,7 +99,9 @@ class AgenticRAGPipeline:
             sub_results = []
             for sq in subqueries:
                 route = self.source_router.route(sq)
-                sources_used_all.update(_route_to_names(route))
+                sub_route_names = _route_to_names(route)
+                iter_sources.update(sub_route_names)
+                sources_used_all.update(sub_route_names)
                 base_result = self.base.query(sq, top_k=top_k, rerank=rerank)
                 sub_results.append(
                     {
@@ -147,7 +150,7 @@ class AgenticRAGPipeline:
                     "query": current,
                     "is_complex": complexity.is_complex,
                     "subqueries_count": len(subqueries),
-                    "sources_used": sorted(_route_to_names(route)),
+                    "sources_used": sorted(iter_sources),
                     "verdict": relevance.verdict,
                     "confidence": relevance.confidence,
                     "decision": decision.reason,

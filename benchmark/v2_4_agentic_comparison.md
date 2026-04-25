@@ -131,12 +131,12 @@ Result:  iterations=1, verdict=PASS, total_ms=22,017
 | 2 | 신규 pytest ≥ 25건 | ✅ PASS | 23 (G-1~G-4) + 6 (Pipeline) = 29건 |
 | 3 | 기존 pytest 106/107 regression | ✅ PASS | 135 passed + 1 skipped |
 | 4 | SNOMED Match ≥ 0.889 | ⏸ DEFERRED | Wave 4 smoke로는 측정 불가, v2.4.1 이관 |
-| 5 | Latency p95 ≤ 60s | ✅ PASS (smoke) | simple 6.7s / complex 22.0s, 60s 한도 내 |
+| 5 | Latency p95 ≤ 60s | ⏸ DEFERRED | smoke 6.7s/22.0s는 `llm_backend="none"` 검색-only. FDA Class II 기준 SOAP+SNOMED Tagger 포함 E2E latency 측정은 v2.4.1 이관(§4.1 한계와 일관) |
 | 6 | RELEASE_NOTES_v2.4 + README | Wave 5 | 진행 예정 |
 | 7 | v4 Integrity Audit | Wave 5 | 진행 예정 |
 | 8 | git tag v2.4 | Wave 5 | 진행 예정 |
 
-**4종 PASS / 1종 DEFERRED / 3종 Wave 5 진행 → CONDITIONAL_PASS (smoke 단계).**
+**3종 PASS / 2종 DEFERRED (#4 SNOMED Match · #5 Latency) / 3종 Wave 5 진행 → CONDITIONAL_PASS (smoke 단계).**
 
 ---
 

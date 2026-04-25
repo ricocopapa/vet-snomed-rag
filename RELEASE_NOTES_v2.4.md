@@ -20,6 +20,8 @@ Datasciencedojo "RAG vs Agentic RAG" 인포그래픽 기준 **11단계 Agentic R
 | #11 Final Response / Rewrite Loop | ❌ | **✅** | `agentic/loop_controller.py` (신규) |
 | **합계** | 6/11 | **11/11** | — |
 
+> **기존 구현 유지 단계**(#1 Query / #2 Rewrite Query / #3 Updated Query / #6 Sources / #7 Retrieved Context / #8 LLM / #9 Response): 변경 없이 보존. 전체 11단계 1:1 매핑은 [`docs/20260424_v2_4_agentic_rag_design_v1.md` §3.3](./docs/20260424_v2_4_agentic_rag_design_v1.md) 참조.
+
 기존 `SNOMEDRagPipeline.query()` API는 **변경 없이 보존** → v2.2 벤치마크 회귀 0 보장. 신규 `AgenticRAGPipeline.agentic_query()`는 별도 wrapper 진입점.
 
 ---
