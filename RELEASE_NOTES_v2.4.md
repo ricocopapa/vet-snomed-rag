@@ -147,7 +147,9 @@ result = agentic.agentic_query("feline diabetes and pancreatitis comparison")
 | pytest | 106/107 | **135/136** | **+29** |
 | FDA Class II ≥0.80 PASS | ✅ | ✅ 유지 | — |
 
-**핵심 메시지**: v2.4는 "기능 추가" 릴리즈. 기존 정량 수치는 그대로 유지하면서 Agentic 루프를 신규 layer로 추가했다. 이력서·자소서·포트폴리오 인용 수치(0.889 / 0.827 / 35.4s)는 변경 없이 유지된다.
+**핵심 메시지**: v2.4는 **Wrapper Pattern (Strangler Fig)** 으로 비침습적 기능을 추가한 릴리즈다. 기존 `SNOMEDRagPipeline.query()` API는 변경 없이 그대로 두고 Agentic 11단계 루프를 신규 layer로 추가했다. 가중치 동적 주입을 위한 API Migration(리팩토링)은 v2.5 후속 작업으로 분리. 이력서·자소서·포트폴리오 인용 수치(0.889 / 0.827 / 35.4s)는 변경 없이 유지된다.
+
+> **용어 정확성 (Martin Fowler 기준)**: 본 작업은 "Refactoring"이 아니다. Fowler 정의("외부 동작 변경 없이 내부 구조 개선")와 달리 v2.4는 외부 동작에 새 11단계 루프를 추가했다. Conventional Commits 기준 `feat:`, GoF 패턴 기준 `Wrapper/Decorator`, Fowler 패턴 기준 `Strangler Fig`로 분류된다.
 
 ---
 
