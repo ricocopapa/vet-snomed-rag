@@ -9,15 +9,17 @@
 수의학 SNOMED CT 온톨로지 기반 **Agentic RAG** 시스템
 
 > 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원  
+> **v2.5**: Agentic RAG ⑤·⑥ 백엔드 분기 활성화 + UMLS/PubMed 외부 도구 통합 + 한국어 사전 backend-무관 작동 → **정밀 회귀 10/10** (RERANK=1)  
 > **v2.4**: Agentic RAG 11/11 단계 완전 구현 (G-1 Complexity + G-2 Source Router + G-3 Relevance Judge + G-4 Rewrite Loop)  
 > **v2.2**: 5-input multimodal pipeline (text / audio / PDF text_layer / PDF OCR / image Vision) — 실 API E2E 도메인 hit **6/6**, SNOMED UNMAPPED **0/25**  
 > **v2.1**: SNOMED Match 0.584 → **0.889** (+52.2%) · BGE Reranker + MRCM Direct Mapping · Docker 지원  
-> **회귀 테스트**: pytest **135 passed + 1 skipped + 59 subtests** (v2.4) · Precision **0.891** / Recall **0.772** / F1 **0.827**
+> **회귀 테스트**: pytest **135 passed + 1 skipped + 59 subtests** (v2.4) + **53 unit tests PASS** (v2.5 Tier A·B) · Precision **0.891** / Recall **0.772** / F1 **0.827**
 
 ---
 
 ## 목차
 
+- [What's New in v2.5](#whats-new-in-v25-2026-04-25)
 - [What's New in v2.4](#whats-new-in-v24-2026-04-25)
 - [What's New in v2.2](#whats-new-in-v22-2026-04-23)
 - [What's New in v2.1](#whats-new-in-v21-2026-04-23)
@@ -39,6 +41,51 @@
 - [v2.2 Roadmap](#v22-roadmap)
 - [기여·보안·변경 이력](#기여보안변경-이력)
 - [라이선스](#라이선스)
+
+---
+
+## What's New in v2.5 (2026-04-25)
+
+v2.4가 Agentic RAG 11단계의 *의사결정 layer*까지 완성했다면, **v2.5는 ⑤·⑥ Sources 단계의 실제 백엔드 분기 호출까지 활성화**한다.
+
+### Tier A — 백엔드 분기 활성화 (회귀 0 보장)
+- `SNOMEDRagPipeline.query()` 시그니처에 `source_route` 파라미터 추가 (default None → v2.4 동일 동작)
+- HybridSearchEngine `vector_weight` / `sql_weight` 동적 주입 (concept_id 패턴 → SQL-heavy / 한국어 자연어 → Vector-heavy)
+- GraphRAG 조건부 분기 (`use_graph=False` 시 컨텍스트 −1701 / −471 / −1233 정량 비활성)
+
+### Tier B — 외부 도구 통합 (UMLS + PubMed)
+Datasciencedojo Agentic RAG 다이어그램 ⑥ Sources의 "Tools & APIs" 분기 활성화. 사용자 도메인(한국 EMR + ICD-10 호환성) 직접 가치 기준 채택.
+
+| 도구 | 역할 | 인증 | 비용 |
+|---|---|---|---|
+| **NLM UMLS REST** | ICD-10/11·MeSH·SNOMEDCT_VET cross-walk | UMLS Affiliate License (한국 회원국 무료) | 무료 |
+| **NCBI PubMed E-utilities** | 수의 임상 문헌 evidence (esearch + esummary) | NCBI API Key 무료 (10 rps) | 무료 |
+
+**안전장치:** env 미설정 자동 비활성 / 401·429·5xx·timeout·네트워크 5종 graceful fallback / 토큰 버킷 rate limit + 429 backoff (1·2·4s) / LRU+TTL cache 24h.
+
+**라우팅 룰:**
+- UMLS 활성: `ICD-10/11`, `MeSH`, `cross-walk`, `매핑`, `크로스워크`, `코드 변환`
+- PubMed 활성: `emerging`, `novel`, `rare`, `최신`, `신규`, `희귀`, `literature`, `논문`, `문헌`
+
+**실제 외부 API 검증:**
+```
+[UMLS]   diabetes mellitus → C0011849 / ICD10CM=E08-E13 / MSH=D003920
+[PubMed] feline diabetes   → PMID 42022391 (2026 Vet Sci) ...
+```
+
+### v2.5.1 — 한국어 사전 치환 backend-무관 작동
+v2.4까지 `translate_query_to_english`가 ollama 백엔드일 때만 호출되어 gemini/none/claude 백엔드에서 한국어 임상 용어 검색 실패. v2.5.1에서 사전 치환을 백엔드 무관 분리.
+
+**효과 (RERANK=1):**
+- gemini: 9/10 → **10/10** ✓ (T11 `고양이 범백혈구감소증` 회복)
+- none: 6/10 → **8/10** (T10·T11 사전만으로 PASS)
+
+### 호환성 보장
+- 기존 `SNOMEDRagPipeline.query()` 호출 변경 0 — 모든 신규 파라미터 default가 v2.4 동작 그대로
+- 단위 테스트 **53건 PASS**, mini regression Tier A 회귀 0
+- Breaking changes: 없음
+
+상세: [`RELEASE_NOTES_v2.5.md`](./RELEASE_NOTES_v2.5.md) · 설계서 `docs/20260425_v2_5_tier_b_external_tools_design_v1.md`
 
 ---
 
