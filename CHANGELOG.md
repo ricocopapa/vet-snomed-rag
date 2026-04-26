@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.7.0] — 2026-04-26
+
+### Added
+
+**v2.7 R-3 — Tier C: Tavily Web Search 통합**
+- `src/tools/web_search_client.py` (신규, ~210줄) — `TavilyWebSearchClient` (`pubmed_client.py` 패턴 미러).
+  POST `https://api.tavily.com/search` + `Authorization: Bearer tvly-...` Bearer token.
+  정규화 응답 `{title, url, content, score, source: "tavily"}`.
+  `search_depth`: `basic`(default, 1 credit) / `fast` / `advanced`(2 credits).
+  토큰 버킷 5 rps + 401(영구 차단) / 429(backoff [1·2·4s]) / timeout / non-2xx graceful fallback + LRU+TTL cache 24h.
+  env `TAVILY_API_KEY` 미설정 시 `enabled=False` → 호출 0 (회귀 0 보장).
+- `tests/test_web_search_client.py` (신규, 12건 PASS) — 인증/정상/401/429/timeout/cache/env/empty/top_k=0 등.
+- `scripts/v2_7_tier_c_web_smoke.py` (신규) — Tavily 실 호출 smoke. §3-3-5 4/4 PASS.
+
+**v2.7 R-3 — 라우팅 (`source_router.py` 확장)**
+- `_WEB_PATTERNS` 신규 — Web 활성 키워드:
+  - 영어: `news` / `breaking` / `web search` / `google` / `guideline` / `regulation` / `FDA` / `EMA` / `recall`
+  - 한국어: `뉴스` / `웹 검색` / `구글` / `가이드라인` / `규제` / `허가` / `리콜`
+- PubMed 패턴과 분리 — PubMed=학술 문헌(`literature`/`evidence`/`논문`/`최신`/`희귀`), Web=일반/뉴스/규제.
+- `tests/test_source_router.py` — Web 라우팅 5건 신규 PASS.
+
+**v2.7 R-3 — 통합 (`agentic_pipeline.py` 확장)**
+- `TavilyWebSearchClient` import + `__init__`에 `web_client: Optional[TavilyWebSearchClient] = None` 추가 (DI). default None → env 기반 자동 init.
+- Step C에 `"web" in route.external_tools` 분기 추가 — UMLS/PubMed와 동일 패턴.
+- `_format_web_md()` 신규 — `[Web Search]` markdown 섹션 (title + URL + content snippet 200자 cut + score).
+
+### Quality Metrics (v2.7)
+
+- **단위 테스트**: 190 → **207 PASS** (+17)
+- **11쿼리 정밀 회귀 (RERANK=1)**: none **10/10**, gemini **10/10** 유지 (회귀 0)
+- **Tavily 실 호출 smoke**: §3-3-5 4/4 PASS
+- **Tavily credit 사용**: smoke ~2 credits / Free 1,000/월 한도의 0.2%
+
+### Known Limitations
+
+- R-2 N-3 smoke #1 (+30% 길이) v2.6 보류 그대로 — v2.8 R-7 (synthesis 트리거 본질 분석) 후보.
+- Tavily Pay As You Go 미테스트 — Free 한도 내 동작만 검증.
+
 ## [2.6.0] — 2026-04-26
 
 ### Added
