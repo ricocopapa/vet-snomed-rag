@@ -1,16 +1,24 @@
 ---
 tags: [vet-snomed-rag, v2.9, roadmap, handoff]
 date: 2026-04-26
-status: 다음 세션 진입 대기
-prev_state: v2.8 묶음 G (R-7 누적 + 429 retry + R-2.1 metric + 모델 교체) 종결, commit 9e5f8f6
-next_target: v2.9 (R-7.1 인용률 강화 우선)
-session_anchor: 2026-04-26 (v2.8 commit 직후)
+status: 묶음 H 종결 (commit 40c6d2a, GitHub v2.8/v2.8.1 publish) — 다음 cycle 후보 R-10/R-8
+prev_state: v2.8.1 묶음 H 종결 (R-7.1 + R-9), N-3 smoke 4/4 PASS, GitHub Release v2.8/v2.8.1 published
+next_target: v2.9+ (R-10 PAYG 또는 R-8 embedder 또는 신규 phase)
+session_anchor: 2026-04-26 (v2.8.1 commit + Release publish 직후)
 related:
   - docs/20260427_v2_8_roadmap_handoff.md (v2.8 종결 기록)
   - docs/20260427_r7_synthesis_diagnosis.md (R-7 진단 노트)
   - RELEASE_NOTES_v2.8.md (v2.8 릴리즈 노트)
+  - RELEASE_NOTES_v2.8.1.md (v2.8.1 릴리즈 노트)
   - memory/project_vet_snomed_rag.md
 ---
+
+> **2026-04-26 묶음 H 종결 갱신:**
+> R-7.1 + R-9 완료. _SYNTH_PROMPT 강화("단 하나도 누락 없이") + _format_external_summary 한도 확장
+> ([:3]/[:5] → [:10]/[:10]/[:5] web 신규). 단위 **219 PASS** (+4). **N-3 smoke 4/4 PASS** (인용률 100%×3 회복).
+> 11쿼리 회귀 none·gemini 10/10. .env.example TAVILY 추가 + README setup 보강.
+> GitHub Release v2.8 (9e5f8f6) + v2.8.1 (40c6d2a) publish.
+> R-7 본질 fix 사이클 종결. v2.9+ 후보: R-10 PAYG / R-8 embedder.
 
 # v2.8 → v2.9 핸드오프
 
