@@ -1418,5 +1418,135 @@
     "tokens_out": 77,
     "cost": 0.00028275,
     "latency_ms": 1263
+  },
+  "bb9006910ec305e3af916c423e7288c6aac29784ee187baa802ab1e67e97f1b0": {
+    "reformulated": "rare endocrine disease",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Endocrine disease is a general clinical concept, so the species is extracted as a post-coordination attribute.",
+    "tokens_in": 667,
+    "tokens_out": 72,
+    "cost": 0.00027475,
+    "latency_ms": 1285
+  },
+  "f6257c6fdbf9f79015a290833cc47c8970879064234d5b50293d3fca3085d200": {
+    "reformulated": "endocrine disorder",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.9,
+    "reasoning": "The query refers to feline endocrine disorders, which are mapped to the general concept of endocrine disorder with a species-specific post-coordination hint.",
+    "tokens_in": 669,
+    "tokens_out": 77,
+    "cost": 0.00028275,
+    "latency_ms": 1410
+  },
+  "099bf32190036bdc643acc5a5bc369c45969f2d298c09a6bdc8483f314f577ba": {
+    "reformulated": "veterinary diagnosis",
+    "post_coord_hint": null,
+    "confidence": 0.5,
+    "reasoning": "The input refers to veterinary diagnostic classification systems rather than a specific clinical condition.",
+    "tokens_in": 686,
+    "tokens_out": 57,
+    "cost": 0.000257,
+    "latency_ms": 1415
+  },
+  "4f512fc5fa23740b6bf33d5d88b768232e1f7f507dadda2cf88b05ebad678638": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The species qualifier is removed to use the base clinical concept, and meta-terms regarding ICD-10 mapping are excluded.",
+    "tokens_in": 675,
+    "tokens_out": 74,
+    "cost": 0.00027975,
+    "latency_ms": 1747
+  },
+  "83bb8e9ed310d5c9e65af7032ab7edaf9a1a25091e25b34b4b1b8b33cff5993d": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The query refers to feline diabetes mellitus, which is a general disease concept requiring post-coordination for the species.",
+    "tokens_in": 677,
+    "tokens_out": 72,
+    "cost": 0.00027725,
+    "latency_ms": 1566
+  },
+  "ccc0c54c797d05e09177900962adc3bf3176f017d9c4d18f4b5c53e4f9e9932b": {
+    "reformulated": "liver disease",
+    "post_coord_hint": null,
+    "confidence": 0.7,
+    "reasoning": "The query is a meta-request about mapping classifications rather than a specific clinical diagnosis, so it is mapped to the general liver disease concept.",
+    "tokens_in": 686,
+    "tokens_out": 69,
+    "cost": 0.000275,
+    "latency_ms": 1477
+  },
+  "a3391eec6aa9b9319273831d23d9e64fee96975d432ee805a872bc298991efd8": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The query focuses on feline diabetes mellitus, which is a species-agnostic clinical concept requiring post-coordination for the species.",
+    "tokens_in": 693,
+    "tokens_out": 75,
+    "cost": 0.00028575,
+    "latency_ms": 1285
+  },
+  "0f015c0265c8555f4aca0669b3aacee597ba7df68513c0058bc41114c93f6a37": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The query refers to feline diabetes mellitus, which is a species-agnostic clinical condition requiring post-coordination for the species.",
+    "tokens_in": 686,
+    "tokens_out": 75,
+    "cost": 0.000284,
+    "latency_ms": 1466
+  },
+  "d71c5cdb2be6abb804b42a98c46c2246ffe62ad97edc869896dbdf0f930ed178": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The query refers to feline diabetes mellitus, which is a species-agnostic clinical concept requiring post-coordination for the species.",
+    "tokens_in": 683,
+    "tokens_out": 75,
+    "cost": 0.00028325,
+    "latency_ms": 1131
+  },
+  "3dbaeabb29c0368b20b866512d9afb9d7f5f807cd1424a4b437e3ff03799a93a": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the feline qualifier is moved to a post-coordination hint.",
+    "tokens_in": 669,
+    "tokens_out": 73,
+    "cost": 0.00027675,
+    "latency_ms": 1789
+  },
+  "6f06263f5d24b993539a289b6bfb3ff05872d7888e025c580c8abc45d238e943": {
+    "reformulated": "insulin therapy management protocol",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Insulin therapy management is a general clinical procedure, so the species is moved to a post-coordination hint.",
+    "tokens_in": 670,
+    "tokens_out": 74,
+    "cost": 0.0002785,
+    "latency_ms": 1736
+  },
+  "9ca85f3783d2b1c2e87eda1a277029bdadb3b63325bde6c956255fd7414eea83": {
+    "reformulated": "diabetes mellitus clinical practice guidelines blood glucose curve interpretation",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the feline qualifier is moved to a post-coordination hint while preserving the clinical context.",
+    "tokens_in": 673,
+    "tokens_out": 85,
+    "cost": 0.00029575,
+    "latency_ms": 1511
+  },
+  "d9e60264646f6a0a7af5790ca216b9f0b11851194ba97335dadd287ef3c8248b": {
+    "reformulated": "titration of long-acting insulin",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The clinical concept is insulin titration, while the species is a qualifier to be post-coordinated.",
+    "tokens_in": 673,
+    "tokens_out": 73,
+    "cost": 0.00027775,
+    "latency_ms": 1237
   }
 }

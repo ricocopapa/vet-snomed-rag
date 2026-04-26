@@ -519,6 +519,81 @@ def test_synthesize_429_retry_succeeds(monkeypatch):
     assert sleeps and sleeps[0] >= 2  # retryDelay 따라 대기
 
 
+# ── 14. v2.8.1 R-7.1: 프롬프트 강화 + 식별자 요약 누적 노출 ────
+
+
+def test_synth_prompt_has_strict_citation_directive():
+    """_SYNTH_PROMPT에 모든 식별자 누락 없이 인용 강제 문구 포함 (R-7.1 핵심)."""
+    from src.retrieval.agentic.synthesizer import _SYNTH_PROMPT
+
+    assert "단 하나도 누락 없이" in _SYNTH_PROMPT
+    assert "외부 식별자 N개 모두 인용" in _SYNTH_PROMPT
+    assert "Web URL" in _SYNTH_PROMPT
+
+
+def test_format_summary_exposes_all_accumulated_umls_up_to_10():
+    """multi-iter 누적 5건 시 LLM 입력에 5건 모두 노출 (v2.8 시점 [:3] 자르기 결함 회복)."""
+    ext = {
+        "umls": [
+            {"cui": f"C0{i:06d}", "name": f"Concept {i}", "cross_walks": {}}
+            for i in range(1, 6)  # 5건
+        ]
+    }
+    s = _format_external_summary(ext)
+    for i in range(1, 6):
+        assert f"C0{i:06d}" in s, f"누적 {i}번째 cui 누락"
+
+
+def test_format_summary_includes_web_urls():
+    """v2.8.1: web 식별자도 요약에 포함 (v2.7 Tier C 정합)."""
+    ext = {
+        "web": [
+            {"url": "https://example.com/aaha-2026", "title": "AAHA Guidelines"},
+            {"url": "https://example.com/fda-recall", "title": "FDA Recall"},
+        ]
+    }
+    s = _format_external_summary(ext)
+    assert "[Web]" in s
+    assert "https://example.com/aaha-2026" in s
+    assert "https://example.com/fda-recall" in s
+
+
+def test_synthesize_passes_all_5_umls_to_llm_prompt():
+    """multi-iter 누적 시 합성기 호출 시 LLM prompt에 5건 cui 모두 포함되어야 한다 (T12 시나리오)."""
+    agent = ExternalSynthesizerAgent()
+    fake_response = MagicMock()
+    fake_response.text = (
+        "통합답변. C0000001 + C0000002 + C0000003 + C0000004 + C0000005 모두 통합. "
+        "(외부 식별자 5개 모두 인용)"
+    )
+    fake_client = MagicMock()
+    fake_client.models.generate_content.return_value = fake_response
+
+    captured_prompts = []
+    def _capture(model, contents):
+        captured_prompts.append(contents)
+        return fake_response
+    fake_client.models.generate_content.side_effect = _capture
+
+    ext = {
+        "umls": [
+            {"cui": f"C000000{i}", "name": f"Concept {i}", "cross_walks": {}}
+            for i in range(1, 6)
+        ]
+    }
+
+    with patch("src.retrieval.agentic.synthesizer._ensure_env_loaded"), \
+         patch.dict(os.environ, {"GOOGLE_API_KEY": "fake-key"}, clear=False):
+        with patch("google.genai.Client", return_value=fake_client):
+            result = agent.synthesize(query="q", base_answer="base", external_results=ext)
+
+    assert result.used is True
+    # prompt에 5건 cui 모두 포함되어야 함
+    prompt_text = captured_prompts[0]
+    for i in range(1, 6):
+        assert f"C000000{i}" in prompt_text, f"prompt에 cui C000000{i} 누락 — 합성 LLM이 인용 불가능"
+
+
 def test_parse_retry_delay_variants():
     """_parse_retry_delay 정규식 — 'retryDelay: 15.0s' 와 'retry in 14s' 모두 파싱."""
     from src.retrieval.agentic.synthesizer import _parse_retry_delay

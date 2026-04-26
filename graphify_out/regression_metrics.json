@@ -8,7 +8,7 @@
         "top_1_id": "407400009",
         "top_1_term": "Feline panleucopenia virus",
         "rank_of_correct": 2,
-        "latency_ms": 852,
+        "latency_ms": 894,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -40,7 +40,7 @@
         "top_1_id": "47457000",
         "top_1_term": "Canine parvovirus",
         "rank_of_correct": 1,
-        "latency_ms": 910,
+        "latency_ms": 925,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -72,7 +72,7 @@
         "top_1_id": "5368009",
         "top_1_term": "Drug-induced diabetes mellitus",
         "rank_of_correct": 2,
-        "latency_ms": 1154,
+        "latency_ms": 1141,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -104,7 +104,7 @@
         "top_1_id": "24407009",
         "top_1_term": "Suppurative pancreatitis",
         "rank_of_correct": 4,
-        "latency_ms": 870,
+        "latency_ms": 818,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -136,7 +136,7 @@
         "top_1_id": "431855005",
         "top_1_term": "Chronic kidney disease stage 1",
         "rank_of_correct": null,
-        "latency_ms": 936,
+        "latency_ms": 943,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -168,7 +168,7 @@
         "top_1_id": "283782004",
         "top_1_term": "Cat bite - wound",
         "rank_of_correct": 1,
-        "latency_ms": 415,
+        "latency_ms": 436,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -200,7 +200,7 @@
         "top_1_id": "73211009",
         "top_1_term": "Diabetes mellitus",
         "rank_of_correct": 1,
-        "latency_ms": 516,
+        "latency_ms": 532,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -264,7 +264,7 @@
         "top_1_id": "73211009",
         "top_1_term": "Diabetes mellitus",
         "rank_of_correct": 1,
-        "latency_ms": 516,
+        "latency_ms": 525,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -328,7 +328,7 @@
         "top_1_id": "407400009",
         "top_1_term": "Feline panleucopenia virus",
         "rank_of_correct": 2,
-        "latency_ms": 888,
+        "latency_ms": 901,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null

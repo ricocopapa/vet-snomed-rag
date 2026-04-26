@@ -455,9 +455,21 @@ bash setup_env.sh
 # 가상환경 활성화
 source .venv/bin/activate
 
+# (선택) 외부 도구 API 키 등록 — UMLS·PubMed·Tavily 키 모두 무료 발급 (.env.example 참조)
+cp .env.example .env  # 편집해서 GOOGLE/UMLS/NCBI/TAVILY 키 채움
+
+# 시스템 의존성 (PDF/OCR 사용 시, macOS 기준)
+brew install poppler tesseract tesseract-lang
+
 # 벡터 인덱싱 (최초 1회, ~10분 소요)
 python src/indexing/vectorize_snomed.py
+
+# 검증 (단위 테스트 219+ PASS 예상)
+pytest tests/ -q
 ```
+
+> **Troubleshooting:** `pytest tests/test_pdf_reader.py` 가 `ImportError: pdfplumber 가 필요합니다.` 로 실패하면
+> venv 동기화 누락 — `pip install -r requirements.txt` 재실행하면 해소된다. (v2.6 R-5 교훈)
 
 ### 실행
 
