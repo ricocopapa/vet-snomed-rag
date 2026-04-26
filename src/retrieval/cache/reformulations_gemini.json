@@ -1058,5 +1058,115 @@
     "tokens_out": 71,
     "cost": 0.000273,
     "latency_ms": 7971
+  },
+  "7c189ae805e63fc0cd91405a984ad26a3b7f04a9ef961a4cdbad9568757e70e3": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query is a standard clinical term with a meta-reference that should be removed.",
+    "tokens_in": 669,
+    "tokens_out": 58,
+    "cost": 0.00025425,
+    "latency_ms": 2311
+  },
+  "af30e893cf762209779b659c9716ab3760cad98f114e84b4c9f50d016f715b93": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Removed the ICD-10 meta term as it is not part of the clinical concept.",
+    "tokens_in": 669,
+    "tokens_out": 59,
+    "cost": 0.00025575,
+    "latency_ms": 1821
+  },
+  "987cb69e43b960f944c82fb349489f8b568483e20fc45af1f87342b6541e2cc7": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query refers to a standard clinical concept without species-specific qualifiers, and meta-terms were removed.",
+    "tokens_in": 675,
+    "tokens_out": 62,
+    "cost": 0.00026175,
+    "latency_ms": 1564
+  },
+  "403e3a03359e4d51e5c09dcbce334d064410523a2fb572bfa60aaa0fca5d387d": {
+    "reformulated": null,
+    "post_coord_hint": null,
+    "confidence": 0.0,
+    "reasoning": "The input query is a meta-request for ICD-10 code mapping rather than a clinical veterinary diagnosis.",
+    "tokens_in": 678,
+    "tokens_out": 61,
+    "cost": 0.000261,
+    "latency_ms": 1447
+  },
+  "c69c1ff636d388786e160fdd3a6439e4f4cc0c88ef1b44fa2d074841124a112f": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The query is a general request for ICD-10 classification of diabetes mellitus, which is a species-agnostic clinical concept.",
+    "tokens_in": 686,
+    "tokens_out": 68,
+    "cost": 0.0002735,
+    "latency_ms": 1303
+  },
+  "cbfde7921049eed95de8c646c319a9083f2e9f30543d29e05295e4ed69e511c4": {
+    "reformulated": "type 1 diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "ICD-10 code E10 corresponds to type 1 diabetes mellitus, which is a general clinical concept.",
+    "tokens_in": 684,
+    "tokens_out": 69,
+    "cost": 0.0002745,
+    "latency_ms": 1928
+  },
+  "753356c023277923729f1b6aedf8d8e385ec4f8bb768b46c85f1acdc0ed02de1": {
+    "reformulated": "type 2 diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The input refers to the ICD-10 code E11, which corresponds to type 2 diabetes mellitus.",
+    "tokens_in": 684,
+    "tokens_out": 68,
+    "cost": 0.000273,
+    "latency_ms": 1305
+  },
+  "1347abdda76a05b5ea377285b06ed542efca6a8a5d908df1e910dc05607ecd68": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "ICD-10 code E12 refers to malnutrition-related diabetes mellitus, which maps to the general SNOMED CT concept of diabetes mellitus.",
+    "tokens_in": 684,
+    "tokens_out": 72,
+    "cost": 0.000279,
+    "latency_ms": 1669
+  },
+  "5046136ea5dd28538edf20f0cbfaf242844961b839305881268bf0025bbb7d4b": {
+    "reformulated": "other specified diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "The input refers to the clinical category of other specified diabetes mellitus corresponding to ICD-10 code E13.",
+    "tokens_in": 684,
+    "tokens_out": 67,
+    "cost": 0.0002715,
+    "latency_ms": 1423
+  },
+  "7078c0666f9bd05e086c71de6dac6fc6b1b2b5b7917ae40cb7e463f01d3894e3": {
+    "reformulated": "unspecified diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "ICD-10 code E14 corresponds to unspecified diabetes mellitus in SNOMED CT.",
+    "tokens_in": 684,
+    "tokens_out": 63,
+    "cost": 0.0002655,
+    "latency_ms": 2279
+  },
+  "52ad9121069879b59b56a1735049db99781bb07f80b790c02dd6955050289a13": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the feline qualifier is moved to a post-coordination hint and meta-terms are removed.",
+    "tokens_in": 672,
+    "tokens_out": 78,
+    "cost": 0.000285,
+    "latency_ms": 1661
   }
 }

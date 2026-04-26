@@ -28,6 +28,7 @@ from .agentic import (
 )
 from src.tools.pubmed_client import PubMedClient
 from src.tools.umls_client import UMLSClient
+from src.tools.web_search_client import TavilyWebSearchClient
 
 
 @dataclass
@@ -74,6 +75,7 @@ class AgenticRAGPipeline:
         relevance_threshold: float = 0.7,
         umls_client: Optional[UMLSClient] = None,
         pubmed_client: Optional[PubMedClient] = None,
+        web_client: Optional[TavilyWebSearchClient] = None,
         synthesizer: Optional[ExternalSynthesizerAgent] = None,
     ):
         self.base = base_pipeline
@@ -85,9 +87,10 @@ class AgenticRAGPipeline:
             threshold=relevance_threshold,
             rewrite_backend=judge_backend,
         )
-        # v2.5 Tier B: 외부 도구 클라이언트 (env 기반 자동 init, 키 미설정 시 비활성)
+        # v2.5 Tier B + v2.7 R-3: 외부 도구 클라이언트 (env 기반 자동 init, 키 미설정 시 비활성)
         self.umls = umls_client if umls_client is not None else UMLSClient()
         self.pubmed = pubmed_client if pubmed_client is not None else PubMedClient()
+        self.web = web_client if web_client is not None else TavilyWebSearchClient()
         # v2.6 N-3: 외부 결과 LLM 합성기 (DI 가능)
         self.synthesizer = synthesizer if synthesizer is not None else ExternalSynthesizerAgent(
             backend=synthesizer_backend
@@ -165,6 +168,14 @@ class AgenticRAGPipeline:
                         iter_external.setdefault("pubmed", []).extend(pubmed_out)
                         answer_with_external = (
                             answer_with_external + "\n\n" + _format_pubmed_md(pubmed_out)
+                        )
+                if "web" in route.external_tools and self.web.enabled:
+                    web_out = self.web.search(ext_query, top_k=5)
+                    if web_out:
+                        sub_external["web"] = web_out
+                        iter_external.setdefault("web", []).extend(web_out)
+                        answer_with_external = (
+                            answer_with_external + "\n\n" + _format_web_md(web_out)
                         )
 
                 sub_results.append(
@@ -318,6 +329,27 @@ def _format_pubmed_md(results: list[dict]) -> str:
             x for x in [f"{year} {journal}".strip(), title, f"PMID {pmid}", author_str] if x
         )
         lines.append(f"- {meta}")
+    return "\n".join(lines)
+
+
+def _format_web_md(results: list[dict]) -> str:
+    """Tavily Web Search 결과 → markdown 섹션 (v2.7 R-3)."""
+    lines = ["[Web Search] (외부)"]
+    for r in results:
+        title = (r.get("title") or "").strip()
+        url = (r.get("url") or "").strip()
+        score = r.get("score", 0.0)
+        content = (r.get("content") or "").strip()
+        # 본문 200자 cut, 줄바꿈 제거
+        snippet = content.replace("\n", " ")[:200]
+        if snippet and len(content) > 200:
+            snippet += "…"
+        meta = f"- [{title}]({url})" if url else f"- {title}"
+        if score:
+            meta += f" (score={score:.2f})"
+        lines.append(meta)
+        if snippet:
+            lines.append(f"  {snippet}")
     return "\n".join(lines)
 
 

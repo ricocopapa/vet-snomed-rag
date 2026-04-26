@@ -91,6 +91,34 @@ class TestExternalToolRouting:
         r = SourceRoute(external_tools=["umls"])
         assert r.use_external_tool is True
 
+    # v2.7 R-3: Tavily Web Search 라우팅
+    def test_news_keyword_activates_web(self):
+        agent = SourceRouterAgent()
+        r = agent.route("feline panleukopenia outbreak news")
+        assert "web" in r.external_tools
+        assert "Web 활성" in r.reasoning
+
+    def test_korean_web_keyword_activates_web(self):
+        agent = SourceRouterAgent()
+        r = agent.route("고양이 당뇨 뉴스")
+        assert "web" in r.external_tools
+
+    def test_guideline_keyword_activates_web(self):
+        agent = SourceRouterAgent()
+        r = agent.route("FDA guideline for veterinary insulin")
+        assert "web" in r.external_tools
+
+    def test_korean_guideline_keyword_activates_web(self):
+        agent = SourceRouterAgent()
+        r = agent.route("동물용 인슐린 가이드라인")
+        assert "web" in r.external_tools
+
+    def test_default_no_web(self):
+        """일반 쿼리는 web 비활성 (회귀 0)."""
+        agent = SourceRouterAgent()
+        r = agent.route("feline diabetes")
+        assert "web" not in r.external_tools
+
     def test_empty_construction_keeps_use_flag_false(self):
         from src.retrieval.agentic.source_router import SourceRoute
 

@@ -64,6 +64,16 @@ _PUBMED_PATTERNS = [
     re.compile(r"논문|문헌|증거"),
 ]
 
+# v2.7 R-3: Web Search (Tavily) — 일반 웹/뉴스 신뢰성 보강 키워드
+# 주의: PubMed 패턴과 일부 키워드 겹침(최신/recent). PubMed가 더 도메인-특이하므로
+# Web 트리거는 PubMed보다 좁게 — '뉴스/웹/검색' 명시 키워드 + '가이드라인/규제' 위주.
+_WEB_PATTERNS = [
+    re.compile(r"\b(news|breaking|web\s+search|google)\b", re.IGNORECASE),
+    re.compile(r"뉴스|웹\s*검색|구글"),
+    re.compile(r"\b(guideline|regulation|FDA|EMA|recall)\b", re.IGNORECASE),
+    re.compile(r"가이드라인|규제|허가|리콜"),
+]
+
 
 class SourceRouterAgent:
     """Agentic RAG #5·#6 Which Source? 동적 소스 라우팅.
@@ -100,7 +110,7 @@ class SourceRouterAgent:
             reasons.append("Graph 활성 (관계/계층 키워드)")
         # Graph 기본은 True 유지 (기존 vet-snomed-rag 파이프라인과 호환)
 
-        # v2.5 Tier B: 외부 도구 라우팅
+        # v2.5 Tier B + v2.7 R-3: 외부 도구 라우팅
         external: list[str] = []
         if any(p.search(query) for p in _UMLS_PATTERNS):
             external.append("umls")
@@ -108,6 +118,9 @@ class SourceRouterAgent:
         if any(p.search(query) for p in _PUBMED_PATTERNS):
             external.append("pubmed")
             reasons.append("PubMed 활성 (신규/희귀/문헌 키워드)")
+        if any(p.search(query) for p in _WEB_PATTERNS):
+            external.append("web")
+            reasons.append("Web 활성 (뉴스/가이드라인/규제 키워드)")
         if external:
             route.external_tools = external
             route.use_external_tool = True
