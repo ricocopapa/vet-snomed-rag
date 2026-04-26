@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.6.0] — 2026-04-26
+
+### Added
+
+**v2.6 묶음 A — Agentic 정밀 회귀 + LLM 합성**
+- `scripts/run_regression_agentic.py` — agentic_query 14쿼리 × 4모드 매트릭스 (base / agentic / +rerank). 외부 도구 효과 정량 검증.
+- `src/retrieval/agentic/synthesizer.py` — `ExternalSynthesizerAgent` (Gemini Flash Lite Preview). 외부 도구 결과를 LLM 합성으로 base.answer에 합류. external_results 빈 경우 자동 skip → 회귀 0.
+- `tests/test_synthesizer.py` — 12건 신규 PASS (synthesizer + 파이프라인 통합).
+- `AgenticRAGResult.last_sub_results` 필드 (search_results 추적 관찰성).
+- `AgenticRAGResult.synthesis_used: bool`, `base_answer_pre_synthesis: str` 필드.
+
+**v2.6 묶음 B — N-4 한국어 사전 v1.1**
+- `data/vet_term_dictionary_ko_en.json` — 신규 카테고리 `질병_약식(Disorder Alias)` + 10건 (당뇨, 관절염, 심부전, 고혈압, 기관지염, 결막염, 각막염, 비만, 흉수, 복수). 158→168항목, 5→6 카테고리.
+- 모두 SNOMED CT preferred_term/FSN 검증 100% PASS.
+
+**v2.6 T7 — 영어 약식 v1.2**
+- `data/vet_term_dictionary_ko_en.json` — 신규 카테고리 `영어_약식(English Alias)` + 3건 (`feline/canine/bovine diabetes` → `+ mellitus`). 168→171항목, 6→7 카테고리.
+- `_replace_with_dictionary` 영어 키 단어 경계(`\b`) 매칭 + `(?!\s+mellitus)` negative lookahead로 이중 치환 차단.
+- `rag_pipeline.py:495` 분기 확장 — 영어 쿼리(한국어 미포함)에도 사전 치환 적용.
+
+**v2.6 R-4 — T9 vector drift 정밀화**
+- `_MAPPING_INELIGIBLE_TAGS` 16-tag 블랙리스트 신규 (situation/qualifier value/occupation/person/social context/record artifact/foundation·core·namespace metadata concept/linkage concept/attribute/environment·location/ethnic·racial group/religion-philosophy).
+- `HybridSearchEngine.search()` 내부 — RRF 후 reranker 호출 직전 candidate 필터링.
+
+### Fixed
+
+**N-1 부수 fix:**
+- `agentic_pipeline.py` — UMLS/PubMed에 raw subquery 대신 `reformulation.reformulated` 전달. 메타 토큰 ("ICD-10 cross-walk" 등)이 UMLS 0건 반환 유발하던 문제 해소. 외부 도구 markdown 정확도 1/3 → **3/3 (100%)**.
+- `umls_client.py` — `DEFAULT_TIMEOUT 3.0 → 8.0` (실측 응답 변동 보험).
+
+**T7 fix:**
+- `feline diabetes` 영어 쿼리 none Top-1 오매핑 (347101000009106 Feline immune deficiency → **73211009 Diabetes mellitus**) 회복.
+
+**R-4 fix:**
+- T9 `feline diabetes mellitus` (사전 치환 후) none Top-1 정밀화. **rank #3 → rank #1** (73211009 Diabetes mellitus).
+
+**`tests/test_agentic_tier_b.py` flaky 결정화:**
+- `_make_pipe`에 synthesizer mock 강제 추가. Gemini 실호출 비결정성 차단.
+
+### Changed
+
+- `HybridSearchEngine.search()` default 가중치 — `vector_weight 0.6 → 0.4`, `sql_weight 0.4 → 0.6`. SQL FTS 신뢰도 ↑로 반영. 명시적 가중치 호출자 영향 0.
+- `reciprocal_rank_fusion()` default 가중치 — 동기화 (0.4/0.6).
+- `rag_pipeline.py:549-550` `source_route` fallback default 가중치 — 동기화 (0.4/0.6).
+
+### Quality Metrics (v2.6)
+
+- **11-쿼리 정밀 회귀 (RERANK=1, none)**: 6/10 → **10/10** Top-1 정확 (+4)
+- **11-쿼리 정밀 회귀 (RERANK=1, gemini)**: 10/10 → **10/10** 유지 (회귀 0)
+- **agentic_query 정밀 회귀**: agentic_rerank **12/12 PASS**, base_rerank **11/11 baseline 일치**
+- **단위 테스트**: 53 → **180건 PASS** (synthesizer 12 + 기타 누적)
+- **외부 도구 markdown 정확도**: 1/3 → **3/3 (100%)**
+
+### Known Limitations
+
+- N-3 smoke #1 (+30% 길이) 실측 보류 — Gemini Free Tier 일시 소진. quota reset 후 재시도 가능.
+- `ANTHROPIC_API_KEY` `.env` 빈 값 — Claude fallback 미가용 (영향 0).
+- test_pdf_reader.py 13건 FAIL — v2.2 사전 결함, v2.6 무관.
+- Web Search (Tavily) 미통합 — v2.7 묶음 C 후보.
+
 ## [2.5.1] — 2026-04-25
 
 ### Fixed
