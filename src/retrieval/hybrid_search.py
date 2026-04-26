@@ -30,6 +30,29 @@ CHROMA_PATH = DATA_DIR / "chroma_db"
 COLLECTION_NAME = "snomed_vet_concepts"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
+# R-4 (2026-04-26): rerank candidate에서 매핑 부적합 semantic_tag 차단.
+# T9 "feline diabetes mellitus" 케이스에서 160303001 "FH: Diabetes mellitus" (situation)이
+# rerank Top-1을 차지하던 문제를 차단한다. 11쿼리 expected는 disorder(9)+organism(1)이며
+# 모두 비차단 카테고리이므로 회귀 0.
+_MAPPING_INELIGIBLE_TAGS = frozenset({
+    "situation",
+    "context-dependent category",
+    "qualifier value",
+    "occupation",
+    "person",
+    "social context",
+    "record artifact",
+    "foundation metadata concept",
+    "core metadata concept",
+    "namespace concept",
+    "linkage concept",
+    "attribute",
+    "environment / location",
+    "ethnic group",
+    "racial group",
+    "religion/philosophy",
+})
+
 
 # ─── 데이터 모델 ────────────────────────────────────────
 
@@ -306,8 +329,8 @@ def reciprocal_rank_fusion(
     vector_results: list[SearchResult],
     sql_results: list[SearchResult],
     k: int = 60,
-    vector_weight: float = 0.6,
-    sql_weight: float = 0.4,
+    vector_weight: float = 0.4,
+    sql_weight: float = 0.6,
 ) -> list[SearchResult]:
     """두 트랙의 결과를 RRF로 병합한다.
 
@@ -462,8 +485,8 @@ class HybridSearchEngine:
         self,
         query: str,
         top_k: int = 10,
-        vector_weight: float = 0.6,
-        sql_weight: float = 0.4,
+        vector_weight: float = 0.4,
+        sql_weight: float = 0.6,
         include_relationships: bool = True,
         rerank: bool = False,
     ) -> list[SearchResult]:
@@ -506,6 +529,11 @@ class HybridSearchEngine:
 
         # ── v2.0 Reranker 경로 (rerank=True일 때만 실행) ──────────────
         if rerank and self._enable_rerank:
+            # R-4: 매핑 부적합 semantic_tag(situation 등) candidate에서 차단
+            filtered_before = len(merged)
+            merged = [r for r in merged if r.semantic_tag not in _MAPPING_INELIGIBLE_TAGS]
+            if filtered_before > len(merged):
+                print(f"  [R-4 filter] {filtered_before - len(merged)}건 매핑 부적합 tag 제외")
             reranker = self._get_reranker()
             reranked = reranker.rerank(query, merged, top_n=_RERANK_TOP_N)
             if reranked:

@@ -8,7 +8,7 @@
         "top_1_id": "339181000009108",
         "top_1_term": "Feline panleukopenia",
         "rank_of_correct": 1,
-        "latency_ms": 8672,
+        "latency_ms": 9685,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -37,18 +37,18 @@
     "expected_concept_id": "47457000",
     "modes": {
       "none": {
-        "top_1_id": "47457000",
-        "top_1_term": "Canine parvovirus",
-        "rank_of_correct": 1,
-        "latency_ms": 1248,
+        "top_1_id": "342481000009106",
+        "top_1_term": "Canine parvovirus infection",
+        "rank_of_correct": 2,
+        "latency_ms": 1302,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
       },
       "gemini": {
-        "top_1_id": "47457000",
-        "top_1_term": "Canine parvovirus",
-        "rank_of_correct": 1,
+        "top_1_id": "342481000009106",
+        "top_1_term": "Canine parvovirus infection",
+        "rank_of_correct": 2,
         "latency_ms": 21131,
         "cost_usd": 0.000269,
         "cached": true,
@@ -72,7 +72,7 @@
         "top_1_id": "73211009",
         "top_1_term": "Diabetes mellitus",
         "rank_of_correct": 1,
-        "latency_ms": 1952,
+        "latency_ms": 1981,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -104,7 +104,7 @@
         "top_1_id": "75694006",
         "top_1_term": "Pancreatitis",
         "rank_of_correct": 1,
-        "latency_ms": 1132,
+        "latency_ms": 1086,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -136,7 +136,7 @@
         "top_1_id": "709044004",
         "top_1_term": "Chronic kidney disease",
         "rank_of_correct": null,
-        "latency_ms": 1212,
+        "latency_ms": 1156,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -168,7 +168,7 @@
         "top_1_id": "283782004",
         "top_1_term": "Cat bite - wound",
         "rank_of_correct": 1,
-        "latency_ms": 625,
+        "latency_ms": 664,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -197,10 +197,10 @@
     "expected_concept_id": "73211009",
     "modes": {
       "none": {
-        "top_1_id": "73211009",
-        "top_1_term": "Diabetes mellitus",
-        "rank_of_correct": 1,
-        "latency_ms": 719,
+        "top_1_id": "347101000009106",
+        "top_1_term": "Feline acquired immune deficiency syndrome",
+        "rank_of_correct": null,
+        "latency_ms": 710,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -209,8 +209,8 @@
         "top_1_id": "73211009",
         "top_1_term": "Diabetes mellitus",
         "rank_of_correct": 1,
-        "latency_ms": 7971,
-        "cost_usd": 0.000273,
+        "latency_ms": 2805,
+        "cost_usd": 0.00027275,
         "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "diabetes mellitus",
@@ -219,7 +219,7 @@
       }
     },
     "verdict_per_backend": {
-      "none": "PASS",
+      "none": "FAIL",
       "gemini": "PASS"
     }
   },
@@ -232,7 +232,7 @@
         "top_1_id": "46635009",
         "top_1_term": "Diabetes mellitus type I",
         "rank_of_correct": 1,
-        "latency_ms": 565,
+        "latency_ms": 535,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -261,10 +261,10 @@
     "expected_concept_id": "73211009",
     "modes": {
       "none": {
-        "top_1_id": "73211009",
-        "top_1_term": "Diabetes mellitus",
-        "rank_of_correct": 1,
-        "latency_ms": 741,
+        "top_1_id": "339181000009108",
+        "top_1_term": "Feline panleukopenia",
+        "rank_of_correct": 3,
+        "latency_ms": 805,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -275,7 +275,7 @@
         "rank_of_correct": 1,
         "latency_ms": 7971,
         "cost_usd": 0.000273,
-        "cached": true,
+        "cached": false,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "diabetes mellitus",
         "post_coord_hint": "Occurs in = Feline species",
@@ -296,7 +296,7 @@
         "top_1_id": "75694006",
         "top_1_term": "Pancreatitis",
         "rank_of_correct": 1,
-        "latency_ms": 846,
+        "latency_ms": 822,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -328,7 +328,7 @@
         "top_1_id": "339181000009108",
         "top_1_term": "Feline panleukopenia",
         "rank_of_correct": 1,
-        "latency_ms": 1184,
+        "latency_ms": 1215,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null

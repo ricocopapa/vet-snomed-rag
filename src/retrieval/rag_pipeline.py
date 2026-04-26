@@ -168,12 +168,24 @@ def _load_vet_dictionary() -> dict:
 
 
 def _replace_with_dictionary(query: str) -> str:
-    """사전 기반으로 한국어 용어를 영어로 치환한다."""
+    """사전 기반 한국어/영어 용어 치환.
+
+    - 한국어 키: 단순 substring 치환 (한국어는 단어 경계 개념이 다름).
+    - 영어 키 (v1.2 추가): 단어 경계(\\b) 매칭으로 이중 치환 방지.
+      e.g., 'feline diabetes' → 'feline diabetes mellitus' 룰 적용 시
+      'feline diabetes mellitus' 입력은 substring 매칭으로 'mellitus' 중복되는 문제 회피.
+    """
     vet_dict = _load_vet_dictionary()
     result = query
     for ko, en in vet_dict.items():
-        if ko in result:
-            result = result.replace(ko, en)
+        # 한국어 포함 키 → substring 치환
+        if _contains_korean(ko):
+            if ko in result:
+                result = result.replace(ko, en)
+        else:
+            # 영어 키 → 단어 경계 매칭 (대소문자 무시)
+            pattern = r'\b' + re.escape(ko) + r'\b(?!\s+mellitus)'
+            result = re.sub(pattern, en, result, flags=re.IGNORECASE)
     return result
 
 
@@ -490,6 +502,7 @@ class SNOMEDRagPipeline:
         """
         # Step 0: 한국어 질의 → 영어 번역 (DB가 영어 전용이므로)
         # v2.5.1: 사전 치환은 backend 무관 항상 시도. ollama backend에서만 LLM fallback 활성.
+        # v1.2 (T7 fix): 영어 쿼리에도 약식 정식화 사전 치환 적용 (영어_약식 카테고리).
         translated_query = None
         search_query = question
         if _contains_korean(question):
@@ -502,6 +515,12 @@ class SNOMEDRagPipeline:
             if translated_query != question:
                 search_query = translated_query
                 print(f"  [번역] {question} → {translated_query}")
+        else:
+            # 영어 쿼리: 약식 정식화만 적용 (LLM 무관)
+            dict_applied = _replace_with_dictionary(question)
+            if dict_applied != question:
+                search_query = dict_applied
+                print(f"  [영어 약식 정식화] {question} → {dict_applied}")
 
         # Step 0.5: 메타 불용어 제거 (SNOMED/code 등 검색 방해 토큰)
         english_query = preprocess_query(search_query)
@@ -525,10 +544,10 @@ class SNOMEDRagPipeline:
 
         # Step 1: 하이브리드 검색 (리포매팅된 쿼리 사용)
         # rerank=True이면 CrossEncoder에 원본 question을 전달 (전처리 전 쿼리가 더 자연스러운 문맥)
-        # v2.5: source_route가 있으면 라우터 결정 가중치를, 없으면 v2.4 default(0.6/0.4) 사용
+        # v2.5: source_route가 있으면 라우터 결정 가중치를, 없으면 v2.6 R-4 default(0.4/0.6) 사용
         _rerank_active = rerank and self._enable_rerank
-        _vw = source_route.vector_weight if source_route is not None else 0.6
-        _sw = source_route.sql_weight if source_route is not None else 0.4
+        _vw = source_route.vector_weight if source_route is not None else 0.4
+        _sw = source_route.sql_weight if source_route is not None else 0.6
         results = self.engine.search(
             final_search_query,
             top_k=top_k,
