@@ -79,13 +79,25 @@ def _make_pubmed_mock(enabled: bool = True):
 
 
 def _make_pipe(umls=None, pubmed=None):
-    """기본 mock 클라이언트 + complexity·judge mock된 파이프라인."""
+    """기본 mock 클라이언트 + complexity·judge mock된 파이프라인.
+
+    v2.6 N-3 fix: synthesizer를 mock으로 강제 (Gemini 실호출 비결정성 차단).
+    합성 기능은 별도 tests/test_synthesizer.py에서 결정적으로 검증.
+    """
+    from src.retrieval.agentic.synthesizer import SynthesisResult
     base = _make_base_mock()
+    synth_mock = MagicMock()
+    # default: 외부 결과 그대로 보존 (markdown append된 base.answer 유지)
+    def _passthrough(query, base_answer, external_results):
+        return SynthesisResult(synthesized_answer=base_answer, used=False, method="skip")
+    synth_mock.synthesize.side_effect = _passthrough
+
     pipe = AgenticRAGPipeline(
         base_pipeline=base,
         max_iter=1,
         umls_client=umls if umls is not None else _make_umls_mock(),
         pubmed_client=pubmed if pubmed is not None else _make_pubmed_mock(),
+        synthesizer=synth_mock,
     )
     return pipe, base
 

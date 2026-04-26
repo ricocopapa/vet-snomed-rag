@@ -1,0 +1,1030 @@
+[
+  {
+    "query_id": "T1",
+    "query_text": "feline panleukopenia SNOMED code",
+    "expected_concept_id": "339181000009108",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "339181000009108",
+        "top1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1387,
+        "final_answer_preview": "[검색 결과] \"feline panleukopenia SNOMED code\"\n\n1. Feline panleukopenia\n   - concept_id: 339181000009108\n   - FSN: Feline panleukopenia (disorder)\n   - 카테고리: disorder\n   - 소스: VET\n   - Is a: Parvovirus in",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 12665
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "407400009",
+        "top1_term": "Feline panleucopenia virus",
+        "rank_of_correct": 2,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1320,
+        "final_answer_preview": "[검색 결과] \"feline panleukopenia SNOMED code\"\n\n1. Feline panleucopenia virus\n   - concept_id: 407400009\n   - FSN: Feline panleukopenia virus (organism)\n   - 카테고리: organism\n   - 소스: INT\n   - Is a: Parvovi",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 3429
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "339181000009108",
+        "top1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1221,
+        "latency_ms": 907
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "339181000009108",
+        "top1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1235,
+        "latency_ms": 622
+      }
+    }
+  },
+  {
+    "query_id": "T2",
+    "query_text": "canine parvovirus enteritis",
+    "expected_concept_id": "47457000",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "342481000009106",
+        "top1_term": "Canine parvovirus infection",
+        "rank_of_correct": 2,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1000,
+        "final_answer_preview": "[검색 결과] \"canine parvovirus enteritis\"\n\n1. Canine parvovirus infection\n   - concept_id: 342481000009106\n   - FSN: Canine parvovirus infection (disorder)\n   - 카테고리: disorder\n   - 소스: VET\n   - Causative ",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 3822
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "47457000",
+        "top1_term": "Canine parvovirus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 823,
+        "final_answer_preview": "[검색 결과] \"canine parvovirus enteritis\"\n\n1. Canine parvovirus\n   - concept_id: 47457000\n   - FSN: Canine parvovirus (organism)\n   - 카테고리: organism\n   - 소스: INT\n   - Is a: Parvovirus\n   - Causative agent",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 4092
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "342481000009106",
+        "top1_term": "Canine parvovirus infection",
+        "rank_of_correct": 2,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1000,
+        "latency_ms": 878
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "47457000",
+        "top1_term": "Canine parvovirus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 823,
+        "latency_ms": 634
+      }
+    }
+  },
+  {
+    "query_id": "T3",
+    "query_text": "diabetes mellitus in cat",
+    "expected_concept_id": "73211009",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1109,
+        "final_answer_preview": "[검색 결과] \"diabetes mellitus in cat\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   ",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 3083
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1093,
+        "final_answer_preview": "[검색 결과] \"diabetes mellitus in cat\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   ",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 4634
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1109,
+        "latency_ms": 1205
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1093,
+        "latency_ms": 564
+      }
+    }
+  },
+  {
+    "query_id": "T4",
+    "query_text": "pancreatitis in dog",
+    "expected_concept_id": "75694006",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1004,
+        "final_answer_preview": "[검색 결과] \"pancreatitis in dog\"\n\n1. Pancreatitis\n   - concept_id: 75694006\n   - FSN: Pancreatitis (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Inflammation of specific body organs\n   - Is a: D",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 33369
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1036,
+        "final_answer_preview": "[검색 결과] \"pancreatitis in dog\"\n\n1. Pancreatitis\n   - concept_id: 75694006\n   - FSN: Pancreatitis (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Inflammation of specific body organs\n   - Is a: D",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 565
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1004,
+        "latency_ms": 609
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1036,
+        "latency_ms": 544
+      }
+    }
+  },
+  {
+    "query_id": "T5",
+    "query_text": "chronic kidney disease in cat",
+    "expected_concept_id": null,
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "709044004",
+        "top1_term": "Chronic kidney disease",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1239,
+        "final_answer_preview": "[검색 결과] \"chronic kidney disease in cat\"\n\n1. Chronic kidney disease\n   - concept_id: 709044004\n   - FSN: Chronic kidney disease (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Renal impairment\n ",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 3190
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "709044004",
+        "top1_term": "Chronic kidney disease",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1079,
+        "final_answer_preview": "[검색 결과] \"chronic kidney disease in cat\"\n\n1. Chronic kidney disease\n   - concept_id: 709044004\n   - FSN: Chronic kidney disease (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Renal impairment\n ",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 9026
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "709044004",
+        "top1_term": "Chronic kidney disease",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1239,
+        "latency_ms": 648
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "709044004",
+        "top1_term": "Chronic kidney disease",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1079,
+        "latency_ms": 370
+      }
+    }
+  },
+  {
+    "query_id": "T6",
+    "query_text": "cat bite wound",
+    "expected_concept_id": "283782004",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "283782004",
+        "top1_term": "Cat bite - wound",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1119,
+        "final_answer_preview": "[검색 결과] \"cat bite wound\"\n\n1. Cat bite - wound\n   - concept_id: 283782004\n   - FSN: Cat bite - wound (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Mammal bite wound\n   - Associated morphology:",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 4283
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "283782004",
+        "top1_term": "Cat bite - wound",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1103,
+        "final_answer_preview": "[검색 결과] \"cat bite wound\"\n\n1. Cat bite - wound\n   - concept_id: 283782004\n   - FSN: Cat bite - wound (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Mammal bite wound\n   - Associated morphology:",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 3459
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "283782004",
+        "top1_term": "Cat bite - wound",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1119,
+        "latency_ms": 663
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "283782004",
+        "top1_term": "Cat bite - wound",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1103,
+        "latency_ms": 391
+      }
+    }
+  },
+  {
+    "query_id": "T7",
+    "query_text": "feline diabetes",
+    "expected_concept_id": "73211009",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1100,
+        "final_answer_preview": "[검색 결과] \"feline diabetes\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   - Is a: D",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 5264
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1084,
+        "final_answer_preview": "[검색 결과] \"feline diabetes\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   - Is a: D",
+        "relevance_verdict": "PASS",
+        "confidence": 1.0,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 6688
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1100,
+        "latency_ms": 757
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1084,
+        "latency_ms": 245
+      }
+    }
+  },
+  {
+    "query_id": "T8",
+    "query_text": "diabetes mellitus type 1",
+    "expected_concept_id": "46635009",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "46635009",
+        "top1_term": "Diabetes mellitus type I",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1231,
+        "final_answer_preview": "[검색 결과] \"diabetes mellitus type 1\"\n\n1. Diabetes mellitus type I\n   - concept_id: 46635009\n   - FSN: Diabetes mellitus type 1 (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Diabetes mellitus\n  ",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 2022
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "46635009",
+        "top1_term": "Diabetes mellitus type I",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1152,
+        "final_answer_preview": "[검색 결과] \"diabetes mellitus type 1\"\n\n1. Diabetes mellitus type I\n   - concept_id: 46635009\n   - FSN: Diabetes mellitus type 1 (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Diabetes mellitus\n  ",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1304
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "46635009",
+        "top1_term": "Diabetes mellitus type I",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1231,
+        "latency_ms": 620
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "46635009",
+        "top1_term": "Diabetes mellitus type I",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1152,
+        "latency_ms": 363
+      }
+    }
+  },
+  {
+    "query_id": "T9",
+    "query_text": "고양이 당뇨",
+    "expected_concept_id": "73211009",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1091,
+        "final_answer_preview": "[검색 결과] \"고양이 당뇨\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   - Is a: Disorder o",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1400
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1075,
+        "final_answer_preview": "[검색 결과] \"고양이 당뇨\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   - Is a: Disorder o",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1053
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1091,
+        "latency_ms": 492
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1075,
+        "latency_ms": 243
+      }
+    }
+  },
+  {
+    "query_id": "T10",
+    "query_text": "개 췌장염",
+    "expected_concept_id": "75694006",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 990,
+        "final_answer_preview": "[검색 결과] \"개 췌장염\"\n\n1. Pancreatitis\n   - concept_id: 75694006\n   - FSN: Pancreatitis (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Inflammation of specific body organs\n   - Is a: Disorder of pan",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1745
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1024,
+        "final_answer_preview": "[검색 결과] \"개 췌장염\"\n\n1. Pancreatitis\n   - concept_id: 75694006\n   - FSN: Pancreatitis (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Inflammation of specific body organs\n   - Is a: Disorder of pan",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1085
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 990,
+        "latency_ms": 635
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "75694006",
+        "top1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1022,
+        "latency_ms": 505
+      }
+    }
+  },
+  {
+    "query_id": "T11",
+    "query_text": "고양이 범백혈구감소증 SNOMED 코드",
+    "expected_concept_id": "339181000009108",
+    "expected_external_tools": [],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "339181000009108",
+        "top1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1210,
+        "final_answer_preview": "[검색 결과] \"고양이 범백혈구감소증 SNOMED 코드\"\n\n1. Feline panleukopenia\n   - concept_id: 339181000009108\n   - FSN: Feline panleukopenia (disorder)\n   - 카테고리: disorder\n   - 소스: VET\n   - Is a: Parvovirus infection\n   ",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 3182
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "339181000009108",
+        "top1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1224,
+        "final_answer_preview": "[검색 결과] \"고양이 범백혈구감소증 SNOMED 코드\"\n\n1. Feline panleukopenia\n   - concept_id: 339181000009108\n   - FSN: Feline panleukopenia (disorder)\n   - 카테고리: disorder\n   - 소스: VET\n   - Is a: Parvovirus infection\n   ",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1895
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "339181000009108",
+        "top1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1210,
+        "latency_ms": 1216
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "339181000009108",
+        "top1_term": "Feline panleukopenia",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1224,
+        "latency_ms": 908
+      }
+    }
+  },
+  {
+    "query_id": "T12",
+    "query_text": "diabetes mellitus ICD-10 cross-walk",
+    "expected_concept_id": "73211009",
+    "expected_external_tools": [
+      "umls"
+    ],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1120,
+        "final_answer_preview": "[검색 결과] \"diabetes mellitus ICD-10 cross-walk\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose met",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "umls",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 7786
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1104,
+        "final_answer_preview": "[검색 결과] \"diabetes mellitus ICD-10 cross-walk\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose met",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "umls",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1295
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1120,
+        "latency_ms": 560
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1104,
+        "latency_ms": 487
+      }
+    }
+  },
+  {
+    "query_id": "T13",
+    "query_text": "rare feline endocrine literature",
+    "expected_concept_id": null,
+    "expected_external_tools": [
+      "pubmed"
+    ],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "312426003",
+        "top1_term": "Endocrine infection",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [
+          "pubmed"
+        ],
+        "external_results_summary": {
+          "pubmed": 3
+        },
+        "answer_length": 1447,
+        "final_answer_preview": "[검색 결과] \"rare feline endocrine literature\"\n\n1. Endocrine infection\n   - concept_id: 312426003\n   - FSN: Endocrine infection (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Infectious disease\n  ",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "pubmed",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": true,
+        "latency_ms": 11956
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "362969004",
+        "top1_term": "Disorder of endocrine system",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [
+          "pubmed"
+        ],
+        "external_results_summary": {
+          "pubmed": 3
+        },
+        "answer_length": 1470,
+        "final_answer_preview": "[검색 결과] \"rare feline endocrine literature\"\n\n1. Disorder of endocrine system\n   - concept_id: 362969004\n   - FSN: Disorder of endocrine system (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Dis",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "pubmed",
+          "sql",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": true,
+        "latency_ms": 1678
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "312426003",
+        "top1_term": "Endocrine infection",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1108,
+        "latency_ms": 798
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "362969004",
+        "top1_term": "Disorder of endocrine system",
+        "rank_of_correct": null,
+        "verdict": "NA",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1131,
+        "latency_ms": 790
+      }
+    }
+  },
+  {
+    "query_id": "T14",
+    "query_text": "고양이 당뇨 ICD-10 매핑",
+    "expected_concept_id": "73211009",
+    "expected_external_tools": [
+      "umls"
+    ],
+    "modes": {
+      "agentic_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1101,
+        "final_answer_preview": "[검색 결과] \"고양이 당뇨 ICD-10 매핑\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   - Is a: ",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "umls",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 8503
+      },
+      "agentic_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1085,
+        "final_answer_preview": "[검색 결과] \"고양이 당뇨 ICD-10 매핑\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n   - Is a: ",
+        "relevance_verdict": "PARTIAL",
+        "confidence": 0.5,
+        "sources_used": [
+          "graph",
+          "sql",
+          "umls",
+          "vector"
+        ],
+        "umls_section_present": false,
+        "pubmed_section_present": false,
+        "latency_ms": 1088
+      },
+      "base_rerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1101,
+        "latency_ms": 481
+      },
+      "base_norerank": {
+        "iterations": 1,
+        "top1_id": "73211009",
+        "top1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "verdict": "PASS",
+        "external_tools_called": [],
+        "external_results_summary": {},
+        "answer_length": 1085,
+        "latency_ms": 233
+      }
+    }
+  }
+]

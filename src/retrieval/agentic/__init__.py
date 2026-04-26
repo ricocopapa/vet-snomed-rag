@@ -14,6 +14,7 @@ from .query_complexity import QueryComplexityAgent, ComplexityVerdict
 from .source_router import SourceRouterAgent, SourceRoute
 from .relevance_judge import RelevanceJudgeAgent, RelevanceVerdict
 from .loop_controller import RewriteLoopController, LoopDecision
+from .synthesizer import ExternalSynthesizerAgent, SynthesisResult
 
 __all__ = [
     "QueryComplexityAgent",
@@ -24,4 +25,6 @@ __all__ = [
     "RelevanceVerdict",
     "RewriteLoopController",
     "LoopDecision",
+    "ExternalSynthesizerAgent",
+    "SynthesisResult",
 ]

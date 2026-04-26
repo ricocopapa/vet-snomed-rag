@@ -18,6 +18,7 @@ from typing import Any, Literal, Optional
 
 from .agentic import (
     ComplexityVerdict,
+    ExternalSynthesizerAgent,
     QueryComplexityAgent,
     RelevanceJudgeAgent,
     RelevanceVerdict,
@@ -42,6 +43,12 @@ class AgenticRAGResult:
     latency_ms: dict = field(default_factory=dict)
     # v2.5 Tier B: 마지막 iter의 외부 도구 호출 결과 (관찰성)
     external_results: dict = field(default_factory=dict)
+    # v2.6 N-1: 마지막 iter의 sub_results (search_results 노출용 — 회귀 측정 베이스)
+    last_sub_results: list[dict] = field(default_factory=list)
+    # v2.6 N-3: 외부 도구 결과 LLM 합성이 실제로 적용됐는지 (관찰성)
+    synthesis_used: bool = False
+    # v2.6 N-3: 합성 전 base_answer (관찰성, 합성 답변과 비교 가능)
+    base_answer_pre_synthesis: str = ""
     v2_2_compat: bool = True
 
 
@@ -62,10 +69,12 @@ class AgenticRAGPipeline:
         complexity_backend: str = "gemini-2.5-flash-lite",
         router_backend: str = "rule_based",
         judge_backend: str = "gemini-2.5-flash-lite",
+        synthesizer_backend: str = "gemini-2.5-flash-lite",
         max_iter: int = 2,
         relevance_threshold: float = 0.7,
         umls_client: Optional[UMLSClient] = None,
         pubmed_client: Optional[PubMedClient] = None,
+        synthesizer: Optional[ExternalSynthesizerAgent] = None,
     ):
         self.base = base_pipeline
         self.complexity_agent = QueryComplexityAgent(backend=complexity_backend)
@@ -79,6 +88,10 @@ class AgenticRAGPipeline:
         # v2.5 Tier B: 외부 도구 클라이언트 (env 기반 자동 init, 키 미설정 시 비활성)
         self.umls = umls_client if umls_client is not None else UMLSClient()
         self.pubmed = pubmed_client if pubmed_client is not None else PubMedClient()
+        # v2.6 N-3: 외부 결과 LLM 합성기 (DI 가능)
+        self.synthesizer = synthesizer if synthesizer is not None else ExternalSynthesizerAgent(
+            backend=synthesizer_backend
+        )
 
     # v2.2 호환 API — base에 위임
     def query(self, question: str, **kwargs) -> dict:
@@ -101,6 +114,9 @@ class AgenticRAGPipeline:
         last_relevance: Optional[RelevanceVerdict] = None
 
         last_external: dict[str, list] = {}
+        last_sub_results: list[dict] = []
+        last_synthesis_used: bool = False
+        last_base_answer_pre_synthesis: str = ""
         for iter_count in range(self.loop.max_iter + 1):
             iter_t0 = time.time()
             iter_sources: set[str] = set()  # 본 iter 내 소스 합집합 (S-1 fix)
@@ -125,10 +141,17 @@ class AgenticRAGPipeline:
                 )
 
                 # v2.5 Tier B: 외부 도구 호출 (route.external_tools 분기)
+                # v2.6 N-1 fix: UMLS는 라우팅 트리거 키워드("ICD-10 cross-walk", "매핑" 등)가
+                # 포함된 raw subquery에 0건 반환. reformulator가 정제한 의학 용어를 사용.
+                ext_query = sq
+                ref = base_result.get("reformulation")
+                if ref and ref.get("reformulated") and ref.get("confidence", 0) >= 0.5:
+                    ext_query = ref["reformulated"]
+
                 sub_external: dict = {}
                 answer_with_external = base_result.get("answer", "")
                 if "umls" in route.external_tools and self.umls.enabled:
-                    umls_out = self.umls.search_with_cross_walks(sq, top_k=1)
+                    umls_out = self.umls.search_with_cross_walks(ext_query, top_k=1)
                     if umls_out:
                         sub_external["umls"] = umls_out
                         iter_external.setdefault("umls", []).extend(umls_out)
@@ -136,7 +159,7 @@ class AgenticRAGPipeline:
                             answer_with_external + "\n\n" + _format_umls_md(umls_out)
                         )
                 if "pubmed" in route.external_tools and self.pubmed.enabled:
-                    pubmed_out = self.pubmed.search_with_summaries(sq, top_k=3)
+                    pubmed_out = self.pubmed.search_with_summaries(ext_query, top_k=3)
                     if pubmed_out:
                         sub_external["pubmed"] = pubmed_out
                         iter_external.setdefault("pubmed", []).extend(pubmed_out)
@@ -167,9 +190,18 @@ class AgenticRAGPipeline:
                     r for sr in sub_results for r in sr["results"]
                 ]
 
+            # v2.6 N-3: 외부 결과 LLM 합성 — judge 평가 직전. external 비어있으면 skip(회귀 0).
+            base_answer_pre_synth = merged_answer
+            synthesis_used_this_iter = False
+            if iter_external and any(iter_external.values()):
+                synth = self.synthesizer.synthesize(question, merged_answer, iter_external)
+                if synth.used:
+                    merged_answer = synth.synthesized_answer
+                    synthesis_used_this_iter = True
+
             last_answer = merged_answer
 
-            # Step D — G-3 #10 Relevance Judge
+            # Step D — G-3 #10 Relevance Judge (합성된 답변 평가)
             retrieved_dicts = [
                 {
                     "concept_id": getattr(r, "concept_id", "?"),
@@ -202,6 +234,11 @@ class AgenticRAGPipeline:
             )
             # v2.5 Tier B: 마지막 iter의 external 결과 보존
             last_external = iter_external
+            # v2.6 N-1: 마지막 iter의 sub_results 보존 (search_results 노출용)
+            last_sub_results = sub_results
+            # v2.6 N-3: 마지막 iter의 합성 정보 보존
+            last_synthesis_used = synthesis_used_this_iter
+            last_base_answer_pre_synthesis = base_answer_pre_synth
 
             history.append(current)
 
@@ -224,6 +261,9 @@ class AgenticRAGPipeline:
             loop_trace=loop_trace,
             latency_ms={"total_ms": total_ms},
             external_results=last_external,
+            last_sub_results=last_sub_results,
+            synthesis_used=last_synthesis_used,
+            base_answer_pre_synthesis=last_base_answer_pre_synthesis,
         )
 
 

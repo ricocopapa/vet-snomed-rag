@@ -34,7 +34,9 @@ from src.tools._cache import TTLCache
 logger = logging.getLogger(__name__)
 
 UMLS_BASE = "https://uts-ws.nlm.nih.gov/rest"
-DEFAULT_TIMEOUT = 3.0
+# v2.6 N-1 fix: 3.0s는 UMLS REST 응답 변동(2~7s 관측)에 비해 너무 짧아 timeout 빈발 →
+# 빈 cross-walk 결과 반환 패턴이 다수 관측됨. 8.0s로 상향 (N-3 합성 안정성 확보).
+DEFAULT_TIMEOUT = 8.0
 DEFAULT_TOP_K = 5
 DEFAULT_SOURCES = ["ICD10CM", "MSH", "SNOMEDCT_US", "SNOMEDCT_VET"]
 

@@ -1018,5 +1018,45 @@
     "tokens_out": 73,
     "cost": 0.00027575,
     "latency_ms": 1652
+  },
+  "b471df365e4fdad2864440d28c35ff86bb9aa3c9d6d25c89e5e80be42979b753": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Removed meta-information regarding ICD-10 cross-walk while preserving the core clinical concept.",
+    "tokens_in": 672,
+    "tokens_out": 60,
+    "cost": 0.000258,
+    "latency_ms": 1583
+  },
+  "cc026555d5f5da1626baf73d1fd219a72d6a75b429e7bde15e885c03a4a21d5b": {
+    "reformulated": "endocrine disease",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.85,
+    "reasoning": "The query refers to feline endocrine conditions, which are mapped to the base concept of endocrine disease with a species-specific post-coordination.",
+    "tokens_in": 667,
+    "tokens_out": 77,
+    "cost": 0.00028225,
+    "latency_ms": 8455
+  },
+  "10745c71fa8c7a0cacecf4748895d54aebab7b4993f846716c3d82cda1e3471e": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The term 'feline' is a species qualifier for the clinical condition 'diabetes mellitus', and meta-terms like 'ICD-10 mapping' are removed.",
+    "tokens_in": 672,
+    "tokens_out": 83,
+    "cost": 0.0002925,
+    "latency_ms": 5597
+  },
+  "d6f9c7215f3475f3d3b984521abaad74c396721c2e2ab5d3583e7bfa6bb4174c": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 1.0,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 666,
+    "tokens_out": 71,
+    "cost": 0.000273,
+    "latency_ms": 7971
   }
 }
