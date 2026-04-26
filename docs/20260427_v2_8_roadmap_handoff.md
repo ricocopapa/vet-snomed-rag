@@ -1,24 +1,31 @@
 ---
 tags: [vet-snomed-rag, v2.8, roadmap, handoff]
 date: 2026-04-26
-status: 묶음 G 단위 fix 완료 / production 검증 보류 (Gemini 한도)
+status: 종결 (묶음 G 완료, commit 9e5f8f6)
 prev_state: v2.7 R-3 Tier C Tavily Web Search 종결, GitHub Release v2.7 published
-next_target: v2.8 production smoke + 11쿼리 회귀 (한도 reset 또는 R-10 PAYG 후)
-session_anchor: 2026-04-26 (R-7 단위 fix 완료 시각)
+next_target: v2.9 (R-7.1 인용률 강화 / R-9 onboarding / R-10 PAYG)
+session_anchor: 2026-04-26 (묶음 G 종결 + commit 시각)
 related:
+  - docs/20260427_v2_9_roadmap_handoff.md (v2.9 진입 핸드오프)
   - docs/20260427_r7_synthesis_diagnosis.md (R-7 진단 + fix 노트)
   - docs/20260427_v2_7_roadmap_handoff.md (v2.7 종결 기록)
-  - docs/20260426_v2_6_roadmap_handoff.md (v2.6 종결 기록)
-  - RELEASE_NOTES_v2.7.md, RELEASE_NOTES_v2.6.md
+  - RELEASE_NOTES_v2.8.md (본 릴리즈 노트)
   - memory/project_vet_snomed_rag.md
 ---
 
-> **2026-04-26 갱신 (R-7 단위 fix 완료):**
-> 핸드오프 §3-1 추정("마지막 iter만 보존")은 코드 분석 가설. 실제 진단 결과 직접 원인은
-> **Gemini Free Tier 일일 20 RPD 한도 초과 → 합성기 fallback (used=False)**.
-> fix 옵션 (γ) 적용: 누적 보존(잠재 결함 해소) + 429 retry/backoff + synthesis_method/fallback_reason 노출.
-> 단위 215 PASS. production smoke + 11쿼리 회귀는 한도 reset 또는 R-10 PAYG 활성화 후 재실행 필수.
-> 진단 상세 → `docs/20260427_r7_synthesis_diagnosis.md`
+> **2026-04-26 종결 갱신:**
+> 묶음 G 완료. 핸드오프 §3-1 추정("마지막 iter만 보존")은 코드 가설이었고, 실제 직접 원인은
+> **Gemini Free Tier 20 RPD 한도 초과 → silent fallback**. multi-iter 누적 부재는 잠재 결함으로
+> 함께 해소(옵션 γ).
+>
+> **검증 결과:**
+> - pytest 215 PASS (+8)
+> - N-3 smoke: #1 합성 적용률 3/3 PASS / #3 회귀 0 2/2 PASS / #4 비용 3/3 PASS
+> - N-3 smoke #2 인용률 **2/3** (T12 60% — R-7.1 후속)
+> - 11쿼리 회귀 RERANK=1: none **10/10** + gemini **10/10** (회귀 0)
+>
+> **agentic 모델 교체:** `gemini-2.5-flash-lite` (RPD 20) → `gemini-3.1-flash-lite-preview` (RPD 500).
+> commit `9e5f8f6`. 다음 진입은 `docs/20260427_v2_9_roadmap_handoff.md`.
 
 # v2.7 → v2.8 핸드오프 (다음 세션 진입용)
 
