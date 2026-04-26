@@ -6,17 +6,21 @@
 [![Release](https://img.shields.io/github/v/release/ricocopapa/vet-snomed-rag)](https://github.com/ricocopapa/vet-snomed-rag/releases)
 [![Last Commit](https://img.shields.io/github/last-commit/ricocopapa/vet-snomed-rag)](https://github.com/ricocopapa/vet-snomed-rag/commits/main)
 
-수의학 SNOMED CT 온톨로지 기반 하이브리드 RAG 시스템
+수의학 SNOMED CT 온톨로지 기반 **Agentic RAG** 시스템
 
 > 414,860개 SNOMED CT 개념 · 1,379,816개 온톨로지 관계 · 한국어 자연어 질의 지원  
+> **v2.5**: Agentic RAG ⑤·⑥ 백엔드 분기 활성화 + UMLS/PubMed 외부 도구 통합 + 한국어 사전 backend-무관 작동 → **정밀 회귀 10/10** (RERANK=1)  
+> **v2.4**: Agentic RAG 11/11 단계 완전 구현 (G-1 Complexity + G-2 Source Router + G-3 Relevance Judge + G-4 Rewrite Loop)  
 > **v2.2**: 5-input multimodal pipeline (text / audio / PDF text_layer / PDF OCR / image Vision) — 실 API E2E 도메인 hit **6/6**, SNOMED UNMAPPED **0/25**  
 > **v2.1**: SNOMED Match 0.584 → **0.889** (+52.2%) · BGE Reranker + MRCM Direct Mapping · Docker 지원  
-> **회귀 테스트**: PASS **6/10 → 10/10** (v1.0) · pytest **17/17 + 59 subtests PASS** (v2.2) · Precision **0.891** / Recall **0.772**
+> **회귀 테스트**: pytest **135 passed + 1 skipped + 59 subtests** (v2.4) + **53 unit tests PASS** (v2.5 Tier A·B) · Precision **0.891** / Recall **0.772** / F1 **0.827**
 
 ---
 
 ## 목차
 
+- [What's New in v2.5](#whats-new-in-v25-2026-04-25)
+- [What's New in v2.4](#whats-new-in-v24-2026-04-25)
 - [What's New in v2.2](#whats-new-in-v22-2026-04-23)
 - [What's New in v2.1](#whats-new-in-v21-2026-04-23)
 - [프로젝트 소개](#프로젝트-소개)
@@ -37,6 +41,73 @@
 - [v2.2 Roadmap](#v22-roadmap)
 - [기여·보안·변경 이력](#기여보안변경-이력)
 - [라이선스](#라이선스)
+
+---
+
+## What's New in v2.5 (2026-04-25)
+
+v2.4가 Agentic RAG 11단계의 *의사결정 layer*까지 완성했다면, **v2.5는 ⑤·⑥ Sources 단계의 실제 백엔드 분기 호출까지 활성화**한다.
+
+### Tier A — 백엔드 분기 활성화 (회귀 0 보장)
+- `SNOMEDRagPipeline.query()` 시그니처에 `source_route` 파라미터 추가 (default None → v2.4 동일 동작)
+- HybridSearchEngine `vector_weight` / `sql_weight` 동적 주입 (concept_id 패턴 → SQL-heavy / 한국어 자연어 → Vector-heavy)
+- GraphRAG 조건부 분기 (`use_graph=False` 시 컨텍스트 −1701 / −471 / −1233 정량 비활성)
+
+### Tier B — 외부 도구 통합 (UMLS + PubMed)
+Datasciencedojo Agentic RAG 다이어그램 ⑥ Sources의 "Tools & APIs" 분기 활성화. 사용자 도메인(한국 EMR + ICD-10 호환성) 직접 가치 기준 채택.
+
+| 도구 | 역할 | 인증 | 비용 |
+|---|---|---|---|
+| **NLM UMLS REST** | ICD-10/11·MeSH·SNOMEDCT_VET cross-walk | UMLS Affiliate License (한국 회원국 무료) | 무료 |
+| **NCBI PubMed E-utilities** | 수의 임상 문헌 evidence (esearch + esummary) | NCBI API Key 무료 (10 rps) | 무료 |
+
+**안전장치:** env 미설정 자동 비활성 / 401·429·5xx·timeout·네트워크 5종 graceful fallback / 토큰 버킷 rate limit + 429 backoff (1·2·4s) / LRU+TTL cache 24h.
+
+**라우팅 룰:**
+- UMLS 활성: `ICD-10/11`, `MeSH`, `cross-walk`, `매핑`, `크로스워크`, `코드 변환`
+- PubMed 활성: `emerging`, `novel`, `rare`, `최신`, `신규`, `희귀`, `literature`, `논문`, `문헌`
+
+**실제 외부 API 검증:**
+```
+[UMLS]   diabetes mellitus → C0011849 / ICD10CM=E08-E13 / MSH=D003920
+[PubMed] feline diabetes   → PMID 42022391 (2026 Vet Sci) ...
+```
+
+### v2.5.1 — 한국어 사전 치환 backend-무관 작동
+v2.4까지 `translate_query_to_english`가 ollama 백엔드일 때만 호출되어 gemini/none/claude 백엔드에서 한국어 임상 용어 검색 실패. v2.5.1에서 사전 치환을 백엔드 무관 분리.
+
+**효과 (RERANK=1):**
+- gemini: 9/10 → **10/10** ✓ (T11 `고양이 범백혈구감소증` 회복)
+- none: 6/10 → **8/10** (T10·T11 사전만으로 PASS)
+
+### 호환성 보장
+- 기존 `SNOMEDRagPipeline.query()` 호출 변경 0 — 모든 신규 파라미터 default가 v2.4 동작 그대로
+- 단위 테스트 **53건 PASS**, mini regression Tier A 회귀 0
+- Breaking changes: 없음
+
+상세: [`RELEASE_NOTES_v2.5.md`](./RELEASE_NOTES_v2.5.md) · 설계서 `docs/20260425_v2_5_tier_b_external_tools_design_v1.md`
+
+---
+
+## What's New in v2.4 (2026-04-25)
+
+Datasciencedojo "RAG vs Agentic RAG" 인포그래픽 기준 **11단계 Agentic RAG 루프**를 완전 구현했다. v2.2는 6/11 단계만 구현(Rewrite + Hybrid Retrieval + LLM)이었고, v2.4에서 **나머지 4종 Gap을 신규 에이전트로 해소**했다.
+
+**주요 개선 (Wave 1~5 Goal-Backward 분해 적용):**
+
+- **G-1 QueryComplexityAgent (#4)**: rule_based + Gemini hybrid 분해 판정. 복잡 쿼리 → 자동 서브쿼리 분해
+- **G-2 SourceRouterAgent (#5·#6)**: Vector / SQL / Graph 동적 라우팅 (concept_id → SQL-heavy / 한국어 → Vector-heavy / 관계어 → Graph 활성)
+- **G-3 RelevanceJudgeAgent (#10)**: PASS / PARTIAL / FAIL 3-way 판정 + missing_aspects 추출
+- **G-4 RewriteLoopController (#11)**: max_iter=2 + Jaccard cycle detection + Gemini-기반 쿼리 재작성
+
+**호환성 보장:**
+- 기존 `SNOMEDRagPipeline.query()` API **변경 0** → v2.2 벤치마크 회귀 0
+- 신규 `AgenticRAGPipeline.agentic_query()`는 별도 wrapper 진입점
+- 기존 정량 수치(SNOMED 0.889 / F1 0.827 / Latency p95 35.4s)는 **그대로 유지**
+
+**테스트:** 신규 29건 (G-1 6 + G-2 5 + G-3 7 + G-4 5 + Pipeline 6) → 전체 **135 passed + 59 subtests + 1 skipped**.
+
+**상세:** [`RELEASE_NOTES_v2.4.md`](./RELEASE_NOTES_v2.4.md) · [`docs/20260424_v2_4_agentic_rag_design_v1.md`](./docs/20260424_v2_4_agentic_rag_design_v1.md) · [`benchmark/v2_4_agentic_comparison.md`](./benchmark/v2_4_agentic_comparison.md)
 
 ---
 
@@ -679,6 +750,94 @@ v2.2 이슈는 [GitHub Issues](https://github.com/ricocopapa/vet-snomed-rag/issu
 | [SECURITY.md](./SECURITY.md) | 보안 취약점 리포트 절차 |
 | [CHANGELOG.md](./CHANGELOG.md) | 버전별 변경 이력 |
 | [Releases](https://github.com/ricocopapa/vet-snomed-rag/releases) | 태그별 릴리즈 노트 |
+
+---
+
+## v2.3 Roadmap — AI OS Governance Layer (Experimental)
+
+> v2.2 5-input multimodal pipeline 안정화 후, **AI OS 거버넌스 PoC 3종**을 본 레포에 통합하여
+> LG CNS JD 우대 3.2 ("Evaluation, Observability, Guardrails/PII") 정면 매칭 자산으로 발전시킨다.
+
+위치: [`experimental/ai_os_governance/`](./experimental/ai_os_governance/) (Issue [#8](https://github.com/ricocopapa/vet-snomed-rag/issues/8) · [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9) · [#10](https://github.com/ricocopapa/vet-snomed-rag/issues/10) · [#11](https://github.com/ricocopapa/vet-snomed-rag/issues/11))
+
+### v2.3.0 — Google Cloud AI 에이전트 표준 6범주 매핑 (외부 검증)
+
+본 PoC 3종 + 기존 AI OS Sub Agents의 Google Cloud 표준 분류 매핑:
+
+| 범주 | 본 시스템 자산 | 상태 |
+|---|---|---|
+| 고객 에이전트 | 미구현 (B2B 포지션) | ❌ |
+| 직원 에이전트 | orchestrator + reviewer + evaluator | ✅ |
+| 크리에이티브 | emr-designer | ✅ |
+| 코드 | workflow-architect + GSD 30+ | ✅ |
+| 데이터 | data-analyzer + invest-analyzer | ✅ |
+| 보안 | security-audit + IAM-Lite + PII 마스킹 (Issue [#9](https://github.com/ricocopapa/vet-snomed-rag/issues/9)) | ✅ |
+
+**5/6 (83.3%) 자체 구현.** 추가로 **XAI 레이어 4종**(Audit Trail JSONL · Provenance Tracking via Source-First Rule · IAM Registry · Adversarial Verification) 구현으로 "AI 블랙박스 한계" 정량 대응.
+
+추론 전략 적용: **CoT** (Chain-of-Verification, Dhuliawala et al. Meta AI 2023) + **ReAct** (Sub Agent tool_use loop, Hong et al. ICLR 2024 MetaGPT 패턴) + **ToT** (vet-snomed-rag v2.1 4단계 개선 분기 탐색).
+
+### v2.3.1 — Objective Drift Detection (Observability)
+
+사용자 원본 의도와 에이전트 Task Definition의 임베딩 코사인 유사도로 **Drift Score**를 측정,
+임계값 초과 시 HITL을 트리거하는 **Enterprise AI 핵심 리스크 정량 감지 시스템**.
+
+- **현재 상태**: 캘리브레이션 9/10 (90% detection accuracy) — 한국어 특화 모델 적용 시 100% 목표
+- **모델**: `paraphrase-multilingual-mpnet-base-v2` → `jhgan/ko-sroberta-multitask` 전환 예정
+- **검증 데이터**: 정상 5 + 이상 5 시나리오 실측 로그 (`drift_log.jsonl`)
+
+### v2.3.2 — IAM-Lite + PII Masking (Guardrails/PII)
+
+Enterprise IAM 핵심 원리 3종 + PII 자동 마스킹 개인 환경 실증.
+
+- **Permission Scope Registry**: 6 Sub Agents `allowed_tools`/`denied_tools` YAML 등록
+- **2단계 승인 프로토콜**: 비가역 작업(DELETE, push, DB UPDATE) 실행자+승인자 두 서명
+- **Audit Trail JSON Lines**: `~/.audit_log/YYYYMMDD.jsonl` 5필드 표준
+- **PII 마스킹 4종**: 전화·이메일·주민·계좌번호 정규식 round-trip (pytest 5/5 PASS)
+
+### v2.3.3 — A2A (Agent-to-Agent) Protocol Early Adopter
+
+Google A2A Protocol(2025-04 공식)을 Claude 생태계 내에서 실증한 **드문 사례**.
+
+- **JSON Schema** (Draft-07) + 검증 테스트 8/8 PASS
+- **Mailbox 디렉토리**: inbox / outbox / archive / dead_letter
+- **벤더 간 브릿지**: Claude reviewer ↔ `gemini-2.5-flash` 독립 감사 E2E PoC
+  - 실측 결과: consensus_estimate **0.75** (이력서 v2.2 첫 5,000자 대상)
+- **dead_letter**: retry_count > 3 자동 격리
+
+자세한 내용은 [experimental/ai_os_governance/README.md](./experimental/ai_os_governance/README.md) 참조.
+
+### v2.3.4 — Logic RAG PoC (Sionic AI 방법론) — Issue [#11](https://github.com/ricocopapa/vet-snomed-rag/issues/11)
+
+사전 그래프 구축 비용 부담을 해소하기 위해 **질의 시점에 동적 지도를 만드는** Logic RAG PoC.
+정적 SNOMED CT 그래프(v2.0~v2.2) + **동적 Query Decomposition + DAG 위상 정렬** hybrid 검증.
+
+- **3단계 파이프라인**: Query Decomposition (LLM) → DAG Topological Sort (Kahn) → Recursive Solve + Synthesize
+- **DAG 단위 테스트**: pytest **7/7 PASS** (cyclic 거부, unknown dep 거부, diamond 등)
+- **E2E Gemini 호출**: 작성 시점 503 UNAVAILABLE 과부하로 미검증 (다음 세션 재시도)
+- 출처: 평범한 사업가 채널 #74 (2026), Sionic AI 정세민·박진형
+
+### v2.3.5 — Palantir 의료 온톨로지 사례 1:1 매핑
+
+본 프로젝트의 도메인·방법론은 **Palantir의 미국 의료 보험 온톨로지 사례** (100억 미지급 회수 + 4조 영업이익) 와 정확히 일치하며, **1/1000 비용 (OSS 0원)** 으로 핵심 원리를 자체 실증한다.
+
+| 차원 | Palantir 의료 사례 | 본 vet-snomed-rag |
+|---|---|---|
+| 도메인 | 미국 의료 보험 청구 | 수의 임상 인코딩 |
+| 통합 단위 | 환자 ID | 환자/필드 ID + EMR 4축 |
+| LLM 추출 | 거절 사유 → 소명서 생성 | STT → SOAP → SNOMED 태깅 → MRCM 검증 |
+| 온톨로지 | 병원 시스템 전체 | SNOMED CT 414K + VET 35.9K + Post-Coord 877건 |
+| 도입 비용 | **100억~1,000억** | **0원 (OSS)** |
+| 매핑 방법 | 90% 현장 엔지니어 수작업 | 1,462건 직접 검수 + 향남병원 PDF 101건 익명화 |
+| 결과 | 100억 회수 + 4조 영업이익 | F1 0.827 (FDA Class II) + Match 0.889 (8/9 gold) |
+
+**그래프 4요소 ↔ SNOMED CT 1:1 매핑**:
+- Entity = concept (414,848개)
+- Relationship = is-a / finding_site / has_specimen 등 (1,379,816 관계)
+- Property = concept_id, semantic_tag, MRCM, Post-Coordination 877건
+- Community = 25 임상 도메인 × 4축 (S/A/P/O)
+
+→ "내년 AI 핵심 화두 = GraphRAG + 온톨로지" (Sionic AI 채널, 2026) 두 축 모두 자체 자산 보유.
 
 ---
 

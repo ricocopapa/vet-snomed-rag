@@ -28,13 +28,17 @@ import re
 import argparse
 from dataclasses import asdict
 from pathlib import Path
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 
 # 프로젝트 내부 모듈
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from src.retrieval.hybrid_search import HybridSearchEngine, SearchResult
 from src.retrieval.graph_rag import SNOMEDGraph, format_graph_context
+
+# v2.5 Agentic RAG 백엔드 분기: SourceRoute 타입 힌트만 도입 (런타임 import 없음 → 순환 방지)
+if TYPE_CHECKING:
+    from src.retrieval.agentic.source_router import SourceRoute
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
@@ -203,16 +207,24 @@ def preprocess_query(query: str) -> str:
     return cleaned if cleaned else query
 
 
-def translate_query_to_english(query: str, model: str = "qwen2.5:14b") -> str:
+def translate_query_to_english(
+    query: str,
+    model: str = "qwen2.5:14b",
+    use_ollama_fallback: bool = True,
+) -> str:
     """한국어 질의를 영어 검색 쿼리로 번역한다.
 
-    [수정 사유: 사전 치환 → LLM 번역 2단계 파이프라인으로 변경.
-     수의학 전문 용어 오역 방지를 위해 사전 치환을 선행.]
-
     단계:
-        1. 수의학 용어 사전으로 핵심 용어를 먼저 영어로 치환
-        2. 한국어가 남아 있으면 Ollama LLM으로 나머지 번역
+        1. 수의학 용어 사전으로 핵심 용어를 먼저 영어로 치환 (LLM 무관)
+        2. 한국어가 남아 있고 use_ollama_fallback=True 시 Ollama LLM으로 나머지 번역
         3. 영어만 남으면 그대로 반환
+
+    Args:
+        query: 입력 쿼리 (한국어/영어/혼합)
+        model: ollama LLM 모델명 (use_ollama_fallback=True 시만 사용)
+        use_ollama_fallback: False면 Step 2 skip — 사전 치환만으로 잔여 한국어 있으면
+            그대로 반환. v2.5.1 추가: gemini/none/claude backend에서도 사전 치환만
+            backend-무관 사용 가능.
 
     영어 질의는 번역 없이 그대로 반환한다.
     Ollama 미실행 등 오류 발생 시 사전 치환 결과를 반환한다.
@@ -220,11 +232,15 @@ def translate_query_to_english(query: str, model: str = "qwen2.5:14b") -> str:
     if not _contains_korean(query):
         return query
 
-    # Step 1: 사전 기반 치환
+    # Step 1: 사전 기반 치환 (LLM 무관, 모든 backend에서 작동)
     dict_replaced = _replace_with_dictionary(query)
 
     # 사전 치환만으로 한국어가 모두 제거되었으면 바로 반환
     if not _contains_korean(dict_replaced):
+        return dict_replaced
+
+    # use_ollama_fallback=False (v2.5.1): 사전 치환 결과만 반환 (잔여 한국어 포함)
+    if not use_ollama_fallback:
         return dict_replaced
 
     # Step 2: 잔여 한국어가 있으면 Ollama LLM으로 번역
@@ -443,7 +459,13 @@ class SNOMEDRagPipeline:
             self.reformulator = get_reformulator(reformulator_backend)
             print(f"[Reformulator] {reformulator_backend} 백엔드 초기화 완료")
 
-    def query(self, question: str, top_k: int = 10, rerank: bool = False) -> dict:
+    def query(
+        self,
+        question: str,
+        top_k: int = 10,
+        rerank: bool = False,
+        source_route: Optional["SourceRoute"] = None,
+    ) -> dict:
         """RAG 질의를 실행한다.
 
         Args:
@@ -451,6 +473,9 @@ class SNOMEDRagPipeline:
             top_k: 반환 결과 수. rerank=True 시 Top-5 고정.
             rerank: True이면 BGEReranker 재정렬 적용 (enable_rerank=True로 초기화 필요).
                     False(기본) → v1.0 경로 완전 동일.
+            source_route: v2.5 Agentic RAG 백엔드 분기. None(기본)이면 v2.4 동일 동작
+                    (vector_weight=0.6, sql_weight=0.4, graph 항상 활성). agentic_query()
+                    경로에서 SourceRouterAgent의 결정값이 주입된다.
 
         Returns:
             {
@@ -464,10 +489,16 @@ class SNOMEDRagPipeline:
             }
         """
         # Step 0: 한국어 질의 → 영어 번역 (DB가 영어 전용이므로)
+        # v2.5.1: 사전 치환은 backend 무관 항상 시도. ollama backend에서만 LLM fallback 활성.
         translated_query = None
         search_query = question
-        if _contains_korean(question) and self.llm_backend == "ollama":
-            translated_query = translate_query_to_english(question, model=self.ollama_model)
+        if _contains_korean(question):
+            use_ollama = (self.llm_backend == "ollama")
+            translated_query = translate_query_to_english(
+                question,
+                model=self.ollama_model,
+                use_ollama_fallback=use_ollama,
+            )
             if translated_query != question:
                 search_query = translated_query
                 print(f"  [번역] {question} → {translated_query}")
@@ -494,10 +525,15 @@ class SNOMEDRagPipeline:
 
         # Step 1: 하이브리드 검색 (리포매팅된 쿼리 사용)
         # rerank=True이면 CrossEncoder에 원본 question을 전달 (전처리 전 쿼리가 더 자연스러운 문맥)
+        # v2.5: source_route가 있으면 라우터 결정 가중치를, 없으면 v2.4 default(0.6/0.4) 사용
         _rerank_active = rerank and self._enable_rerank
+        _vw = source_route.vector_weight if source_route is not None else 0.6
+        _sw = source_route.sql_weight if source_route is not None else 0.4
         results = self.engine.search(
             final_search_query,
             top_k=top_k,
+            vector_weight=_vw,
+            sql_weight=_sw,
             rerank=_rerank_active,
         )
 
@@ -505,19 +541,22 @@ class SNOMEDRagPipeline:
         context = build_context(question, results, self.post_coord)
 
         # Step 2.5: GraphRAG 컨텍스트 확장 (상위 3개 결과에 대해 그래프 탐색)
+        # v2.5: source_route.use_graph=False 시 GraphRAG skip (라우터가 graph 불필요로 판단)
+        _use_graph = (source_route is None) or source_route.use_graph
         graph_contexts = []
-        for r in results[:3]:
-            try:
-                gctx = self.snomed_graph.explore(
-                    r.concept_id,
-                    hierarchy_depth=3,
-                    clinical_hops=2,
-                    max_clinical_neighbors=10,
-                    max_children=3,
-                )
-                graph_contexts.append(gctx)
-            except Exception:
-                pass
+        if _use_graph:
+            for r in results[:3]:
+                try:
+                    gctx = self.snomed_graph.explore(
+                        r.concept_id,
+                        hierarchy_depth=3,
+                        clinical_hops=2,
+                        max_clinical_neighbors=10,
+                        max_children=3,
+                    )
+                    graph_contexts.append(gctx)
+                except Exception:
+                    pass
 
         graph_context_text = format_graph_context(graph_contexts, max_per_concept=3)
         if graph_context_text:

@@ -1,0 +1,70 @@
+[
+  {
+    "label": "simple",
+    "query": "feline diabetes SNOMED code",
+    "iterations": 1,
+    "verdict": "PASS",
+    "confidence": 1.0,
+    "subqueries": null,
+    "sources_used": [
+      "graph",
+      "sql",
+      "vector"
+    ],
+    "total_ms": 6734,
+    "loop_trace": [
+      {
+        "iter": 0,
+        "query": "feline diabetes SNOMED code",
+        "is_complex": false,
+        "subqueries_count": 1,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "verdict": "PASS",
+        "confidence": 1.0,
+        "decision": "PASS (conf=1.00 ≥ 0.7)",
+        "latency_ms": 6734
+      }
+    ],
+    "answer_preview": "[검색 결과] \"feline diabetes SNOMED code\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: INT\n   - Is a: Disorder of glucose metabolism\n"
+  },
+  {
+    "label": "complex",
+    "query": "feline diabetes and pancreatitis comparison SNOMED tagging",
+    "iterations": 1,
+    "verdict": "PASS",
+    "confidence": 1.0,
+    "subqueries": [
+      "SNOMED tags for feline diabetes",
+      "SNOMED tags for feline pancreatitis",
+      "Comparison of feline diabetes and pancreatitis"
+    ],
+    "sources_used": [
+      "graph",
+      "sql",
+      "vector"
+    ],
+    "total_ms": 22017,
+    "loop_trace": [
+      {
+        "iter": 0,
+        "query": "feline diabetes and pancreatitis comparison SNOMED tagging",
+        "is_complex": true,
+        "subqueries_count": 3,
+        "sources_used": [
+          "graph",
+          "sql",
+          "vector"
+        ],
+        "verdict": "PASS",
+        "confidence": 1.0,
+        "decision": "PASS (conf=1.00 ≥ 0.7)",
+        "latency_ms": 22017
+      }
+    ],
+    "answer_preview": "[Sub-1] SNOMED tags for feline diabetes\n[검색 결과] \"SNOMED tags for feline diabetes\"\n\n1. Diabetes mellitus\n   - concept_id: 73211009\n   - FSN: Diabetes mellitus (disorder)\n   - 카테고리: disorder\n   - 소스: IN"
+  }
+]

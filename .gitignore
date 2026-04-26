@@ -72,3 +72,4 @@ tmp/
 build/
 dist/
 *.whl
+src/retrieval_v2_2_snapshot/
