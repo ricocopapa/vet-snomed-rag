@@ -53,7 +53,7 @@ class RelevanceJudgeAgent:
     Gemini flash-lite 기본. 503·파싱 실패 시 PARTIAL/confidence=0.5 폴백 (안전 기본).
     """
 
-    def __init__(self, backend: str = "gemini-2.5-flash-lite"):
+    def __init__(self, backend: str = "gemini-3.1-flash-lite-preview"):
         self.backend = backend
 
     def judge(

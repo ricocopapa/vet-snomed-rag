@@ -38,7 +38,7 @@ class TestRuleBased:
 
 class TestGeminiFallback:
     def test_gemini_503_falls_back_to_rule_based(self):
-        agent = QueryComplexityAgent(backend="gemini-2.5-flash-lite")
+        agent = QueryComplexityAgent(backend="gemini-3.1-flash-lite-preview")
         with patch.object(
             agent, "_gemini_judge", side_effect=RuntimeError("503 UNAVAILABLE")
         ):

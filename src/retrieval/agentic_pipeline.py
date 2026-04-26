@@ -42,14 +42,18 @@ class AgenticRAGResult:
     sources_used: list[str] = field(default_factory=list)
     loop_trace: list[dict] = field(default_factory=list)
     latency_ms: dict = field(default_factory=dict)
-    # v2.5 Tier B: 마지막 iter의 외부 도구 호출 결과 (관찰성)
+    # v2.8 R-7: 모든 iter 누적 외부 도구 결과 (source별 식별자 dedup)
     external_results: dict = field(default_factory=dict)
     # v2.6 N-1: 마지막 iter의 sub_results (search_results 노출용 — 회귀 측정 베이스)
     last_sub_results: list[dict] = field(default_factory=list)
-    # v2.6 N-3: 외부 도구 결과 LLM 합성이 실제로 적용됐는지 (관찰성)
+    # v2.6 N-3: 외부 도구 결과 LLM 합성이 실제로 적용됐는지 (한 iter라도 적용 시 True)
     synthesis_used: bool = False
     # v2.6 N-3: 합성 전 base_answer (관찰성, 합성 답변과 비교 가능)
     base_answer_pre_synthesis: str = ""
+    # v2.8 R-7: 합성 시도 결과 관찰성 (skip / gemini / fallback)
+    synthesis_method: str = "skip"
+    # v2.8 R-7: 합성 fallback 사유 (429 quota / empty response / API error 등)
+    synthesis_fallback_reason: str = ""
     v2_2_compat: bool = True
 
 
@@ -67,10 +71,10 @@ class AgenticRAGPipeline:
     def __init__(
         self,
         base_pipeline: Any,
-        complexity_backend: str = "gemini-2.5-flash-lite",
+        complexity_backend: str = "gemini-3.1-flash-lite-preview",
         router_backend: str = "rule_based",
-        judge_backend: str = "gemini-2.5-flash-lite",
-        synthesizer_backend: str = "gemini-2.5-flash-lite",
+        judge_backend: str = "gemini-3.1-flash-lite-preview",
+        synthesizer_backend: str = "gemini-3.1-flash-lite-preview",
         max_iter: int = 2,
         relevance_threshold: float = 0.7,
         umls_client: Optional[UMLSClient] = None,
@@ -116,10 +120,13 @@ class AgenticRAGPipeline:
         last_answer = ""
         last_relevance: Optional[RelevanceVerdict] = None
 
-        last_external: dict[str, list] = {}
+        # v2.8 R-7: 모든 iter 외부 결과를 누적 (마지막 iter만 보존하던 last_external 폐기)
+        accumulated_external: dict[str, list] = {}
         last_sub_results: list[dict] = []
         last_synthesis_used: bool = False
         last_base_answer_pre_synthesis: str = ""
+        last_synthesis_method: str = "skip"
+        last_synthesis_fallback_reason: str = ""
         for iter_count in range(self.loop.max_iter + 1):
             iter_t0 = time.time()
             iter_sources: set[str] = set()  # 본 iter 내 소스 합집합 (S-1 fix)
@@ -201,14 +208,23 @@ class AgenticRAGPipeline:
                     r for sr in sub_results for r in sr["results"]
                 ]
 
-            # v2.6 N-3: 외부 결과 LLM 합성 — judge 평가 직전. external 비어있으면 skip(회귀 0).
+            # v2.8 R-7: 본 iter external을 누적에 합치고 source별 식별자 dedup
+            for tool, items in iter_external.items():
+                accumulated_external.setdefault(tool, []).extend(items)
+            accumulated_external = _dedup_external(accumulated_external)
+
+            # v2.6 N-3 + v2.8 R-7: 누적 external 기반 LLM 합성. 비어있으면 skip(회귀 0).
             base_answer_pre_synth = merged_answer
             synthesis_used_this_iter = False
-            if iter_external and any(iter_external.values()):
-                synth = self.synthesizer.synthesize(question, merged_answer, iter_external)
+            if accumulated_external and any(accumulated_external.values()):
+                synth = self.synthesizer.synthesize(
+                    question, merged_answer, accumulated_external
+                )
                 if synth.used:
                     merged_answer = synth.synthesized_answer
                     synthesis_used_this_iter = True
+                last_synthesis_method = synth.method
+                last_synthesis_fallback_reason = synth.fallback_reason
 
             last_answer = merged_answer
 
@@ -243,12 +259,11 @@ class AgenticRAGPipeline:
                     "latency_ms": iter_dur_ms,
                 }
             )
-            # v2.5 Tier B: 마지막 iter의 external 결과 보존
-            last_external = iter_external
             # v2.6 N-1: 마지막 iter의 sub_results 보존 (search_results 노출용)
             last_sub_results = sub_results
-            # v2.6 N-3: 마지막 iter의 합성 정보 보존
-            last_synthesis_used = synthesis_used_this_iter
+            # v2.8 R-7: synthesis_used는 단조 유지 — 한 iter라도 합성 적용되면 True 유지
+            if synthesis_used_this_iter:
+                last_synthesis_used = True
             last_base_answer_pre_synthesis = base_answer_pre_synth
 
             history.append(current)
@@ -271,10 +286,12 @@ class AgenticRAGPipeline:
             sources_used=sorted(sources_used_all),
             loop_trace=loop_trace,
             latency_ms={"total_ms": total_ms},
-            external_results=last_external,
+            external_results=accumulated_external,
             last_sub_results=last_sub_results,
             synthesis_used=last_synthesis_used,
             base_answer_pre_synthesis=last_base_answer_pre_synthesis,
+            synthesis_method=last_synthesis_method,
+            synthesis_fallback_reason=last_synthesis_fallback_reason,
         )
 
 
@@ -351,6 +368,35 @@ def _format_web_md(results: list[dict]) -> str:
         if snippet:
             lines.append(f"  {snippet}")
     return "\n".join(lines)
+
+
+def _dedup_external(acc: dict[str, list]) -> dict[str, list]:
+    """v2.8 R-7: 누적 external_results에서 source별 식별자 기준 dedup.
+
+    - umls: cui
+    - pubmed: pmid
+    - web: url
+    - 그 외: 그대로 유지 (식별자 미정)
+    식별자 결측 항목은 제거하지 않고 보존(첫 등장 순서 유지).
+    """
+    keys = {"umls": "cui", "pubmed": "pmid", "web": "url"}
+    result: dict[str, list] = {}
+    for tool, items in acc.items():
+        id_key = keys.get(tool)
+        if id_key is None:
+            result[tool] = list(items)
+            continue
+        seen: set = set()
+        uniq: list = []
+        for r in items:
+            v = (r or {}).get(id_key, "")
+            if v and v in seen:
+                continue
+            if v:
+                seen.add(v)
+            uniq.append(r)
+        result[tool] = uniq
+    return result
 
 
 def _route_to_dict(route: SourceRoute) -> dict:

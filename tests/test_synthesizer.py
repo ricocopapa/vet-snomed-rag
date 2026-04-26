@@ -283,6 +283,252 @@ def test_pipeline_synthesis_skipped_when_no_external():
     assert result.final_answer == "LOCAL only"  # 회귀 0
 
 
+# ── 10. v2.8 R-7: _dedup_external (source별 식별자 dedup) ────
+
+
+def test_dedup_external_umls_cui():
+    from src.retrieval.agentic_pipeline import _dedup_external
+
+    acc = {
+        "umls": [
+            {"cui": "C0011849", "name": "Diabetes Mellitus"},
+            {"cui": "C0011849", "name": "Diabetes Mellitus DUP"},  # cui 중복
+            {"cui": "C0027059", "name": "Myocardial Infarction"},
+        ]
+    }
+    out = _dedup_external(acc)
+    assert len(out["umls"]) == 2
+    assert out["umls"][0]["cui"] == "C0011849"
+    assert out["umls"][0]["name"] == "Diabetes Mellitus"  # 첫 등장 보존
+    assert out["umls"][1]["cui"] == "C0027059"
+
+
+def test_dedup_external_pubmed_pmid():
+    from src.retrieval.agentic_pipeline import _dedup_external
+
+    acc = {
+        "pubmed": [
+            {"pmid": "37123456", "title": "T1"},
+            {"pmid": "37999999", "title": "T2"},
+            {"pmid": "37123456", "title": "T1 DUP"},
+        ]
+    }
+    out = _dedup_external(acc)
+    assert len(out["pubmed"]) == 2
+    assert {r["pmid"] for r in out["pubmed"]} == {"37123456", "37999999"}
+
+
+def test_dedup_external_web_url():
+    from src.retrieval.agentic_pipeline import _dedup_external
+
+    acc = {
+        "web": [
+            {"url": "https://example.com/a", "title": "A"},
+            {"url": "https://example.com/b", "title": "B"},
+            {"url": "https://example.com/a", "title": "A DUP"},
+        ]
+    }
+    out = _dedup_external(acc)
+    assert len(out["web"]) == 2
+    assert {r["url"] for r in out["web"]} == {
+        "https://example.com/a",
+        "https://example.com/b",
+    }
+
+
+def test_dedup_external_preserves_no_id_items():
+    """식별자 결측 항목은 dedup 대상이 아니라 보존된다."""
+    from src.retrieval.agentic_pipeline import _dedup_external
+
+    acc = {
+        "umls": [
+            {"cui": "", "name": "Anonymous A"},
+            {"cui": "", "name": "Anonymous B"},
+            {"cui": "C0011849", "name": "DM"},
+        ]
+    }
+    out = _dedup_external(acc)
+    assert len(out["umls"]) == 3
+
+
+# ── 11. v2.8 R-7: multi-iter 누적 — 마지막 iter 외부 미호출이어도 이전 결과 유지 ────
+
+
+def test_pipeline_accumulates_external_across_iters():
+    """첫 iter에서 외부 호출, 두 번째 iter에서 외부 0건이어도 누적 결과로 합성 트리거."""
+    from src.retrieval.agentic.loop_controller import LoopDecision
+    from src.retrieval.agentic.query_complexity import ComplexityVerdict
+    from src.retrieval.agentic.relevance_judge import RelevanceVerdict
+    from src.retrieval.agentic_pipeline import AgenticRAGPipeline
+
+    base = MagicMock()
+    base.query.return_value = {
+        "answer": "LOCAL ans",
+        "search_results": [MagicMock(concept_id="73211009", preferred_term="DM")],
+        "reformulation": {"reformulated": "diabetes mellitus", "confidence": 1.0},
+    }
+    umls_mock = MagicMock()
+    umls_mock.enabled = True
+    # iter 0: pubmed 호출 후 결과 있음 / iter 1: umls 호출했으나 0건
+    umls_mock.search_with_cross_walks.return_value = []
+    pubmed_mock = MagicMock()
+    pubmed_mock.enabled = True
+    iter_pubmed_outs = [
+        [{"pmid": "37123456", "year": "2025", "journal": "Vet J", "title": "T1"}],
+        [],  # 두 번째 iter: 빈 결과
+    ]
+    pubmed_mock.search_with_summaries.side_effect = iter_pubmed_outs
+
+    synth_mock = MagicMock()
+    synth_mock.synthesize.return_value = SynthesisResult(
+        synthesized_answer="합성 [PubMed] PMID 37123456 통합", used=True, method="gemini"
+    )
+
+    pipe = AgenticRAGPipeline(
+        base_pipeline=base,
+        max_iter=2,
+        umls_client=umls_mock,
+        pubmed_client=pubmed_mock,
+        synthesizer=synth_mock,
+    )
+
+    # source_router를 강제로 pubmed 호출하도록 mock
+    from src.retrieval.agentic.source_router import SourceRoute
+
+    fake_route = SourceRoute(
+        use_vector=True,
+        use_sql=False,
+        use_graph=False,
+        use_external_tool=True,
+        external_tools=["pubmed"],
+        vector_weight=1.0,
+        sql_weight=0.0,
+        reasoning="test",
+    )
+
+    with patch.object(pipe.complexity_agent, "judge", return_value=ComplexityVerdict(is_complex=False)), \
+         patch.object(pipe.source_router, "route", return_value=fake_route), \
+         patch.object(
+             pipe.judge,
+             "judge",
+             side_effect=[
+                 RelevanceVerdict(verdict="PARTIAL", confidence=0.5),  # iter 0
+                 RelevanceVerdict(verdict="PASS", confidence=0.9),      # iter 1
+             ],
+         ), \
+         patch.object(
+             pipe.loop,
+             "decide",
+             side_effect=[
+                 LoopDecision(should_continue=True, new_query="rare feline endocrine literature 2", reason="rewrite"),
+                 LoopDecision(should_continue=False, new_query=None, reason="pass"),
+             ],
+         ):
+        result = pipe.agentic_query("rare feline endocrine literature")
+
+    # iter 1에서 pubmed 0건이지만 누적된 iter 0 결과로 합성 트리거 유지
+    assert result.synthesis_used is True
+    # 누적 external_results에 iter 0 PMID가 보존됨
+    assert any(r.get("pmid") == "37123456" for r in result.external_results.get("pubmed", []))
+    # 마지막 iter에 합성기가 누적된 external을 받았어야 함
+    last_call_args = synth_mock.synthesize.call_args_list[-1]
+    last_external_arg = last_call_args[0][2]  # 3번째 positional arg
+    assert "pubmed" in last_external_arg
+    assert any(r.get("pmid") == "37123456" for r in last_external_arg["pubmed"])
+
+
+# ── 12. v2.8 R-7: synthesis_method / synthesis_fallback_reason 노출 ────
+
+
+def test_pipeline_exposes_synthesis_method_and_reason():
+    """fallback 시 method='fallback' + fallback_reason이 AgenticRAGResult에 노출."""
+    from src.retrieval.agentic.query_complexity import ComplexityVerdict
+    from src.retrieval.agentic.relevance_judge import RelevanceVerdict
+    from src.retrieval.agentic_pipeline import AgenticRAGPipeline
+
+    base = MagicMock()
+    base.query.return_value = {
+        "answer": "LOCAL ans",
+        "search_results": [MagicMock(concept_id="73211009", preferred_term="DM")],
+        "reformulation": {"reformulated": "diabetes mellitus", "confidence": 1.0},
+    }
+    umls_mock = MagicMock()
+    umls_mock.enabled = True
+    umls_mock.search_with_cross_walks.return_value = [
+        {"cui": "C0011849", "name": "Diabetes Mellitus", "cross_walks": {}}
+    ]
+    pubmed_mock = MagicMock()
+    pubmed_mock.enabled = True
+    pubmed_mock.search_with_summaries.return_value = []
+
+    synth_mock = MagicMock()
+    synth_mock.synthesize.return_value = SynthesisResult(
+        synthesized_answer="base preserved",
+        used=False,
+        method="fallback",
+        fallback_reason="ClientError: 429 RESOURCE_EXHAUSTED",
+    )
+
+    pipe = AgenticRAGPipeline(
+        base_pipeline=base,
+        max_iter=1,
+        umls_client=umls_mock,
+        pubmed_client=pubmed_mock,
+        synthesizer=synth_mock,
+    )
+
+    with patch.object(pipe.complexity_agent, "judge", return_value=ComplexityVerdict(is_complex=False)), \
+         patch.object(pipe.judge, "judge", return_value=RelevanceVerdict(verdict="PASS", confidence=0.9)):
+        result = pipe.agentic_query("ICD-10 query")
+
+    assert result.synthesis_used is False
+    assert result.synthesis_method == "fallback"
+    assert "429" in result.synthesis_fallback_reason
+
+
+# ── 13. v2.8 R-7: 429 retry 성공 ────────────────────────────
+
+
+def test_synthesize_429_retry_succeeds(monkeypatch):
+    """첫 호출 429 → retryDelay 따라 sleep → 재시도 성공."""
+    agent = ExternalSynthesizerAgent()
+    fake_response = MagicMock()
+    fake_response.text = "retry 성공 합성"
+
+    fake_client = MagicMock()
+    err = RuntimeError(
+        "ClientError: 429 RESOURCE_EXHAUSTED retryDelay: '2s'"
+    )
+    fake_client.models.generate_content.side_effect = [err, fake_response]
+
+    sleeps: list = []
+    monkeypatch.setattr("src.retrieval.agentic.synthesizer.time.sleep", lambda s: sleeps.append(s))
+
+    with patch("src.retrieval.agentic.synthesizer._ensure_env_loaded"), \
+         patch.dict(os.environ, {"GOOGLE_API_KEY": "fake-key"}, clear=False):
+        with patch("google.genai.Client", return_value=fake_client):
+            result = agent.synthesize(
+                query="q",
+                base_answer="base",
+                external_results={"umls": [{"cui": "C1", "name": "X"}]},
+            )
+
+    assert result.used is True
+    assert result.method == "gemini"
+    assert result.synthesized_answer == "retry 성공 합성"
+    assert sleeps and sleeps[0] >= 2  # retryDelay 따라 대기
+
+
+def test_parse_retry_delay_variants():
+    """_parse_retry_delay 정규식 — 'retryDelay: 15.0s' 와 'retry in 14s' 모두 파싱."""
+    from src.retrieval.agentic.synthesizer import _parse_retry_delay
+
+    assert _parse_retry_delay("retryDelay: '15.030921765s'") == pytest.approx(15.03, abs=0.01)
+    assert _parse_retry_delay("Please retry in 14.7s") == pytest.approx(14.7, abs=0.01)
+    assert _parse_retry_delay("Please retry in 5s") == 5.0
+    assert _parse_retry_delay("no retry hint here") is None
+
+
 def test_pipeline_synthesis_fallback_preserves_base():
     """합성기 fallback 시 final_answer = base_answer 그대로."""
     from src.retrieval.agentic.query_complexity import ComplexityVerdict

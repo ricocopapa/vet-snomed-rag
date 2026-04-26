@@ -1168,5 +1168,255 @@
     "tokens_out": 78,
     "cost": 0.000285,
     "latency_ms": 1661
+  },
+  "78a13a9518c341c48f871ba34fe0ba8be5ca6a0995fbbff8e85de71747e12400": {
+    "reformulated": "ICD-10",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The input refers to a classification system rather than a clinical concept, so it is returned as is with meta-terms removed.",
+    "tokens_in": 668,
+    "tokens_out": 69,
+    "cost": 0.0002705,
+    "latency_ms": 1346
+  },
+  "46bc1f37f7b19f3ac4d3619de9e59c32af6a5661e095bfa627e870e0ab86d2ed": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Removed meta terms and kept the core clinical concept.",
+    "tokens_in": 667,
+    "tokens_out": 51,
+    "cost": 0.00024325,
+    "latency_ms": 1418
+  },
+  "e509b5e92a728882811cd88a5cb7de573262a2d8ecdf60485b90a3c697de92eb": {
+    "reformulated": "diabetes mellitus with liver involvement",
+    "post_coord_hint": null,
+    "confidence": 0.85,
+    "reasoning": "The query asks for clinical classification of diabetes mellitus involving the liver, excluding meta-references to ICD-10.",
+    "tokens_in": 678,
+    "tokens_out": 68,
+    "cost": 0.0002715,
+    "latency_ms": 1394
+  },
+  "add76f8422acb2fcaf6f7f3f27e6e4e471e048e6f356b8dcdfaa3c5617fa4cda": {
+    "reformulated": "type 1 diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query refers to a specific human clinical diagnosis code without a veterinary species qualifier.",
+    "tokens_in": 681,
+    "tokens_out": 60,
+    "cost": 0.00026025,
+    "latency_ms": 1966
+  },
+  "85db634b75978a473eefb23ceb569c7c050a47096969f2e233f27b307f6d9d60": {
+    "reformulated": "type 2 diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query refers to a standard human clinical concept without specific veterinary species qualifiers.",
+    "tokens_in": 681,
+    "tokens_out": 59,
+    "cost": 0.00025875,
+    "latency_ms": 1616
+  },
+  "f4154b2c6bba22d706e41ec908eaed9bad40d0cf0102d0cc5e9bae1e9f1f5410": {
+    "reformulated": "malnutrition-related diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query refers to a specific clinical diagnosis without a species qualifier, so the term is preserved as is.",
+    "tokens_in": 682,
+    "tokens_out": 66,
+    "cost": 0.0002695,
+    "latency_ms": 5370
+  },
+  "8142194a6aa01278b4f28dd7956deb454ab78a1a33ab8e3a48149a1d46b0b7ea": {
+    "reformulated": "other specified diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The query refers to a specific clinical diagnosis code without a species qualifier.",
+    "tokens_in": 680,
+    "tokens_out": 57,
+    "cost": 0.0002555,
+    "latency_ms": 2637
+  },
+  "332908b9da0177d7a78e3c73a5827f41e9df40709e73c77c1040ff6f9ad336ff": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.8,
+    "reasoning": "The input refers to ICD-10 codes for diabetes mellitus, which maps to the general SNOMED CT concept.",
+    "tokens_in": 688,
+    "tokens_out": 65,
+    "cost": 0.0002695,
+    "latency_ms": 1329
+  },
+  "3f6ebf6917a42c97bba80f4cab20b8a5b5d0b009fc30712a6662ec0a01e272ad": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query requests clinical descriptions for diabetes mellitus categories, which are mapped to the base SNOMED CT concept.",
+    "tokens_in": 694,
+    "tokens_out": 63,
+    "cost": 0.000268,
+    "latency_ms": 1606
+  },
+  "d528f6b573ff9ae314be73c1ade1291cbc4335d2cbcff491b5f5e7f1f04ca11f": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The input refers to ICD-10 codes E10-E13, which correspond to the clinical concept of diabetes mellitus.",
+    "tokens_in": 678,
+    "tokens_out": 68,
+    "cost": 0.0002715,
+    "latency_ms": 1517
+  },
+  "029c927ef0392c2f5f6e4d9427f763ccd7dd6545551fde4168c003929e945c0b": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": null,
+    "confidence": 0.9,
+    "reasoning": "The query refers to ICD-10 codes for diabetes mellitus categories, which map to the general SNOMED CT concept.",
+    "tokens_in": 686,
+    "tokens_out": 66,
+    "cost": 0.0002705,
+    "latency_ms": 1580
+  },
+  "4bfd8c71d300239add20e9a536b88039fe75b0296d7130bc9355875fe5904a44": {
+    "reformulated": null,
+    "post_coord_hint": null,
+    "confidence": 0.0,
+    "reasoning": "The input query is a technical instruction regarding data formatting and does not contain a clinical or veterinary concept to map to SNOMED CT.",
+    "tokens_in": 679,
+    "tokens_out": 66,
+    "cost": 0.00026875,
+    "latency_ms": 1644
+  },
+  "a83c4f600855f9a8d4c721f5e95f8219d892ef96e28301aef6a693e51593a0de": {
+    "reformulated": "rare endocrine disease",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The query refers to a category of endocrine diseases in cats, which is reformatted by separating the species qualifier from the clinical concept.",
+    "tokens_in": 668,
+    "tokens_out": 76,
+    "cost": 0.000281,
+    "latency_ms": 13030
+  },
+  "71a3f50a71e902798b96a4c3ba5784bf2989fdd8e91cf21f55b4510c7f5910cd": {
+    "reformulated": "rare endocrine disorder",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "The query refers to a general endocrine disorder category that requires post-coordination for the feline species.",
+    "tokens_in": 669,
+    "tokens_out": 70,
+    "cost": 0.00027225,
+    "latency_ms": 2864
+  },
+  "68a5a97408907f14cbda7e460411714d75be8a14b31662dace1a3a158e8859ec": {
+    "reformulated": "adrenal gland disorder",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.9,
+    "reasoning": "Adrenal pathologies are species-agnostic, so the species is moved to a post-coordination hint.",
+    "tokens_in": 671,
+    "tokens_out": 72,
+    "cost": 0.00027575,
+    "latency_ms": 1970
+  },
+  "3b41f01d1ad1a2c99309e42f37a48db7d490201c6b7ebaa2393c0db983e73eb0": {
+    "reformulated": "parathyroid gland disorder",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.9,
+    "reasoning": "Parathyroid pathologies are generalized concepts that require post-coordination for species specificity.",
+    "tokens_in": 672,
+    "tokens_out": 66,
+    "cost": 0.000267,
+    "latency_ms": 1622
+  },
+  "6f4df22ad6300d6d8cc8c818d5f337db5a72a4a814e726f4500c4aabe652d58b": {
+    "reformulated": "primary hyperparathyroidism",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Primary hyperparathyroidism is a species-agnostic clinical concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 676,
+    "tokens_out": 79,
+    "cost": 0.0002875,
+    "latency_ms": 1287
+  },
+  "2e685576cf241f33382176504a71b212054de6429d5eaf4915c962880bf12b9c": {
+    "reformulated": "primary hyperparathyroidism",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Primary hyperparathyroidism is a species-agnostic clinical condition, so the species is moved to a post-coordination hint.",
+    "tokens_in": 676,
+    "tokens_out": 79,
+    "cost": 0.0002875,
+    "latency_ms": 1445
+  },
+  "07f2c5968043a52b47fe809803c574fbca3a68f9099ec3e24f2a7ad7a5280a7e": {
+    "reformulated": "adrenal gland tumor",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Adrenal gland tumor is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 674,
+    "tokens_out": 76,
+    "cost": 0.0002825,
+    "latency_ms": 1211
+  },
+  "c89f20606f4695dc3096a08fdb86b69626bceec2507340a1d04846e39848aba1": {
+    "reformulated": "adrenal gland tumor",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Adrenal gland tumor is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 674,
+    "tokens_out": 76,
+    "cost": 0.0002825,
+    "latency_ms": 1268
+  },
+  "f5d24ff5b948c7e144d24fff1b24400888e14570d44c52880ce85bc426e5dacb": {
+    "reformulated": "diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 672,
+    "tokens_out": 72,
+    "cost": 0.000276,
+    "latency_ms": 1523
+  },
+  "0b2a59852b32adcfcfa7e5670b566fa4fcbaff3a56a05790f616d7b3581efe6f": {
+    "reformulated": "early symptoms of diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the species is moved to a post-coordination hint.",
+    "tokens_in": 671,
+    "tokens_out": 75,
+    "cost": 0.00028025,
+    "latency_ms": 1478
+  },
+  "4d4e63945927213095ccb34872e603165c3f1087c6a7c505d6d0c90172eabcdb": {
+    "reformulated": "differential diagnosis of diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the feline qualifier is moved to a post-coordination hint.",
+    "tokens_in": 668,
+    "tokens_out": 76,
+    "cost": 0.000281,
+    "latency_ms": 1226
+  },
+  "028612dda26510413ec07a65eaea52cdb72232ebd2c6fcd4c25b655218485640": {
+    "reformulated": "subclinical diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the feline qualifier is moved to a post-coordination hint.",
+    "tokens_in": 669,
+    "tokens_out": 75,
+    "cost": 0.00027975,
+    "latency_ms": 1230
+  },
+  "8806a71a0ce9b4d54443fabd9cfdd9fe2e3a854aeeab8b4f6db5ae63d0223cb1": {
+    "reformulated": "early detection methods for diabetes mellitus",
+    "post_coord_hint": "Occurs in = Feline species",
+    "confidence": 0.95,
+    "reasoning": "Diabetes mellitus is a species-agnostic concept, so the feline qualifier is moved to a post-coordination hint.",
+    "tokens_in": 669,
+    "tokens_out": 77,
+    "cost": 0.00028275,
+    "latency_ms": 1263
   }
 }

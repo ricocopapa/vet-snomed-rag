@@ -1,16 +1,24 @@
 ---
 tags: [vet-snomed-rag, v2.8, roadmap, handoff]
 date: 2026-04-26
-status: 다음 세션 진입 대기
+status: 묶음 G 단위 fix 완료 / production 검증 보류 (Gemini 한도)
 prev_state: v2.7 R-3 Tier C Tavily Web Search 종결, GitHub Release v2.7 published
-next_target: v2.8 (R-7 synthesis 미트리거 본질 분석 우선)
-session_anchor: 2026-04-26 (R-3 종결 시각)
+next_target: v2.8 production smoke + 11쿼리 회귀 (한도 reset 또는 R-10 PAYG 후)
+session_anchor: 2026-04-26 (R-7 단위 fix 완료 시각)
 related:
+  - docs/20260427_r7_synthesis_diagnosis.md (R-7 진단 + fix 노트)
   - docs/20260427_v2_7_roadmap_handoff.md (v2.7 종결 기록)
   - docs/20260426_v2_6_roadmap_handoff.md (v2.6 종결 기록)
   - RELEASE_NOTES_v2.7.md, RELEASE_NOTES_v2.6.md
   - memory/project_vet_snomed_rag.md
 ---
+
+> **2026-04-26 갱신 (R-7 단위 fix 완료):**
+> 핸드오프 §3-1 추정("마지막 iter만 보존")은 코드 분석 가설. 실제 진단 결과 직접 원인은
+> **Gemini Free Tier 일일 20 RPD 한도 초과 → 합성기 fallback (used=False)**.
+> fix 옵션 (γ) 적용: 누적 보존(잠재 결함 해소) + 429 retry/backoff + synthesis_method/fallback_reason 노출.
+> 단위 215 PASS. production smoke + 11쿼리 회귀는 한도 reset 또는 R-10 PAYG 활성화 후 재실행 필수.
+> 진단 상세 → `docs/20260427_r7_synthesis_diagnosis.md`
 
 # v2.7 → v2.8 핸드오프 (다음 세션 진입용)
 

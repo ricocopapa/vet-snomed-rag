@@ -55,7 +55,7 @@ class RewriteLoopController:
         max_iter: int = 2,
         threshold: float = 0.7,
         cycle_similarity_threshold: float = 0.95,
-        rewrite_backend: str = "gemini-2.5-flash-lite",
+        rewrite_backend: str = "gemini-3.1-flash-lite-preview",
     ):
         self.max_iter = max_iter
         self.threshold = threshold

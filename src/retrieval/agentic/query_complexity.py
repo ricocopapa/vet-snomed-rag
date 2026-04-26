@@ -55,7 +55,7 @@ class QueryComplexityAgent:
 
     def __init__(
         self,
-        backend: str = "gemini-2.5-flash-lite",
+        backend: str = "gemini-3.1-flash-lite-preview",
         max_subqueries: int = 5,
     ):
         self.backend = backend

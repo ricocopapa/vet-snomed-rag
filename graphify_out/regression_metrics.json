@@ -5,18 +5,18 @@
     "expected_concept_id": "339181000009108",
     "modes": {
       "none": {
-        "top_1_id": "339181000009108",
-        "top_1_term": "Feline panleukopenia",
-        "rank_of_correct": 1,
-        "latency_ms": 1209,
+        "top_1_id": "407400009",
+        "top_1_term": "Feline panleucopenia virus",
+        "rank_of_correct": 2,
+        "latency_ms": 852,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
       },
       "gemini": {
-        "top_1_id": "339181000009108",
-        "top_1_term": "Feline panleukopenia",
-        "rank_of_correct": 1,
+        "top_1_id": "407400009",
+        "top_1_term": "Feline panleucopenia virus",
+        "rank_of_correct": 2,
         "latency_ms": 12891,
         "cost_usd": 0.000269,
         "cached": true,
@@ -40,7 +40,7 @@
         "top_1_id": "47457000",
         "top_1_term": "Canine parvovirus",
         "rank_of_correct": 1,
-        "latency_ms": 925,
+        "latency_ms": 910,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -51,7 +51,7 @@
         "rank_of_correct": 1,
         "latency_ms": 21131,
         "cost_usd": 0.000269,
-        "cached": false,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "canine parvovirus enteritis",
         "post_coord_hint": null,
@@ -69,10 +69,10 @@
     "expected_concept_id": "73211009",
     "modes": {
       "none": {
-        "top_1_id": "73211009",
-        "top_1_term": "Diabetes mellitus",
-        "rank_of_correct": 1,
-        "latency_ms": 1905,
+        "top_1_id": "5368009",
+        "top_1_term": "Drug-induced diabetes mellitus",
+        "rank_of_correct": 2,
+        "latency_ms": 1154,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -83,7 +83,7 @@
         "rank_of_correct": 1,
         "latency_ms": 88521,
         "cost_usd": 0.0002745,
-        "cached": false,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "diabetes mellitus",
         "post_coord_hint": "Occurs in = Feline species",
@@ -103,8 +103,8 @@
       "none": {
         "top_1_id": "24407009",
         "top_1_term": "Suppurative pancreatitis",
-        "rank_of_correct": 2,
-        "latency_ms": 1964,
+        "rank_of_correct": 4,
+        "latency_ms": 870,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -115,7 +115,7 @@
         "rank_of_correct": 1,
         "latency_ms": 45050,
         "cost_usd": 0.00027575,
-        "cached": false,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "pancreatitis",
         "post_coord_hint": "Occurs in = Canine species",
@@ -136,7 +136,7 @@
         "top_1_id": "431855005",
         "top_1_term": "Chronic kidney disease stage 1",
         "rank_of_correct": null,
-        "latency_ms": 1983,
+        "latency_ms": 936,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -147,7 +147,7 @@
         "rank_of_correct": null,
         "latency_ms": 38207,
         "cost_usd": 0.00027625,
-        "cached": false,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "chronic kidney disease",
         "post_coord_hint": "Occurs in = Feline species",
@@ -168,7 +168,7 @@
         "top_1_id": "283782004",
         "top_1_term": "Cat bite - wound",
         "rank_of_correct": 1,
-        "latency_ms": 422,
+        "latency_ms": 415,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -179,7 +179,7 @@
         "rank_of_correct": 1,
         "latency_ms": 40924,
         "cost_usd": 0.000261,
-        "cached": false,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "cat bite wound",
         "post_coord_hint": null,
@@ -197,10 +197,10 @@
     "expected_concept_id": "73211009",
     "modes": {
       "none": {
-        "top_1_id": "347101000009106",
-        "top_1_term": "Feline acquired immune deficiency syndrome",
-        "rank_of_correct": null,
-        "latency_ms": 658,
+        "top_1_id": "73211009",
+        "top_1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "latency_ms": 516,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -209,8 +209,8 @@
         "top_1_id": "73211009",
         "top_1_term": "Diabetes mellitus",
         "rank_of_correct": 1,
-        "latency_ms": 2805,
-        "cost_usd": 0.00027275,
+        "latency_ms": 7971,
+        "cost_usd": 0.000273,
         "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "diabetes mellitus",
@@ -219,7 +219,7 @@
       }
     },
     "verdict_per_backend": {
-      "none": "FAIL",
+      "none": "PASS",
       "gemini": "PASS"
     }
   },
@@ -232,7 +232,7 @@
         "top_1_id": "46635009",
         "top_1_term": "Diabetes mellitus type I",
         "rank_of_correct": 1,
-        "latency_ms": 391,
+        "latency_ms": 355,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -241,13 +241,13 @@
         "top_1_id": "46635009",
         "top_1_term": "Diabetes mellitus type I",
         "rank_of_correct": 1,
-        "latency_ms": 0,
-        "cost_usd": 0.0,
-        "cached": false,
+        "latency_ms": 6817,
+        "cost_usd": 0.0002525,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "diabetes mellitus type 1",
         "post_coord_hint": null,
-        "confidence": 0.0
+        "confidence": 1.0
       }
     },
     "verdict_per_backend": {
@@ -261,10 +261,10 @@
     "expected_concept_id": "73211009",
     "modes": {
       "none": {
-        "top_1_id": "297461008",
-        "top_1_term": "Korean language",
-        "rank_of_correct": null,
-        "latency_ms": 2659,
+        "top_1_id": "73211009",
+        "top_1_term": "Diabetes mellitus",
+        "rank_of_correct": 1,
+        "latency_ms": 516,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
@@ -273,9 +273,9 @@
         "top_1_id": "73211009",
         "top_1_term": "Diabetes mellitus",
         "rank_of_correct": 1,
-        "latency_ms": 3374,
-        "cost_usd": 0.00027325,
-        "cached": false,
+        "latency_ms": 7971,
+        "cost_usd": 0.000273,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
         "reformulated": "diabetes mellitus",
         "post_coord_hint": "Occurs in = Feline species",
@@ -283,7 +283,7 @@
       }
     },
     "verdict_per_backend": {
-      "none": "FAIL",
+      "none": "PASS",
       "gemini": "PASS"
     }
   },
@@ -293,30 +293,30 @@
     "expected_concept_id": "75694006",
     "modes": {
       "none": {
-        "top_1_id": "251529006",
-        "top_1_term": "EMG decelerating bursts",
-        "rank_of_correct": null,
-        "latency_ms": 1597,
+        "top_1_id": "24407009",
+        "top_1_term": "Suppurative pancreatitis",
+        "rank_of_correct": 4,
+        "latency_ms": 542,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
       },
       "gemini": {
-        "top_1_id": "251529006",
-        "top_1_term": "EMG decelerating bursts",
-        "rank_of_correct": null,
-        "latency_ms": 0,
-        "cost_usd": 0.0,
-        "cached": false,
+        "top_1_id": "75694006",
+        "top_1_term": "Pancreatitis",
+        "rank_of_correct": 1,
+        "latency_ms": 1652,
+        "cost_usd": 0.00027575,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
-        "reformulated": "개 췌장염",
-        "post_coord_hint": null,
-        "confidence": 0.0
+        "reformulated": "pancreatitis",
+        "post_coord_hint": "Occurs in = Canine species",
+        "confidence": 1.0
       }
     },
     "verdict_per_backend": {
-      "none": "FAIL",
-      "gemini": "FAIL"
+      "none": "PASS",
+      "gemini": "PASS"
     }
   },
   {
@@ -325,30 +325,30 @@
     "expected_concept_id": "339181000009108",
     "modes": {
       "none": {
-        "top_1_id": "370775006",
-        "top_1_term": "Application of safety device",
-        "rank_of_correct": null,
-        "latency_ms": 1664,
+        "top_1_id": "407400009",
+        "top_1_term": "Feline panleucopenia virus",
+        "rank_of_correct": 2,
+        "latency_ms": 888,
         "cost_usd": 0.0,
         "cached": false,
         "model_used": null
       },
       "gemini": {
-        "top_1_id": "370775006",
-        "top_1_term": "Application of safety device",
-        "rank_of_correct": null,
-        "latency_ms": 0,
-        "cost_usd": 0.0,
-        "cached": false,
+        "top_1_id": "407400009",
+        "top_1_term": "Feline panleucopenia virus",
+        "rank_of_correct": 2,
+        "latency_ms": 12891,
+        "cost_usd": 0.000269,
+        "cached": true,
         "model_used": "gemini-3.1-flash-lite-preview",
-        "reformulated": "고양이 범백혈구감소증",
+        "reformulated": "feline panleukopenia",
         "post_coord_hint": null,
-        "confidence": 0.0
+        "confidence": 1.0
       }
     },
     "verdict_per_backend": {
-      "none": "FAIL",
-      "gemini": "FAIL"
+      "none": "PASS",
+      "gemini": "PASS"
     }
   }
 ]
