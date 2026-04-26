@@ -1,17 +1,25 @@
 ---
 tags: [vet-snomed-rag, v2.9, roadmap, handoff]
-date: 2026-04-26
-status: 묶음 H 종결 (commit 40c6d2a, GitHub v2.8/v2.8.1 publish) — 다음 cycle 후보 R-10/R-8
+date: 2026-04-27
+status: R-10 종결 (보고서 + budget_guard PoC, 단위 243 PASS) — 다음 cycle 후보 R-8 v3.0 또는 v2.9 publish
 prev_state: v2.8.1 묶음 H 종결 (R-7.1 + R-9), N-3 smoke 4/4 PASS, GitHub Release v2.8/v2.8.1 published
-next_target: v2.9+ (R-10 PAYG 또는 R-8 embedder 또는 신규 phase)
-session_anchor: 2026-04-26 (v2.8.1 commit + Release publish 직후)
+next_target: v2.9 release (R-10 PoC 묶음) 또는 v3.0 R-8 embedder phase
+session_anchor: 2026-04-27 (R-10 PAYG 시뮬 + budget_guard PoC 완료 직후)
 related:
+  - docs/20260427_r10_payg_simulation.md (R-10 본 보고서)
   - docs/20260427_v2_8_roadmap_handoff.md (v2.8 종결 기록)
   - docs/20260427_r7_synthesis_diagnosis.md (R-7 진단 노트)
   - RELEASE_NOTES_v2.8.md (v2.8 릴리즈 노트)
   - RELEASE_NOTES_v2.8.1.md (v2.8.1 릴리즈 노트)
   - memory/project_vet_snomed_rag.md
 ---
+
+> **2026-04-27 R-10 종결 갱신:**
+> R-10 PAYG 시뮬 + 운영 견고성 가드레일 PoC 완료. `src/observability/budget_guard.py` (218 LoC) +
+> `tests/test_budget_guard.py` 24건 PASS. 단위 **219 → 243 PASS**, 11쿼리 회귀 0 (모듈 isolation,
+> 0 production import). 사용량 추정: 현 부하 <$0.05/월, Production 100쿼리/일 가정 ~$1.30/월 (Tavily Free 안).
+> Tavily 90% 임계가 가장 먼저 닿는 위험 — Production 30%+ web fallback 시. 보고서: `docs/20260427_r10_payg_simulation.md`.
+> v2.9 publish 또는 v3.0 R-8 phase 진입 사용자 결정 대기.
 
 > **2026-04-26 묶음 H 종결 갱신:**
 > R-7.1 + R-9 완료. _SYNTH_PROMPT 강화("단 하나도 누락 없이") + _format_external_summary 한도 확장
@@ -54,10 +62,13 @@ related:
    - README setup 섹션 + `.env.example` (TAVILY_API_KEY 포함 5종)
    - 시스템 의존성 (`brew install poppler tesseract`) 명시
 
-3. **R-10 (신규) — Tavily/Gemini PAYG 전환 시뮬** (사용자 카드 등록 결정 필요)
-   - Gemini RPD 500 (3.1-flash-lite-preview) 한도는 Production 운영 충분 — 현 시점 PAYG 비필수
-   - Tavily Free 1,000 credits/월 한도도 0.2% 사용 — 운영 모니터링만으로 가능
-   - PAYG 전환은 **운영 견고성 보강 차원** — 후순위
+3. **R-10 (종결, 2026-04-27) — Tavily/Gemini PAYG 전환 시뮬 + 가드레일 PoC**
+   - 보고서: `docs/20260427_r10_payg_simulation.md`
+   - 추정 결과: 현 부하 <$0.05/월, Production 100쿼리/일 가정 ~$1.30/월 (Tavily Free 안)
+   - Tavily 90% 임계가 가장 먼저 닿는 위험 — Production 30%+ web fallback 시
+   - 산출물: `src/observability/budget_guard.py` (218 LoC) + `tests/test_budget_guard.py` 24건 PASS
+   - PAYG 활성화는 **즉시 불필요** — `GSD_BUDGET_USD_MONTH=2.0` env로 안전망 설정 권장
+   - 회귀 0 (모듈 isolation, 0 production import) — runtime 통합은 v3.0+ 별도 phase
 
 4. **R-8 (heavy) — embedder 교체** (BioBERT/PubMedBERT)
    - ChromaDB 366,570 재임베딩 (수시간~하루)
