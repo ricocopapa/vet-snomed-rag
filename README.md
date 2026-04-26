@@ -392,7 +392,7 @@ SNOMED CT 데이터는 라이선스 제한으로 이미지에 미포함. 로컬 
 
 # 처음 구축하는 경우: 로컬 Python 환경으로 먼저 인덱싱 실행
 bash setup_env.sh
-source .venv/bin/activate
+source venv/bin/activate
 python src/indexing/vectorize_snomed.py
 ```
 
@@ -453,7 +453,7 @@ cd vet-snomed-rag
 bash setup_env.sh
 
 # 가상환경 활성화
-source .venv/bin/activate
+source venv/bin/activate
 
 # (선택) 외부 도구 API 키 등록 — UMLS·PubMed·Tavily 키 모두 무료 발급 (.env.example 참조)
 cp .env.example .env  # 편집해서 GOOGLE/UMLS/NCBI/TAVILY 키 채움

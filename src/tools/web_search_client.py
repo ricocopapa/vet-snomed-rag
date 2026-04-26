@@ -195,6 +195,15 @@ class TavilyWebSearchClient:
         r = self._post("/search", body)
         if r is None or r.status_code != 200:
             return []
+
+        # v2.9+ R-10 runtime 통합: Tavily credit 사용량을 BudgetGuard에 기록.
+        # 성공한 네트워크 호출만 카운트 (cache hit은 line 184에서 일찍 return하여 미도달).
+        try:
+            from src.observability import get_budget_guard
+            get_budget_guard().record_tavily_search(depth=self.search_depth)
+        except Exception:
+            pass
+
         try:
             data = r.json()
         except ValueError:

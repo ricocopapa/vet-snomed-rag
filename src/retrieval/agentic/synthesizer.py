@@ -141,6 +141,20 @@ class ExternalSynthesizerAgent:
             else:
                 raise
         text = (response.text or "").strip()
+
+        # v2.9+ R-10 runtime 통합: Gemini token 사용량을 BudgetGuard에 기록.
+        # usage_metadata가 없는 응답(legacy/mock)은 silent skip — 합성 결과 영향 X.
+        try:
+            usage = getattr(response, "usage_metadata", None)
+            if usage is not None:
+                from src.observability import get_budget_guard
+                get_budget_guard().record_gemini(
+                    input_tokens=int(getattr(usage, "prompt_token_count", 0) or 0),
+                    output_tokens=int(getattr(usage, "candidates_token_count", 0) or 0),
+                )
+        except Exception:
+            pass
+
         if not text:
             return SynthesisResult(
                 synthesized_answer=base_answer,

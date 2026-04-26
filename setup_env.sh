@@ -8,10 +8,10 @@ echo "============================================"
 echo " vet-snomed-rag 환경 세팅 시작"
 echo "============================================"
 
-# 1. Python 가상환경 생성
+# 1. Python 가상환경 생성 (디렉토리명: venv/ — 핸드오프 §1-3 표준)
 echo "[1/4] Python 가상환경 생성..."
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 
 # 2. pip 업그레이드
 echo "[2/4] pip 업그레이드..."
@@ -45,6 +45,6 @@ echo "  → JSON 매핑 파일 링크 완료"
 echo ""
 echo "============================================"
 echo " 세팅 완료!"
-echo " 활성화: source .venv/bin/activate"
+echo " 활성화: source venv/bin/activate"
 echo " 실행:   python src/indexing/vectorize_snomed.py"
 echo "============================================"
