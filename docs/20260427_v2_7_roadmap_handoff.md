@@ -1,12 +1,15 @@
 ---
 tags: [vet-snomed-rag, v2.7, roadmap, handoff]
 date: 2026-04-26
-status: 다음 세션 진입 대기
+status: 종결 (R-1·R-3·R-4·R-5·R-6 모두 종결, R-2 부분, v2.7 GitHub Release published)
 prev_state: v2.6 (묶음 A + B + T7) 작업 종결, **미커밋·미릴리스** (사용자 git push 명시 승인 대기)
-next_target: v2.7 (사용자 결정 후 확정)
-session_anchor: 2026-04-26 (T7 처리 종결 시각)
+final_state: v2.7 R-3 Tier C Tavily Web Search 종결. GitHub Release `https://github.com/ricocopapa/vet-snomed-rag/releases/tag/v2.7` published. 단위 207 PASS / 11쿼리 회귀 0
+next_target: v2.8 (R-7 synthesis 미트리거 본질 분석)
+next_handoff: docs/20260427_v2_8_roadmap_handoff.md
+session_anchor: 2026-04-26 (R-3 종결 시각)
 related:
-  - docs/20260426_v2_6_roadmap_handoff.md (v2.6 종결 기록 — §9·§10·§11에 결과 누적)
+  - docs/20260427_v2_8_roadmap_handoff.md (v2.8 진입 핸드오프, R-7 + 잔여 후보)
+  - docs/20260426_v2_6_roadmap_handoff.md (v2.6 종결 기록)
   - docs/20260426_v2_6_n4_korean_lexicon_v1_1.md (N-4 검증 노트)
   - memory/project_vet_snomed_rag.md
 ---
