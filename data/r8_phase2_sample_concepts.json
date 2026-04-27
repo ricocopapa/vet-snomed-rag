@@ -1,0 +1,5041 @@
+{
+  "_metadata": {
+    "extracted_at": "2026-04-27T00:05:15.354704+00:00",
+    "random_seed": 20260427,
+    "source_db": "data/snomed_ct_vet.db",
+    "source_total": 414860,
+    "method": "Gold-Forced Inclusion (96 gold 우선) + tag-stratified random 904",
+    "handoff": "docs/20260427_r8_phase2_handoff.md §3-3 Step 1 (옵션 A 재설계)",
+    "rationale": "random 1,000 안에 T1-T11 gold 적중 0/11 → 평가 불가능. gold 강제 포함 필수."
+  },
+  "_distribution": {
+    "disorder": 300,
+    "body structure": 150,
+    "procedure": 200,
+    "substance": 100,
+    "organism": 100,
+    "finding": 150
+  },
+  "_gold_forced_inclusion": {
+    "gold_unique_count": 96,
+    "gold_tag_distribution": {
+      "disorder": 44,
+      "body structure": 15,
+      "procedure": 20,
+      "substance": 10,
+      "organism": 5,
+      "finding": 2
+    },
+    "random_added_per_tag": {
+      "disorder": 256,
+      "procedure": 180,
+      "body structure": 135,
+      "finding": 148,
+      "organism": 95,
+      "substance": 90
+    },
+    "query_dataset": "data/r8_phase2_query_dataset.json"
+  },
+  "samples": [
+    {
+      "concept_id": "109560004",
+      "preferred_term": "Cystic testicular dysplasia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "110889008",
+      "preferred_term": "Vagina and abdominal wall, CS",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "11150009",
+      "preferred_term": "Partial parotidectomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "111530003",
+      "preferred_term": "Vertical strabismus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "115421002",
+      "preferred_term": "Borrelia burgdorferi 88-kDa protein Ag",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "115647004",
+      "preferred_term": "Bovine diarrhea virus, noncytopathic strain",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "116554007",
+      "preferred_term": "Enterotoxin",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "118600007",
+      "preferred_term": "Malignant lymphoma",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1204374004",
+      "preferred_term": "Structure of right half of pelvis",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1220541003",
+      "preferred_term": "Endoscopy and biopsy of oropharynx",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1264153003",
+      "preferred_term": "Pelvic peritonitis following ectopic pregnancy",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1296533000",
+      "preferred_term": "Structure of spinal segment of fasciculus cuneatus",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "130279006",
+      "preferred_term": "Anthranilate N-malonyltransferase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1371583003",
+      "preferred_term": "Lateral ligament of left ankle joint",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1401000087103",
+      "preferred_term": "CT guided biopsy of right kidney",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "15930181000119101",
+      "preferred_term": "Edema of corneal stroma of right eye",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "15967141000119103",
+      "preferred_term": "Left subclavian steal syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "16319561000119105",
+      "preferred_term": "Plain X-ray orthopantogram",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "172310003",
+      "preferred_term": "Occlusion of lacrimal punctum",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "175939004",
+      "preferred_term": "Therapeutic open aspiration of renal cyst",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "177281002",
+      "preferred_term": "Excision of melanoma",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "178478007",
+      "preferred_term": "Low level osteotomy of maxilla",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "180352008",
+      "preferred_term": "Anesthetic without surgery",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "193570009",
+      "preferred_term": "Cataract",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "200668008",
+      "preferred_term": "Cellulitis and abscess of upper arm",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "2041241000009105",
+      "preferred_term": "Equine gastric ulcer syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "227521000",
+      "preferred_term": "Bread sauce",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "230703006",
+      "preferred_term": "Dysarthria-clumsy hand syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "231562008",
+      "preferred_term": "Bicoronal browlift",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "231999002",
+      "preferred_term": "Chorioretinal rupture",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "232626004",
+      "preferred_term": "Open repair of bronchopleural fistula",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "237541003",
+      "preferred_term": "Silent thyroiditis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "238557000",
+      "preferred_term": "Constitutional discoid hand eczema",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "23986001",
+      "preferred_term": "Glaucoma",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "241973007",
+      "preferred_term": "High altitude retinopathy",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "244453006",
+      "preferred_term": "Optic chiasma",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "256866005",
+      "preferred_term": "Subdural strip or grid",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "259287007",
+      "preferred_term": "2,2,2-trifluoroethanol",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "2611000124100",
+      "preferred_term": "Supernumerary permanent maxillary left canine tooth",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "27650004",
+      "preferred_term": "Vas deferens lumen",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "283782004",
+      "preferred_term": "Cat bite - wound",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "293177002",
+      "preferred_term": "Insulin adverse reaction",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "296554003",
+      "preferred_term": "Accidental pyrimethamine overdose",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "300082008",
+      "preferred_term": "Incision and curettage of stye",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "30131005",
+      "preferred_term": "Porcine enterovirus 6",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "30801000009102",
+      "preferred_term": "Exotic avian paramyxovirus 1",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "310812006",
+      "preferred_term": "Informal assessment",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "310832007",
+      "preferred_term": "Stapling of bronchus",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "312280008",
+      "preferred_term": "Crystal identification",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "3135009",
+      "preferred_term": "Swimmer's ear",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "320441000009100",
+      "preferred_term": "Inflammation of proximal sesamoid bone of equine limb",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "321131000009105",
+      "preferred_term": "Fracture of middle phalanx of equine limb",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "33392008",
+      "preferred_term": "Lateral segment artery of liver",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "338991000009102",
+      "preferred_term": "Avian hemorrhagic enteritis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "339181000009108",
+      "preferred_term": "Feline panleukopenia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "34486009",
+      "preferred_term": "Hyperthyroidism",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "344991000009107",
+      "preferred_term": "Avian borreliosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "34837004",
+      "preferred_term": "Process audit",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "349341000009100",
+      "preferred_term": "Heel of hoof",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "35381000009106",
+      "preferred_term": "Feline immunodeficiency virus test negative",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "358211000009101",
+      "preferred_term": "Feline eosinophilic plaque",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "360347005",
+      "preferred_term": "Vascular structure of pineal gland",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "360381000009106",
+      "preferred_term": "Canine infectious respiratory disease complex",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "360581000009103",
+      "preferred_term": "Generalized congenital tracheal hypoplasia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "360941000009100",
+      "preferred_term": "Feline pulmonary Langerhans cell histiocytosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "361001000009106",
+      "preferred_term": "Feline progressive histiocytosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "37728002",
+      "preferred_term": "Alveolar arch of mandible",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "38511000009100",
+      "preferred_term": "Structure of mandibular premolar tooth",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "38641000087100",
+      "preferred_term": "Repair of hallux valgus of left foot",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "387230002",
+      "preferred_term": "Levonordefrin",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "40930008",
+      "preferred_term": "Hypothyroidism",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "413064004",
+      "preferred_term": "Anti mitochondrial antibody pattern",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "430476004",
+      "preferred_term": "Diffuse panbronchiolitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "450867005",
+      "preferred_term": "BRV-3 Bovine rhinovirus 3",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "46635009",
+      "preferred_term": "Diabetes mellitus type I",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "47457000",
+      "preferred_term": "Canine parvovirus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "49449009",
+      "preferred_term": "Blood group antibody Wimberly",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "49717008",
+      "preferred_term": "Membranous part of nasal septum",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "52239003",
+      "preferred_term": "Anterior axillary fold",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "52781008",
+      "preferred_term": "Congenital hip dysplasia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "609218006",
+      "preferred_term": "Mount-Reback syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "609566000",
+      "preferred_term": "Pregnancy and type 1 diabetes mellitus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "6143009",
+      "preferred_term": "Diabetic education",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "65391005",
+      "preferred_term": "Medial surface of ring finger",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "68751009",
+      "preferred_term": "Pterygoid process of sphenoid bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "709044004",
+      "preferred_term": "Chronic kidney disease",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "71882008",
+      "preferred_term": "Operation on facial joint",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "73211009",
+      "preferred_term": "Diabetes mellitus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "75694006",
+      "preferred_term": "Pancreatitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "767413000",
+      "preferred_term": "Salmonella typhimurium antiserum",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "781354007",
+      "preferred_term": "Duvelisib",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "792925006",
+      "preferred_term": "Armanni-Ebstein kidney",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "830017001",
+      "preferred_term": "Dermoid cyst of skin of back",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "866127009",
+      "preferred_term": "Myelitis caused by Plasmodium",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "88610006",
+      "preferred_term": "Heart murmur",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "895330007",
+      "preferred_term": "Curved middle phalanx of middle finger",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1156785005",
+      "preferred_term": "Leiomyosarcoma of duodenum",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "247467008",
+      "preferred_term": "Comedone",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "127262008",
+      "preferred_term": "Neoplasm of inguinal lymph nodes",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "772791006",
+      "preferred_term": "Sarcopenia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "303289005",
+      "preferred_term": "Ecchymosis of buccal mucosa",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "702434007",
+      "preferred_term": "Distal penile hypospadias",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "10745131000119107",
+      "preferred_term": "Breast abscess during lactation",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "719251009",
+      "preferred_term": "Spinocerebellar ataxia type 19",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "314902007",
+      "preferred_term": "Type II diabetes mellitus with peripheral angiopathy",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "15722961000119101",
+      "preferred_term": "Osteoarthritis of bilateral sacroiliac joints",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "230628008",
+      "preferred_term": "Pronator syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1251421004",
+      "preferred_term": "Drug-induced palmoplantar pustulosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "30927003",
+      "preferred_term": "Agave lecheguilla poisoning",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "441192006",
+      "preferred_term": "Mild hereditary factor IX deficiency disease without inhibitor",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1269234000",
+      "preferred_term": "Predisposition to severe viral infection due to interferon regulatory factor 7 deficiency",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "292057000",
+      "preferred_term": "Dihydrocodeine adverse reaction",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "318271000009101",
+      "preferred_term": "Osteochondritis dissecans of glenoid of scapula",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "788908000",
+      "preferred_term": "Dissociative neurological symptom disorder co-occurrent with dystonia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1187114007",
+      "preferred_term": "Micrognathia, recurrent infections, behavioural abnormalities, mild intellectual disability syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "17709002",
+      "preferred_term": "Bleeding esophageal varices",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "93868009",
+      "preferred_term": "Primary malignant neoplasm of lingual tonsil",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "64217002",
+      "preferred_term": "Curvature of spine",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "205616004",
+      "preferred_term": "Trisomy 21- mitotic nondisjunction mosaicism",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "35071000009107",
+      "preferred_term": "Citrobacter fruendii infection",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "405574003",
+      "preferred_term": "Nontraumatic gastric rupture",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "15740521000119104",
+      "preferred_term": "Contracture of left eye socket",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1088181000119100",
+      "preferred_term": "Spontaneous rupture of tympanic membrane of left ear co-occurrent and due to recurrent acute suppurative otitis media",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "212192004",
+      "preferred_term": "Closed injury cauda equina",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "92524007",
+      "preferred_term": "Carcinoma in situ of adenoid",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "295311004",
+      "preferred_term": "Accidental overdose of non-steroidal anti-inflammatory agent",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "197051009",
+      "preferred_term": "Compound intussusception",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "92917003",
+      "preferred_term": "Congenital abnormal shape of ilium",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "40511000087102",
+      "preferred_term": "Foreign body in right leg",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "195503009",
+      "preferred_term": "Lymph vessel rupture",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "699534009",
+      "preferred_term": "Rotation injury",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "726611001",
+      "preferred_term": "Autosomal recessive spastic paraplegia type 61",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "609496007",
+      "preferred_term": "Complication occurring during pregnancy",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "208657007",
+      "preferred_term": "Closed fracture ankle, lateral malleolus, low",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "682441000119105",
+      "preferred_term": "Primary astrocytoma of cerebral ventricle",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "254692003",
+      "preferred_term": "Winer's dilated pore",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "12962009",
+      "preferred_term": "Histoplasmosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1231233002",
+      "preferred_term": "Paraneoplastic myoclonus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "109678002",
+      "preferred_term": "Extrusive luxation of tooth",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "93633007",
+      "preferred_term": "Lack of ossification of clavicle",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "266609001",
+      "preferred_term": "Female infertility of anovulatory origin",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "255047001",
+      "preferred_term": "Benign neuroendocrine tumor",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1335988004",
+      "preferred_term": "Cyst of iris of left eye",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "94050001",
+      "preferred_term": "Primary malignant neoplasm of soft tissues of abdomen",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "192054008",
+      "preferred_term": "Culture shock",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "286972004",
+      "preferred_term": "Complicated diaphragmatic hernia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "773284000",
+      "preferred_term": "Malignant germ cell neoplasm of corpus uteri",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1251446004",
+      "preferred_term": "NAD(P)HX dehydratase deficiency",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "707247006",
+      "preferred_term": "Annular oral lichen planus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "363508008",
+      "preferred_term": "Malignant tumour of intestine",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "52161000087108",
+      "preferred_term": "Infective arthritis of proximal interphalangeal joint of right little finger",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "840308008",
+      "preferred_term": "Severe pulmonary hypertension",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "13595002",
+      "preferred_term": "Torsion of ovary",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "28946006",
+      "preferred_term": "Retained magnetic foreign body in iris AND/OR ciliary body",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1371060008",
+      "preferred_term": "Compression fracture of seventh cervical vertebra",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "128264007",
+      "preferred_term": "Impaired glucose tolerance with hyperinsulism",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "92631001",
+      "preferred_term": "Carcinoma in situ of laryngeal aspect of interarytenoid fold",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "287025008",
+      "preferred_term": "Bursitis - ankle/foot",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1259057001",
+      "preferred_term": "Autonomic disorder due to HIV infection",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "293551003",
+      "preferred_term": "Modified release isosorbide dinitrate adverse reaction",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "31070006",
+      "preferred_term": "Epididymitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "152148641000119104",
+      "preferred_term": "Cerebrovascular accident due to embolism of both carotid arteries",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1075271000119108",
+      "preferred_term": "Acquired valgus deformity of joint of right wrist region",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1153612002",
+      "preferred_term": "Embolism of right anterior cerebral artery",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "19588001",
+      "preferred_term": "Erythrocytosis due to tissue hypoxemia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "737193000",
+      "preferred_term": "Allergic enteritis of small intestine",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "717871001",
+      "preferred_term": "Acquired deformity of duodenum",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "2443003",
+      "preferred_term": "Hydrogen sulfide poisoning",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "25397008",
+      "preferred_term": "Aqueduct of Sylvius anomaly",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "724344004",
+      "preferred_term": "Hypercoagulability syndrome due to glycosylphosphatidylinositol deficiency",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "191389000",
+      "preferred_term": "Idiopathic methaemoglobinaemia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1144861002",
+      "preferred_term": "Aplasia of corticospinal tract",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "368991000119100",
+      "preferred_term": "Urinary tract infection caused by Enterococcus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "78306007",
+      "preferred_term": "Epidural ascending spinal paralysis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "314862009",
+      "preferred_term": "Primary acquired nasolacrimal duct obstruction",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "76224000",
+      "preferred_term": "Hemoglobinuric nephrosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "38970002",
+      "preferred_term": "Doan-Wright syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "284586008",
+      "preferred_term": "Wood splinter in forehead",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "718908009",
+      "preferred_term": "X-linked intellectual disability Siderius type",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "237977000",
+      "preferred_term": "Disorder of glycerol metabolism",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1079591000119105",
+      "preferred_term": "Primary chondrosarcoma of left scapula",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "324131000119102",
+      "preferred_term": "Monoarthritis of left foot",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1197707003",
+      "preferred_term": "Gastrointestinal anastomotic ulcer due to Crohn disease",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "78095005",
+      "preferred_term": "Hematosalpinx",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1366348003",
+      "preferred_term": "Myocardial ischemia due to coronary arteriosclerosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "124305004",
+      "preferred_term": "Deficiency of glucose-phosphate kinase",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "289858005",
+      "preferred_term": "Scaling of female perineum",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "95301008",
+      "preferred_term": "Supernumerary tarsal bone",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1264140001",
+      "preferred_term": "Afibrinogenaemia following molar pregnancy",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "472852000",
+      "preferred_term": "Regurgitation of fetal common atrioventricular valve",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "234220001",
+      "preferred_term": "Oversensing cardiac pacemaker",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "31085000",
+      "preferred_term": "Rheumatic mitral regurgitation",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1148852009",
+      "preferred_term": "Malignant cystic nephroma",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "238030005",
+      "preferred_term": "Galactocerebroside beta-galactosidase deficiency - early onset",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "201224007",
+      "preferred_term": "Acne urticata",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "110136005",
+      "preferred_term": "Complex laceration of tonsil",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1156515000",
+      "preferred_term": "Quinolone antibacterial overdose",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1237057000",
+      "preferred_term": "Metastatic carcinoma of lower outer quadrant of breast",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "51695002",
+      "preferred_term": "Infestation by Gasterophilus nasalis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "679021000119107",
+      "preferred_term": "Fold of Bowman's membrane of bilateral eyes",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "6996004",
+      "preferred_term": "Congenital absence of pulmonary valve",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "16561007",
+      "preferred_term": "Acute anoxic encephalopathy",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "21584002",
+      "preferred_term": "Syndrome of infant of diabetic mother",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "460953003",
+      "preferred_term": "Anomalous insertion of arterial ligament",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "11824441000119103",
+      "preferred_term": "Superficial injury of right upper arm",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "39222009",
+      "preferred_term": "Adhesive middle ear disease with adhesions of drum head to promontorium",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "28656008",
+      "preferred_term": "Congenital insufficiency of aortic valve",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1217663003",
+      "preferred_term": "Chronic trochlear nerve palsy with spread of comitance",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "30935000",
+      "preferred_term": "Manic bipolar I disorder in full remission",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "36046008",
+      "preferred_term": "Ischiorectal abscess",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "95137009",
+      "preferred_term": "Neoplasm of uncertain behavior of thyroglossal duct",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "191819002",
+      "preferred_term": "Continuous opioid dependence",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1145521002",
+      "preferred_term": "Aplasia of phalanx of thumb",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "11786681000119105",
+      "preferred_term": "Injury of left groin muscle",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "720674009",
+      "preferred_term": "Adverse reaction caused by olmesartan",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "11811901000119102",
+      "preferred_term": "Traumatic amputation of first digit of right hand",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1296898001",
+      "preferred_term": "Hereditary vasopressin resistance",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1156806002",
+      "preferred_term": "Primary malignant neoplasm of musculoskeletal system",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1332024006",
+      "preferred_term": "Osteolysis of bone of foot",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "341536001",
+      "preferred_term": "Periodic hyperlysinaemia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "280771000009103",
+      "preferred_term": "Acute rhinitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "737183007",
+      "preferred_term": "Interstitial lung disease due to metabolic disease",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "253722008",
+      "preferred_term": "Coronary sinusoids",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "735822001",
+      "preferred_term": "Traumatic rupture of ligament of metacarpophalangeal joint of finger",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "699255005",
+      "preferred_term": "Left to right flow of foramen ovale of foetal heart",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1386335007",
+      "preferred_term": "Dental caries following acquired defect of tooth structure",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "291642005",
+      "preferred_term": "Accidental sulphafurazole poisoning",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1231219002",
+      "preferred_term": "Dysfunction of visual motion detection",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "132721000119104",
+      "preferred_term": "Hypertensive emergency",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "126579006",
+      "preferred_term": "Neoplasm of metacarpal bone",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "213389000",
+      "preferred_term": "Severe multiple injuries",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1010569005",
+      "preferred_term": "Undescended right testis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "66002008",
+      "preferred_term": "Persistent hyperlysinemia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "231992006",
+      "preferred_term": "Onchocerca chorioretinitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "210603007",
+      "preferred_term": "Ring avulsion injury, class 4",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "81934005",
+      "preferred_term": "Black hairy tongue",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "897341005",
+      "preferred_term": "Abnormally short phalanx of finger",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "239940004",
+      "preferred_term": "LG - Lymphomatoid granulomatosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "60926001",
+      "preferred_term": "Chronic interstitial nephritis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "371044001",
+      "preferred_term": "Transient respiratory distress with sepsis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "92163008",
+      "preferred_term": "Benign neoplasm of junctional region of epiglottis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "75767000",
+      "preferred_term": "Abrasion and/or friction burn of cheek without infection",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "722721004",
+      "preferred_term": "Familial haemolytic uraemic syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "737225007",
+      "preferred_term": "Secondary psychotic syndrome with hallucinations and delusions",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "360371003",
+      "preferred_term": "Acute cardiac pulmonary oedema",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "220145006",
+      "preferred_term": "Diffuse cellulitis of face",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1237118005",
+      "preferred_term": "Recurrent stasis ulcer of lower leg",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "371316005",
+      "preferred_term": "Deficiency of acetylesterase",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "45621000009102",
+      "preferred_term": "Exsanguination following hepatic rupture",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "17647001",
+      "preferred_term": "Infection by Saprolegnia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "351301000009104",
+      "preferred_term": "Airsacculitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "347411000009104",
+      "preferred_term": "Cloacal prolapse",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "93599000",
+      "preferred_term": "Incomplete ossification of pubis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "64948003",
+      "preferred_term": "Fadogia homblei poisoning",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "4835004",
+      "preferred_term": "Infection by Nosema bombycis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1237496004",
+      "preferred_term": "Metastatic carcinoma of subglottis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1010624006",
+      "preferred_term": "Primary salivary gland type neoplasm of nasopharynx",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "36133000",
+      "preferred_term": "Abnormal position of cardiac valve",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "15984431000119109",
+      "preferred_term": "Congenital malformation of right ear with impairment of hearing",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1279649001",
+      "preferred_term": "Puncture wound of index finger with foreign body",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "191588009",
+      "preferred_term": "Single manic episode in full remission",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "715905006",
+      "preferred_term": "Unilateral polymicrogyria",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "253101008",
+      "preferred_term": "Congenital cerebral hernia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "764732004",
+      "preferred_term": "Zaki Gleeson syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "92802003",
+      "preferred_term": "Carcinoma in situ of vulva",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1336071002",
+      "preferred_term": "Episode of harmful use of stimulant",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "445304002",
+      "preferred_term": "Pigmented villonodular synovitis of hip joint",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "312223008",
+      "preferred_term": "Infective orchitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "305731000119106",
+      "preferred_term": "Cyst of posterior horn of right medial meniscus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "11314008",
+      "preferred_term": "Polyp of corpus uteri",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "205651007",
+      "preferred_term": "Trisomy 10",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1335883009",
+      "preferred_term": "Congenital right radioulnar synostosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "196406005",
+      "preferred_term": "Anterior imbrication of teeth",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "27012009",
+      "preferred_term": "Hyperkinetic heart disease",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "307151000119108",
+      "preferred_term": "Enteropathic arthritis of left radiocarpal joint",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "783062001",
+      "preferred_term": "Progressive myoclonic epilepsy type 6",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1382168007",
+      "preferred_term": "New blood vessels in optic disc of left eye",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "770788000",
+      "preferred_term": "Tall stature, scoliosis, macrodactyly of great toe syndrome",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "127241000119104",
+      "preferred_term": "Septic shock co-occurrent with acute organ dysfunction due to Staphylococcus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1149455007",
+      "preferred_term": "American Academy of Periodontology and European Federation of Periodontology 2017 Classification of Periodontal and Peri‐implant Diseases and Conditions generalised periodontitis Stage 2 Grade C",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "234501002",
+      "preferred_term": "Epidermoid cyst of spleen",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "53509000",
+      "preferred_term": "Myopathy in Cushing's disease",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "195680000",
+      "preferred_term": "Acute edematous laryngitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1366345000",
+      "preferred_term": "Frostbite of upper arm",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "10626511000119108",
+      "preferred_term": "Carbuncle of left finger",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "291153000",
+      "preferred_term": "Accidental droperidol poisoning",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "838302008",
+      "preferred_term": "Bladder disorder caused by Schistosoma japonicum",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "195340002",
+      "preferred_term": "Embolism and thrombosis of the splenic artery",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "57467003",
+      "preferred_term": "Closed traumatic dislocation distal radioulnar joint",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "346351000119101",
+      "preferred_term": "Deep vascularisation of cornea of both eyes",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "371046004",
+      "preferred_term": "Traumatic haemolytic anaemia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "335361000119107",
+      "preferred_term": "Disseminated choroiditis of right eye",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "2807004",
+      "preferred_term": "Chronic gastrojejunal ulcer with perforation",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "208122008",
+      "preferred_term": "Closed fracture larynx and trachea",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "609473007",
+      "preferred_term": "Termination of pregnancy complicated by parametritis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "53913001",
+      "preferred_term": "Endometriosis in scar of skin",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "16054551000119100",
+      "preferred_term": "Disorder of right visual pathway",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "21333004",
+      "preferred_term": "Derangement of lateral meniscus",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "345341000009102",
+      "preferred_term": "Avian curly toe paralysis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "91446004",
+      "preferred_term": "Intussusception of appendix",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "275340006",
+      "preferred_term": "Closed fracture of femur, greater trochanter",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1290783004",
+      "preferred_term": "Stress fracture of bone of hip region",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1252752000",
+      "preferred_term": "Injury of muscle of thigh",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1234976005",
+      "preferred_term": "Fetal disorder due to varices of umbilical cord",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "16034351000119106",
+      "preferred_term": "Hypertrophy of bone of bilateral hands",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "403346007",
+      "preferred_term": "Hair shaft damage from shampooing",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "17461000119103",
+      "preferred_term": "Sequela of intracranial injury",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "358031000009100",
+      "preferred_term": "Rostral maxillary malformation with nasal deviation",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "764460003",
+      "preferred_term": "Anauxetic dysplasia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "277894008",
+      "preferred_term": "N-Acetylglucosaminyl transferase II deficiency",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "720507006",
+      "preferred_term": "Chronic atrial and intestinal dysrhythmia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "10948231000119103",
+      "preferred_term": "Open wound of first digit of left hand due to dog bite",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1365758009",
+      "preferred_term": "Congenital absence of right external ear",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "10958561000119105",
+      "preferred_term": "Open wound of right foot",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1204196002",
+      "preferred_term": "Acute thrombotic visceral artery occlusion",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "52651000087100",
+      "preferred_term": "Capsulitis of proximal interphalangeal joint of second digit of right hand",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "31801000146106",
+      "preferred_term": "Pre-existing maternal disease complicating pregnancy",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "438372000",
+      "preferred_term": "Haemophilia B with inhibitor",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "57027007",
+      "preferred_term": "Periostitis of pelvic region",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "369472002",
+      "preferred_term": "Malignant tumor involving bladder by direct extension from prostate",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "49916007",
+      "preferred_term": "Chronic duodenal ulcer with perforation",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "296419008",
+      "preferred_term": "Intentional diphenhydramine overdose",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "789666007",
+      "preferred_term": "Phlebitis following perfusion",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "238101001",
+      "preferred_term": "ApoA-I Munster variant 3",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1297266005",
+      "preferred_term": "Traumatic amputation of second toe",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1293198008",
+      "preferred_term": "Post-renal acute kidney injury",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "124680001",
+      "preferred_term": "Deficiency of methylmalonyl-CoA mutase",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "301431000119104",
+      "preferred_term": "Abscess of bursa of left hip",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "319391000009100",
+      "preferred_term": "Hyperesthetic leukotrichia",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "788913001",
+      "preferred_term": "Early age related macular degeneration",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1162561004",
+      "preferred_term": "Staining of teeth",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "12153008",
+      "preferred_term": "Acquired factor IX deficiency disease",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "95839005",
+      "preferred_term": "Disorder of fibrinolysis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "79787007",
+      "preferred_term": "Disease of lower digestive tract",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1081021000119109",
+      "preferred_term": "Malignant melanoma of skin of left lower limb",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "6142004",
+      "preferred_term": "Influenza",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "35281000009100",
+      "preferred_term": "Nucleated erythrocytosis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "32046005",
+      "preferred_term": "Poisoning by amantadine",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "93968005",
+      "preferred_term": "Primary malignant neoplasm of posterior hypopharyngeal wall",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "717877002",
+      "preferred_term": "Granulomatous duodenitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "78455002",
+      "preferred_term": "Subjective visual disturbance",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "840443008",
+      "preferred_term": "Mononucleosis dacryoadenitis",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "762587000",
+      "preferred_term": "Cleft hard and soft palate with left cleft lip and left alveolar process of maxilla",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "48881000087105",
+      "preferred_term": "Synovial cyst of right wrist",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "424146000",
+      "preferred_term": "Mycobacterium avium intracellulare, localized",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "1197720000",
+      "preferred_term": "Acute passive congestion of liver",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "209151004",
+      "preferred_term": "Open subluxation cervical spine",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "234587000",
+      "preferred_term": "Neutrophil lactoferrin deficiency",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "53886000",
+      "preferred_term": "Torsion of colon",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "871625003",
+      "preferred_term": "Intermediate atrioventricular septal defect with atrial and ventricular components and separate atrioventricular valves",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "15724281000119105",
+      "preferred_term": "Enthesopathy of right foot",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "16098201000119104",
+      "preferred_term": "Arthrofibrosis of left hip",
+      "semantic_tag": "disorder"
+    },
+    {
+      "concept_id": "2241000087107",
+      "preferred_term": "MRI of left femur with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "121451003",
+      "preferred_term": "Azithromycin measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "183215007",
+      "preferred_term": "Gastrostomy aid training",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "174692003",
+      "preferred_term": "Whole organ pancreatic transplant",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "68852009",
+      "preferred_term": "Lithium therapy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "236224007",
+      "preferred_term": "Cystoscopy and transurethral biopsy of prostate",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "66601000",
+      "preferred_term": "Artificial insemination, homologous",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "232511008",
+      "preferred_term": "Biopsy of ethmoid sinus",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "446564006",
+      "preferred_term": "Computed tomography of inguinal region",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "415840002",
+      "preferred_term": "Wavefront-guided photorefractive keratectomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "440710001",
+      "preferred_term": "Closed reduction of dislocation of sternoclavicular joint",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "41770000",
+      "preferred_term": "Autopsy, gross and microscopic examination",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "178253006",
+      "preferred_term": "Release of Volkmann contracture of forearm",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "235567009",
+      "preferred_term": "Drainage of biliary collection",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "440456008",
+      "preferred_term": "Fluoroscopy of pleural cavity with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1351803006",
+      "preferred_term": "Laparoscopic cholecystectomy with intraoperative fluoroscopic cholangiography with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "723069003",
+      "preferred_term": "Associating liver partition and portal vein ligation for staged hepatectomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "175182002",
+      "preferred_term": "Diagnostic pericardiocentesis",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "5243009",
+      "preferred_term": "Suture of adenoid fossa",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "241503003",
+      "preferred_term": "Ultrasound scan of neonatal hip",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "116030005",
+      "preferred_term": "Wedge biopsy of lung",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "175715003",
+      "preferred_term": "Percutaneous transluminal angioplasty of femoral artery",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "386264009",
+      "preferred_term": "Eating disorders management",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "172707007",
+      "preferred_term": "Suction clearance of middle ear",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "447038002",
+      "preferred_term": "Ligation of blood vessel of cerebral meninges",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "266876006",
+      "preferred_term": "Quadricepsplasty",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "446685001",
+      "preferred_term": "Cystoscopy and electrohydraulic lithotripsy of calculus of bladder",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "713182005",
+      "preferred_term": "Laparoscopic colposuspension",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "609219003",
+      "preferred_term": "Magnetic resonance imaging of chest for hilar lymphadenopathy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "386509000",
+      "preferred_term": "Airway management",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "179540001",
+      "preferred_term": "Revision of excision arthroplasty",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "418881009",
+      "preferred_term": "Fluoroscopic venography of lower limb with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1336126008",
+      "preferred_term": "CT guided deep fine needle aspiration biopsy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "195565004",
+      "preferred_term": "Dilation of oesophagus",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1373545007",
+      "preferred_term": "Excision of atrial appendage using percutaneous approach",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "433636003",
+      "preferred_term": "Percutaneous transluminal cutting balloon angioplasty of axillary artery using fluoroscopic guidance with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "391576005",
+      "preferred_term": "Activated partial thromboplastin time ratio using actin FSL reagent",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "719653002",
+      "preferred_term": "Fluoroscopy guided insertion of bioabsorbable venous stent with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "871527004",
+      "preferred_term": "Facilitation of access to mental health service",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "266069000",
+      "preferred_term": "Thoracoscopy and biopsy of intrathoracic organ",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "113152007",
+      "preferred_term": "Application of ice",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "304824000",
+      "preferred_term": "Group psychoanalysis",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "301704008",
+      "preferred_term": "Roux-en-Y hepaticojejunostomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "447509005",
+      "preferred_term": "Laparoscopic lysis of intraluminal adhesions of ureter by retroperitoneal approach",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "78746004",
+      "preferred_term": "Neurostimulation procedure",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "59096000",
+      "preferred_term": "Fecal urobilin, quantitative",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "302387003",
+      "preferred_term": "Ligation of skin lesion",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "438899007",
+      "preferred_term": "Screening for drug in neonatal urine",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "396188000",
+      "preferred_term": "Red lens test",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "32321001",
+      "preferred_term": "Open reduction of chronic closed sternoclavicular dislocation",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "71330003",
+      "preferred_term": "Repair of arteriovenous fistula by occlusion",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "40298007",
+      "preferred_term": "Arteriectomy with graft replacement by interposition",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1332380005",
+      "preferred_term": "Amputation of little toe",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1343519006",
+      "preferred_term": "Repair of bilateral inguinal hernia with prosthesis",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "112977000",
+      "preferred_term": "Repair of diaphragmatic hernia",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "716067009",
+      "preferred_term": "Magnetic resonance angiography of entire aorta with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "304810004",
+      "preferred_term": "Operation on articular eminence of temporomandibular joint",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "432067006",
+      "preferred_term": "Fluoroscopic angiography of pulmonary artery using contrast with insertion of stent",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "733870009",
+      "preferred_term": "Assessment of delirium",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "39620006",
+      "preferred_term": "Witzel operation, temporary gastrostomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "386765006",
+      "preferred_term": "Operation on mediastinum",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "395124008",
+      "preferred_term": "Viral studies",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "41120008",
+      "preferred_term": "Pandy test",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "117770003",
+      "preferred_term": "Adenovirus 40 AND 41 antigen assay",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "236973005",
+      "preferred_term": "Delivery procedure",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "185665008",
+      "preferred_term": "BP screening - first call",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "177185001",
+      "preferred_term": "Water birth delivery",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "74485001",
+      "preferred_term": "Sequestrectomy of clavicle",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "308451001",
+      "preferred_term": "Referral to podiatrist",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1344605008",
+      "preferred_term": "Fluoroscopy of left bronchus with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "43129000",
+      "preferred_term": "Radionuclide dynamic function study with multiple probes",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "698000005",
+      "preferred_term": "Creatine kinase BB isoenzyme measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "86755003",
+      "preferred_term": "Excisional biopsy of bone, superficial",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "431494004",
+      "preferred_term": "Extracorporeal shock wave lithotripsy of tendon using ultrasound guidance",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "177030003",
+      "preferred_term": "Open biopsy of lesion of ovary",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "408967003",
+      "preferred_term": "Contraception care assessment",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "305927004",
+      "preferred_term": "Referral from clinical oncologist",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "446323000",
+      "preferred_term": "Measurement of fractional excretion of urate",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "308514005",
+      "preferred_term": "Well woman monitoring call",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1381229006",
+      "preferred_term": "Endoscopic destruction of lesion of intestinal conduit",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "385921001",
+      "preferred_term": "Pressure ulcer Stage 2 care education",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1366232001",
+      "preferred_term": "RATS (robotic-assisted thoracoscopic surgery) excision of lower lobe of right lung",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "265636007",
+      "preferred_term": "Cerclage of uterine cervix",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "412942002",
+      "preferred_term": "Urine urate / creatinine ratio measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "121454006",
+      "preferred_term": "Bendiocarb measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "313956009",
+      "preferred_term": "Fluid lactate dehydrogenase measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "119665008",
+      "preferred_term": "Hand manipulation",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "608784006",
+      "preferred_term": "Open reduction of fracture of metacarpal bone with internal fixation",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "420377002",
+      "preferred_term": "Cytomegalovirus culture, conventional and rapid",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "170523002",
+      "preferred_term": "Notification of scarlet fever",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "239683008",
+      "preferred_term": "Application of forearm cast brace with wrist hinges",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "446960007",
+      "preferred_term": "Laparoscopic salpingo-oophorectomy with conversion to laparotomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1186996000",
+      "preferred_term": "Laparoscopic anastomosis of ureter to bladder with psoas hitch using robotic assistance",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "232776009",
+      "preferred_term": "Repair of implanted mitral paravalvular leak",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1148814008",
+      "preferred_term": "Assessment of goals to achieve housing security",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "104213005",
+      "preferred_term": "Methenamine silver nitrate stain method",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "9616004",
+      "preferred_term": "Tetracaine measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "609272004",
+      "preferred_term": "Open repair of strangulated inguinal hernia with prosthesis",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "172179001",
+      "preferred_term": "Transposition of ligament of orbit",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "443967002",
+      "preferred_term": "Analysis using amplification refractory mutation system PCR",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "77166000",
+      "preferred_term": "Percutaneous balloon valvuloplasty of aortic valve",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "122179004",
+      "preferred_term": "Bacteroides melaninogenicus antigen assay",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "405540002",
+      "preferred_term": "Avulsion of eyelid nerve",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "444305006",
+      "preferred_term": "Measurement of Hepatitis B surface antigen and Hepatitis C antibody",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "711024000",
+      "preferred_term": "Identification of altered perception",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "23481004",
+      "preferred_term": "Gas liquid chromatography, microwave plasma type",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "265425007",
+      "preferred_term": "Peranal excision of lesion of rectum",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1260285004",
+      "preferred_term": "Harvest of osteochondral tissue",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "433441002",
+      "preferred_term": "Measurement of substance in specimen",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "367531007",
+      "preferred_term": "Total adrenalectomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "174030005",
+      "preferred_term": "Gastrocnemius recession",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "39343008",
+      "preferred_term": "Pertussis vaccination",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "737071008",
+      "preferred_term": "Open repair of obstructed incisional hernia with prosthesis",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "287776003",
+      "preferred_term": "Prostatic haemorrhage endoscopic control",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "234650003",
+      "preferred_term": "Repair of bilateral cleft lip",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "103837008",
+      "preferred_term": "Tissue plasminogen activator antigen assay",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "108033009",
+      "preferred_term": "Ureter manipulation",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "75456002",
+      "preferred_term": "Embryo transfer",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "445781005",
+      "preferred_term": "Assessment using Canadian occupational performance measure",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "107876005",
+      "preferred_term": "Operative procedure on integumentary system",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "700256000",
+      "preferred_term": "Management of antenatal education",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "8050000",
+      "preferred_term": "Preparation of detailed report for patient's disability including corrective recommendations",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "233091008",
+      "preferred_term": "Left ventricular outflow tract myotomy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "405377006",
+      "preferred_term": "Repair of profunda femoris vein",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "173402005",
+      "preferred_term": "Repair of defect of palate with skin graft",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "443683004",
+      "preferred_term": "Open revision of arteriovenous fistula using graft with removal of thrombus",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "239547008",
+      "preferred_term": "Spinal fusion for spondylolysis",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "722189006",
+      "preferred_term": "Abatacept therapy",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "708737007",
+      "preferred_term": "Stripping of larynx",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "313975004",
+      "preferred_term": "Urine free dopamine level",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "385852004",
+      "preferred_term": "Chest physiotherapy education",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "428118009",
+      "preferred_term": "Peritoneal dialysis catheter procedure",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "230979000",
+      "preferred_term": "Intracranial bony decompression of cranial nerve",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "708931003",
+      "preferred_term": "Maintenance hemodialysis",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "608812009",
+      "preferred_term": "Open reduction of fracture of column of acetabulum with internal fixation",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "305101000",
+      "preferred_term": "Therapeutic elbow stretching",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "732934003",
+      "preferred_term": "Partial amputation of toe of right foot",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "278747006",
+      "preferred_term": "Racquet incision",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "122165007",
+      "preferred_term": "Borrelia burgdorferi 47kd antibody assay",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "442471001",
+      "preferred_term": "Quantitative measurement of cannabinoids",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "178021009",
+      "preferred_term": "Introduction of cytotoxic substance into peritoneal cavity",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "702594008",
+      "preferred_term": "Ultrasound guided needle localization of abdomen",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1295443005",
+      "preferred_term": "Plain X-ray of intestine",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "392372009",
+      "preferred_term": "Picea excelsa specific IgE antibody measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1156688001",
+      "preferred_term": "Facilitation of grieving process",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "313751007",
+      "preferred_term": "Serum tryptophan level",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "449697001",
+      "preferred_term": "Incision and drainage of hematoma of lower limb",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "53662004",
+      "preferred_term": "Closure of lacrimal fistula",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1334077000",
+      "preferred_term": "Ultrasonography of transplanted bilateral kidneys with contrast",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "349281000009104",
+      "preferred_term": "Apply dressing with fixation of skin of forelimb",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "305319000",
+      "preferred_term": "Admission by trauma surgeon",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "736764003",
+      "preferred_term": "Administration of intravenous antiarrhythmic drug",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "58231006",
+      "preferred_term": "Incision of vein of lower limb",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1263620003",
+      "preferred_term": "Delayed repair of tendon using tendon transfer",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "388478002",
+      "preferred_term": "Protamine specific IgE antibody measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "388813007",
+      "preferred_term": "Anisakis specific IgE antibody measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "72767005",
+      "preferred_term": "Revision rhinoplasty",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "121311000",
+      "preferred_term": "4-Hydroxyphenylpyruvate measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "104422008",
+      "preferred_term": "Immunoassay, quantitative",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "231682001",
+      "preferred_term": "Superior oblique advancement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "104509002",
+      "preferred_term": "alpha-Thymosin measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "275220001",
+      "preferred_term": "Asopa hypospadias repair",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "395141005",
+      "preferred_term": "Cell tissue autoantibody screening test",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1366304008",
+      "preferred_term": "Thoracoscopic excision of mediastinal lymph node using robotic assistance",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "108022006",
+      "preferred_term": "Kidney excision",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "62820003",
+      "preferred_term": "Correction of tetralogy of Fallot, one-stage",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "105190006",
+      "preferred_term": "Fenoprofen measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "259654001",
+      "preferred_term": "Total reducing substances measurement",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "443755009",
+      "preferred_term": "Percutaneous biopsy of liver using ultrasound guidance",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "167814009",
+      "preferred_term": "Measurement of density of motile sperm",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "36268006",
+      "preferred_term": "Repair of abdominouterine fistula",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "29193008",
+      "preferred_term": "Closed reduction of dislocation of foot",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "53624002",
+      "preferred_term": "Endoscopic destruction of both fallopian tubes",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "235365002",
+      "preferred_term": "Swenson procedure",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "163350009",
+      "preferred_term": "Intermediate GU examination",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "172581008",
+      "preferred_term": "Fluorescein angiography of eye",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "80658003",
+      "preferred_term": "Injection of pancreas",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "736740004",
+      "preferred_term": "Magnetic resonance imaging of female pelvis for radiotherapy planning",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "1286871003",
+      "preferred_term": "Mackay-Marg tonometry",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "118662001",
+      "preferred_term": "Medicolegal procedure",
+      "semantic_tag": "procedure"
+    },
+    {
+      "concept_id": "368285006",
+      "preferred_term": "Entire subcutaneous tissue of palmar surface of finger",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "70023007",
+      "preferred_term": "Cricothyroid articulation",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "91785005",
+      "preferred_term": "Perforating branches of palmar metacarpal arteries",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "279752005",
+      "preferred_term": "Anterior triangle cervical lymph node group",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "292219008",
+      "preferred_term": "Entire apex of coccyx",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "276167002",
+      "preferred_term": "Entire psoas muscle",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "400119005",
+      "preferred_term": "Structure of skin and/or mucosa of vulva",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "244558004",
+      "preferred_term": "Intercuneiform joint",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "263304005",
+      "preferred_term": "Sacral vertebral level",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "202207004",
+      "preferred_term": "Entire pleuroesophageal muscle",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "728812001",
+      "preferred_term": "Entire tendon zone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "272884009",
+      "preferred_term": "BL7",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "282443005",
+      "preferred_term": "Entire midpalmar space",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "788270003",
+      "preferred_term": "Entire hair follicle of shoulder",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1004029001",
+      "preferred_term": "Structure of second flexor annular pulley of thumb",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "276965009",
+      "preferred_term": "Entire postcricoid region",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "119551003",
+      "preferred_term": "Condyle of humerus",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "36978003",
+      "preferred_term": "Fifth cervical vertebra",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "276831007",
+      "preferred_term": "Conjunctival fornix",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "737454003",
+      "preferred_term": "Structure of tendon of left biceps femoris",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "732050009",
+      "preferred_term": "Entire face and neck",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "425475006",
+      "preferred_term": "Bone tissue of long bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "40638003",
+      "preferred_term": "Both eyes",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "272696000",
+      "preferred_term": "Entire shaft of metacarpal bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1208626003",
+      "preferred_term": "Structure of left iliac crest",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "77621008",
+      "preferred_term": "Supraclavicular region of neck",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1217266001",
+      "preferred_term": "Entire periosteum of shoulder",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "272657006",
+      "preferred_term": "Cardiac wall structure",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "21377006",
+      "preferred_term": "Skin of posterior axillary fold",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "22785001",
+      "preferred_term": "Cervical nerve medial branch",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "181332001",
+      "preferred_term": "Entire radial artery",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "362401009",
+      "preferred_term": "Entire tegmental portion of pons",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1179132008",
+      "preferred_term": "Structure of Brodmann area 43, subcentral",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "272880000",
+      "preferred_term": "BL3",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "60378007",
+      "preferred_term": "Subcutaneous tissue of dorsal surface of finger",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "110847000",
+      "preferred_term": "Urethra and vagina, CS",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "788640004",
+      "preferred_term": "Structure of C4 spinal nerve proper",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "26990006",
+      "preferred_term": "Anulus fibrosus of intervertebral disc of third lumbar vertebra",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "75324005",
+      "preferred_term": "70 to 79 percent of body surface",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "369265000",
+      "preferred_term": "Entire tectobulbar tract",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "54019009",
+      "preferred_term": "Submandibular salivary structure",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "332307000",
+      "preferred_term": "Entire middle third of shaft of bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "280037008",
+      "preferred_term": "Epiphysis of tuberosity of fifth metatarsal",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "362352005",
+      "preferred_term": "Entire frontal operculum",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "788723000",
+      "preferred_term": "Structure of anterior sclera of right eye",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "181952009",
+      "preferred_term": "Entire styloid process of ulna",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "731957007",
+      "preferred_term": "Entire muscle and tendon of upper limb",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "368182003",
+      "preferred_term": "Entire subtendinous bursa of latissimus dorsi muscle",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "362643007",
+      "preferred_term": "Entire superior wall of orbit",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "369170000",
+      "preferred_term": "Entire pars magnocellularis of ventral anterior nucleus of thalamus",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "50651000",
+      "preferred_term": "Submental vein",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "87059009",
+      "preferred_term": "Cervical lamina propria",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "310887008",
+      "preferred_term": "Sweat gland bearing skin",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "35925009",
+      "preferred_term": "Epicondyle",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "728590002",
+      "preferred_term": "Entire head of middle phalanx of ring finger",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "243382001",
+      "preferred_term": "Entire upper abdominal quadrant",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1187337007",
+      "preferred_term": "Jugular fossa",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "244487001",
+      "preferred_term": "Entire skin of eyebrow",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "64405002",
+      "preferred_term": "Joint of cervical vertebra other than atlas or axis",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1373532008",
+      "preferred_term": "Structure of interphalangeal joint of left fifth toe",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "313096008",
+      "preferred_term": "Digital nerve of second toe",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "3178004",
+      "preferred_term": "Raphe of soft palate",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "236309001",
+      "preferred_term": "Entire first phalangeal articular facet of first metatarsal bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1359868001",
+      "preferred_term": "Nuclei perihypoglossales",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "346221000009108",
+      "preferred_term": "Plantar ligament of distal interphalangeal joint of hindfoot",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "714979005",
+      "preferred_term": "Entire neck of lesser metatarsal",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "716973008",
+      "preferred_term": "Entire posterolateral middle regional part of peripheral zone of left half prostate",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "48629004",
+      "preferred_term": "Sulcus of umbilical vein",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "245988005",
+      "preferred_term": "L4/L5 interspinous ligament",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "10585005",
+      "preferred_term": "Lunar surface of acetabulum",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "256119008",
+      "preferred_term": "Entire immature chorionic villi",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "181778007",
+      "preferred_term": "Fascia of forearm extensor compartment",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "727470006",
+      "preferred_term": "Entire greater curvature of antrum of stomach",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "181090000",
+      "preferred_term": "Plantar digital nerve to second toe",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "244632008",
+      "preferred_term": "Capsular ligament of hip joint",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "305095001",
+      "preferred_term": "Articular cartilage of lateral malleolus",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "58267004",
+      "preferred_term": "Pterygopalatine nerve",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "280529007",
+      "preferred_term": "Entire vesical plexus",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "714462008",
+      "preferred_term": "Entire extensor of carpometacarpal joint of thumb",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "273011003",
+      "preferred_term": "GB3",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "241242004",
+      "preferred_term": "Entire dorsal digital nerves of lateral hallux and medial second toe",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "369322003",
+      "preferred_term": "Entire anastomotic lacrimal artery",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "367908004",
+      "preferred_term": "Crest of head of fourth rib",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1179331009",
+      "preferred_term": "Structure of parenchymatous viscus",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "280069004",
+      "preferred_term": "Biceps tendon sheath",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "731704002",
+      "preferred_term": "Entire joint of thoracolumbar junction of spine",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "368389003",
+      "preferred_term": "Entire skin of lateral surface of thumb",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "302723004",
+      "preferred_term": "Perilymphatic layer of spiral membrane",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "46632007",
+      "preferred_term": "Lateral costotransverse ligament",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "728961000",
+      "preferred_term": "Entire border of trigone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1145017003",
+      "preferred_term": "Entire sacrococcygeal junction of vertebral column",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1172372007",
+      "preferred_term": "Structure of metatarsophalangeal joint of lesser toe of left foot",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "731612000",
+      "preferred_term": "All bone marrow of facial bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "731355007",
+      "preferred_term": "Entire tributary of lingual vein",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "19093009",
+      "preferred_term": "Proximal third of shaft of bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "41479000",
+      "preferred_term": "Superior segment of lower division of left upper lobe of lung",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "728565004",
+      "preferred_term": "Entire shaft of proximal phalanx of middle finger",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "362452006",
+      "preferred_term": "Entire spinal nerve of cauda equina",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "33573005",
+      "preferred_term": "Superior central nucleus of pons",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "348991000009101",
+      "preferred_term": "Lophodont tooth",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "32308008",
+      "preferred_term": "Cervical spinal canal",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "728374003",
+      "preferred_term": "Entire buccal fissure",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "264192000",
+      "preferred_term": "Entire second web space of foot",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "35951000009102",
+      "preferred_term": "Fold of skin lateral to base of tail",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "730973006",
+      "preferred_term": "Entire Healey and Schroy right caudate liver segment",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1003765005",
+      "preferred_term": "Entire epiphysis of distal phalanx of middle finger",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "46011000009107",
+      "preferred_term": "Blood vessel of heart",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "278350006",
+      "preferred_term": "L2 spinal ganglion",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "36088004",
+      "preferred_term": "Hypopharyngeal aspect of aryepiglottic fold",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "727938000",
+      "preferred_term": "Entire crural artery",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "736594006",
+      "preferred_term": "Entire mucous membrane of choana",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1003697001",
+      "preferred_term": "Entire right lesser toe",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "765050009",
+      "preferred_term": "Structure of neck of tooth",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1303191004",
+      "preferred_term": "Structure of muscularis propria of sigmoid colon",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "38607000",
+      "preferred_term": "Styloid process of fifth metatarsal bone",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "409875004",
+      "preferred_term": "Buccogingival mucosa",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "280953008",
+      "preferred_term": "Entire optic radiation",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "182037002",
+      "preferred_term": "Entire superior ramus of pubis",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "727164007",
+      "preferred_term": "Entire apophysis",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "730285007",
+      "preferred_term": "Entire ostium of eustachian tube",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "244159001",
+      "preferred_term": "Palmar skin crease",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "730407004",
+      "preferred_term": "Entire pineal capillary",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "32383001",
+      "preferred_term": "Interspinalis cervicis muscles",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "1268417001",
+      "preferred_term": "Entire right vagus nerve",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "415144009",
+      "preferred_term": "Posterior cerebral artery P1 segment",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "789204002",
+      "preferred_term": "Structure of tunica intima of cavernous sinus",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "70770004",
+      "preferred_term": "Adductor brevis muscle",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "731754008",
+      "preferred_term": "Entire musculoskeletal system of thoracic spine",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "153723004",
+      "preferred_term": "Structure of ethmoidal vein",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "273057001",
+      "preferred_term": "LR5",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "90222002",
+      "preferred_term": "Infraorbital artery",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "894105008",
+      "preferred_term": "Structure of hair follicle of right hip",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "367652005",
+      "preferred_term": "Entire subcutaneous portion of sphincter ani externus muscle",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "278011000",
+      "preferred_term": "Entire superior right pulmonary vein",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "723031008",
+      "preferred_term": "Structure of medial condyle of left femur",
+      "semantic_tag": "body structure"
+    },
+    {
+      "concept_id": "249955006",
+      "preferred_term": "Movement against resistance",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "160497005",
+      "preferred_term": "Fostered",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "282965002",
+      "preferred_term": "Able to sit",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "281268007",
+      "preferred_term": "Insufficient sample",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247873003",
+      "preferred_term": "Obsessional thoughts of being robbed",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1144993006",
+      "preferred_term": "Amenorrhea due to hypothalamic disorder",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1332082008",
+      "preferred_term": "Transgender female identity",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "274521009",
+      "preferred_term": "Electroencephalogram abnormal",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "440941000124107",
+      "preferred_term": "Excessive magnesium intake",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "365927009",
+      "preferred_term": "Mental defense mechanism finding",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "230016001",
+      "preferred_term": "Prone towards trunk position",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1304233003",
+      "preferred_term": "Consent given for clinical trial participation",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "50766008",
+      "preferred_term": "Decreased collateral vascular flow",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "118952005",
+      "preferred_term": "Joint finding",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "246566005",
+      "preferred_term": "Neglect of arm",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "50543005",
+      "preferred_term": "Thought insertion",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "248302001",
+      "preferred_term": "Excess subcutaneous fat",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "284166001",
+      "preferred_term": "Difficulty moving head",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "447776000",
+      "preferred_term": "Spiralling course of aorta and pulmonary artery",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1187026000",
+      "preferred_term": "Vitamin A within reference range",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247882009",
+      "preferred_term": "Obsessional thoughts of germs",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1881000124100",
+      "preferred_term": "Transition from acute care to long-term care",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247800004",
+      "preferred_term": "Diurnal variation of mood",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "415118009",
+      "preferred_term": "Pneumococcal vaccination invitation letter sent",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "609625009",
+      "preferred_term": "Finding of pelvic region of trunk",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "286308008",
+      "preferred_term": "Difficulty using single vowels",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "170268006",
+      "preferred_term": "Child 6 month examination abnormal - for observation",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "286401001",
+      "preferred_term": "Unable to speak fluently",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "300836001",
+      "preferred_term": "Unable to carry out car maintenance activities",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "364995001",
+      "preferred_term": "Finding related to ability to use vocal tunes and phonetic units",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "710011009",
+      "preferred_term": "Edentulous muscle attachment",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "282522006",
+      "preferred_term": "Difficulty running down steps",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "310259009",
+      "preferred_term": "La antibody negative",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "13763000",
+      "preferred_term": "Gestation period, 34 weeks",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "170839003",
+      "preferred_term": "Allergic disorder - symptom change",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "734435008",
+      "preferred_term": "Weight abnormal for age",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "428350007",
+      "preferred_term": "Disability of foot",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "444471002",
+      "preferred_term": "Broselow Luten paediatric weight estimation red zone",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "301663005",
+      "preferred_term": "Unable to get on and off a bed",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "830171008",
+      "preferred_term": "Allergy to meclozine",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "170891003",
+      "preferred_term": "ENT drug side effect",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "80676005",
+      "preferred_term": "Bacterial colony hemolysis, alpha",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "305739003",
+      "preferred_term": "Seen by genitourinary nurse",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "698677008",
+      "preferred_term": "Main spoken language Quechua",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "314391000009104",
+      "preferred_term": "Absence of sensation of forelimb",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "31091003",
+      "preferred_term": "Sister chromatid exchange",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "713835001",
+      "preferred_term": "Declined consent for use of patient data in risk stratification for unplanned hospital admission",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "168808000",
+      "preferred_term": "Bronchography abnormal",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "390880002",
+      "preferred_term": "Treponema pallidum ELISA positive",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "364919006",
+      "preferred_term": "Finding related to ability to alternate between sitting and standing",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "10939881000119105",
+      "preferred_term": "Unhealthy alcohol drinking behavior",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "294574008",
+      "preferred_term": "Sulphadimethoxine allergy",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "90381008",
+      "preferred_term": "Occipitoanterior position",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "249061006",
+      "preferred_term": "Fetal parts distinguished abdominally",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1142259002",
+      "preferred_term": "Severe muscular hypertrophy",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "298978009",
+      "preferred_term": "Decreased passive range of wrist abduction",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "224169004",
+      "preferred_term": "No household income",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "365190004",
+      "preferred_term": "Finding related to ability to perform mouthcare activities",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "165806002",
+      "preferred_term": "Hepatitis B surface antigen positive",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "224175008",
+      "preferred_term": "Low personal income",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247956001",
+      "preferred_term": "Low level of reactivity while sleep walking",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "406010001",
+      "preferred_term": "Hepatitis B surface antigen negative",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "366443004",
+      "preferred_term": "Biceps reflex finding",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "129026007",
+      "preferred_term": "Shopping independent",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1142253001",
+      "preferred_term": "Hypertrophy of muscle of right upper limb",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "413904000",
+      "preferred_term": "Condition made worse by work",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247787005",
+      "preferred_term": "Planning unworkable projects",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "313971000009102",
+      "preferred_term": "Finding of territory marking behavior",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "449618007",
+      "preferred_term": "Swelling of upper limb",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1343621005",
+      "preferred_term": "Indwelling pleural catheter present",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "248728000",
+      "preferred_term": "Condition of jugular veins",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "314372002",
+      "preferred_term": "Uterine cervix visualized",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "251612001",
+      "preferred_term": "Wave I latency normal with increased latencies of all other waves",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "170660006",
+      "preferred_term": "Not using inhaled steroids",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "103300005",
+      "preferred_term": "Vertigo preceded by unsteady feeling",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "289773004",
+      "preferred_term": "Cervix soft",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "609373006",
+      "preferred_term": "Frankl behavioral rating definitely positive",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247765001",
+      "preferred_term": "Pays fleeting attention",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "110290008",
+      "preferred_term": "Mouth breathing with nasal obstruction",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "102937002",
+      "preferred_term": "Mimmation",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "249823007",
+      "preferred_term": "Hallux flexus",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "299934008",
+      "preferred_term": "Impaired vibration sensation",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "422677000",
+      "preferred_term": "Absent response to visual stimuli",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "274764000",
+      "preferred_term": "No abnormality detected on examination of nail",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "833277003",
+      "preferred_term": "Key lesion",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "738785009",
+      "preferred_term": "Human leukocyte antigen B*15:02 positive",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "373143004",
+      "preferred_term": "Severe thrombus",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "876882001",
+      "preferred_term": "Died in hospice",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1335903005",
+      "preferred_term": "Antibody to Human herpes simplex virus detected",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "79884007",
+      "preferred_term": "Brow right posterior position",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "719368006",
+      "preferred_term": "Able to use respiratory support for voice",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "365993003",
+      "preferred_term": "Exercise history finding",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "289599009",
+      "preferred_term": "Finding of pulsation of vagina",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "184940001",
+      "preferred_term": "Taxi cab driver med completed",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "294330005",
+      "preferred_term": "Wool alcohol allergy",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "44254000",
+      "preferred_term": "Litigation",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "406160009",
+      "preferred_term": "Impaired parenting",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "301114007",
+      "preferred_term": "Finding of regularity of heart rhythm",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "12681000202102",
+      "preferred_term": "Able to ensure personal safety",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "225454000",
+      "preferred_term": "Sensory distortion",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "165532001",
+      "preferred_term": "Relative lymphocytosis",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "792814001",
+      "preferred_term": "Pulse present in right popliteal artery",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247980002",
+      "preferred_term": "Making inappropriate approaches towards others",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "365050000",
+      "preferred_term": "Finding related to ability to use grammatical constructions",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1379969009",
+      "preferred_term": "Vagotonia",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "359752005",
+      "preferred_term": "Energy and stamina finding",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "171112000",
+      "preferred_term": "Screening due",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "715833005",
+      "preferred_term": "J16",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "293708000",
+      "preferred_term": "Propofol allergy",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "762656009",
+      "preferred_term": "Abnormal blood cell count",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "116303008",
+      "preferred_term": "Observation of dorsal spine",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "298620002",
+      "preferred_term": "Decreased passive range of lumbar spine extension",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "161114003",
+      "preferred_term": "Education unsatisfactory",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "225037001",
+      "preferred_term": "Minor memory lapses",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "299759006",
+      "preferred_term": "Swallowing reflex present",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "408392008",
+      "preferred_term": "Under care of diabetes specialist nurse",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "414764000",
+      "preferred_term": "Monoclonal free kappa light chain present",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "300215006",
+      "preferred_term": "Attends to direct verbal communication",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "294554001",
+      "preferred_term": "Cefsulodin allergy",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "632240011000119105",
+      "preferred_term": "Crepitus of joint of bilateral ankles",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "225604004",
+      "preferred_term": "Lactation established",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "9814003",
+      "preferred_term": "Violent retching",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "3281000175104",
+      "preferred_term": "Speaks multiple languages",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "373722006",
+      "preferred_term": "Vaginal odour",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "284511008",
+      "preferred_term": "Difficulty in initiating movement",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "165775009",
+      "preferred_term": "Indirect Coombs test positive",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "26198000",
+      "preferred_term": "Normal first heart sound, S>1<",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "271827002",
+      "preferred_term": "Sputum abnormal - colour",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "1236949008",
+      "preferred_term": "Finding of placental volume",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "408519004",
+      "preferred_term": "Main spoken language Thai",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "78459008",
+      "preferred_term": "Total incontinence",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "700408008",
+      "preferred_term": "Hoffman's reflex equivocal",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "166748006",
+      "preferred_term": "Blood copper normal",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "247663003",
+      "preferred_term": "Orientated",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "705021008",
+      "preferred_term": "Difficulty managing exercise regime",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "286535000",
+      "preferred_term": "Does not prepare food hygienically",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "423527000",
+      "preferred_term": "Unsafe floor covering",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "263770000",
+      "preferred_term": "Gritty",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "724824002",
+      "preferred_term": "Fear of neurological disease",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "277029007",
+      "preferred_term": "Focal motor nerve conduction slowing",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "417726009",
+      "preferred_term": "Magnetic resonance imaging of lumbar spine abnormal",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "184091000",
+      "preferred_term": "Patient in hospital",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "48188009",
+      "preferred_term": "Azoospermia",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "719729002",
+      "preferred_term": "Able to participate in classroom activities",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "105486000",
+      "preferred_term": "Difficulty with partner",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "840331008",
+      "preferred_term": "Tympany of mass of abdomen",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "129907001",
+      "preferred_term": "Base excess",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "294230007",
+      "preferred_term": "Pancuronium allergy",
+      "semantic_tag": "finding"
+    },
+    {
+      "concept_id": "51755007",
+      "preferred_term": "Kori bustard",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "6583006",
+      "preferred_term": "Diorchis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "264341000009101",
+      "preferred_term": "Zonotrichia capensis hypoleuca",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "133489009",
+      "preferred_term": "Lim cattle",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "7741008",
+      "preferred_term": "Equetus umbrosus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "211881000009103",
+      "preferred_term": "Ardeotis arabs arabs",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "153541000009102",
+      "preferred_term": "Carduelis yemenensis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "177761000009104",
+      "preferred_term": "Bubo bubo ruthenus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "233191000009103",
+      "preferred_term": "Calliphlox evelynae lyrura",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "132441009",
+      "preferred_term": "Mountain Cur dog",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "60719007",
+      "preferred_term": "False sunbird",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "273251000009102",
+      "preferred_term": "Bubalus mephistopheles",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "333873003",
+      "preferred_term": "Mycobacterium fortuitum subsp fortuitum",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "734204004",
+      "preferred_term": "Genus Glutamicibacter",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "407407007",
+      "preferred_term": "Gardner-Arnstein feline sarcoma virus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "35841000087106",
+      "preferred_term": "Doratomyces stemonitis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "317751000009104",
+      "preferred_term": "Male rabbit",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "20709000",
+      "preferred_term": "Lepidopsetta bilineata",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "3951000009108",
+      "preferred_term": "Cornish cross chicken",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "302541000009108",
+      "preferred_term": "Sigmodon alstoni",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "199341000009101",
+      "preferred_term": "Tanysiptera galatea margarethae",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "5891003",
+      "preferred_term": "Ornithonyssus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "131593005",
+      "preferred_term": "Dutch Friesian cattle",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "6691000009103",
+      "preferred_term": "Aratinga pertinax aeruginosa",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "83381000009104",
+      "preferred_term": "Lurocalis semitorquatus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "438125007",
+      "preferred_term": "Saccharopolyspora hirsuta",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "290561000009100",
+      "preferred_term": "Meriones meridianus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "98421000009103",
+      "preferred_term": "Cranioleuca demissa",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "416722003",
+      "preferred_term": "Trepomonadea",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "235201000009102",
+      "preferred_term": "Lampornis calolaemus calolaemus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "431164003",
+      "preferred_term": "Burkholderia sacchari",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "34726005",
+      "preferred_term": "Borrelia recurrentis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "39814008",
+      "preferred_term": "Morpho hercules",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "64849005",
+      "preferred_term": "Epinephelus mystacinus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "146351000009103",
+      "preferred_term": "Emberiza melanocephala",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "244551000009100",
+      "preferred_term": "Sirystes sibilator albocinereus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "941000181106",
+      "preferred_term": "Chryseobacterium aquifrigidense",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "132959004",
+      "preferred_term": "Mammoth Jack Stock Donkey",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "440869002",
+      "preferred_term": "Thermacetogenium phaeum",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "114084005",
+      "preferred_term": "Aeromicrobium erythreum",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "413610003",
+      "preferred_term": "Azospirillum doebereinerae",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "1144593003",
+      "preferred_term": "Saksenaeaceae",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "106996007",
+      "preferred_term": "Family Suidae",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "61903001",
+      "preferred_term": "Ascaridia compar",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "698098007",
+      "preferred_term": "Streptococcus pneumoniae serotype 23A",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "87525000",
+      "preferred_term": "Pahayokee virus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "284861000009109",
+      "preferred_term": "Plagiodontia araeum",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "32351000009106",
+      "preferred_term": "American Blackbelly sheep breed",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "170971000009107",
+      "preferred_term": "Sula sula rubripes",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "200571000009107",
+      "preferred_term": "Certhia familiaris nigrescens",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "190701000009107",
+      "preferred_term": "Jynx torquilla himalayana",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "417499006",
+      "preferred_term": "Corynebacterium argentoratense",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "62002006",
+      "preferred_term": "Cucurbita",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "283371000009108",
+      "preferred_term": "Zenkerella insignis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "415930004",
+      "preferred_term": "Hormographiella",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "276391000009106",
+      "preferred_term": "Cercopithecus mitis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "231271000009105",
+      "preferred_term": "Cypseloides niger niger",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "111671000009104",
+      "preferred_term": "Passerina ciris",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "323021000009108",
+      "preferred_term": "Metapenaeopsis barbata",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "424357001",
+      "preferred_term": "Melanitta perspicillata",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "175191000009104",
+      "preferred_term": "Manacus manacus subpurus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "131774005",
+      "preferred_term": "Icelandic sheep",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "194561000009105",
+      "preferred_term": "Serilophus lunatus impavidus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "82551007",
+      "preferred_term": "Theileria taurotragi",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "66768001",
+      "preferred_term": "Neisseria polysaccharea",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "194881000009102",
+      "preferred_term": "Lanius ludovicianus nelsoni",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "115861000009105",
+      "preferred_term": "Leptotila megalura",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "609333000",
+      "preferred_term": "Escherichia coli serotype O144:nonmotile",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "80927002",
+      "preferred_term": "Cuculus canorus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "37168005",
+      "preferred_term": "Actaea arguta",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "115179009",
+      "preferred_term": "Order Chlamydiales",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "101571000009102",
+      "preferred_term": "Genus Gymnomyza",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "57927005",
+      "preferred_term": "Helicorbus coenosus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "276501000112108",
+      "preferred_term": "Mycobacterium intracellulare subsp. intracellulare",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "388774001",
+      "preferred_term": "Genus Galidictis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "331361000009104",
+      "preferred_term": "Subfamily Hippocampinae",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "51571000009103",
+      "preferred_term": "Trachyphonus vaillantii",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "15985004",
+      "preferred_term": "Dieffenbachia amoena",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "82829005",
+      "preferred_term": "Salmonella Wichita",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "62414008",
+      "preferred_term": "Salmonella Gassi",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "114938002",
+      "preferred_term": "Salmonella Bergues",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "176771000009106",
+      "preferred_term": "Talegalla cuvieri granti",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "32751000087105",
+      "preferred_term": "Nocardia amamiensis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "406667006",
+      "preferred_term": "Isolobodon portoricensis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "433756007",
+      "preferred_term": "Maribacter aquivivus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "193971000009106",
+      "preferred_term": "Coereba flaveola alleni",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "133911000009105",
+      "preferred_term": "Genus Tumbezia",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "224091000009102",
+      "preferred_term": "Pachyramphus viridis viridis",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "366951000009104",
+      "preferred_term": "Genus Pectinopygus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "267621000009109",
+      "preferred_term": "Serinus atrogularis xanthopygius",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "127481000009103",
+      "preferred_term": "Oxypogon guerinii",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "434521004",
+      "preferred_term": "Desulfofrigus oceanense",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "103591000",
+      "preferred_term": "Camptotheca acuminata",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "29591000087101",
+      "preferred_term": "Aspergillus novofumigatus",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "27501000009103",
+      "preferred_term": "Duck laying egg for human food",
+      "semantic_tag": "organism"
+    },
+    {
+      "concept_id": "130786002",
+      "preferred_term": "N-acyl-D-aspartate deacylase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "117204005",
+      "preferred_term": "Anti-deoxyribonucleoprotein antibody",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "5405008",
+      "preferred_term": "60-Co",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "89553009",
+      "preferred_term": "Sulfite reductase (ferredoxin)",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "227770003",
+      "preferred_term": "Bean loaf",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "407313002",
+      "preferred_term": "Phosphodiesterase 5 inhibitor",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "82176004",
+      "preferred_term": "Blood group antigen Koopman",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "130574002",
+      "preferred_term": "Aminopeptidase X-trp",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "102664004",
+      "preferred_term": "Alpha globulin",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "11259003",
+      "preferred_term": "Cassaine",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "701381010000107",
+      "preferred_term": "Immunoglobulin G4 antibody to Swiss cheese",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "32030002",
+      "preferred_term": "Dienidol hydrochloride",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "304284008",
+      "preferred_term": "Fumarate hydratase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "39340006",
+      "preferred_term": "Cycloate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "67404005",
+      "preferred_term": "1,2-beta-fructan 1^F^-fructosyltransferase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "373219008",
+      "preferred_term": "Antifungal",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "303314008",
+      "preferred_term": "Scorpion venom",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "388436008",
+      "preferred_term": "Penicilloyl G specific immunoglobulin E",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "255781002",
+      "preferred_term": "Polyisocyanate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1380219007",
+      "preferred_term": "Free gluteal artery perforator flap",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "112046000",
+      "preferred_term": "Arabinogalactan endo-1,4-beta-galactosidase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "720280005",
+      "preferred_term": "Rickettsia akari IgG",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "386866004",
+      "preferred_term": "Carteolol",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "256861000",
+      "preferred_term": "Fresh embryo",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "725710000",
+      "preferred_term": "Noroxycodone",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "31192007",
+      "preferred_term": "Ferrous (59-Fe) chloride",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1285308008",
+      "preferred_term": "Quercus agrifolia pollen",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1269011000",
+      "preferred_term": "Esculin anhydrous",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "259418007",
+      "preferred_term": "Apolipoprotein B truncated variant",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "115863005",
+      "preferred_term": "Blood group antigen WES^a^",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "7661006",
+      "preferred_term": "Fish bone",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "64543002",
+      "preferred_term": "Tungsten-178",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "711248000",
+      "preferred_term": "Helminthosporium halodes protein antigen",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "22703005",
+      "preferred_term": "Brucine",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "386988003",
+      "preferred_term": "Methyl salicylate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "312200005",
+      "preferred_term": "Thiolase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "768650009",
+      "preferred_term": "Equine derived substance",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "79135001",
+      "preferred_term": "Promazine hydrochloride",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "35016001",
+      "preferred_term": "Argon radioisotope",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "20327004",
+      "preferred_term": "Sodium caprylate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "255803006",
+      "preferred_term": "May-Grunwald giemsa stain",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "6837005",
+      "preferred_term": "Dextropropoxyphene napsylate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "765850005",
+      "preferred_term": "Ferric hydroxide",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "720134002",
+      "preferred_term": "Legionella pneumophila 12 IgM",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "413770001",
+      "preferred_term": "Caspofungin",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "61580007",
+      "preferred_term": "Red cell neutral endopeptidase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "22968009",
+      "preferred_term": "Sunset yellow FCF",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "386122004",
+      "preferred_term": "Acidified serum",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "16313001",
+      "preferred_term": "Tea",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "345581000009104",
+      "preferred_term": "Mycoplasma pulmonis - rodent coronavirus - sendai virus antibody test kit",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "387550004",
+      "preferred_term": "Enoxacin",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "415514001",
+      "preferred_term": "Selective adhesion molecule inhibitor",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "18195009",
+      "preferred_term": "HLA-DR9 antigen",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "227941001",
+      "preferred_term": "Potato salad with french dressing",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "130288002",
+      "preferred_term": "Dolichol O-acyltransferase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "74237004",
+      "preferred_term": "Atropine sulfate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "36326009",
+      "preferred_term": "Pteridine",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "695861010000101",
+      "preferred_term": "Deoxyribonucleic acid of enteroaggregative Escherichia coli",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "438997005",
+      "preferred_term": "Thrombopoietin receptor agonist",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "29377009",
+      "preferred_term": "3-hydroxyisobutyryl coenzyme A hydrolase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1193867007",
+      "preferred_term": "Talazoparib tosylate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1172465005",
+      "preferred_term": "Autograft cortical bone",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "386940001",
+      "preferred_term": "Becaplermin",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "259491000",
+      "preferred_term": "Peroxisomal thiolase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "61872006",
+      "preferred_term": "Lactaldehyde reductase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "10270000",
+      "preferred_term": "Erythromycin estolate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1179779000",
+      "preferred_term": "Convalescent plasma",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "25307002",
+      "preferred_term": "Petrolatum",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "706962006",
+      "preferred_term": "Malonaldehyde",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "14340003",
+      "preferred_term": "Verapamil hydrochloride",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "1287409000",
+      "preferred_term": "HIF hydroxylase inhibitor",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "46978001",
+      "preferred_term": "Cyclopentanol dehydrogenase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "708661009",
+      "preferred_term": "Tribenoside",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "5741000009109",
+      "preferred_term": "Deslorelin acetate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "771325005",
+      "preferred_term": "Antigen of Neisseria meningitidis E",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "27471000087107",
+      "preferred_term": "Neisseria meningitidis serogroup W135 capsular polysaccharide antigen conjugated to tetanus toxoid protein",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "68175000",
+      "preferred_term": "Complement component C3a",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "699201010000104",
+      "preferred_term": "Immunoglobulin G antibody to Carya tomentosa",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "117206007",
+      "preferred_term": "Anti-glutamate decarboxylase 65 antibody",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "5700002",
+      "preferred_term": "Blood group antibody Gomez",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "51415009",
+      "preferred_term": "Blood group antibody Kn^a^",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "734653009",
+      "preferred_term": "Magnesium lactate dihydrate",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "372160002",
+      "preferred_term": "Avian infectious bronchitis virus Mass-41 antibody",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "130407007",
+      "preferred_term": "Homospermidine synthase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "304245003",
+      "preferred_term": "Phospholipase",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "437794008",
+      "preferred_term": "Polyvinyl alcohol-polyethylene glycol graft copolymer",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "412201008",
+      "preferred_term": "Porcine heparin",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "78825000",
+      "preferred_term": "Fibrinogen Leuven",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "11490004",
+      "preferred_term": "Hemoglobin Bari",
+      "semantic_tag": "substance"
+    },
+    {
+      "concept_id": "130070000",
+      "preferred_term": "2-hydroxycyclohexanone 2-monooxygenase",
+      "semantic_tag": "substance"
+    }
+  ]
+}

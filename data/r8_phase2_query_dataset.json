@@ -1,0 +1,828 @@
+{
+  "_metadata": {
+    "generated_at": "2026-04-27T00:04:11.079578+00:00",
+    "random_seed": 20260427,
+    "source_db": "data/snomed_ct_vet.db",
+    "method": "T1-T11 manual + 89 deterministic SNOMED sample + 8 Korean manual",
+    "handoff": "docs/20260427_r8_phase2_handoff.md §3-3 Step 2"
+  },
+  "_category_distribution": {
+    "vet-specific": 22,
+    "general-disorder": 22,
+    "korean-reformulate": 11,
+    "procedure": 20,
+    "body-structure": 15,
+    "drug": 10
+  },
+  "_gold_semantic_tag_distribution": {
+    "disorder": 48,
+    "organism": 5,
+    "finding": 2,
+    "procedure": 20,
+    "body structure": 15,
+    "substance": 10
+  },
+  "_unique_gold_count": 96,
+  "queries": [
+    {
+      "qid": "T1",
+      "query_text": "feline panleukopenia SNOMED code",
+      "gold_concept_id": "339181000009108",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T2",
+      "query_text": "canine parvovirus enteritis",
+      "gold_concept_id": "47457000",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T3",
+      "query_text": "diabetes mellitus in cat",
+      "gold_concept_id": "73211009",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T4",
+      "query_text": "pancreatitis in dog",
+      "gold_concept_id": "75694006",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T5",
+      "query_text": "chronic kidney disease in cat",
+      "gold_concept_id": "709044004",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "regression_metrics.json (gold None) — Phase 2 신규 부여 (Chronic kidney disease 일반)"
+    },
+    {
+      "qid": "T6",
+      "query_text": "cat bite wound",
+      "gold_concept_id": "283782004",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T7",
+      "query_text": "feline diabetes",
+      "gold_concept_id": "73211009",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T8",
+      "query_text": "diabetes mellitus type 1",
+      "gold_concept_id": "46635009",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T9",
+      "query_text": "고양이 당뇨",
+      "gold_concept_id": "73211009",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T10",
+      "query_text": "개 췌장염",
+      "gold_concept_id": "75694006",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "T11",
+      "query_text": "고양이 범백혈구감소증 SNOMED 코드",
+      "gold_concept_id": "339181000009108",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "regression_metrics.json"
+    },
+    {
+      "qid": "N-vet-01",
+      "query_text": "Left subclavian steal syndrome",
+      "gold_concept_id": "15967141000119103",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-02",
+      "query_text": "Avian borreliosis",
+      "gold_concept_id": "344991000009107",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-03",
+      "query_text": "Exotic avian paramyxovirus 1",
+      "gold_concept_id": "30801000009102",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (organism)"
+    },
+    {
+      "qid": "N-vet-04",
+      "query_text": "Feline eosinophilic plaque",
+      "gold_concept_id": "358211000009101",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-05",
+      "query_text": "Bovine diarrhea virus, noncytopathic strain",
+      "gold_concept_id": "115647004",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (organism)"
+    },
+    {
+      "qid": "N-vet-06",
+      "query_text": "Feline pulmonary Langerhans cell histiocytosis",
+      "gold_concept_id": "360941000009100",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-07",
+      "query_text": "Inflammation of proximal sesamoid bone of equine limb",
+      "gold_concept_id": "320441000009100",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-08",
+      "query_text": "Avian hemorrhagic enteritis",
+      "gold_concept_id": "338991000009102",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-09",
+      "query_text": "Supernumerary permanent maxillary left canine tooth",
+      "gold_concept_id": "2611000124100",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-10",
+      "query_text": "Canine infectious respiratory disease complex",
+      "gold_concept_id": "360381000009106",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-11",
+      "query_text": "BRV-3 Bovine rhinovirus 3",
+      "gold_concept_id": "450867005",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (organism)"
+    },
+    {
+      "qid": "N-vet-12",
+      "query_text": "Porcine enterovirus 6",
+      "gold_concept_id": "30131005",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (organism)"
+    },
+    {
+      "qid": "N-vet-13",
+      "query_text": "Feline immunodeficiency virus test negative",
+      "gold_concept_id": "35381000009106",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (finding)"
+    },
+    {
+      "qid": "N-vet-14",
+      "query_text": "Feline progressive histiocytosis",
+      "gold_concept_id": "361001000009106",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-15",
+      "query_text": "Equine gastric ulcer syndrome",
+      "gold_concept_id": "2041241000009105",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-vet-16",
+      "query_text": "Fracture of middle phalanx of equine limb",
+      "gold_concept_id": "321131000009105",
+      "category": "vet-specific",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-01",
+      "query_text": "Dermoid cyst of skin of back",
+      "gold_concept_id": "830017001",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-02",
+      "query_text": "Silent thyroiditis",
+      "gold_concept_id": "237541003",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-03",
+      "query_text": "Diffuse panbronchiolitis",
+      "gold_concept_id": "430476004",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-04",
+      "query_text": "Pregnancy and type 1 diabetes mellitus",
+      "gold_concept_id": "609566000",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-05",
+      "query_text": "Cellulitis and abscess of upper arm",
+      "gold_concept_id": "200668008",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-06",
+      "query_text": "Cystic testicular dysplasia",
+      "gold_concept_id": "109560004",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-07",
+      "query_text": "High altitude retinopathy",
+      "gold_concept_id": "241973007",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-08",
+      "query_text": "Generalized congenital tracheal hypoplasia",
+      "gold_concept_id": "360581000009103",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-09",
+      "query_text": "Chorioretinal rupture",
+      "gold_concept_id": "231999002",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-10",
+      "query_text": "Mount-Reback syndrome",
+      "gold_concept_id": "609218006",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-11",
+      "query_text": "Dysarthria-clumsy hand syndrome",
+      "gold_concept_id": "230703006",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-12",
+      "query_text": "Curved middle phalanx of middle finger",
+      "gold_concept_id": "895330007",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-13",
+      "query_text": "Armanni-Ebstein kidney",
+      "gold_concept_id": "792925006",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-14",
+      "query_text": "Constitutional discoid hand eczema",
+      "gold_concept_id": "238557000",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-15",
+      "query_text": "Myelitis caused by Plasmodium",
+      "gold_concept_id": "866127009",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-16",
+      "query_text": "Insulin adverse reaction",
+      "gold_concept_id": "293177002",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-17",
+      "query_text": "Edema of corneal stroma of right eye",
+      "gold_concept_id": "15930181000119101",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-18",
+      "query_text": "Pelvic peritonitis following ectopic pregnancy",
+      "gold_concept_id": "1264153003",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-19",
+      "query_text": "Vertical strabismus",
+      "gold_concept_id": "111530003",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-dis-20",
+      "query_text": "Accidental pyrimethamine overdose",
+      "gold_concept_id": "296554003",
+      "category": "general-disorder",
+      "language": "en",
+      "source": "SNOMED preferred_term (disorder)"
+    },
+    {
+      "qid": "N-proc-01",
+      "query_text": "Incision and curettage of stye",
+      "gold_concept_id": "300082008",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-02",
+      "query_text": "Therapeutic open aspiration of renal cyst",
+      "gold_concept_id": "175939004",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-03",
+      "query_text": "Bicoronal browlift",
+      "gold_concept_id": "231562008",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-04",
+      "query_text": "Informal assessment",
+      "gold_concept_id": "310812006",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-05",
+      "query_text": "CT guided biopsy of right kidney",
+      "gold_concept_id": "1401000087103",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-06",
+      "query_text": "Operation on facial joint",
+      "gold_concept_id": "71882008",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-07",
+      "query_text": "Anti mitochondrial antibody pattern",
+      "gold_concept_id": "413064004",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-08",
+      "query_text": "Diabetic education",
+      "gold_concept_id": "6143009",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-09",
+      "query_text": "Excision of melanoma",
+      "gold_concept_id": "177281002",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-10",
+      "query_text": "Crystal identification",
+      "gold_concept_id": "312280008",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-11",
+      "query_text": "Low level osteotomy of maxilla",
+      "gold_concept_id": "178478007",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-12",
+      "query_text": "Occlusion of lacrimal punctum",
+      "gold_concept_id": "172310003",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-13",
+      "query_text": "Stapling of bronchus",
+      "gold_concept_id": "310832007",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-14",
+      "query_text": "Plain X-ray orthopantogram",
+      "gold_concept_id": "16319561000119105",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-15",
+      "query_text": "Process audit",
+      "gold_concept_id": "34837004",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-16",
+      "query_text": "Repair of hallux valgus of left foot",
+      "gold_concept_id": "38641000087100",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-17",
+      "query_text": "Anesthetic without surgery",
+      "gold_concept_id": "180352008",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-18",
+      "query_text": "Partial parotidectomy",
+      "gold_concept_id": "11150009",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-19",
+      "query_text": "Endoscopy and biopsy of oropharynx",
+      "gold_concept_id": "1220541003",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-proc-20",
+      "query_text": "Open repair of bronchopleural fistula",
+      "gold_concept_id": "232626004",
+      "category": "procedure",
+      "language": "en",
+      "source": "SNOMED preferred_term (procedure)"
+    },
+    {
+      "qid": "N-body-01",
+      "query_text": "Heel of hoof",
+      "gold_concept_id": "349341000009100",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-02",
+      "query_text": "Vascular structure of pineal gland",
+      "gold_concept_id": "360347005",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-03",
+      "query_text": "Vas deferens lumen",
+      "gold_concept_id": "27650004",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-04",
+      "query_text": "Structure of right half of pelvis",
+      "gold_concept_id": "1204374004",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-05",
+      "query_text": "Medial surface of ring finger",
+      "gold_concept_id": "65391005",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-06",
+      "query_text": "Membranous part of nasal septum",
+      "gold_concept_id": "49717008",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-07",
+      "query_text": "Pterygoid process of sphenoid bone",
+      "gold_concept_id": "68751009",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-08",
+      "query_text": "Alveolar arch of mandible",
+      "gold_concept_id": "37728002",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-09",
+      "query_text": "Lateral segment artery of liver",
+      "gold_concept_id": "33392008",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-10",
+      "query_text": "Vagina and abdominal wall, CS",
+      "gold_concept_id": "110889008",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-11",
+      "query_text": "Anterior axillary fold",
+      "gold_concept_id": "52239003",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-12",
+      "query_text": "Structure of spinal segment of fasciculus cuneatus",
+      "gold_concept_id": "1296533000",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-13",
+      "query_text": "Optic chiasma",
+      "gold_concept_id": "244453006",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-14",
+      "query_text": "Lateral ligament of left ankle joint",
+      "gold_concept_id": "1371583003",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-body-15",
+      "query_text": "Structure of mandibular premolar tooth",
+      "gold_concept_id": "38511000009100",
+      "category": "body-structure",
+      "language": "en",
+      "source": "SNOMED preferred_term (body structure)"
+    },
+    {
+      "qid": "N-drug-01",
+      "query_text": "Salmonella typhimurium antiserum",
+      "gold_concept_id": "767413000",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-02",
+      "query_text": "Anthranilate N-malonyltransferase",
+      "gold_concept_id": "130279006",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-03",
+      "query_text": "Blood group antibody Wimberly",
+      "gold_concept_id": "49449009",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-04",
+      "query_text": "Subdural strip or grid",
+      "gold_concept_id": "256866005",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-05",
+      "query_text": "Levonordefrin",
+      "gold_concept_id": "387230002",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-06",
+      "query_text": "Enterotoxin",
+      "gold_concept_id": "116554007",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-07",
+      "query_text": "2,2,2-trifluoroethanol",
+      "gold_concept_id": "259287007",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-08",
+      "query_text": "Duvelisib",
+      "gold_concept_id": "781354007",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-09",
+      "query_text": "Bread sauce",
+      "gold_concept_id": "227521000",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-drug-10",
+      "query_text": "Borrelia burgdorferi 88-kDa protein Ag",
+      "gold_concept_id": "115421002",
+      "category": "drug",
+      "language": "en",
+      "source": "SNOMED preferred_term (substance)"
+    },
+    {
+      "qid": "N-ko-01",
+      "query_text": "갑상선 기능 저하증",
+      "gold_concept_id": "40930008",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Hypothyroidism → Hypothyroidism"
+    },
+    {
+      "qid": "N-ko-02",
+      "query_text": "갑상선 기능 항진증",
+      "gold_concept_id": "34486009",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Hyperthyroidism → Hyperthyroidism"
+    },
+    {
+      "qid": "N-ko-03",
+      "query_text": "백내장",
+      "gold_concept_id": "193570009",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Cataract → Cataract"
+    },
+    {
+      "qid": "N-ko-04",
+      "query_text": "녹내장",
+      "gold_concept_id": "23986001",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Glaucoma → Glaucoma"
+    },
+    {
+      "qid": "N-ko-05",
+      "query_text": "외이염",
+      "gold_concept_id": "3135009",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Otitis externa → Swimmer's ear"
+    },
+    {
+      "qid": "N-ko-06",
+      "query_text": "심장 잡음",
+      "gold_concept_id": "88610006",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Cardiac murmur → Heart murmur"
+    },
+    {
+      "qid": "N-ko-07",
+      "query_text": "고관절 이형성증",
+      "gold_concept_id": "52781008",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Congenital hip dysplasia → Congenital hip dysplasia"
+    },
+    {
+      "qid": "N-ko-08",
+      "query_text": "림프종",
+      "gold_concept_id": "118600007",
+      "category": "korean-reformulate",
+      "language": "ko",
+      "source": "manual translation: Lymphoma → Malignant lymphoma"
+    }
+  ]
+}
