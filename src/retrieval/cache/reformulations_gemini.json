@@ -1548,5 +1548,35 @@
     "tokens_out": 73,
     "cost": 0.00027775,
     "latency_ms": 1237
+  },
+  "33b11b1fcd37e3a8eccdb398ab17cbf6b6c8b769040f05588c4c65e917d24474": {
+    "reformulated": "hyperthyroidism",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Hyperthyroidism is a species-agnostic clinical concept in SNOMED CT.",
+    "tokens_in": 666,
+    "tokens_out": 59,
+    "cost": 0.000255,
+    "latency_ms": 8100
+  },
+  "c25e5867a8397a2e64ced0ac610a83d5dcbe7d1b645eb94262e6faa5a75c3958": {
+    "reformulated": "otitis externa",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Otitis externa is a species-agnostic clinical condition in SNOMED CT.",
+    "tokens_in": 666,
+    "tokens_out": 59,
+    "cost": 0.000255,
+    "latency_ms": 5521
+  },
+  "3f8f40a8fc1f805766212b6c1c5477853613fae5ea51c594f59bfbe39d56a395": {
+    "reformulated": "heart murmur",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "The term is a general clinical finding without a specific species qualifier.",
+    "tokens_in": 667,
+    "tokens_out": 54,
+    "cost": 0.00024775,
+    "latency_ms": 2371
   }
 }

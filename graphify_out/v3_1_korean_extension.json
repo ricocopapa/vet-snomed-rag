@@ -1,0 +1,376 @@
+{
+  "_meta": {
+    "purpose": "v3.1 R-1 한국어 11쿼리 production 회귀 (백내장·녹내장 통합 검증)",
+    "source": "R-8 r8_phase2_query_dataset.json korean-reformulate 11건",
+    "rerank": true,
+    "embedder": "BAAI/bge-m3 (production)",
+    "production_pipeline": "BGE-M3 + Korean dictionary (vet_term_dictionary_ko_en.json v1.2) + Gemini reformulate (gemini backend) + BGE-rerank-v2-m3"
+  },
+  "queries": [
+    {
+      "qid": "T9",
+      "query": "고양이 당뇨",
+      "gold": "73211009"
+    },
+    {
+      "qid": "T10",
+      "query": "개 췌장염",
+      "gold": "75694006"
+    },
+    {
+      "qid": "T11",
+      "query": "고양이 범백혈구감소증 SNOMED 코드",
+      "gold": "339181000009108"
+    },
+    {
+      "qid": "N-ko-01",
+      "query": "갑상선 기능 저하증",
+      "gold": "40930008"
+    },
+    {
+      "qid": "N-ko-02",
+      "query": "갑상선 기능 항진증",
+      "gold": "34486009"
+    },
+    {
+      "qid": "N-ko-03",
+      "query": "백내장",
+      "gold": "193570009"
+    },
+    {
+      "qid": "N-ko-04",
+      "query": "녹내장",
+      "gold": "23986001"
+    },
+    {
+      "qid": "N-ko-05",
+      "query": "외이염",
+      "gold": "3135009"
+    },
+    {
+      "qid": "N-ko-06",
+      "query": "심장 잡음",
+      "gold": "88610006"
+    },
+    {
+      "qid": "N-ko-07",
+      "query": "고관절 이형성증",
+      "gold": "52781008"
+    },
+    {
+      "qid": "N-ko-08",
+      "query": "림프종",
+      "gold": "118600007"
+    }
+  ],
+  "results": [
+    {
+      "qid": "T9",
+      "query": "고양이 당뇨",
+      "gold": "73211009",
+      "backend": "none",
+      "rank": 1,
+      "top1_id": "73211009",
+      "top1_term": "Diabetes mellitus",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 12140
+    },
+    {
+      "qid": "T10",
+      "query": "개 췌장염",
+      "gold": "75694006",
+      "backend": "none",
+      "rank": 1,
+      "top1_id": "75694006",
+      "top1_term": "Pancreatitis",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 1547
+    },
+    {
+      "qid": "T11",
+      "query": "고양이 범백혈구감소증 SNOMED 코드",
+      "gold": "339181000009108",
+      "backend": "none",
+      "rank": 1,
+      "top1_id": "339181000009108",
+      "top1_term": "Feline panleukopenia",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 1060
+    },
+    {
+      "qid": "N-ko-01",
+      "query": "갑상선 기능 저하증",
+      "gold": "40930008",
+      "backend": "none",
+      "rank": 1,
+      "top1_id": "40930008",
+      "top1_term": "Hypothyroidism",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 531
+    },
+    {
+      "qid": "N-ko-02",
+      "query": "갑상선 기능 항진증",
+      "gold": "34486009",
+      "backend": "none",
+      "rank": 1,
+      "top1_id": "34486009",
+      "top1_term": "Hyperthyroidism",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 829
+    },
+    {
+      "qid": "N-ko-03",
+      "query": "백내장",
+      "gold": "193570009",
+      "backend": "none",
+      "rank": 1,
+      "top1_id": "193570009",
+      "top1_term": "Cataract",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 461
+    },
+    {
+      "qid": "N-ko-04",
+      "query": "녹내장",
+      "gold": "23986001",
+      "backend": "none",
+      "rank": 1,
+      "top1_id": "23986001",
+      "top1_term": "Glaucoma",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 457
+    },
+    {
+      "qid": "N-ko-05",
+      "query": "외이염",
+      "gold": "3135009",
+      "backend": "none",
+      "rank": 11,
+      "top1_id": "30250000",
+      "top1_term": "Acute otitis externa",
+      "in_top1": false,
+      "in_top5": false,
+      "in_top10": false,
+      "latency_ms": 655
+    },
+    {
+      "qid": "N-ko-06",
+      "query": "심장 잡음",
+      "gold": "88610006",
+      "backend": "none",
+      "rank": 11,
+      "top1_id": "248701005",
+      "top1_term": "Cardiorespiratory murmur",
+      "in_top1": false,
+      "in_top5": false,
+      "in_top10": false,
+      "latency_ms": 2300
+    },
+    {
+      "qid": "N-ko-07",
+      "query": "고관절 이형성증",
+      "gold": "52781008",
+      "backend": "none",
+      "rank": 3,
+      "top1_id": "721148005",
+      "top1_term": "Hip dysplasia Beukes type",
+      "in_top1": false,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 701
+    },
+    {
+      "qid": "N-ko-08",
+      "query": "림프종",
+      "gold": "118600007",
+      "backend": "none",
+      "rank": 11,
+      "top1_id": "13048006",
+      "top1_term": "Orbital lymphoma",
+      "in_top1": false,
+      "in_top5": false,
+      "in_top10": false,
+      "latency_ms": 422
+    },
+    {
+      "qid": "T9",
+      "query": "고양이 당뇨",
+      "gold": "73211009",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "73211009",
+      "top1_term": "Diabetes mellitus",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 878,
+      "reformulated": "diabetes mellitus",
+      "confidence": 1.0
+    },
+    {
+      "qid": "T10",
+      "query": "개 췌장염",
+      "gold": "75694006",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "75694006",
+      "top1_term": "Pancreatitis",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 904,
+      "reformulated": "pancreatitis",
+      "confidence": 1.0
+    },
+    {
+      "qid": "T11",
+      "query": "고양이 범백혈구감소증 SNOMED 코드",
+      "gold": "339181000009108",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "339181000009108",
+      "top1_term": "Feline panleukopenia",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 1387,
+      "reformulated": "feline panleukopenia",
+      "confidence": 1.0
+    },
+    {
+      "qid": "N-ko-01",
+      "query": "갑상선 기능 저하증",
+      "gold": "40930008",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "40930008",
+      "top1_term": "Hypothyroidism",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 13486,
+      "reformulated": "hypothyroidism",
+      "confidence": 0.0
+    },
+    {
+      "qid": "N-ko-02",
+      "query": "갑상선 기능 항진증",
+      "gold": "34486009",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "34486009",
+      "top1_term": "Hyperthyroidism",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 9341,
+      "reformulated": "hyperthyroidism",
+      "confidence": 1.0
+    },
+    {
+      "qid": "N-ko-03",
+      "query": "백내장",
+      "gold": "193570009",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "193570009",
+      "top1_term": "Cataract",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 16797,
+      "reformulated": "cataract",
+      "confidence": 0.0
+    },
+    {
+      "qid": "N-ko-04",
+      "query": "녹내장",
+      "gold": "23986001",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "23986001",
+      "top1_term": "Glaucoma",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 24736,
+      "reformulated": "glaucoma",
+      "confidence": 0.0
+    },
+    {
+      "qid": "N-ko-05",
+      "query": "외이염",
+      "gold": "3135009",
+      "backend": "gemini",
+      "rank": 11,
+      "top1_id": "30250000",
+      "top1_term": "Acute otitis externa",
+      "in_top1": false,
+      "in_top5": false,
+      "in_top10": false,
+      "latency_ms": 13202,
+      "reformulated": "otitis externa",
+      "confidence": 1.0
+    },
+    {
+      "qid": "N-ko-06",
+      "query": "심장 잡음",
+      "gold": "88610006",
+      "backend": "gemini",
+      "rank": 1,
+      "top1_id": "88610006",
+      "top1_term": "Heart murmur",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 3387,
+      "reformulated": "heart murmur",
+      "confidence": 1.0
+    },
+    {
+      "qid": "N-ko-07",
+      "query": "고관절 이형성증",
+      "gold": "52781008",
+      "backend": "gemini",
+      "rank": 3,
+      "top1_id": "721148005",
+      "top1_term": "Hip dysplasia Beukes type",
+      "in_top1": false,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 20708,
+      "reformulated": "hip dysplasia",
+      "confidence": 0.0
+    },
+    {
+      "qid": "N-ko-08",
+      "query": "림프종",
+      "gold": "118600007",
+      "backend": "gemini",
+      "rank": 11,
+      "top1_id": "13048006",
+      "top1_term": "Orbital lymphoma",
+      "in_top1": false,
+      "in_top5": false,
+      "in_top10": false,
+      "latency_ms": 19408,
+      "reformulated": "lymphoma",
+      "confidence": 0.0
+    }
+  ]
+}
