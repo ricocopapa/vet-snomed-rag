@@ -23,11 +23,14 @@ PoC 단계 — in-memory state only. 영속화 + runtime 통합은 v3.0+ phase.
 """
 from __future__ import annotations
 
+import json
 import logging
 import os
-from dataclasses import dataclass
+import tempfile
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
-from typing import Optional
+from pathlib import Path
+from typing import Optional, Union
 
 logger = logging.getLogger(__name__)
 
@@ -84,17 +87,23 @@ class BudgetGuard:
         gemini_rpd_limit: int = GEMINI_FREE_RPD,
         warn_at_pct: int = DEFAULT_WARN_PCT,
         crit_at_pct: int = DEFAULT_CRIT_PCT,
+        state_path: Optional[Union[str, Path]] = None,
     ) -> None:
         self.budget_usd_month = budget_usd_month
         self.tavily_credit_limit = tavily_credit_limit
         self.gemini_rpd_limit = gemini_rpd_limit
         self.warn_at_pct = warn_at_pct
         self.crit_at_pct = crit_at_pct
+        self.state_path: Optional[Path] = Path(state_path) if state_path else None
         self.gemini = GeminiCallStats()
         self.tavily = TavilyCallStats()
+        # v3.1 R-5: state_path 지정 시 기존 누적값 복원 (file 없거나 손상이면 empty)
+        if self.state_path is not None:
+            self._load_state()
 
     @classmethod
     def from_env(cls) -> "BudgetGuard":
+        state_path_env = os.getenv("GSD_BUDGET_STATE_PATH")
         return cls(
             budget_usd_month=_parse_float_env("GSD_BUDGET_USD_MONTH"),
             tavily_credit_limit=_parse_int_env(
@@ -103,7 +112,62 @@ class BudgetGuard:
             gemini_rpd_limit=_parse_int_env("GSD_GEMINI_RPD_LIMIT", GEMINI_FREE_RPD),
             warn_at_pct=_parse_int_env("GSD_BUDGET_WARN_AT", DEFAULT_WARN_PCT),
             crit_at_pct=_parse_int_env("GSD_BUDGET_CRIT_AT", DEFAULT_CRIT_PCT),
+            state_path=state_path_env if state_path_env else None,
         )
+
+    # ── v3.1 R-5: JSON 영속화 ──────────────────────────────────────────────
+    def _load_state(self) -> None:
+        """state_path file 존재 시 self.gemini/self.tavily 복원.
+        파일 없음 → 무시 (empty start). JSON 손상 → warning + empty start."""
+        if self.state_path is None or not self.state_path.exists():
+            return
+        try:
+            with self.state_path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            g = data.get("gemini", {})
+            t = data.get("tavily", {})
+            self.gemini = GeminiCallStats(
+                input_tokens=int(g.get("input_tokens", 0)),
+                output_tokens=int(g.get("output_tokens", 0)),
+                request_count_today=int(g.get("request_count_today", 0)),
+                last_reset_day=str(g.get("last_reset_day", "")),
+            )
+            self.tavily = TavilyCallStats(
+                credits_used=int(t.get("credits_used", 0)),
+                last_reset_month=str(t.get("last_reset_month", "")),
+            )
+        except (json.JSONDecodeError, ValueError, OSError) as e:
+            logger.warning(
+                "[BudgetGuard] budget_state file 손상/읽기실패 — empty 상태로 시작 (%s: %s)",
+                self.state_path, e,
+            )
+            self.gemini = GeminiCallStats()
+            self.tavily = TavilyCallStats()
+
+    def _save_state(self) -> None:
+        """atomic write: tempfile → os.replace. state_path=None이면 no-op."""
+        if self.state_path is None:
+            return
+        state = {
+            "gemini": asdict(self.gemini),
+            "tavily": asdict(self.tavily),
+        }
+        self.state_path.parent.mkdir(parents=True, exist_ok=True)
+        fd, tmp_path = tempfile.mkstemp(
+            dir=str(self.state_path.parent),
+            prefix=".budget_state_",
+            suffix=".tmp",
+        )
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                json.dump(state, f, indent=2, ensure_ascii=False)
+            os.replace(tmp_path, self.state_path)
+        except Exception:
+            try:
+                os.unlink(tmp_path)
+            except OSError:
+                pass
+            raise
 
     def record_gemini(
         self,
@@ -122,6 +186,7 @@ class BudgetGuard:
         self.gemini.input_tokens += input_tokens
         self.gemini.output_tokens += output_tokens
         self.gemini.request_count_today += 1
+        self._save_state()
 
     def record_tavily(
         self,
@@ -137,6 +202,7 @@ class BudgetGuard:
             self.tavily.credits_used = 0
             self.tavily.last_reset_month = month
         self.tavily.credits_used += credits
+        self._save_state()
 
     def record_tavily_search(
         self,
