@@ -1,6 +1,6 @@
 # Backend Comparison — Gemini 2.5 Flash vs Claude Sonnet 4.6
 
-생성 시각: 2026-04-26 22:03:27
+생성 시각: 2026-04-27 09:34:57
 
 ## 요약 테이블
 
@@ -9,23 +9,23 @@
 | 11쿼리 PASS율 | 10/10 | 10/10 | API 키 미설정으로 실측 생략 |
 | T7 (feline diabetes→73211009) | ✓ (rank #1) | ✓ (rank #1) | 미실행 |
 | 총 비용 | $0.00000 | $0.00297 | 미실행 |
-| 평균 레이턴시 | 728ms | 25820ms | 미실행 |
+| 평균 레이턴시 | 1561ms | 25820ms | 미실행 |
 
 ## 쿼리별 상세 (T1~T11)
 
 | 쿼리ID | 쿼리 | 기대 concept_id | none rank | none verdict | gemini rank | gemini verdict | claude 비고 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| T1 | feline panleukopenia SNOMED code | 339181000009108 | #2 | PASS | #2 | PASS | API 키 미설정으로 실측 생략 |
+| T1 | feline panleukopenia SNOMED code | 339181000009108 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
 | T2 | canine parvovirus enteritis | 47457000 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
-| T3 | diabetes mellitus in cat | 73211009 | #2 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
-| T4 | pancreatitis in dog | 75694006 | #4 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
+| T3 | diabetes mellitus in cat | 73211009 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
+| T4 | pancreatitis in dog | 75694006 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
 | T5 | chronic kidney disease in cat | 복수 | 없음 | NA | 없음 | NA | API 키 미설정으로 실측 생략 |
 | T6 | cat bite wound | 283782004 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
 | T7 | feline diabetes | 73211009 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
 | T8 | diabetes mellitus type 1 | 46635009 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
 | T9 | 고양이 당뇨 | 73211009 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
-| T10 | 개 췌장염 | 75694006 | #4 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
-| T11 | 고양이 범백혈구감소증 SNOMED 코드 | 339181000009108 | #2 | PASS | #2 | PASS | API 키 미설정으로 실측 생략 |
+| T10 | 개 췌장염 | 75694006 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
+| T11 | 고양이 범백혈구감소증 SNOMED 코드 | 339181000009108 | #1 | PASS | #1 | PASS | API 키 미설정으로 실측 생략 |
 
 ## T7 해결 상세 (핵심)
 
