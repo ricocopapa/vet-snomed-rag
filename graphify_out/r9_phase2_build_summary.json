@@ -1,0 +1,24 @@
+{
+  "_metadata": {
+    "handoff": "docs/20260427_r9_phase2_handoff.md §2-3 Step 1",
+    "n_samples": 1000,
+    "overall_seconds": 21.31,
+    "reuses_r8_assets": [
+      "data/r8_phase2_sample_concepts.json",
+      "data/r8_phase2_query_dataset.json",
+      "data/chroma_phase2_baseline/"
+    ]
+  },
+  "models": [
+    {
+      "model_id": "C1_bge_m3",
+      "hf_id": "BAAI/bge-m3",
+      "kind": "st",
+      "dim": 1024,
+      "n_entries": 1000,
+      "encode_seconds": 7.64,
+      "total_seconds": 21.05,
+      "chroma_path": "data/chroma_phase2_c1_bge_m3"
+    }
+  ]
+}
