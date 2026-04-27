@@ -75,7 +75,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 9364
+      "latency_ms": 9307
     },
     {
       "qid": "T10",
@@ -88,7 +88,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1427
+      "latency_ms": 1284
     },
     {
       "qid": "T11",
@@ -101,7 +101,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1081
+      "latency_ms": 1047
     },
     {
       "qid": "N-ko-01",
@@ -114,7 +114,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 513
+      "latency_ms": 492
     },
     {
       "qid": "N-ko-02",
@@ -127,7 +127,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 861
+      "latency_ms": 817
     },
     {
       "qid": "N-ko-03",
@@ -140,7 +140,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 458
+      "latency_ms": 454
     },
     {
       "qid": "N-ko-04",
@@ -153,7 +153,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 445
+      "latency_ms": 447
     },
     {
       "qid": "N-ko-05",
@@ -166,7 +166,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 691
+      "latency_ms": 680
     },
     {
       "qid": "N-ko-06",
@@ -179,7 +179,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 707
+      "latency_ms": 615
     },
     {
       "qid": "N-ko-07",
@@ -192,7 +192,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1010
+      "latency_ms": 800
     },
     {
       "qid": "N-ko-08",
@@ -205,7 +205,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 525
+      "latency_ms": 530
     },
     {
       "qid": "T9",
@@ -218,9 +218,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 839,
-      "reformulated": "diabetes mellitus",
-      "confidence": 1.0
+      "latency_ms": 1050
     },
     {
       "qid": "T10",
@@ -233,9 +231,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 957,
-      "reformulated": "pancreatitis",
-      "confidence": 1.0
+      "latency_ms": 1130
     },
     {
       "qid": "T11",
@@ -248,9 +244,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1325,
-      "reformulated": "feline panleukopenia",
-      "confidence": 1.0
+      "latency_ms": 1316
     },
     {
       "qid": "N-ko-01",
@@ -263,9 +257,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 44853,
-      "reformulated": "hypothyroidism",
-      "confidence": 0.0
+      "latency_ms": 1014
     },
     {
       "qid": "N-ko-02",
@@ -278,9 +270,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1295,
-      "reformulated": "hyperthyroidism",
-      "confidence": 1.0
+      "latency_ms": 1215
     },
     {
       "qid": "N-ko-03",
@@ -293,9 +283,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 895,
-      "reformulated": "cataract",
-      "confidence": 1.0
+      "latency_ms": 925
     },
     {
       "qid": "N-ko-04",
@@ -308,24 +296,20 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 838,
-      "reformulated": "glaucoma",
-      "confidence": 1.0
+      "latency_ms": 593
     },
     {
       "qid": "N-ko-05",
       "query": "외이염",
       "gold": "3135009",
       "backend": "gemini",
-      "rank": 11,
-      "top1_id": "30250000",
-      "top1_term": "Acute otitis externa",
-      "in_top1": false,
-      "in_top5": false,
-      "in_top10": false,
-      "latency_ms": 22663,
-      "reformulated": "otitis externa",
-      "confidence": 0.95
+      "rank": 1,
+      "top1_id": "3135009",
+      "top1_term": "Swimmer's ear",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 975
     },
     {
       "qid": "N-ko-06",
@@ -338,9 +322,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 26818,
-      "reformulated": "heart murmur",
-      "confidence": 0.0
+      "latency_ms": 667
     },
     {
       "qid": "N-ko-07",
@@ -353,9 +335,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 23427,
-      "reformulated": "congenital hip dysplasia",
-      "confidence": 0.0
+      "latency_ms": 1108
     },
     {
       "qid": "N-ko-08",
@@ -368,9 +348,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 17358,
-      "reformulated": "malignant lymphoma",
-      "confidence": 0.0
+      "latency_ms": 863
     }
   ]
 }

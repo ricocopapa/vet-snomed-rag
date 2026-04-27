@@ -529,9 +529,13 @@ class SNOMEDRagPipeline:
 
         # Step 0.7: SNOMED 쿼리 리포매팅 (reformulator_backend != "none" 시 활성화)
         # 한국어 번역+불용어제거 후 영어 쿼리에 대해 리포매팅 적용
+        # v3.1 R-4: 한국어 사전 변환 발생 시 reformulate skip — 사전 결과는 이미 SNOMED preferred_term
+        # 또는 임상 통칭 specific 매핑이라 정확. Gemini reformulator가 specific term을 root term으로
+        # 일반화하면서 사전 효과 무력화 방지 (N-ko-05 외이염: swimmer's ear → otitis externa 케이스).
         reformulation_info = None
         final_search_query = english_query
-        if self.reformulator is not None:
+        dict_applied_korean = (translated_query is not None and translated_query != question)
+        if self.reformulator is not None and not dict_applied_korean:
             reformulation = self.reformulator.reformulate(english_query)
             if reformulation.confidence >= 0.5:
                 final_search_query = reformulation.reformulated
@@ -540,6 +544,11 @@ class SNOMEDRagPipeline:
                 f"  [Reformulate-{self.reformulator_backend}] "
                 f"{english_query} → {final_search_query} "
                 f"(conf={reformulation.confidence:.2f})"
+            )
+        elif self.reformulator is not None and dict_applied_korean:
+            print(
+                f"  [Reformulate-{self.reformulator_backend}] 한국어 사전 변환 결과 보존 (skip): "
+                f"{english_query}"
             )
 
         # Step 1: 하이브리드 검색 (리포매팅된 쿼리 사용)
