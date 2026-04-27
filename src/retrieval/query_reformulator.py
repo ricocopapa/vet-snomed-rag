@@ -297,6 +297,14 @@ class GeminiReformulator(BaseReformulator):
             in_tok, out_tok = 0, 0
         cost = (in_tok * self._INPUT_PRICE_PER_M + out_tok * self._OUTPUT_PRICE_PER_M) / 1_000_000
 
+        # v3.1 R-5+: BudgetGuard 통합 — Gemini reformulator 사용량 추적.
+        # cache hit은 reformulate()에서 _call_api 미도달이라 자연 skip.
+        try:
+            from src.observability import get_budget_guard
+            get_budget_guard().record_gemini(input_tokens=in_tok, output_tokens=out_tok)
+        except Exception:
+            pass
+
         return {
             **result,
             "tokens_in": in_tok,
