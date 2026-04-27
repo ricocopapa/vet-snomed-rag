@@ -30,7 +30,7 @@ CHROMA_PATH = DATA_DIR / "chroma_db"
 
 # ─── 설정 ───────────────────────────────────────────────
 BATCH_SIZE = 500          # ChromaDB add 배치 크기
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # sentence-transformers 모델
+EMBEDDING_MODEL = "BAAI/bge-m3"  # R-9 Phase 3: multilingual 1024d 교체 (R-9 Phase 2 §2-2 임계 모두 PASS)
 COLLECTION_NAME = "snomed_vet_concepts"
 
 # 인덱싱 대상 semantic_tag 필터 (임상 관련 핵심 태그만 우선 인덱싱)

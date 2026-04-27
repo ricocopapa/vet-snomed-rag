@@ -28,7 +28,7 @@ DB_PATH = DATA_DIR / "snomed_ct_vet.db"
 CHROMA_PATH = DATA_DIR / "chroma_db"
 
 COLLECTION_NAME = "snomed_vet_concepts"
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+EMBEDDING_MODEL = "BAAI/bge-m3"
 
 # R-4 (2026-04-26): rerank candidate에서 매핑 부적합 semantic_tag 차단.
 # T9 "feline diabetes mellitus" 케이스에서 160303001 "FH: Diabetes mellitus" (situation)이

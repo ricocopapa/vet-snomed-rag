@@ -37,6 +37,7 @@ ENV/
 # Public items: data/synthetic_scenarios/, data/mrcm_rules_v1.json, data/field_schema_v26.json
 # Private items (patient DB, chroma index, audio): explicitly blocked below.
 data/chroma_db/
+data/chroma_db_baseline_minilm/
 data/chroma_phase2_*/
 data/synthetic_scenarios/*.mp3
 data/*.db
