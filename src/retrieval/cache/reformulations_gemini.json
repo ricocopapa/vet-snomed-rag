@@ -1578,5 +1578,25 @@
     "tokens_out": 54,
     "cost": 0.00024775,
     "latency_ms": 2371
+  },
+  "5c2693e00c6458f069a476d4f4eb221858d79f97d4a16d55d7d9fe678772e22d": {
+    "reformulated": "cataract",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Cataract is a species-agnostic clinical concept in SNOMED CT.",
+    "tokens_in": 664,
+    "tokens_out": 59,
+    "cost": 0.0002545,
+    "latency_ms": 5401
+  },
+  "be1456b4af3bc238da6a19ddf75e73945d46a1449d3f7eaf7db8424d24c8c245": {
+    "reformulated": "glaucoma",
+    "post_coord_hint": null,
+    "confidence": 1.0,
+    "reasoning": "Glaucoma is a species-agnostic clinical concept in SNOMED CT.",
+    "tokens_in": 664,
+    "tokens_out": 59,
+    "cost": 0.0002545,
+    "latency_ms": 3288
   }
 }

@@ -75,7 +75,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 12140
+      "latency_ms": 10878
     },
     {
       "qid": "T10",
@@ -88,7 +88,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1547
+      "latency_ms": 1211
     },
     {
       "qid": "T11",
@@ -101,7 +101,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1060
+      "latency_ms": 1142
     },
     {
       "qid": "N-ko-01",
@@ -114,7 +114,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 531
+      "latency_ms": 593
     },
     {
       "qid": "N-ko-02",
@@ -127,7 +127,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 829
+      "latency_ms": 935
     },
     {
       "qid": "N-ko-03",
@@ -140,7 +140,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 461
+      "latency_ms": 514
     },
     {
       "qid": "N-ko-04",
@@ -153,7 +153,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 457
+      "latency_ms": 497
     },
     {
       "qid": "N-ko-05",
@@ -166,7 +166,7 @@
       "in_top1": false,
       "in_top5": false,
       "in_top10": false,
-      "latency_ms": 655
+      "latency_ms": 616
     },
     {
       "qid": "N-ko-06",
@@ -179,33 +179,33 @@
       "in_top1": false,
       "in_top5": false,
       "in_top10": false,
-      "latency_ms": 2300
+      "latency_ms": 2481
     },
     {
       "qid": "N-ko-07",
       "query": "고관절 이형성증",
       "gold": "52781008",
       "backend": "none",
-      "rank": 3,
-      "top1_id": "721148005",
-      "top1_term": "Hip dysplasia Beukes type",
-      "in_top1": false,
+      "rank": 1,
+      "top1_id": "52781008",
+      "top1_term": "Congenital hip dysplasia",
+      "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 701
+      "latency_ms": 953
     },
     {
       "qid": "N-ko-08",
       "query": "림프종",
       "gold": "118600007",
       "backend": "none",
-      "rank": 11,
-      "top1_id": "13048006",
-      "top1_term": "Orbital lymphoma",
-      "in_top1": false,
-      "in_top5": false,
-      "in_top10": false,
-      "latency_ms": 422
+      "rank": 1,
+      "top1_id": "118600007",
+      "top1_term": "Malignant lymphoma",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 595
     },
     {
       "qid": "T9",
@@ -218,7 +218,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 878,
+      "latency_ms": 873,
       "reformulated": "diabetes mellitus",
       "confidence": 1.0
     },
@@ -233,7 +233,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 904,
+      "latency_ms": 823,
       "reformulated": "pancreatitis",
       "confidence": 1.0
     },
@@ -248,7 +248,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1387,
+      "latency_ms": 1367,
       "reformulated": "feline panleukopenia",
       "confidence": 1.0
     },
@@ -263,7 +263,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 13486,
+      "latency_ms": 31559,
       "reformulated": "hypothyroidism",
       "confidence": 0.0
     },
@@ -278,7 +278,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 9341,
+      "latency_ms": 1220,
       "reformulated": "hyperthyroidism",
       "confidence": 1.0
     },
@@ -293,9 +293,9 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 16797,
+      "latency_ms": 11949,
       "reformulated": "cataract",
-      "confidence": 0.0
+      "confidence": 1.0
     },
     {
       "qid": "N-ko-04",
@@ -308,9 +308,9 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 24736,
+      "latency_ms": 4118,
       "reformulated": "glaucoma",
-      "confidence": 0.0
+      "confidence": 1.0
     },
     {
       "qid": "N-ko-05",
@@ -323,7 +323,7 @@
       "in_top1": false,
       "in_top5": false,
       "in_top10": false,
-      "latency_ms": 13202,
+      "latency_ms": 979,
       "reformulated": "otitis externa",
       "confidence": 1.0
     },
@@ -338,7 +338,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 3387,
+      "latency_ms": 682,
       "reformulated": "heart murmur",
       "confidence": 1.0
     },
@@ -347,14 +347,14 @@
       "query": "고관절 이형성증",
       "gold": "52781008",
       "backend": "gemini",
-      "rank": 3,
-      "top1_id": "721148005",
-      "top1_term": "Hip dysplasia Beukes type",
-      "in_top1": false,
+      "rank": 1,
+      "top1_id": "52781008",
+      "top1_term": "Congenital hip dysplasia",
+      "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 20708,
-      "reformulated": "hip dysplasia",
+      "latency_ms": 19464,
+      "reformulated": "congenital hip dysplasia",
       "confidence": 0.0
     },
     {
@@ -362,14 +362,14 @@
       "query": "림프종",
       "gold": "118600007",
       "backend": "gemini",
-      "rank": 11,
-      "top1_id": "13048006",
-      "top1_term": "Orbital lymphoma",
-      "in_top1": false,
-      "in_top5": false,
-      "in_top10": false,
-      "latency_ms": 19408,
-      "reformulated": "lymphoma",
+      "rank": 1,
+      "top1_id": "118600007",
+      "top1_term": "Malignant lymphoma",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 14360,
+      "reformulated": "malignant lymphoma",
       "confidence": 0.0
     }
   ]
