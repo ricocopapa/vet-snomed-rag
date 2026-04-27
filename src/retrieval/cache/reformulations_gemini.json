@@ -1598,5 +1598,15 @@
     "tokens_out": 59,
     "cost": 0.0002545,
     "latency_ms": 3288
+  },
+  "38e80bafae6c7e5ce517f69fb6130c277fb5b1918ed51e6110c7d403d4df77f9": {
+    "reformulated": "otitis externa",
+    "post_coord_hint": null,
+    "confidence": 0.95,
+    "reasoning": "Swimmer's ear is a common clinical term for otitis externa, which is a species-agnostic condition.",
+    "tokens_in": 667,
+    "tokens_out": 67,
+    "cost": 0.00026725,
+    "latency_ms": 11343
   }
 }

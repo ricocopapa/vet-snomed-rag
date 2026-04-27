@@ -1,8 +1,9 @@
 {
   "_description": "수의학 한국어→영어 용어 사전. 번역 레이어에서 LLM 번역 전 사전 치환에 사용. 영어 약식도 정식화 entry로 포함.",
   "_updated": "2026-04-27",
-  "_version": "v1.3",
+  "_version": "v1.4",
   "_changelog": {
+    "v1.4 (2026-04-27)": "v3.1 R-3: 미해소 2건 hot-fix. (1) '외이염'→'swimmer's ear' 변경 — 3135009 fsn='Otitis externa (disorder)'이지만 preferred_term이 'Swimmer\\u0027s ear'라 BGE-M3 매칭 실패. R-2 'gold 부정확' 분석 정직 정정. (2) '심장 잡음'→'heart murmur' 추가 — 88610006 Heart murmur (finding tag, 질병 카테고리 등록).",
     "v1.3 (2026-04-27)": "v3.1 R-2: SNOMED VET DB root concept 부재 보정 2건. '고관절 이형성증'→'congenital hip dysplasia' (gold 52781008), '림프종'→'malignant lymphoma' (gold 118600007). 한국어 임상 통칭 = SNOMED VET DB 가용 specific subclass 매핑. 외이염은 dataset gold(Swimmer's ear) 의문으로 미수정 (별도 검증 권고).",
     "v1.2 (2026-04-26)": "영어 species+약식 정식화 3건 추가 (영어_약식 카테고리 신설). T7 'feline diabetes' none backend FAIL 회복 목적. SNOMED CT 'Diabetes mellitus (73211009)' 종 합성 검증.",
     "v1.1 (2026-04-26)": "임상 빈출 약식/일반명 10건 추가 (질병_약식 카테고리 신설). T9 'feline 당뇨' none backend FAIL 회복 목적. 모두 SNOMED CT preferred_term/FSN 검증 완료.",
@@ -50,7 +51,7 @@
     "피부염": "dermatitis",
     "아토피 피부염": "atopic dermatitis",
     "농피증": "pyoderma",
-    "외이염": "otitis externa",
+    "외이염": "swimmer's ear",
     "중이염": "otitis media",
     "방광염": "cystitis",
     "요로결석": "urolithiasis",
@@ -70,6 +71,7 @@
     "위확장 염전 증후군": "gastric dilatation volvulus",
     "폐렴": "pneumonia",
     "기관허탈": "tracheal collapse",
+    "심장 잡음": "heart murmur",
     "심장사상충": "heartworm disease",
     "승모판 폐쇄부전": "mitral valve insufficiency",
     "확장성 심근병증": "dilated cardiomyopathy",

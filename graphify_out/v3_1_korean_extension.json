@@ -75,7 +75,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 10878
+      "latency_ms": 9364
     },
     {
       "qid": "T10",
@@ -88,7 +88,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1211
+      "latency_ms": 1427
     },
     {
       "qid": "T11",
@@ -101,7 +101,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1142
+      "latency_ms": 1081
     },
     {
       "qid": "N-ko-01",
@@ -114,7 +114,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 593
+      "latency_ms": 513
     },
     {
       "qid": "N-ko-02",
@@ -127,7 +127,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 935
+      "latency_ms": 861
     },
     {
       "qid": "N-ko-03",
@@ -140,7 +140,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 514
+      "latency_ms": 458
     },
     {
       "qid": "N-ko-04",
@@ -153,33 +153,33 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 497
+      "latency_ms": 445
     },
     {
       "qid": "N-ko-05",
       "query": "외이염",
       "gold": "3135009",
       "backend": "none",
-      "rank": 11,
-      "top1_id": "30250000",
-      "top1_term": "Acute otitis externa",
-      "in_top1": false,
-      "in_top5": false,
-      "in_top10": false,
-      "latency_ms": 616
+      "rank": 1,
+      "top1_id": "3135009",
+      "top1_term": "Swimmer's ear",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 691
     },
     {
       "qid": "N-ko-06",
       "query": "심장 잡음",
       "gold": "88610006",
       "backend": "none",
-      "rank": 11,
-      "top1_id": "248701005",
-      "top1_term": "Cardiorespiratory murmur",
-      "in_top1": false,
-      "in_top5": false,
-      "in_top10": false,
-      "latency_ms": 2481
+      "rank": 1,
+      "top1_id": "88610006",
+      "top1_term": "Heart murmur",
+      "in_top1": true,
+      "in_top5": true,
+      "in_top10": true,
+      "latency_ms": 707
     },
     {
       "qid": "N-ko-07",
@@ -192,7 +192,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 953
+      "latency_ms": 1010
     },
     {
       "qid": "N-ko-08",
@@ -205,7 +205,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 595
+      "latency_ms": 525
     },
     {
       "qid": "T9",
@@ -218,7 +218,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 873,
+      "latency_ms": 839,
       "reformulated": "diabetes mellitus",
       "confidence": 1.0
     },
@@ -233,7 +233,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 823,
+      "latency_ms": 957,
       "reformulated": "pancreatitis",
       "confidence": 1.0
     },
@@ -248,7 +248,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1367,
+      "latency_ms": 1325,
       "reformulated": "feline panleukopenia",
       "confidence": 1.0
     },
@@ -263,7 +263,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 31559,
+      "latency_ms": 44853,
       "reformulated": "hypothyroidism",
       "confidence": 0.0
     },
@@ -278,7 +278,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 1220,
+      "latency_ms": 1295,
       "reformulated": "hyperthyroidism",
       "confidence": 1.0
     },
@@ -293,7 +293,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 11949,
+      "latency_ms": 895,
       "reformulated": "cataract",
       "confidence": 1.0
     },
@@ -308,7 +308,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 4118,
+      "latency_ms": 838,
       "reformulated": "glaucoma",
       "confidence": 1.0
     },
@@ -323,9 +323,9 @@
       "in_top1": false,
       "in_top5": false,
       "in_top10": false,
-      "latency_ms": 979,
+      "latency_ms": 22663,
       "reformulated": "otitis externa",
-      "confidence": 1.0
+      "confidence": 0.95
     },
     {
       "qid": "N-ko-06",
@@ -338,9 +338,9 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 682,
+      "latency_ms": 26818,
       "reformulated": "heart murmur",
-      "confidence": 1.0
+      "confidence": 0.0
     },
     {
       "qid": "N-ko-07",
@@ -353,7 +353,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 19464,
+      "latency_ms": 23427,
       "reformulated": "congenital hip dysplasia",
       "confidence": 0.0
     },
@@ -368,7 +368,7 @@
       "in_top1": true,
       "in_top5": true,
       "in_top10": true,
-      "latency_ms": 14360,
+      "latency_ms": 17358,
       "reformulated": "malignant lymphoma",
       "confidence": 0.0
     }
