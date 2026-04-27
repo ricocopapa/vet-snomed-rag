@@ -1,0 +1,39 @@
+{
+  "_metadata": {
+    "handoff": "docs/20260427_r8_phase2_handoff.md §3-3 Step 3",
+    "n_samples": 1000,
+    "overall_seconds": 29.63
+  },
+  "models": [
+    {
+      "model_id": "M0_baseline",
+      "hf_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "kind": "st",
+      "dim": 384,
+      "n_entries": 1000,
+      "encode_seconds": 1.65,
+      "total_seconds": 12.96,
+      "chroma_path": "data/chroma_phase2_baseline"
+    },
+    {
+      "model_id": "M2_sapbert_mean",
+      "hf_id": "cambridgeltl/SapBERT-from-PubMedBERT-fulltext",
+      "kind": "hf-mean",
+      "dim": 768,
+      "n_entries": 1000,
+      "encode_seconds": 5.8,
+      "total_seconds": 7.79,
+      "chroma_path": "data/chroma_phase2_sapbert_mean"
+    },
+    {
+      "model_id": "M3_neuml",
+      "hf_id": "NeuML/pubmedbert-base-embeddings",
+      "kind": "st",
+      "dim": 768,
+      "n_entries": 1000,
+      "encode_seconds": 2.35,
+      "total_seconds": 8.47,
+      "chroma_path": "data/chroma_phase2_neuml"
+    }
+  ]
+}
